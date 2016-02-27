@@ -9,7 +9,7 @@ NOTES ;General notes
  ;;can't allow branching (to Help for example) which will call ^XVEMKT
  ;;and start another array that will clash. Only external users of the
  ;;scroller (like VGL) which have a different subscript, can do this.
- ;;^%XVEMKT - Scroller
+ ;;^XVEMKT - Scroller
  ;; IMPORT          ^TMP("XVV","K",$J,
  ;; RTN                    ""
  ;; GLB                    ""

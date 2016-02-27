@@ -1,15 +1,15 @@
 XVSK ; Paideia/SMH - VPE 'Kill' logic ; 12/8/09 1:31pm
  ;;XV
- ; Notes: Corresponds to ^%XVEMS("ZK")
-EN ; Kill ^%XVEMS("%") on exit ;ZK1
+ ; Notes: Corresponds to ^XVEMS("ZK")
+EN ; Kill ^XVEMS("%") on exit ;ZK1
  D:'$D(XVV("ID"))!('$D(XVV("OS"))) RESET^XVSS
  D XUTL,CTRLC,SYMTAB,KILL
  QUIT
  ;
 XUTL ; Move XUTL back to where it belongs ;ZK2
- Q:'$D(^%XVEMS("%",$J_$G(^%XVEMS("SY")),"XUTL"))
+ Q:'$D(^XVEMS("%",$J_$G(^XVEMS("SY")),"XUTL"))
  KILL ^XUTL("XQ",$J)
- M ^XUTL("XQ",$J)=^%XVEMS("%",$J_$G(^%XVEMS("SY")),"XUTL") ;/smh
+ M ^XUTL("XQ",$J)=^XVEMS("%",$J_$G(^XVEMS("SY")),"XUTL") ;/smh
  QUIT
  ;
 NOZU ; Prevent exit via ZU ;ZK4
@@ -19,15 +19,15 @@ NOZU ; Prevent exit via ZU ;ZK4
  QUIT
  ;
 CTRLC ; Disable Ctrl-C if called from the Kernel (i.e. menu option) ;ZK6
- I $D(^%XVEMS("%",$J_$G(^%XVEMS("SY")),"KRNUCI")) D NOBRK^%XVEMKY2
+ I $D(^XVEMS("%",$J_$G(^XVEMS("SY")),"KRNUCI")) D NOBRK^XVEMKY2
  QUIT
  ;
 SYMTAB ; Restore Symbol Table (only applicable if called from menu option ;ZK7)
- I $D(^%XVEMS("%",$J_$G(^%XVEMS("SY")),"SYMTAB")) D RESSYM^%XVEMSU
+ I $D(^XVEMS("%",$J_$G(^XVEMS("SY")),"SYMTAB")) D RESSYM^XVEMSU
  QUIT
  ;
 KILL ; The Kill, finally; ZK9
- KILL ^%XVEMS("%",$J_$G(^%XVEMS("SY")))
+ KILL ^XVEMS("%",$J_$G(^XVEMS("SY")))
  QUIT
  ; ---------------------------------------
  ;UNUSED CODE
@@ -42,8 +42,8 @@ ZK3 ; In case we have different UCI's
  QUIT
  ;
 ZK8 ; Set U1 and U2; U1 = current system; U2= Sign-in system
- S U1=$G(^%XVEMS("CLH","UCI",XVV("ID")_$G(^%XVEMS("SY"))))
- S U2=$G(^%XVEMS("%",$J_$G(^%XVEMS("SY")),"KRNUCI"))
+ S U1=$G(^XVEMS("CLH","UCI",XVV("ID")_$G(^XVEMS("SY"))))
+ S U2=$G(^XVEMS("%",$J_$G(^XVEMS("SY")),"KRNUCI"))
  QUIT
  ;
 

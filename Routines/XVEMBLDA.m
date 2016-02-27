@@ -32,7 +32,7 @@ PAGE3 ;
  W !!!?2,"If you receive 'Protection Errors' when you first start the VSHELL,"
  W !?2,"check that the following globals are set correctly:"
  W !!?5,"^%ZOSF   System-RWD   World-R     Group-R     User-RWD"
- W !!?5,"^%XVEMS  System-RWD   World-RWD   Group-RWD   User-RWD"
+ W !!?5,"^XVEMS  System-RWD   World-RWD   Group-RWD   User-RWD"
  W !!!?2,"If you have the VA KERNEL software on your system, you should confirm"
  W !?2,"that node ^%ZOSF(""OS"") is set correctly. The 2nd piece of this node"
  W !?2,"should be the number of your Mumps system. See node ^DD(""OS"")."

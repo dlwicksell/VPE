@@ -15,7 +15,7 @@ DUZ I ($G(DUZ)']"")!($G(DUZ)="-1")  R !,"Please enter your DUZ: ",DUZ
  . ;Set up VPE environment if FM is installed or a minimal environment if not
  . I ($D(^DD))&($D(^DIC)) D ^XVUP
  . I ('$D(^DD))!('$D(^DIC)) S U="^",DTIME=9999,DT=$$DT^XLFDT
- D ^%XVEMSY ; init lots of stuff
+ D ^XVEMSY ; init lots of stuff
  Q:FLAGQ
  KILL FLAGQ
  ;
@@ -29,6 +29,6 @@ DUZ I ($G(DUZ)']"")!($G(DUZ)="-1")  R !,"Please enter your DUZ: ",DUZ
  ;
  ; Unused code
  ; F  D  Q:XVVSHC'="NO EXIT"
- ; . ; X ^%XVEMS("ZA",1) //smh
+ ; . ; X ^XVEMS("ZA",1) //smh
  ; . D ^XVSA ; main loop
  ; . I $G(XVVSHC)=U D ^XVSK ; kill temp space when "^"

@@ -8,30 +8,30 @@ NOTES ;;;;
  ;;; field's name, not it's number. When entering file or field names, if the
  ;;; name contains a space you MUST enclose the name in quotes.
  ;;;
- ;;; 1) VEDD  PARAM^%XVEMD(File Name/Num,Menu Option Mnemonic,Field Names/Nums)
- ;;;          Ind Fld Sum............DO PARAM^%XVEMD("USER","I",".01;2")
- ;;;          Fld Global Location....DO PARAM^%XVEMD("USER","G",30)
+ ;;; 1) VEDD  PARAM^XVEMD(File Name/Num,Menu Option Mnemonic,Field Names/Nums)
+ ;;;          Ind Fld Sum............DO PARAM^XVEMD("USER","I",".01;2")
+ ;;;          Fld Global Location....DO PARAM^XVEMD("USER","G",30)
  ;;;          ..VEDD USER I .01;2
  ;;;          ..VEDD "NEW PERSON" G 30
  ;;;
- ;;; 2) VGL   PARAM^%XVEMG(^Global -or- File Name)
- ;;;          DO PARAM^%XVEMG("^VA(200")      ..VGL ^VA(200
- ;;;          DO PARAM^%XVEMG("NEW PERSON")   ..VGL "NEW PERSON"
+ ;;; 2) VGL   PARAM^XVEMG(^Global -or- File Name)
+ ;;;          DO PARAM^XVEMG("^VA(200")      ..VGL ^VA(200
+ ;;;          DO PARAM^XVEMG("NEW PERSON")   ..VGL "NEW PERSON"
  ;;;
- ;;; 3) VRR   PARAM^%XVEMR(Routine Name)
- ;;;          DO PARAM^%XVEMR("XVEMD")        ..VRR XVEMD
+ ;;; 3) VRR   PARAM^XVEMR(Routine Name)
+ ;;;          DO PARAM^XVEMR("XVEMD")        ..VRR XVEMD
  ;;;
  ;;; ----->   V P E   P R O G R A M M E R   C A L L S
  ;;;
  ;;; 1) SINGLE CHARACTER READ
- ;;;    S X=$$READ^%XVEMKRN   X=String, XVV("K")=Key, XVV array left defined
+ ;;;    S X=$$READ^XVEMKRN   X=String, XVV("K")=Key, XVV array left defined
  ;;;
  ;;; 2) STRING EDITOR
- ;;;    S CD=String D SCREEN^%XVEMKEA("PROMPT:",2,75)
+ ;;;    S CD=String D SCREEN^XVEMKEA("PROMPT:",2,75)
  ;;;    CD=Edited String, XVVSHC=<RET>, XVV array left defined
  ;;;
  ;;; 3) CHOICE SELECTION
- ;;;    W !?2,"Proceed with deletion?" S X=$$CHOICE^%XVEMKC("YES^NO",1,10,21)
+ ;;;    W !?2,"Proceed with deletion?" S X=$$CHOICE^XVEMKC("YES^NO",1,10,21)
  ;;;    1=Option to be highlighted 10,21=$X,$Y (use when placing prompts)
  ;;;    For MSM, RM0 is in effect, after calling CHOICE.
  ;;;    Returns number of CHOICE selected, or 0. XVV array left defined.
@@ -63,7 +63,7 @@ NOTES ;;;;
  ;;;               ^TMP("TEST",$J,2)="Duck,Donald"
  ;;;               ^TMP("TEST",$J,3)="Mouse,Mickey"
  ;;;             Call SELECTOR:
- ;;;               D SELECT^%XVEMKT("^TMP(""TEST"","_$J_")",1)
+ ;;;               D SELECT^XVEMKT("^TMP(""TEST"","_$J_")",1)
  ;;;             SELECTOR returns items selected:
  ;;;               ^TMP("VPE","SELECT",$J,1)="Bolduc,David J."
  ;;;
@@ -85,9 +85,9 @@ NOTES ;;;;
  ;;;               ^TMP("VPE","SELECT",$J,1)="234$C(9)Bolduc,David J."
  ;;;
  ;;; 6) FILEMAN FIELD SELECTOR
- ;;;    D SELECT^%XVEMKTF(FileNumber,LEVEL)
+ ;;;    D SELECT^XVEMKTF(FileNumber,LEVEL)
  ;;;    LEVEL: "TOP"=Top level flds only  "ALL"=Include multiple flds
- ;;;    Example: D SELECT^%XVEMKTF(200,"TOP")
+ ;;;    Example: D SELECT^XVEMKTF(200,"TOP")
  ;;;             Allows you to select from all top level fields
  ;;;             of the NEW PERSON file.
  ;;;    Returns array: ^TMP("VPE","FIELDS",$J,FILE#,FIELD#)

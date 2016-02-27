@@ -43,6 +43,6 @@ DDSERR ;Form couldn't load
  W @IOF,!!,"Screenman couldn't load this form."
  S I=0
  F  S I=$O(^TMP("DIERR",$J,1,"TEXT",I)) Q:I'>0  W !,^(I)
- D PAUSE^%XVEMKU(2,"R")
+ D PAUSE^XVEMKU(2,"R")
  KILL ^TMP("DIERR",$J)
  Q

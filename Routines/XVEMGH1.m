@@ -4,12 +4,12 @@ XVEMGH1 ;DJB,VGL**Help Text - Main Screen [02/05/95]
 VGL2 ;;;
  ;;; V G L   E N T R Y   P O I N T S
  ;;;
- ;;;     ^%XVEMG    Normal entry point
- ;;;    R^%XVEMG    A Fileman subscript has the following pattern:
+ ;;;     ^XVEMG    Normal entry point
+ ;;;    R^XVEMG    A Fileman subscript has the following pattern:
  ;;;                   Root..Variable..Constant..Variable..Constant..etc
- ;;;                Entry point R^%XVEMG will display the variable portion of
+ ;;;                Entry point R^XVEMG will display the variable portion of
  ;;;                the subscript in reverse video.
- ;;;PARAM(var)^%XVEMG  Parameter passing.
+ ;;;PARAM(var)^XVEMG  Parameter passing.
  ;;;
  ;;; E N T E R                            R  E  S  U  L  T
  ;;; ---------    ----------------------------------------------------------------

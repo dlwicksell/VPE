@@ -4,9 +4,9 @@ XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 9/6/02 8:58am
 SYSTEM ;Load the System QWIKs
  NEW I,QWIK,TYPE,TXT,VEN
  F I=1:1 S TXT=$T(QWIK+I) Q:$P(TXT,";",3)="***"  S QWIK=$P(TXT,";",3),TYPE=$P(TXT,";",4) D
- . I TYPE="D" S ^%XVEMS("QS",QWIK,"DSC")=$P(TXT,";",5,999)
- . I TYPE="C" S ^%XVEMS("QS",QWIK)=$P(TXT,";",5,999) ;Code
- . I TYPE?1.N S ^%XVEMS("QS",QWIK,TYPE)=$P(TXT,";",5,999) ;Vendor specific code
+ . I TYPE="D" S ^XVEMS("QS",QWIK,"DSC")=$P(TXT,";",5,999)
+ . I TYPE="C" S ^XVEMS("QS",QWIK)=$P(TXT,";",5,999) ;Code
+ . I TYPE?1.N S ^XVEMS("QS",QWIK,TYPE)=$P(TXT,";",5,999) ;Vendor specific code
  Q
 QWIK ;System QWIK Commands
  ;;LOCKTAB;D;Lock Table^^5
@@ -56,7 +56,7 @@ QWIK ;System QWIK Commands
  ;;RDEL;18;D ^%RDELETE
  ;;RDEL;19;D ^%ZTRDEL
  ;;RL;D;Routine Lister^^5
- ;;RL;C;D ^%XVEMSRL
+ ;;RL;C;D ^XVEMSRL
  ;;RR;D;Routine Restore^^5
  ;;RR;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RR;2;D ^%RR
@@ -98,7 +98,7 @@ QWIK ;System QWIK Commands
  ;;RSIZE;8;D ^%RSIZE
  ;;RSIZE;16;D ^%RSIZE
  ;;RTN;D;Make NEW Routine^^5
- ;;RTN;C;D ^%XVEMSNR
+ ;;RTN;C;D ^XVEMSNR
  ;;UCI;D;Switch UCI^^5
  ;;UCI;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;UCI;2;D ^%ZUCI

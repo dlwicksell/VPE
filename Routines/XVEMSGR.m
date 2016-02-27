@@ -3,12 +3,12 @@ XVEMSGR ;DJB,VSHL**VShell Global - ZOSF Nodes ; 12/15/00 11:49pm
  ;
 ZOSF ;Load system specific code into ZOSF nodes
  NEW I,ND,TXT,VEND
- KILL ^%XVEMS("ZOSF")
- S ^%XVEMS("ZOSF")="System specific code"
+ KILL ^XVEMS("ZOSF")
+ S ^XVEMS("ZOSF")="System specific code"
  F I=1:1 S TXT=$T(SYS+I) Q:$P(TXT,";",3)="***"  D  ;
  . S ND=$P(TXT,";",3)
  . S VEND=$P(TXT,";",4)
- . S ^%XVEMS("ZOSF",VEND,ND)=$P(TXT,";",5,999) ;Vendor specific code
+ . S ^XVEMS("ZOSF",VEND,ND)=$P(TXT,";",5,999) ;Vendor specific code
  Q
 SYS ;System specific code
  ;;EON;8;U $I:(:::::1)

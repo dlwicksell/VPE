@@ -6,9 +6,9 @@ VRR1 ;;;
  ;;;
  ;;;  E N T R Y   P O I N T S:
  ;;;
- ;;;        DO ^%XVEMR ................ Entry point to read a routine.
- ;;;        DO PARAM^%XVEMR(routine) .. To bypass routine selection prompt.
- ;;;        X ^%XVEMS("E") ............ VPE routine editor that utilizes
+ ;;;        DO ^XVEMR ................ Entry point to read a routine.
+ ;;;        DO PARAM^XVEMR(routine) .. To bypass routine selection prompt.
+ ;;;        X ^XVEMS("E") ............ VPE routine editor that utilizes
  ;;;                                    the VRR module.
  ;;;
  ;;;  N O T E S:

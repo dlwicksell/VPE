@@ -8,14 +8,14 @@ VRROLD ;;;
  ;;;         line tag. It also displays the total program lines at the top of
  ;;;         the screen. The 2 vertical bars at the left side of the top and
  ;;;         bottom borders, help delineate line tags.
- ;;;         Submenu 'ED=Edit' is only available if you have global ^%XVEMS("E")
- ;;;         on your system and you eXecute ^%XVEMS("E").
+ ;;;         Submenu 'ED=Edit' is only available if you have global ^XVEMS("E")
+ ;;;         on your system and you eXecute ^XVEMS("E").
  ;;;
  ;;;  E N T R Y   P O I N T S:
  ;;;
- ;;;        DO ^%XVEMO - Normal entry point.
- ;;;        DO PARAM^%XVEMO(routine) - To bypass routine selection prompt.
- ;;;        X ^%XVEMS("E") - VPE routine editor that utilizes the VRR module.
+ ;;;        DO ^XVEMO - Normal entry point.
+ ;;;        DO PARAM^XVEMO(routine) - To bypass routine selection prompt.
+ ;;;        X ^XVEMS("E") - VPE routine editor that utilizes the VRR module.
  ;;;
  ;;;
  ;;;  In the RESULT column, the word 'selected' indicates you will receive a

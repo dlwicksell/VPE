@@ -17,12 +17,12 @@ INTRO ;;;
  ;;; programmer mode, and will help you organize your work and reduce the
  ;;; keystrokes required to accomplish your tasks.
  ;;;
- ;;; You enter the VShell with the command 'X ^%XVEMS'. You exit by entering any
+ ;;; You enter the VShell with the command 'X ^XVEMS'. You exit by entering any
  ;;; of the following: '^,H,h,HALT,halt'.
  ;;;
  ;;; To allow you to distinguish between the VShell and normal programmer mode,
  ;;; the ">" prompt is replaced with ">>".
- ;;; >X ^%XVEMS
+ ;;; >X ^XVEMS
  ;;; >>
  ;;;
  ;;; When you first enter the VShell you'll be asked for an ID number. This number

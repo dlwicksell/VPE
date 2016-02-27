@@ -4,7 +4,7 @@ XVEMSGH ;DJB,VSHL**VShell Global - Help Text ; 8/29/02 9:21pm
  Q
 TEXT ;Load HELP and other text
  NEW CNT,LN,RTN,TAG,TXT
- KILL ^%XVEMS("ZZ") S ^%XVEMS("ZZ")="Help Text"
+ KILL ^XVEMS("ZZ") S ^XVEMS("ZZ")="Help Text"
  S RTN="XVEMSH1",TAG="INTRO" D TEXT1
  S RTN="XVEMSH2",TAG="KEYS" D TEXT1
  S RTN="XVEMSH3" F TAG="QWIK","USER" D TEXT1
@@ -49,9 +49,9 @@ TEXT ;Load HELP and other text
  S RTN="XVEMRHL",TAG="LIBRARY" D TEXT2
  S RTN="XVEMRHW",TAG="WEB" D TEXT2
  Q
-TEXT1 ;Move text to ^%XVEMS("ZZ")
+TEXT1 ;Move text to ^XVEMS("ZZ")
  S CNT=1 W "."
  ;
 TEXT2 ;
- X "F LN=1:1 S TXT=$T("_TAG_"+LN^"_RTN_") Q:TXT']""""  S TXT=$P(TXT,"";;;"",2,999) Q:TXT=""***""  S ^%XVEMS(""ZZ"",TAG,CNT)=TXT,CNT=CNT+1"
+ X "F LN=1:1 S TXT=$T("_TAG_"+LN^"_RTN_") Q:TXT']""""  S TXT=$P(TXT,"";;;"",2,999) Q:TXT=""***""  S ^XVEMS(""ZZ"",TAG,CNT)=TXT,CNT=CNT+1"
  Q

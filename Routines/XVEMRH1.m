@@ -68,5 +68,5 @@ VRR1 ;;;
  ;;;
  ;;;    ASC       View VShell's 'ASCII Table' display.
  ;;;
- ;;;    PUR       Purge the Clipboard (^%XVEMS("E","SAVEVRR")).
+ ;;;    PUR       Purge the Clipboard (^XVEMS("E","SAVEVRR")).
  ;;;***

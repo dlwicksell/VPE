@@ -35,7 +35,7 @@ SYSTEM ;;;
  ;;;         VT100 terminal emulation is no longer in effect and you will see
  ;;;         junk on the screen. Use this QWIK to reset your terminal to VT100.
  ;;; PARAM   Enter System Parameters. See MISCELLANEOUS help text.
- ;;; PUR     The VShell has it's own scratch area: ^%XVEMS("%"). PUR will purge
+ ;;; PUR     The VShell has it's own scratch area: ^XVEMS("%"). PUR will purge
  ;;;         older nodes left behind by a previous session.
  ;;; PURVGL  Purge VGL's Command Line History.
  ;;; PURVRR  Purge VRR's Command Line History.

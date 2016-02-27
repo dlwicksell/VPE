@@ -37,8 +37,8 @@ VRROLD ;;;
  ;;;    MD         This is a toggle switch that changes between screen edit mode
  ;;;               and line edit mode (REPLACE: WITH:).
  ;;;
- ;;;   PUR         The SAve and UNsave options use global ^%XVEMS("E","SAVE")
- ;;;               as a holding location. ^%XVEMS("E","SAVE") does not grow to any
+ ;;;   PUR         The SAve and UNsave options use global ^XVEMS("E","SAVE")
+ ;;;               as a holding location. ^XVEMS("E","SAVE") does not grow to any
  ;;;               great extent, but it can be killed at any time with this purge
  ;;;               option.
  ;;;***

@@ -1,6 +1,6 @@
 XVSO ; Paideia/SMH - VPE 'Other' functions ; 12/8/09 1:47pm
  ;;XV
- ; Notes: This corresponds to ^%XVEMS("ZO")
+ ; Notes: This corresponds to ^XVEMS("ZO")
  ;
 ZO1 ; Reset $ZR and $T
  N X
@@ -13,13 +13,13 @@ ZO2 ;
  Q:'$D(^%ZOSF("UCI"))
  N Y
  X ^("UCI") ; put UCI in Y
- Q:$G(^%XVEMS("CLH","UCI",XVV("ID")_$G(^%XVEMS("SY"))))=Y
- X ^%XVEMS("ZO",3)
+ Q:$G(^XVEMS("CLH","UCI",XVV("ID")_$G(^XVEMS("SY"))))=Y
+ X ^XVEMS("ZO",3)
  Q
  ;
 ZO3 ; Kill VShell's CLH if user switches UCIs
- S ^%XVEMS("CLH","UCI",XVV("ID")_$G(^%XVEMS("SY")))=Y
- K ^%XVEMS("CLH",XVV("ID"),"VSHL")
+ S ^XVEMS("CLH","UCI",XVV("ID")_$G(^XVEMS("SY")))=Y
+ K ^XVEMS("CLH",XVV("ID"),"VSHL")
  QUIT
  ;
 ZO4 ; Reset X after ^%ZOSF("TRAP")

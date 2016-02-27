@@ -4,8 +4,8 @@ XVEMDH1 ;DJB,VEDD**Help Text - Main Menu [06/07/94]
 VEDD1 ;;;
  ;;; A)  E N T R Y   P O I N T S:
  ;;;
- ;;;        ^%XVEMD  - Main entry point.
- ;;;     DIR^%XVEMD  - Bypasses opening screen.
+ ;;;        ^XVEMD  - Main entry point.
+ ;;;     DIR^XVEMD  - Bypasses opening screen.
  ;;;
  ;;; B)  M E N U   O P T I O N S:
  ;;;

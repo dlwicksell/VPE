@@ -4,9 +4,9 @@ XVEMSGT ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 9/6/02 8:47am
 SYSTEM ;Load the System QWIKs
  NEW I,QWIK,TYPE,TXT,VEN
  F I=1:1 S TXT=$T(QWIK+I) Q:$P(TXT,";",3)="***"  S QWIK=$P(TXT,";",3),TYPE=$P(TXT,";",4) D
- . I TYPE="D" S ^%XVEMS("QS",QWIK,"DSC")=$P(TXT,";",5,999)
- . I TYPE="C" S ^%XVEMS("QS",QWIK)=$P(TXT,";",5,999) ;Code
- . I TYPE?1.N S ^%XVEMS("QS",QWIK,TYPE)=$P(TXT,";",5,999) ;Vendor specific code
+ . I TYPE="D" S ^XVEMS("QS",QWIK,"DSC")=$P(TXT,";",5,999)
+ . I TYPE="C" S ^XVEMS("QS",QWIK)=$P(TXT,";",5,999) ;Code
+ . I TYPE?1.N S ^XVEMS("QS",QWIK,TYPE)=$P(TXT,";",5,999) ;Vendor specific code
  Q
 QWIK ;System QWIK Commands
  ;;DOS;D;DOS Interface^^5
@@ -53,7 +53,7 @@ QWIK ;System QWIK Commands
  ;;GEDIT;18;D ^%GED
  ;;GEDIT;19;D ^%GED
  ;;GLB;D;Global Screen Capture^%1=Global Reference  %2=How many lines before pause^5
- ;;GLB;C;D GLB^%XVEMKT(%1,"SC",%2)
+ ;;GLB;C;D GLB^XVEMKT(%1,"SC",%2)
  ;;GR;D;Global Restore^^5
  ;;GR;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;GR;2;D ^%GTI
