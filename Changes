@@ -1,0 +1,57 @@
+###
+# $Source: /home/vpe/Releases/r/RCS/Changes,v $
+# $Revision: 12.5 $
+#
+# Changes made to VPE
+#
+
+$Log: Changes,v $
+Revision 12.5  2009/12/09 00:57:41  vpe
+Checkpoint
+
+Added a new entry point to VPE, via calling a 
+routine from a shell (mumps -r XV), or in GT.M
+Direct Mode (D ^XV). Also sets up environment.
+Sam Habiel donated the following 11 routines,
+which comprise the code found in ^%XVEMS.
+XV.m, XV.m, XVRCE.m, XVRSE.m, XVSA.m, XVSC.m,
+XVSK.m, XVSO.m, XVSQ.m, XVSR.m, XVSS.m, XVST.m
+
+Added a new system QWIK, called ZInsert. Called
+as ..ZI from VSHELL. It simulates some of the 
+functionality of ZInsert in Caché, allowing
+programmers to copy a routine from their development
+environment and paste it into VPE in the shared
+environment elsewhere. It does not, however, allow
+you to have the full functionality of a routine 
+buffer, yet.
+
+Fixed multiple bugs in VPE code...
+
+Revision 12.4  2009/11/13 18:13:08  vpe
+changed namespace
+The great namespace shuffle.
+
+as per SAC, renamespacing VPE from VEE*, 
+ZVE*, and %ZVE* to XVV*, XVE*, and %XVE*. There 
+were no conflicts. They were done for routine
+names, and contents of all routines, and
+globals. I ran a script I wrote called
+convert2XV.sh, which will be here for this 
+revision only. It is a one time process.
+I had to reinstall VPE, by running ^XVEMBLD
+and then for Fileman, ^XVVMINIT. 
+
+Revision 12.3  2009/08/25 22:04:31  vpe
+checkpoint
+
+added a global set for ^DD("OS",19,"ZS") and
+changed ^%ZVEMS to include Rick's error code
+
+Revision 12.2  2009/08/21 22:43:23  vpe
+remove dead lines and add save in first piece
+Note: The $ZRO in the ci message was replaced
+      with nothing. The first $ZRO piece is
+	  used by ZSAVE^%ZVEMKY3 as the target.
+
+$RCSfile: Changes,v $
