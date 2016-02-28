@@ -25,7 +25,7 @@ DD ;Load ^DD("OS",19,"ZS") with GT.M in Linux fix for saving to the p directory
  Q
  ;
 ENTRY ;Load ^XVEMS Global entry point
- S ^XVEMS="NEW FLAGQ,XVV S FLAGQ=0 D ^XVEMSY S:FLAGQ $ZT=""B"" Q:FLAGQ  KILL FLAGQ X ^XVEMS(""ZS"",1) NEW XVVSHC,XVVSHL S XVVSHL=""RUN"" X ""F  X ^XVEMS(""""ZA"""",1) I $G(XVVSHC)=""""^"""" X:$D(^XVEMS(""""ZK"""",1)) ^(1) Q:XVVSHC'=""""NO EXIT"""""" S $ZT=""B"""
+ S ^XVEMS="NEW FLAGQ,XVV S FLAGQ=0 D ^XVEMSY S:FLAGQ $ZT=""B"" Q:FLAGQ  KILL FLAGQ X ^XVEMS(""ZS"",1) NEW XVVSHC,XVVSHL S XVVSHL=""RUN"" X ""F  X ^XVEMS(""""ZA"""",1) I $G(XVVSHC)=""""^"""" X:$D(^XVEMS(""""ZK"""",1)) ^(1) Q:XVVSHC'=""""NO EXIT"""""" S $ZT
  Q
  ;
 BUILD ;Build ^XVEMS global

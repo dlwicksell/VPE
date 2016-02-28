@@ -1,4 +1,4 @@
-XVSO ; Paideia/SMH - VPE 'Other' functions ; 12/8/09 1:47pm
+XVSO ; Paideia/SMH - VPE 'Other' functions ; 2/27/16 4:01pm
  ;;XV
  ; Notes: This corresponds to ^XVEMS("ZO")
  ;
@@ -14,7 +14,7 @@ ZO2 ;
  N Y
  X ^("UCI") ; put UCI in Y
  Q:$G(^XVEMS("CLH","UCI",XVV("ID")_$G(^XVEMS("SY"))))=Y
- X ^XVEMS("ZO",3)
+ D ZO3
  Q
  ;
 ZO3 ; Kill VShell's CLH if user switches UCIs

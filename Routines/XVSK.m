@@ -46,4 +46,3 @@ ZK8 ; Set U1 and U2; U1 = current system; U2= Sign-in system
  S U2=$G(^XVEMS("%",$J_$G(^XVEMS("SY")),"KRNUCI"))
  QUIT
  ;
-
