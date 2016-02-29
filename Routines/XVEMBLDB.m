@@ -1,4 +1,4 @@
-XVEMBLDB ;DJB,VSHL**VPE Setup - Pages 4-7 ; 1/5/04 7:48am
+XVEMBLDB ;DJB,VSHL**VPE Setup - Pages 4-7 ; 2/28/16 5:17pm
  ;;10;VPE;COPYRIGHT David Bolduc @1993
 PAGE4 ;Instructions for upgrading VPE
  W @FF,!!?2,"U P G R A D E"
@@ -32,8 +32,8 @@ PAGE6 ;Modules list
  W !?40,"--------",?54,"---------------"
  W !?4,"VGL...Global Lister/Editor..........^XVEMG*......DO ^XVEMG"
  W !?4,"VRR...Routine Reader................^XVEMR*......DO ^XVEMR"
- W !?4,"E.....Routine Editor...............................X ^XVEMS(""E"")"
- W !?4,"VEDD..Electronic Data Dictionary...^XVEMD*......DO ^XVEMD"
- W !?4,"      VPE Shell.....................^XVEMS*.......X ^XVEMS"
+ W !?4,"E.....Routine Editor.............................DO ^XVSE
+ W !?4,"VEDD..Electronic Data Dictionary....^XVEMD*......DO ^XVEMD"
+ W !?4,"      VPE Shell.....................^XVEMS*......DO ^XV"
  W !!!!!!!!!!! D ASK^XVEMBLD
  Q
