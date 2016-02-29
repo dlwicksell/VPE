@@ -1,4 +1,4 @@
-XVEMSG ;DJB,VSHL**Global Loader ; 1/24/09 10:52pm
+XVEMSG ;DJB,VSHL**Global Loader ; 2/29/16 6:52am
  ;;12;VPE;**TOAD**;**DLW**;COPYRIGHT David Bolduc @1993
  ;
  Q
@@ -25,7 +25,7 @@ DD ;Load ^DD("OS",19,"ZS") with GT.M in Linux fix for saving to the p directory
  Q
  ;
 ENTRY ;Load ^XVEMS Global entry point
- S ^XVEMS="NEW FLAGQ,XVV S FLAGQ=0 D ^XVEMSY S:FLAGQ $ZT=""B"" Q:FLAGQ  KILL FLAGQ X ^XVEMS(""ZS"",1) NEW XVVSHC,XVVSHL S XVVSHL=""RUN"" X ""F  X ^XVEMS(""""ZA"""",1) I $G(XVVSHC)=""""^"""" X:$D(^XVEMS(""""ZK"""",1)) ^(1) Q:XVVSHC'=""""NO EXIT"""""" S $ZT
+ S ^XVEMS="NEW FLAGQ,XVV S FLAGQ=0 D ^XVEMSY S:FLAGQ $ZT=""B"" Q:FLAGQ  KILL FLAGQ X ^XVEMS(""ZS"",1) NEW XVVSHC,XVVSHL S XVVSHL=""RUN"" F  X ^%ZVEMS(""ZA"",1) I $G(VEESHC)=""^"" X:$D(^%ZVEMS(""ZK"",1)) ^(1) Q:VEESHC'=""NO EXIT"""
  Q
  ;
 BUILD ;Build ^XVEMS global
