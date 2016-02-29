@@ -1,4 +1,4 @@
-XVEMSNR ;DJB,VSHL**Enter New Routine ; 1/24/09 10:49pm
+XVEMSNR ;DJB,VSHL**Enter New Routine ; 2/29/16 8:57am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP ;Allow user to start a new routine
@@ -34,7 +34,7 @@ SAVRTN ;Save routine
  . S TMP=$P(^UTILITY($J,0,1)," ",1)
  . S TMP=$S(TMP'["(":"",1:"("_$P(TMP,"(",2,99))
  . S $P(^UTILITY($J,0,1)," ",1)=RTN_TMP
- S VRRPGM=RTN X ^XVEMS("E",2)
+ S VRRPGM=RTN D E2^XVSE ; X ^XVEMS("E",2)
  W !,"^",RTN," Saved to disk."
  Q
  ;

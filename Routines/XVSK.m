@@ -1,32 +1,38 @@
-XVSK ; Paideia/SMH - VPE 'Kill' logic ; 12/8/09 1:31pm
+XVSK ; Paideia/SMH - VPE 'Kill' logic ; 2/29/16 8:06am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV
  ; Notes: Corresponds to ^XVEMS("ZK")
+ZK1 ;
 EN ; Kill ^XVEMS("%") on exit ;ZK1
  D:'$D(XVV("ID"))!('$D(XVV("OS"))) RESET^XVSS
  D XUTL,CTRLC,SYMTAB,KILL
  QUIT
  ;
+ZK2 ;
 XUTL ; Move XUTL back to where it belongs ;ZK2
  Q:'$D(^XVEMS("%",$J_$G(^XVEMS("SY")),"XUTL"))
  KILL ^XUTL("XQ",$J)
  M ^XUTL("XQ",$J)=^XVEMS("%",$J_$G(^XVEMS("SY")),"XUTL") ;/smh
  QUIT
  ;
+ZK4 ;
 NOZU ; Prevent exit via ZU ;ZK4
  I $D(^XUSEC(0)),",D ^ZU,DO ^ZU,d ^zu,do ^zu,d ^ZU,do ^ZU,"[(","_XVVSHC_",") D
  . S XVVSHC=""
  . W $C(7),!!?2,"HALT out of VSHELL before calling ^ZU.",!
  QUIT
  ;
+ZK6 ;
 CTRLC ; Disable Ctrl-C if called from the Kernel (i.e. menu option) ;ZK6
  I $D(^XVEMS("%",$J_$G(^XVEMS("SY")),"KRNUCI")) D NOBRK^XVEMKY2
  QUIT
  ;
+ZK7 ;
 SYMTAB ; Restore Symbol Table (only applicable if called from menu option ;ZK7)
  I $D(^XVEMS("%",$J_$G(^XVEMS("SY")),"SYMTAB")) D RESSYM^XVEMSU
  QUIT
  ;
+ZK9 ;
 KILL ; The Kill, finally; ZK9
  KILL ^XVEMS("%",$J_$G(^XVEMS("SY")))
  QUIT

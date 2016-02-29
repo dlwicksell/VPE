@@ -1,4 +1,4 @@
-XVEMSS1 ;DJB,VSHL**..SAVE cont.. ; 9/7/02 1:46pm
+XVEMSS1 ;DJB,VSHL**..SAVE cont.. ; 2/29/16 8:59am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 BUILD ;Build ^UTILITY($J,0) Global
@@ -19,7 +19,7 @@ BUILD ;Build ^UTILITY($J,0) Global
  . F  S X=$O(^XVEMS("QU",XVV("ID"),QWIK,X)) Q:X'>0  S ^UTILITY($J,0,CNT)=" ;;"_QWIK_";"_X_";"_^XVEMS("QU",XVV("ID"),QWIK,X),CNT=CNT+1
  ;
  S VRRPGM=RTN
- X ^XVEMS("E",2)
+ D E2^XVSE ; X ^XVEMS("E",2)
  KILL ^UTILITY($J)
  Q
  ;

@@ -1,4 +1,4 @@
-XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 9/7/02 1:55pm
+XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 2/29/16 9:00am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ZPRINT ;ZP System QWIK to print a routine
@@ -41,7 +41,7 @@ CACHE ;
  F VRRPGM="XVEMKRN","XVEMSU1" D  ;
  . D SETGLB^XVEMRS1
  . D CONVERT^XVEMRV(VRRS)
- . X ^XVEMS("E",2)
+ . D E2^XVSE ; X ^XVEMS("E",2)
  KILL ^TMP("XVV","IR"_VRRS,$J)
  KILL ^TMP("XVV","VRR",$J)
  Q

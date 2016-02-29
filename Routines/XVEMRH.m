@@ -1,4 +1,4 @@
-XVEMRH ;DJB,VRR**Help Text [01/27/95]
+XVEMRH ;DJB,VRR**Help Text ; 2/29/16 8:37am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VRR1 ;;;
@@ -8,7 +8,7 @@ VRR1 ;;;
  ;;;
  ;;;        DO ^XVEMR ................ Entry point to read a routine.
  ;;;        DO PARAM^XVEMR(routine) .. To bypass routine selection prompt.
- ;;;        X ^XVEMS("E") ............ VPE routine editor that utilizes
+ ;;;        D ^XVSE   ................ VPE routine editor that utilizes
  ;;;                                    the VRR module.
  ;;;
  ;;;  N O T E S:

@@ -1,4 +1,4 @@
-XVEMKU ;DJB,KRN**General Utilities [1/13/96 10:40pm]
+XVEMKU ;DJB,KRN**General Utilities ; 2/29/16 8:34am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ASK(PROMPT,DEFAULT) ;Return: Y=YES, N=NO
@@ -29,7 +29,7 @@ ID ;Get DUZ
  . W !,"Your DUZ isn't defined. I'm calling ^XUP."
  . W !,"------------------------------------------",!
  . I $G(XVVSHL)'="RUN" D ^XUP Q  ;Shell not running
- . D ^XUP S XVVSHL="RUN" X ^XVEMS("ZS",3) ;Reset Shell variables
+ . D ^XUP S XVVSHL="RUN" D ZS3^XVSS ; X ^XVEMS("ZS",3) ;Reset Shell variables
  S DUZ=0,DUZ(0)=$S($G(DUZ(0))]"":DUZ(0),1:"@")
  Q
 ALLCAPS(TXT) ;

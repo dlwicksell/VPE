@@ -1,4 +1,4 @@
-XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ; 1/24/09 10:47pm
+XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ; 2/29/16 8:39am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INQ ;Inquire
@@ -138,7 +138,7 @@ RESTORE ;Restore a routine from the Version file (19200.112).
  ;
  ;Save routine
  S FLAGQ=0 D ZSAVE^XVEMKY3 Q:FLAGQ
- S VRRPGM=RTN X ^XVEMS("E",2)
+ S VRRPGM=RTN D E2^XVSE ; X ^XVEMS("E",2)
  ;
  W !!,"Version "_VER_" restored."
  L -VRRLOCK(RTN) ;Unlock routine editing

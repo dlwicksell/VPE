@@ -1,4 +1,4 @@
-XVEMOH ;DJB,VRROLD**Help Text [12/31/94]
+XVEMOH ;DJB,VRROLD**Help Text ; 2/29/16 8:35am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VRROLD ;;;
@@ -15,7 +15,7 @@ VRROLD ;;;
  ;;;
  ;;;        DO ^XVEMO - Normal entry point.
  ;;;        DO PARAM^XVEMO(routine) - To bypass routine selection prompt.
- ;;;        X ^XVEMS("E") - VPE routine editor that utilizes the VRR module.
+ ;;;        DO ^XVSE - VPE routine editor that utilizes the VRR module.
  ;;;
  ;;;
  ;;;  In the RESULT column, the word 'selected' indicates you will receive a

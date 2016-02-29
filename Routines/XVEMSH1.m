@@ -1,4 +1,4 @@
-XVEMSH1 ;DJB,VSHL**INTRO,PROTECTION [3/6/97 8:08pm]
+XVEMSH1 ;DJB,VSHL**INTRO,PROTECTION ; 2/29/16 8:54am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INTRO ;;;
@@ -17,12 +17,12 @@ INTRO ;;;
  ;;; programmer mode, and will help you organize your work and reduce the
  ;;; keystrokes required to accomplish your tasks.
  ;;;
- ;;; You enter the VShell with the command 'X ^XVEMS'. You exit by entering any
+ ;;; You enter the VShell with the command 'D ^XV'. You exit by entering any
  ;;; of the following: '^,H,h,HALT,halt'.
  ;;;
  ;;; To allow you to distinguish between the VShell and normal programmer mode,
  ;;; the ">" prompt is replaced with ">>".
- ;;; >X ^XVEMS
+ ;;; >D ^XV
  ;;; >>
  ;;;
  ;;; When you first enter the VShell you'll be asked for an ID number. This number

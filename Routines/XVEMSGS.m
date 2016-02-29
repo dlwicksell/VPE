@@ -1,4 +1,4 @@
-XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 12/8/09 5:06pm
+XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 2/29/16 11:06am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -24,7 +24,7 @@ QWIK ;System QWIK Commands
  ;;DTMVT;D;Reset VT-100 in DataTree^^2
  ;;DTMVT;C;Q:XVV("OS")'=9  Q:XVV("IO")'=1  U 1:VT=1
  ;;E;D;Routine Editor^%1=Rtn Name^3
- ;;E;C;X ^XVEMS("E")
+ ;;E;C;D ^XVSE
  ;;FMC;D;Fileman Calls^^4
  ;;FMC;C;D ^XVEMSF
  ;;FMTI;D;Fileman Input Template Display^^4

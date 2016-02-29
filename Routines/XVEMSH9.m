@@ -1,4 +1,4 @@
-XVEMSH9 ;DJB,VSHL**VA KERNEL [04/17/94]
+XVEMSH9 ;DJB,VSHL**VA KERNEL ; 2/29/16 8:56am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 KERN ;;;
@@ -7,7 +7,7 @@ KERN ;;;
  ;;; The following information applies to those users who wish to run the VSHELL
  ;;; as a VA KERNEL menu option.
  ;;;
- ;;; You create the VSHELL option as an Action type: X ^XVEMS. The name of the
+ ;;; You create the VSHELL option as an Action type: D ^XV. The name of the
  ;;; option MUST include the word 'VSHELL'. This is important. If the name doesn't
  ;;; include 'VSHELL' it will not run. The purpose for this naming convention is
  ;;; to enable the VSHELL to know when it's being called as a VA KERNEL menu

@@ -1,4 +1,4 @@
-XVEMSCL ;DJB,VSHL**Command Line History [1/17/97 9:05am]
+XVEMSCL ;DJB,VSHL**Command Line History ; 2/29/16 8:45am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN(TYPE) ;TYPE=SHL/VEDD/VGL/VRR
@@ -48,7 +48,7 @@ CLHSET(TYPE,VALUE) ;Store Command Line.
  ;VALUE=Command Line
  Q:$G(TYPE)']""  Q:$G(VALUE)']""
  NEW X
- I '$D(XVV("ID")) X ^XVEMS("ZS",3)
+ I '$D(XVV("ID")) D ZS3^XVSS ; X ^XVEMS("ZS",3)
  ;-> Don't save if it matches last 2 commands
  S X=$G(^XVEMS("CLH",XVV("ID"),TYPE))
  I X>0 Q:$G(^(TYPE,X))=VALUE  Q:$G(^(X-1))=VALUE
@@ -58,7 +58,7 @@ CLHSET(TYPE,VALUE) ;Store Command Line.
 CLHEDIT(TYPE,PROMPT) ;Edit Command Line - TYPE=VEDD/VGL/VRR
  NEW CD,FLAGCLH S FLAGCLH=">>"
  S TYPE=$G(TYPE),PROMPT=$G(PROMPT) I TYPE']"" Q "^"
- I '$D(XVV("ID")) X ^XVEMS("ZS",3) ;Reset VShell variables
+ I '$D(XVV("ID")) D ZS3^XVSS ; X ^XVEMS("ZS",3) ;Reset VShell variables
  D SCREEN^XVEMKEA(PROMPT,1,XVV("IOM")-2) I XVVSHC="<RET>" Q CD
  I XVVSHC="<AR>",$G(FLAGVPE)["VEDD",$G(FLAGDEF)]"" S CD=FLAGDEF Q CD
  I ",<ESC>,<ESCH>,<F1E>,<F1Q>,<TO>,"[(","_XVVSHC_",") S CD=$S(XVVSHC="<ESCH>":"?",1:"^") Q CD

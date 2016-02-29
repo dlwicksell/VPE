@@ -1,4 +1,4 @@
-XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 2/28/16 5:19pm
+XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 2/29/16 9:23am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  I $G(XVVSHL)="RUN" D  Q
@@ -20,7 +20,7 @@ UCI ; Sunset in V 13.0 of VPE; as installs in Userspace now.
  ; Q:'$D(^%ZOSF("UCI"))  X ^%ZOSF("UCI") I Y["MG" Q
  ; W $C(7),!!?2,"THIS IS NOT THE MANAGER UCI. I think it is ",Y,"."
  ; D YESNO("Should I continue anyway: YES// ")
- ; Q
+ Q
 YESNO(PROMPT) ;Process YES/NO questions
  ;Return FLAGQ: 1=NO  2="^"
  NEW XX S PROMPT=$G(PROMPT)

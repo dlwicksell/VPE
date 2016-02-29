@@ -1,4 +1,4 @@
-XVEMRMG ;DJB,VRR**Goto Tag+Offset,XINDEX ; 8/12/09 10:23pm
+XVEMRMG ;DJB,VRR**Goto Tag+Offset,XINDEX ; 2/29/16 8:41am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ; 2009 08 12 VEN/TOAD **LOCAL MOD** replaced %INDEX with XINDEX
@@ -56,6 +56,6 @@ INDEX ;Run XINDEX
  . D ^XINDEX
  . KILL
  D SYMTAB^XVEMKST("R","VRR",VRRS) ;......Restore symbol table
- X ^XVEMS("ZS",3) ;......................Reset VShell variables
+ S ZS3^XVSS ; X ^XVEMS("ZS",3) ;.........Reset VShell variables
  D PAUSE^XVEMKC(2)
  Q
