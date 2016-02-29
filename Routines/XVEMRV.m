@@ -1,5 +1,5 @@
 XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line [12/8/09 5:52pm]
- ;;12;VPE;**DLW**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VERIFY(ND) ;When editor is exitted, verify that Lines and Tags are legal
  ;When VERIFY is called, FLAGQ=1

@@ -1,5 +1,5 @@
 XVEMDC ;DJB,VEDD**File Characteristics [07/12/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 CHAR ;Identifiers, Post Selection Actions, Special Look-up Program
  I '$D(^DD(ZNUM,0,"ID")),'$D(^DD(ZNUM,0,"ACT")),'$D(^DD(ZNUM,0,"DIC")) D  S FLAGG=1 Q

@@ -1,5 +1,5 @@
 XVEMSQW ;DJB,VSHL**QWIKs - Vendor List [9/9/95 6:40pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VENLIST ;List Vendor Specific Code
  NEW CD,FLAGQ,NAM,TYPE

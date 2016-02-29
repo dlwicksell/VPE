@@ -1,5 +1,5 @@
 XVEMKST ;DJB,KRN**Save Symbol Table [07/22/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SYMTAB(ACTION,MODULE,SESSION) ; Symbol Table
  ;ACTION ....: C=Clear  R=Restore  S=Save

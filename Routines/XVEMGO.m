@@ -1,5 +1,5 @@
 XVEMGO ;DJB,VGL**CODE SEARCH,SKIP ; 1/24/09 10:11pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SKIP ;Skipping over nodes. Also, see first line of PRINT^XVEMGI.
  Q:'$G(FLAGSKIP)  NEW SUBCHK D GETSUB Q:$G(SUBCHK)']""

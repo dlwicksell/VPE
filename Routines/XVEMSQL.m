@@ -1,5 +1,5 @@
 XVEMSQL ;DJB,VSHL**QWIKs - List QWIKs ; 1/24/09 10:50pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 LISTQ(BOX,TYPE) ;List QWIKs. BOX=Display Box
  ;TYPE=1-User Desc,2-User Code,3-Sys Desc,4-Sys Code

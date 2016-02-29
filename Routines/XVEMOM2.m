@@ -1,5 +1,5 @@
 XVEMOM2 ;DJB,VRROLD**Main Menu-Cursor Highlight [02/16/95]
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ARROW ;Arrow keys
  ;;FLAGQ=2 when screen needs to be redrawn

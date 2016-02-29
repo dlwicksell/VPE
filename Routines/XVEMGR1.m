@@ -1,5 +1,5 @@
 XVEMGR1 ;DJB,VGL**Process Variables [10/25/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VARIABLE ;Check if variable is valid and replace with its value
  NEW TEMP1,TEMP2,TEMPSP

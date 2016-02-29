@@ -1,5 +1,5 @@
 XVEMSO ;DJB,VSHL**Run Kernel Menu Option ; 1/24/09 10:50pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 KERNEL(OPT) ;Calls KERNEL ^XQ
  ;OPT=Name/number of entry in OPTION file (#19)

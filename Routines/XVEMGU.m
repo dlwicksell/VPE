@@ -1,5 +1,5 @@
 XVEMGU ;DJB,VGL**Utility Routine - ZDELIM,Get File,Heading [07/29/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TRAN(X) ;Substitute ZDELIM with comma in subscript so I can check for $D.
  NEW ZDELIM,I,Y S ZDELIM=$C(127)_$C(124),Y=""

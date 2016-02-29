@@ -1,5 +1,5 @@
 XVEMOY ;DJB,VRROLD**Init,Branching,Error ; 9/6/02 8:15am
- ;;7.0;VPE;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
  S VRRS=$S($G(VRRS)="":1,1:(VRRS+1)) ;VRRS=# of prgrms you are viewing

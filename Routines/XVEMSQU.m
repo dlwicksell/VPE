@@ -1,5 +1,5 @@
 XVEMSQU ;DJB,VSHL**QWIKs - Delete,Copy,Boxes [11/06/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DELETE ;Delete a QWIK
  W !?1,"*** Delete QWIK Command ***"

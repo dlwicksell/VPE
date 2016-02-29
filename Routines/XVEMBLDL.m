@@ -1,5 +1,5 @@
 XVEMBLDL ;DJB,VSHL**VPE Setup - Load Editor & Shell ; 9/7/02 2:06pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP ;
  D SHELL

@@ -1,5 +1,5 @@
 XVEMKDT ;DJB,KRN**Date/Time [12/30/95 9:15am]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  W !!?1,"Calling points: S DATE=$$DATE^XVEMKDT(1|2|3)"
  W !?1,"                S FMDATE=$$FMDATE^XVEMKDT()"

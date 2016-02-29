@@ -1,5 +1,5 @@
 XVEMDL1 ;DJB,VEDD**Start at a particular field?,Hd,Error ; 9/6/02 8:08am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ASK ;Start at a particular field?
  I $G(VEDDS)>1 D  Q  ;Don't ask when branching

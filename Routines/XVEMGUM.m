@@ -1,5 +1,5 @@
 XVEMGUM ;DJB,VGL**Scroll Messages [2/24/99 10:39am]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 MSG(NUM,PAUSE) ;Messages
  ;NUM=Subroutine number  PAUSE=Pause screen

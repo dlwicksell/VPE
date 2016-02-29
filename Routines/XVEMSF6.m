@@ -1,5 +1,5 @@
 XVEMSF6 ;DJB,VSHL**DIK,DIPZ,DIR,DIS [12/4/95 7:07pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DIK ;;;
  ;;; D I K     Entry Deletion and File Reindexing

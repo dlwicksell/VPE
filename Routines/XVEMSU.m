@@ -1,5 +1,5 @@
 XVEMSU ;DJB,VSHL**Util - PURGE,KERNSAVE,RESSYM ; 1/24/09 10:51pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 USEZERO ;After executing code, reuse device 0
  I $G(XVV("IO"))']"" U 0 Q

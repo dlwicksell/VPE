@@ -1,5 +1,5 @@
 XVEMDU1 ;DJB,VEDD**Templates,Description [7/19/95 9:08pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Templates
  I '$D(^DIBT("F"_ZNUM)),'$D(^DIPT("F"_ZNUM)),'$D(^DIE("F"_ZNUM)) D  G EX

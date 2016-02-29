@@ -1,5 +1,5 @@
 XVEMDH1 ;DJB,VEDD**Help Text - Main Menu [06/07/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VEDD1 ;;;
  ;;; A)  E N T R Y   P O I N T S:

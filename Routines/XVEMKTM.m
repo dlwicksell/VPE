@@ -1,5 +1,5 @@
 XVEMKTM ;DJB,KRN**Txt Scroll-Highlight Menu [3/6/96 6:23pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ENDFILE() ;1=End-of-file  0=Ok
  I XVVT("GAP") W $C(7) Q 1

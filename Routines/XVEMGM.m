@@ -1,5 +1,5 @@
 XVEMGM ;DJB,VGL**Main Menu ; 1/24/09 10:10pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 READ ;Get input
  ;Next: Quit if SKIP NODE

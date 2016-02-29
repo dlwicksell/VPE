@@ -1,5 +1,5 @@
 XVEMSCU ;DJB,VSHL**Command Line History Utility [11/06/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 QWIK(CLHCODE) ;Make a QWIK using CODE from Command Line History
  Q:$G(CLHCODE)']""

@@ -1,5 +1,5 @@
 XVEMOM ;DJB,VRROLD**Main Menu ; 12/15/00 8:31pm
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 PAGE ;Prepare bottom of screen
  NEW VK

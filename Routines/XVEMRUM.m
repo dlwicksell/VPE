@@ -1,5 +1,5 @@
 XVEMRUM ;DJB,VRR**Messages ; 1/6/01 3:47pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 MSG(NUM) ;Msgs for rtn editor
  Q:$G(NUM)'>0  NEW XX

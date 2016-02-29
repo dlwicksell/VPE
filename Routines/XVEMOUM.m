@@ -1,5 +1,5 @@
 XVEMOUM ;DJB,VRROLD**Messages [12/31/94]
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 MSG1(NUM,PAUSE) ;Clear 21 to bottom. Write msg on 21. Leave cursor on 21
  ;NUM=Subroutine number  PAUSE=Pause screen

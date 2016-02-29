@@ -1,5 +1,5 @@
 XVEMRU ;DJB,VRR**Utilities ; 1/6/01 8:12am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 LNSTART(CD) ;Find start of line for EDIT mode.
  ;"2^11" - TAG starts at 2, LINE starts at 11

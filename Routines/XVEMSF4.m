@@ -1,5 +1,5 @@
 XVEMSF4 ;DJB,VSHL**DICQ,DICRW,DID,DIEZ,DIFG,DICD,DIKZ [12/4/95 7:08pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DICQ ;;;
  ;;; D I C Q     Entry Display for Loop-ups

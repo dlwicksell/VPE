@@ -1,5 +1,5 @@
 XVEMKT ;DJB,KRN**Txt Scroll-Start ; 1/24/09 10:15pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 IMPORT ;Display imported text passed in variable XVVT
  N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"

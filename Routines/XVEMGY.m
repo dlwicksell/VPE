@@ -1,5 +1,5 @@
 XVEMGY ;DJB,VGL**Init,Partition,Branching,Error ; 10/11/03 2:25pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
  S GLS=$S($G(GLS)=1:GLS+1,1:1) ;GLS is the current session number.

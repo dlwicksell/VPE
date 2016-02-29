@@ -1,5 +1,5 @@
 XVEMRS1 ;DJB,VRR**Set Scroll Array ; 9/5/02 3:13pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SETGLB ;Put routine into global
  NEW I,TXT

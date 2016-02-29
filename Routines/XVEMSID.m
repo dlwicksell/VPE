@@ -1,5 +1,5 @@
 XVEMSID ;DJB,VSHL**Utilities - LIST USERS,ID NOTES [9/28/95 8:28am]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 LIST ;List Users
  I '$D(^XVEMS("ID"))&('$D(^("PARAM")))&('$D(^("QU"))) D  Q

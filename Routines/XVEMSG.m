@@ -1,5 +1,5 @@
 XVEMSG ;DJB,VSHL**Global Loader ; 2/29/16 6:52am
- ;;12;VPE;**TOAD**;**DLW**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016;COPYRIGHT David Bolduc @1993
  ;
  Q
 ALL ;Load entire ^XVEMS global and ^DD("OS",19,"ZS") to p directory

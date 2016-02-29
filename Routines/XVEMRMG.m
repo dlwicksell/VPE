@@ -1,5 +1,5 @@
 XVEMRMG ;DJB,VRR**Goto Tag+Offset,XINDEX ; 8/12/09 10:23pm
- ;;12;VPE;**LOCAL**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ; 2009 08 12 VEN/TOAD **LOCAL MOD** replaced %INDEX with XINDEX
  ; throughout routine - Rick Marshall of VEN on VISTA Forum.

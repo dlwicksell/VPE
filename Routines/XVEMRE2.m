@@ -1,5 +1,5 @@
 XVEMRE2 ;DJB,VRR**EDIT - Block Mode ; 1/8/01 8:31am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 BLOCK ;Block Mode
  ;<AU>/<AD>: Highlight lines of code.

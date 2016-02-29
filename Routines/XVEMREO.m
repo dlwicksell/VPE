@@ -1,5 +1,5 @@
 XVEMREO ;DJB,VRR**EDIT - Open/Close/Blank/Unblank lines ; 12/25/00 5:02pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 OPEN ;Open a new line.
  S XCUR=0

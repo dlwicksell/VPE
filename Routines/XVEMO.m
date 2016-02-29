@@ -1,5 +1,5 @@
 XVEMO ;DJB,VRROLD**VRoutine Reader ; 1/24/09 10:16pm
- ;;7.0;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Entry Point
  I $G(DUZ)'>0 D ID^XVEMKU Q:$G(DUZ)=""

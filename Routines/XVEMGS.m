@@ -1,5 +1,5 @@
 XVEMGS ;DJB,VGL**SAVE,UNSAVE ; 1/24/09 10:12pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SAVE ;Save lines of code (to be UNsaved to a new location).
  NEW CNT,GLNAM,I,ND,RNG

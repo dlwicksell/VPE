@@ -1,5 +1,5 @@
 XVEMDY ;DJB,VEDD**Init,Partition,Branching,Error ; 9/23/02 1:31pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;
  S:'$D(FLAGH) FLAGH=0

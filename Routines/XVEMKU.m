@@ -1,5 +1,5 @@
 XVEMKU ;DJB,KRN**General Utilities [1/13/96 10:40pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ASK(PROMPT,DEFAULT) ;Return: Y=YES, N=NO
  ;PROMPT=Display prompt, DEFAULT= 1-YES, 2-NO

@@ -1,5 +1,5 @@
 XVEMRH1 ;DJB,VRR**Help Text [10/22/96 8:35am]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VRR1 ;;;
  ;;;  B L O C K   M O D E:

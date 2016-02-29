@@ -1,5 +1,5 @@
 XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 9/7/02 1:55pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ZPRINT ;ZP System QWIK to print a routine
  I $G(%1)']"" D ZPMSG Q

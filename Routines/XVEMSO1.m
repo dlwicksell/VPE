@@ -1,5 +1,5 @@
 XVEMSO1 ;DJB,VSHL**A,E,I,P,R [07/01/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;====================================================================
 A ;ACTION type option

@@ -1,5 +1,5 @@
 XVEMGH ;DJB,VGL**Help Text - Global Prompt [06/19/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VGL1 ;;;
  ;;; V G L . . . . . . . . Victory Global Lister . . . . . . . . . . David Bolduc

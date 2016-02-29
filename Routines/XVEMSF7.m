@@ -1,5 +1,5 @@
 XVEMSF7 ;DJB,VSHL**DIP,DIPT [07/16/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DIP ;;;
  ;;; D I P     Print Data

@@ -1,5 +1,5 @@
 XVEMRE1 ;DJB,VRR**EDIT - DO Menu Options ; 9/24/02 1:28pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 QUIT ;Call here if you should Quit after returning to ^XVEMRE
  S QUIT=1

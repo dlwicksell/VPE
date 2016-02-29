@@ -1,5 +1,5 @@
 XVEMSGC ;DJB,VSHL**VShell Global - ZA,ZC,ZO,ZQ ; 4/5/03 7:32am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ZA ;;;Main area for processing users input at >> prompt.
  S @($$T^XVEMSY) X ^XVEMS("ZO",4),^XVEMS("ZO",2) F  Q:'$D(^XVEMS)  X ^XVEMS("ZA",6) I $G(XVVSHC)]"" Q:XVVSHC="^"  W ! X ^XVEMS("ZO",1),XVVSHC D RESET^XVEMSY X ^XVEMS("ZS",2)

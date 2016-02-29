@@ -1,5 +1,5 @@
 XVEMGE1 ;DJB,VGL**Edit Global Node - Range [2/25/99 3:22pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 RESET ;Reset scroll array. NUM1,NUM2=Node range.
  NEW CHK,GLNAM,I,NUM,NUM1,NUM2,PKGS,PKGV,TEMP

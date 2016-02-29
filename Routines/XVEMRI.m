@@ -1,5 +1,5 @@
 XVEMRI ;DJB,VRR**INSERT - READ,HELP,ADD,DELETE ; 12/25/00 5:14pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INSERT(MODE) ;Processes the line tag portion of a new line. When user
  ;hits <TAB>, return to EDIT mode.

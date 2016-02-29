@@ -1,5 +1,5 @@
 XVEMRIE ;DJB,VRR**INSERT - Programmer Call cont.. [1/15/96 10:52pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 CODE ;Set CD array to Call code
  NEW CHK,I,LIMIT,RTN,TMP

@@ -1,5 +1,5 @@
 XVEMRM ;DJB,VRR**Menu Bar ; 12/17/00 4:08pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Because of FndTag/LctStrng, I need to be able to change the lines
  ;displayed when exiting back to edit mode. FLAGMENU allows this.

@@ -1,5 +1,5 @@
 XVEMGI ;DJB,VGL**Loop,Print,Import ; 1/24/09 10:09pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP(ZGR) ;ZGR contains starting point, such as ^VA(200).
  N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"

@@ -1,5 +1,5 @@
 XVEMOC ;DJB,VRROLD**Saves editing changes ; 12/16/00 10:45pm
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SAVE ;Sets up ^UTILITY so rtn editor can save changes.
  ;If VRRPGM is defined, Editor will save edited routine to @VRRPGM.

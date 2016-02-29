@@ -1,5 +1,5 @@
 XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 2/28/16 5:19pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  I $G(XVVSHL)="RUN" D  Q
  . W $C(7),!?2,"Please exit the VShell before running ^XVEMBLD.",!

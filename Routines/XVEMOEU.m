@@ -1,5 +1,5 @@
 XVEMOEU ;DJB,VRROLD**CHANGE - Utilities [12/31/94]
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 LINECHK(CODE) ;Check Line. 1=Line bad,2=Line null
  I $G(CODE)']"" Q 0

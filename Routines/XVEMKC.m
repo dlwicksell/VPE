@@ -1,5 +1,5 @@
 XVEMKC ;DJB,KRN**Select Choices ; 12/20/00 8:23am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 CHOICE(OPTIONS,LEV,DX,DY) ;
  ;;OPTIONS=String containing options. Ex: "YES^NO"

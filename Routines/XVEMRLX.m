@@ -1,5 +1,5 @@
 XVEMRLX ;DJB,VRR**RTN VER - Xref ; 11/20/00 9:52pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;=======================[ INPUT TRANSFORM 1]=========================
 KEY1 ;ROUTINE Field

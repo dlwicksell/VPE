@@ -1,5 +1,5 @@
 XVEMSPS ;DJB,VSHL**Print Symbol Table (..ZW) ; 9/3/99 2:56pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 WRITE(StarT) ;
  ; StartT is mixed case so it isn't already in symbol table

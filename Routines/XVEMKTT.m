@@ -1,5 +1,5 @@
 XVEMKTT ;DJB,KRN**Txt Scroll-SELECTOR READ ; 11/30/00 1:44pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 READ ;Get input
  ;Move highlight to top line

@@ -1,5 +1,5 @@
 XVEMKI4 ;DJB,KRN**Indiv Fld DD - Keys, New-Style Indexes ; 12/12/00 6:31pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 KEYS ;Get Keys for this file/field.
  NEW IEN,IEN1,NAME,PRIOR,SEQ,ND,ND1,UNIQ

@@ -1,5 +1,5 @@
 XVUP ;SFISC/RWF - Setup enviroment for VPE ; 12/8/09 5:13pm
- ;;12.5;KERNEL*VPE;**DLW**;Dec 8, 2009
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  W !,"Setting up VPE environment"
  N $ESTACK,$ETRAP S $ECODE="",$ETRAP="" ;Clear and error trap

@@ -1,5 +1,5 @@
 XVEMRHK ;DJB,VRR**Help Text - Keyboard [9/23/95 12:05pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VRR2 ;
  ;;; NOTES: <AU>=Arrow Up  <AD>=Arrow Down  <AL>=Arrow Left  <AR>=Arrow Right

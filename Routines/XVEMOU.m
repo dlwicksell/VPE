@@ -1,5 +1,5 @@
 XVEMOU ;DJB,VRROLD**GETLINE,SCREEN,FF,HOT ; 12/15/00 8:31pm
- ;;7.0;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 GETLINE(PROMPT) ;;Extrinsic Function to return line number
  ;;Returns: ^,?,M,"INVALID","INVALID RNG",Line number or range.

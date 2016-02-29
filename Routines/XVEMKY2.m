@@ -1,5 +1,5 @@
 XVEMKY2 ;DJB,KRN**Screen Variables ; 4/5/03 7:47am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;;X XVVS("CRSR"),XVVS("RM0"). All others are: W @()
 SCRNVAR ;Screen Variables

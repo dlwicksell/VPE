@@ -1,5 +1,5 @@
 XVEMRLV ;DJB,VRR**RTN VER - Routine Editor Prompts ; 9/23/02 4:17pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ADD(RTN) ;Create and store a version of the current rtn?
  ;

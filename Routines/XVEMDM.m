@@ -1,5 +1,5 @@
 XVEMDM ;DJB,VEDD**Menu Driver ; 12/6/00 9:18pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Entry Point
  NEW I,LIST,OPT,X,Y

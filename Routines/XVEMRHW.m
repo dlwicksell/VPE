@@ -1,5 +1,5 @@
 XVEMRHW ;DJB,VRR**Help Text - Web [12/14/96 6:34pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 WEB ;;;
  ;;; Insert HTML code onto new lines

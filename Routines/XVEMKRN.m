@@ -1,5 +1,5 @@
 XVEMKRN ;DJB,KRN**NEW Single Character Read ; 1/15/01 2:25pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 READ(PROMPT,LENGTH,NOECHO) ;
  ;PROMPT  Display prompt.

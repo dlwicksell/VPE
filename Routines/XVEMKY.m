@@ -1,5 +1,5 @@
 XVEMKY ;DJB,KRN**Kernel - Basic Init ; 4/5/03 7:35am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
  D TIME

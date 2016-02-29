@@ -1,5 +1,5 @@
 XVEMSHY ;DJB,VSHL**Help Text Menu Init [11/12/95 8:57am]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 HD ;Heading
  NEW MAR

@@ -1,5 +1,5 @@
 XVEMGMC ;DJB,VGL**Check FM, Check Node [6/14/95 10:39pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 GOTO ;Goto line number
  NEW ND,X

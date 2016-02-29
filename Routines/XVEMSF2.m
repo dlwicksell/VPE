@@ -1,5 +1,5 @@
 XVEMSF2 ;DJB,VSHL**DIC [8/3/97 1:29pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DIC ;;;
  ;;; D I C     Look-up/Add New Entries

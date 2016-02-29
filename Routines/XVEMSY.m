@@ -1,5 +1,5 @@
 XVEMSY ;DJB,VSHL**Init,Error ; 4/6/03 8:25am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
  NEW XVVSIZE,X,Y

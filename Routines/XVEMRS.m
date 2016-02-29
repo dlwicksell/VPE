@@ -1,5 +1,5 @@
 XVEMRS ;DJB,VRR**Get Program ; 9/24/02 7:18am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Enter here from ^XVEMR
  I FLAGVPE["LBRY" D  Q  ;Use editor to review a previous version.

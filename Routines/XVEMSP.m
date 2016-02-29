@@ -1,5 +1,5 @@
 XVEMSP ;DJB,VSHL**System Parameters [11/17/96 12:49pm]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP ;Edit System Parameters
  NEW DOT,FLAGQ,I,LINE,NUM

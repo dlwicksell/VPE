@@ -1,5 +1,5 @@
 XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ; 1/24/09 10:46pm
- ;;12;VPE;**TOAD**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;--> ALL^XVEMRLI    = to sign in all routines
  ;    IDEDIT^XVEMRLI = to bulk edit IDENTIFIER field

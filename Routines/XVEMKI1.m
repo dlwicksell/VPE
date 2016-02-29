@@ -1,5 +1,5 @@
 XVEMKI1 ;DJB,KRN**Indiv Fld DD ; 9/28/02 11:53am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INDIV(DD,FNUM) ;Individual Field Summary
  ;DD   = File number

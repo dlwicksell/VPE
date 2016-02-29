@@ -1,5 +1,5 @@
 XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 12/8/09 5:06pm
- ;;12;VPE;**DLW**;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SYSTEM ;Load the System QWIKs
  NEW I,QWIK,TYPE,TXT,VEN

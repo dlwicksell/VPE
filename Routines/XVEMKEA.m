@@ -1,5 +1,5 @@
 XVEMKEA ;DJB,KRN**Screen Mode Line Editor ; 11/14/02 6:56am
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SCREEN(PROMPT,LMAR,RMAR) ;Edit a line of text
  ;PROMPT = Prompt

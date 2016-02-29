@@ -1,5 +1,6 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 12/8/09 5:08pm
- ;;XV;**no version**DLW**;
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 2/29/16 7:08am
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;XV;
  ; Original VPE by David Buldoc
  N FLAGQ S FLAGQ=0 ;quit flag
  N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"

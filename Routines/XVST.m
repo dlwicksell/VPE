@@ -1,4 +1,5 @@
 XVST ; Paideia/SMH - VPE handle timeout ; 10/18/09 12:29am
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  S XVVSHC=$G(^XVEMS("QU",XVV("ID"),"TO"))
  Q:XVVSHC=""
  S:XVVSHC="HALT"!(XVVSHC="halt") XVVSHC="^"

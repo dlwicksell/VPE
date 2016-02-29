@@ -1,5 +1,5 @@
 XVEMSY2 ;DJB,VSHL**Init cont.. [01/11/94]
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 RVCHK ;Check reverse video
  NEW NODE5,RVOFF,RVON,X

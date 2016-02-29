@@ -1,5 +1,5 @@
 XVEMRP2 ;DJB,VRR**Block Mode - Highlight Characters ; 8/31/02 12:29pm
- ;;12;VPE;;COPYRIGHT David Bolduc @1993
+ ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 LEFT ;Char highlight - cursor left
  NEW CHAR,ND,TAGL,TMP
