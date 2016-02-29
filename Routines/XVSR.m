@@ -1,17 +1,17 @@
-XVSR ; Paideia/SMH - VPE Single Character Reads  ; 10/17/09 11:18pm
+XVSR ; Paideia/SMH - VPE Single Character Reads  ; 2/29/16 6:44am
  ;;XV
  ;
 ZR1 ; Main
  N CD,FLAGCLH,PROMPT,Y
  S:'$D(XVV("IOM")) XVV("IOM")=80
  D ZR2
- S CD="",FLAGCLH=">> "
+ S CD="",FLAGCLH=">>"
  D SCREEN^XVEMKEA(PROMPT,0,XVV("IOM")-2)
  D ZR4,ZR3
  QUIT
 ZR2 ; Special prompt handling (like $ZPROMPT)
  I $D(^%ZOSF("UCI"))&($D(^XVEMS("PARAM",XVV("ID"),"PROMPT"))) X ^%ZOSF("UCI")
- S PROMPT=$G(Y)_">> "
+ S PROMPT=$G(Y)_">>"
  D ZR5
  QUIT
 ZR3 ;
