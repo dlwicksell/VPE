@@ -1,4 +1,4 @@
-XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 1/5/04 7:37am
+XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 2/28/16 5:19pm
  ;;12;VPE;;COPYRIGHT David Bolduc @1993
  ;
  I $G(XVVSHL)="RUN" D  Q
@@ -11,16 +11,16 @@ XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 1/5/04 7:37am
  D PAGE4^XVEMBLDB G:FLAGQ EX
  D PAGE5^XVEMBLDB G:FLAGQ EX
  D PAGE6^XVEMBLDB G:FLAGQ EX
- D UCI G:FLAGQ EX
+ ; D UCI G:FLAGQ EX ; Sunset. v.i.
  D ^XVEMBLDL
 EX ;
  Q
-UCI ;
- W @FF
- Q:'$D(^%ZOSF("UCI"))  X ^%ZOSF("UCI") I Y["MG" Q
- W $C(7),!!?2,"THIS IS NOT THE MANAGER UCI. I think it is ",Y,"."
- D YESNO("Should I continue anyway: YES// ")
- Q
+UCI ; Sunset in V 13.0 of VPE; as installs in Userspace now.
+ ; W @FF
+ ; Q:'$D(^%ZOSF("UCI"))  X ^%ZOSF("UCI") I Y["MG" Q
+ ; W $C(7),!!?2,"THIS IS NOT THE MANAGER UCI. I think it is ",Y,"."
+ ; D YESNO("Should I continue anyway: YES// ")
+ ; Q
 YESNO(PROMPT) ;Process YES/NO questions
  ;Return FLAGQ: 1=NO  2="^"
  NEW XX S PROMPT=$G(PROMPT)
