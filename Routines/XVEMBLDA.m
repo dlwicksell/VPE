@@ -1,4 +1,4 @@
-XVEMBLDA ;DJB,VSHL**VPE Setup - Pages 1-3 [2/18/96 8:48am]
+XVEMBLDA ;DJB,VSHL**VPE Setup - Pages 1-3 ; 2/28/16 4:32pm
  ;;10;VPE;COPYRIGHT David Bolduc @1993
  ;
 PAGE1 ;
@@ -27,15 +27,15 @@ PAGE2 ;
  W !?2,"got along without it."
  W !! D ASK^XVEMBLD
  Q
-PAGE3 ;
- W @FF,!!?2,"G L O B A L   P R O T E C T I O N"
- W !!!?2,"If you receive 'Protection Errors' when you first start the VSHELL,"
- W !?2,"check that the following globals are set correctly:"
- W !!?5,"^%ZOSF   System-RWD   World-R     Group-R     User-RWD"
- W !!?5,"^XVEMS  System-RWD   World-RWD   Group-RWD   User-RWD"
+PAGE3 ; VEN/SMH - Global protection warning doesn't apply
+ W @FF ; ,!!?2,"G L O B A L   P R O T E C T I O N"
+ ; W !!!?2,"If you receive 'Protection Errors' when you first start the VSHELL,"
+ ; W !?2,"check that the following globals are set correctly:"
+ ; W !!?5,"^%ZOSF   System-RWD   World-R     Group-R     User-RWD"
+ ; W !!?5,"^XVEMS  System-RWD   World-RWD   Group-RWD   User-RWD"
  W !!!?2,"If you have the VA KERNEL software on your system, you should confirm"
  W !?2,"that node ^%ZOSF(""OS"") is set correctly. The 2nd piece of this node"
  W !?2,"should be the number of your Mumps system. See node ^DD(""OS"")."
- W !?5,"DSM=2  MSM=8  DTM=9  VAXDSM=16  GT.M=19"
+ W !?5,"DSM=2  MSM=8  DTM=9  VAXDSM=16  Cache=18 GT.M/Unix=19"
  W !!!!! D ASK^XVEMBLD
  Q
