@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 4/6/03 8:25am
+XVEMSY ;DJB,VSHL**Init,Error ; 3/1/16 12:55pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -62,12 +62,6 @@ GETID1 W !,"Enter ID Number: "
  I +ID'=ID!(ID<.1)!(ID>999999) D IDHELP^XVEMSY1 G GETID1
  S XVV("ID")=ID
  Q
-T() ;Set error trap. Called by ^XVEMS("ZA",1)
- KILL %1
- I $D(X)#2 S %1=X
- S X="ERROR^XVEMSY"
- I $D(^%ZOSF("TRAP")) Q ^("TRAP")
- Q "$ZT=X"
  ;
 RESET ;Reset $T and Naked Reference
  NEW FLAGQ
@@ -81,12 +75,19 @@ RESET ;Reset $T and Naked Reference
  Q
  ;
 ERROR ;Error trap.
+ ;
+ ; Replace Old Trap with an emergency trap. Don't New $ET
+ ; b/c we don't want the old one restored when erroring again
+ S XVOLDTRAP=$ET
+ S $ET="G EERROR^XVEMSY" ; Emergency
  NEW ERROR,ZE
  S XVV("$T")=$T
- S @("ZE="_XVV("$ZE"))
+ I $D(XVV("$ZE")) S @("ZE="_XVV("$ZE"))
+ E  S ZE="Check $ZE or $ZS"
  ;
  ;Stop error loops from occurring. If same error occurrs less than a
  ;second apart, quit VPE Shell.
+ I '$D(XVV("ID")) S XVV("ID")=0
  S ERROR=$G(^XVEMS("ERROR",XVV("ID")))
  I ERROR]"",ZE=$P(ERROR,"^",3),$P($H,",",1)=$P(ERROR,"^",1),$P($H,",",2)-$P(ERROR,"^",2)=0 D  Q
  . S XVVSHC="^" ;Stop Shell
@@ -97,6 +98,7 @@ ERROR ;Error trap.
  . W !,"-------------------------------------------------------------"
  . W !
  S ^XVEMS("ERROR",XVV("ID"))=$P($H,",",1)_"^"_$P($H,",",2)_"^"_ZE
+ I XVV("ID")=0 G UNWIND
  ;
  I XVV("OS")=17!(XVV("OS")=19) D  I 1 ;GTM Mumps
  . X "I $R'[""^XVEMS"",$R'[""^TMP(""""XVV"""""" S XVV(""$ZR"")=$R"
@@ -112,18 +114,21 @@ ERROR ;Error trap.
  I $D(XVV("EON")) X XVV("EON")
  W !!,"VPE Error Trap"
  W !,"Last Global: ",XVV("$ZR")
- W !,"ERROR: ",ZE,!
+ I $D(ZE) W !,"ERROR: ",ZE,!
  I $G(IO)>0,$G(XVV("IO"))>0,IO'=XVV("IO") D  D PAUSE^XVEMKU(2)
  . W $C(7),!!,"---------> VSHELL ALERT!"
  . W !!,"Your IO device isn't what VShell thinks it should be. D ^%ZISC to"
  . W !,"restore your IO variables to match your login device.",!
  NEW I F I=1:1:9 KILL @("%"_I) ;Clean up parameter variables
- Q
- ;I stopped using following code. In OpenM, it caused Shell to Halt.
- ;Next, see if ^%ZOSF("VOL") has been deleted or changed.
- I '$D(^XVEMS("%",$J_$G(^XVEMS("SY")))) D  Q
- . W $C(7),!!,"W A R N I N G ! !"
- . W !!,"^%ZOSF(""VOL"") may have been alterred. This node must"
- . W !,"be set correctly for VShell to work."
- . S XVVSHC="^" D PAUSE^XVEMKU(2)
- Q
+ ;
+UNWIND ; Unwind and restore old trap
+ S $ETRAP="Q:$ES>1  S $EC="""",$ET=XVOLDTRAP K XVOLDTRAP"
+ S $EC=",U-UNWIND,"
+ QUIT
+ ;
+EERROR ; Emergency Error Trap
+ W !!,"The emergency error trap was invoked.",!
+ W "Consult your nearest VPE Expert!",!!
+ W "Waiting 5 seconds before closing!"
+ HANG 5
+ HALT

@@ -1,14 +1,12 @@
-XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ; 2/29/16 7:22am
+XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ; 3/1/16 11:39am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV
  ; Contains code from ^XVEMS("ZA")
 EN ; ZA1
 ZA1 ;
- S @($$T^XVEMSY) ; Set Trap
- D ZO4^XVSO ; X ^XVEMS("ZO",4) ; Reset X after ^%ZOSF("TRAP")
+ N $ESTACK
+ S $ETRAP="D ERROR^XVEMSY"
  D ZO2^XVSO ; X ^XVEMS("ZO",2) ; Populate ^XVEMS("CLH","UCI"); kill shells in other UCIs
- Q:'$D(^XVEMS)
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q" ; set $ES to zero
  F  D  I $G(XVVSHC)]"" Q:XVVSHC="^"  ; process read and handle qwiks
  . D READ
  . I $G(XVVSHC)'="",XVVSHC="^" QUIT
@@ -17,6 +15,7 @@ ZA1 ;
  . X XVVSHC ; execute command
  . D RESET^XVEMSY ; reset $T and naked reference
  . D RESTORE^XVSS ; X ^XVEMS("ZS",2)
+ . S $ETRAP="D ERROR^XVEMSY" ; ^XUP clears $ET; restore it.
  Q
  ;
 PROCESS ; ZA2 ; Processes user input after user hits return

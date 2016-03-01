@@ -1,27 +1,42 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 10:06am
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 1:02pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV;
  ; Original VPE by David Buldoc
+ ; Refactored VPE by David Wicksell and Sam Habiel
+ ;
  N FLAGQ S FLAGQ=0 ;quit flag
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ ;
+ ; Temporary Error Trap when setting up VPE
+ N $ETRAP S $ETRAP="W ""Error Occurred during Set-up."",! G ERROR^XVEMSY"
+ ;
+ I $D(XVSIMERR) S $EC=",U-SIM-ERROR," ; Simulated Error for testing
+ ;
  N XVV  ; stores VPE settings in subscripts; see XVSS
-NOUSER I '$D(DUZ) D
+ ;
+NOUSER ; Ask for DUZ if not there
+ I '$G(DUZ) D
  . I ($D(^DD))&($D(^DIC)) D
+ . . D DT^DICRW
  . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B" 
  . . D IX^DIC
  . . S DUZ=$P(Y,"^")
-DUZ I ($G(DUZ)']"")!($G(DUZ)="-1")  R !,"Please enter your DUZ: ",DUZ
- I $G(DUZ)']"" W !,"You need to enter your DUZ." G DUZ
+DUZ I DUZ'>0 R !,"Please enter your DUZ: ",DUZ
+ I DUZ'>0 W !,"You need to enter your DUZ." G DUZ
  I ('$D(U))!('$D(DTIME))!('$D(DT)) D
  . ;Set up VPE environment if FM is installed or a minimal environment if not
- . I ($D(^DD))&($D(^DIC)) D ^XVUP
- . I ('$D(^DD))!('$D(^DIC)) S U="^",DTIME=9999,DT=$$DT^XLFDT
+ . I ($D(^DD))&($D(^DIC)) D DT^DICRW
+ . I ('$D(^DD))!('$D(^DIC)) S U="^",DTIME=9999,DT=3100000
  D ^XVEMSY ; init lots of stuff
+ ;
  Q:FLAGQ
  KILL FLAGQ
+ ;
 BLD ; Build ^XVEMS if it doesn't exist
  I '$D(^XVEMS("QS")) D ^XVEMBLD
  I '$D(^XVEMS("QS")) W !!,"VPE Quiks and Help are not loaded",! QUIT
+ ;
+FM ; Build VPE Fileman Files
+ I '$D(^DD(19200.11)) D ^XVVMINIT
  ;
 RUN ; Run VPE
  D ^XVSS ; Save symbol table, init XVV
