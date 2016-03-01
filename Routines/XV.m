@@ -1,11 +1,11 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 2/29/16 7:08am
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 10:06am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV;
  ; Original VPE by David Buldoc
  N FLAGQ S FLAGQ=0 ;quit flag
  N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
  N XVV  ; stores VPE settings in subscripts; see XVSS
- I '$D(DUZ) D
+NOUSER I '$D(DUZ) D
  . I ($D(^DD))&($D(^DIC)) D
  . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B" 
  . . D IX^DIC
@@ -19,7 +19,11 @@ DUZ I ($G(DUZ)']"")!($G(DUZ)="-1")  R !,"Please enter your DUZ: ",DUZ
  D ^XVEMSY ; init lots of stuff
  Q:FLAGQ
  KILL FLAGQ
+BLD ; Build ^XVEMS if it doesn't exist
+ I '$D(^XVEMS("QS")) D ^XVEMBLD
+ I '$D(^XVEMS("QS")) W !!,"VPE Quiks and Help are not loaded",! QUIT
  ;
+RUN ; Run VPE
  D ^XVSS ; Save symbol table, init XVV
  N XVVSHC S XVVSHC="" ; Shell input
  N XVVSHL S XVVSHL="RUN" ; Shell state
