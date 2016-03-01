@@ -1,11 +1,5 @@
-###
-# $Source: /home/vpe/Releases/r/RCS/Changes,v $
-# $Revision: 12.5 $
-#
-# Changes made to VPE
-#
+VEN/SMH: 12.5ff, See git history
 
-$Log: Changes,v $
 Revision 12.5  2009/12/09 00:57:41  vpe
 Checkpoint
 
@@ -42,16 +36,16 @@ revision only. It is a one time process.
 I had to reinstall VPE, by running ^XVEMBLD
 and then for Fileman, ^XVVMINIT. 
 
-Revision 12.3  2009/08/25 22:04:31  vpe
-checkpoint
+Revision 12.3  2009/08/25 22:04:31  vpe checkpoint
 
+NB: ven/smh - removed!! VPE shouldn't change fileman code.
+fws/dlw:
 added a global set for ^DD("OS",19,"ZS") and
 changed ^%ZVEMS to include Rick's error code
 
+fws/dlw:
 Revision 12.2  2009/08/21 22:43:23  vpe
 remove dead lines and add save in first piece
 Note: The $ZRO in the ci message was replaced
       with nothing. The first $ZRO piece is
 	  used by ZSAVE^%ZVEMKY3 as the target.
-
-$RCSfile: Changes,v $
