@@ -1,4 +1,4 @@
-XVEMKY ;DJB,KRN**Kernel - Basic Init ; 4/5/03 7:35am
+XVEMKY ;DJB,KRN**Kernel - Basic Init ; 3/2/16 11:45am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -19,7 +19,8 @@ TIME ;Set timeout length
  Q
  ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 IO ;Form Feed, Margin, Sheet Length
- I $D(XVV("IOF")),$D(XVV("IOSL")),$D(XVV("IOM")) Q
+ N % S %=$$AUTOMARG()
+ I % S IOM=$P(%,U),IOSL=$P(%,U,2)
  D  D PARAM
  . I $G(IOF)]"",$G(IOSL)]"",$G(IOM)]"" D  Q
  . . S XVV("IOF")=IOF,XVV("IOSL")=IOSL,XVV("IOM")=IOM
@@ -36,15 +37,17 @@ PARAM ;Adjust screen length/width to ..PARAM settings
  ;
 KERN ;VA KERNEL
  D HOME^%ZIS
+ N % S %=$$AUTOMARG()
+ I % S IOM=$P(%,U),IOSL=$P(%,U,2)
  S XVV("IOSL")=IOSL
  S XVV("IOF")=IOF
  S XVV("IOM")=IOM
  Q
  ;
 NOKERN ;No VA KERNEL
- S XVV("IOSL")=24
+ S XVV("IOSL")=$G(IOSL,24)
  S XVV("IOF")="#,$C(27),""[2J"",$C(27),""[H"""
- S XVV("IOM")=80
+ S XVV("IOM")=$G(IOM,80)
  Q
  ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OS ;Get Operating System
@@ -93,3 +96,21 @@ DTMHELP ;DataTree users on console device must be in VT220 emulation.
  W !?2,"1, and enter ""VT=1"" in the USE PARAMETER field."
  W !!,"=============================================================================",!
  Q
+AUTOMARG() ;RETURNS IOM^IOSL IF IT CAN and resets terminal to those dimensions; GT.M and Cache
+ ; Stolen from George Timson's %ZIS3.
+ N X S X=0 X ^%ZOSF("RM")
+ N %I,%T,ESC,DIM S %I=$I,%T=$T D
+ . ; resize terminal to match actual dimensions
+ . S ESC=$C(27)
+ . W ESC,"7",ESC,"[r",ESC,"[999;999H",ESC,"[6n"
+ . I +$SY=0 U $P:(:"+S+I":"R") R DIM:1 E  Q
+ . I +$SY=47 U $P:(TERM="R":NOECHO) R DIM:1 E  Q
+ . W ESC,"8"
+ . I +$SY=0 I DIM?.APC U $P:("") Q
+ . I +$SY=47 I DIM?.APC U $P:(TERM="":ECHO) Q
+ . S DIM=+$P(DIM,";",2)_"^"_+$P(DIM,"[",2)
+ . I +$SY=0 U $P:(+DIM:"")
+ . I +$SY=47 U $P:(TERM="":ECHO:WIDTH=+$P(DIM,";",2):LENGTH=+$P(DIM,"[",2))
+ ; restore state
+ U %I I %T
+ Q:$Q $S($G(DIM):DIM,1:"") Q

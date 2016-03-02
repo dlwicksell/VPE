@@ -1,11 +1,11 @@
-XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ; 3/1/16 11:39am
+XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ; 3/1/16 1:13pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV
  ; Contains code from ^XVEMS("ZA")
 EN ; ZA1
 ZA1 ;
- N $ESTACK
- S $ETRAP="D ERROR^XVEMSY"
+ N $ESTACK ; We want to quit to this level for CLH
+ S $ETRAP="D ERROR^XVEMSY" ; Replace ^XV error trap; don't new!
  D ZO2^XVSO ; X ^XVEMS("ZO",2) ; Populate ^XVEMS("CLH","UCI"); kill shells in other UCIs
  F  D  I $G(XVVSHC)]"" Q:XVVSHC="^"  ; process read and handle qwiks
  . D READ

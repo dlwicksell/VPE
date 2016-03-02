@@ -1,4 +1,4 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 1:02pm
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 1:18pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;;XV;
  ; Original VPE by David Buldoc
@@ -25,7 +25,7 @@ DUZ I DUZ'>0 R !,"Please enter your DUZ: ",DUZ
  I ('$D(U))!('$D(DTIME))!('$D(DT)) D
  . ;Set up VPE environment if FM is installed or a minimal environment if not
  . I ($D(^DD))&($D(^DIC)) D DT^DICRW
- . I ('$D(^DD))!('$D(^DIC)) S U="^",DTIME=9999,DT=3100000
+ . I ('$D(^DD))!('$D(^DIC)) S U="^",DTIME=9999,DT=3160000
  D ^XVEMSY ; init lots of stuff
  ;
  Q:FLAGQ
