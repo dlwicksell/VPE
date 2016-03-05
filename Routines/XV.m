@@ -14,7 +14,7 @@ XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 1:18pm
  N XVV  ; stores VPE settings in subscripts; see XVSS
  ;
 NOUSER ; Ask for DUZ if not there
- I '$G(DUZ) D
+ I '$G(DUZ) S DUZ=0 D
  . I ($D(^DD))&($D(^DIC)) D
  . . D DT^DICRW
  . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B" 
@@ -36,7 +36,7 @@ BLD ; Build ^XVEMS if it doesn't exist
  I '$D(^XVEMS("QS")) W !!,"VPE Quiks and Help are not loaded",! QUIT
  ;
 FM ; Build VPE Fileman Files
- I '$D(^DD(19200.11)) D ^XVVMINIT
+ I $D(^DD),'$D(^DD(19200.11)) D ^XVVMINIT
  ;
 RUN ; Run VPE
  D ^XVSS ; Save symbol table, init XVV

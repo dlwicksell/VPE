@@ -98,7 +98,7 @@ DTMHELP ;DataTree users on console device must be in VT220 emulation.
  Q
 AUTOMARG() ;RETURNS IOM^IOSL IF IT CAN and resets terminal to those dimensions; GT.M and Cache
  ; Stolen from George Timson's %ZIS3.
- N X S X=0 X ^%ZOSF("RM")
+ I $D(^%ZOSF("RM")) N X S X=0 X ^%ZOSF("RM")
  N %I,%T,ESC,DIM S %I=$I,%T=$T D
  . ; resize terminal to match actual dimensions
  . S ESC=$C(27)
