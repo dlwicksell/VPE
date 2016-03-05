@@ -54,8 +54,7 @@ E4 ; Open for editing at Routine %1 tag %2
  ;
  ;
 E5 ; GT.M ZLINK Routine
- Q:XVV("OS")'=17 ; GT.M/VAX
- Q:XVV("OS")'=19 ; GT.M/UNIX
+ I XVV("OS")'=19!(XVV("OS")'=17) QUIT  ; GTM/UNIX,VAX only
  ;
  NEW PGM SET PGM=VRRPGM,PGM=$TR(PGM,"%","_")
  ZLINK PGM

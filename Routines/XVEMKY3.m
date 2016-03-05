@@ -48,9 +48,7 @@ ZSAVE ;Set up XVVS("ZS") to zsave a routine.
  . S XVVS("ZS")="N %I,%F,%S S %I=$I,%F=$P($ZRO,"","")_X_"".m"" O %F:(NEWVERSION) U %F X ""S %S=0 F  S %S=$O(^UTILITY($J,0,%S)) Q:%S=""""""""  Q:'$D(^(%S))  S %=^UTILITY($J,0,%S) I $E(%)'="""";"""" W %,!"" C %F U %I"
  ;
  I XVV("OS")=19 D  Q
- . S XVVS("ZS")="N %I,%F,%S S %I=$I,%F=$P($ZRO,"" "")_""/""_$TR(X,""%"",""_"")_"".m"" O %F:(NEWVERSION) U %F X ""S %S=0  F  S %S=$O(^UTILITY($J,0,%S)) Q:%S=""""""""  Q:'$D(^(%S))  "
- . S XVVS("ZS")=XVVS("ZS")_"S %=^UTILITY($J,0,%S) I $E(%)'="""";"""" W %,!"" C %F U %I"
- ;
+ . S XVVS("ZS")="D SAVEGUX^XVEMKY3(X)" ;
  ;-> Abort if no XVVS("ZS")
  D ZSAVEMSG S FLAGQ=1
  Q
@@ -61,3 +59,59 @@ ZSAVEMSG ;Can't ZSAVE a routine
  W !?5,"add code to cover your M system. If you are running VA Fileman,"
  W !?5,"see ^DD(""OS"",system#,""ZS"") for your M system.",!!
  Q
+ ;
+ ; -- EPs for GT.M/Unix for saving routines -- 
+SAVEGUX(RN) ;Save a routine
+ N %,%F,%I,%N,SP
+ S %I=$I,SP=" ",%F=$$RTNDIR()_$TR(RN,"%","_")_".m"
+ O %F:(NEWVERSION:NOREADONLY:NOWRAP:STREAM) U %F
+ N %S F %S=0:0 S %S=$O(^UTILITY($J,0,%S))  Q:'%S  D 
+ . S %=^UTILITY($J,0,%S) 
+ . Q:$E(%,1)="$" 
+ . W %,!
+ C %F
+ U %I
+ Q
+ ;
+RTNDIR() ; primary routine source directory
+ N DIRS
+ D PARSEZRO(.DIRS,$ZRO)
+ N I F I=1:1 Q:'$D(DIRS(I))  I DIRS(I)[".so" K DIRS(I)
+ I '$D(DIRS) S $EC=",U255,"
+ QUIT $$ZRO1ST(.DIRS)
+ ;
+PARSEZRO(DIRS,ZRO) ; Parse $zroutines properly into an array
+ ; Eat spaces
+ F  Q:($E(ZRO)'=" ")  S ZRO=$E(ZRO,2,999)
+ ;
+ N PIECE
+ N I
+ F I=1:1:$L(ZRO," ") S PIECE(I)=$P(ZRO," ",I)
+ N CNT S CNT=1
+ F I=0:0 S I=$O(PIECE(I)) Q:'I  D
+ . S DIRS(CNT)=$G(DIRS(CNT))_PIECE(I)
+ . I DIRS(CNT)["("&(DIRS(CNT)[")") S CNT=CNT+1 QUIT
+ . I DIRS(CNT)'["("&(DIRS(CNT)'[")") S CNT=CNT+1 QUIT
+ . S DIRS(CNT)=DIRS(CNT)_" " ; prep for next piece
+ QUIT
+ ;
+ZRO1ST(DIRS) ; $$ Get first usable routine directory
+ N OUT S OUT="" ; $$ Return; default empty
+ N I F I=0:0 S I=$O(DIRS(I)) Q:'I  D  Q:OUT]""  ; 1st directory
+ . N %1 S %1=DIRS(I)
+ . N SO S SO=$E(%1,$L(%1)-2,$L(%1))
+ . S SO=$$ALLCAPS^XVEMKU(SO)
+ . I SO=".SO" QUIT
+ . ;
+ . ; Parse with (...)
+ . I %1["(" DO
+ . . S OUT=$P(%1,"(",2)
+ . . I OUT[" " S OUT=$P(OUT," ")
+ . . E  S OUT=$P(OUT,")")
+ . ; no parens
+ . E  S OUT=%1
+ ;
+ ; Add trailing slash
+ I OUT]"",$E(OUT,$L(OUT))'="/" S OUT=OUT_"/"
+ QUIT OUT
+ ;
