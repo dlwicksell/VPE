@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 3/1/16 12:55pm
+XVEMSY ;DJB,VSHL**Init,Error ; 3/4/16 12:12pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -122,7 +122,7 @@ ERROR ;Error trap.
  NEW I F I=1:1:9 KILL @("%"_I) ;Clean up parameter variables
  ;
 UNWIND ; Unwind and restore old trap
- S $ETRAP="Q:$ES>1  S $EC="""",$ET=XVOLDTRAP K XVOLDTRAP"
+ S $ETRAP="Q:$ES>1&$Q -9  Q:$ES>1  S $EC="""",$ET=XVOLDTRAP K XVOLDTRAP"
  S $EC=",U-UNWIND,"
  QUIT
  ;
