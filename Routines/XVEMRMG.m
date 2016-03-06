@@ -1,8 +1,5 @@
-XVEMRMG ;DJB,VRR**Goto Tag+Offset,XINDEX ; 2/29/16 8:41am
+XVEMRMG ;DJB,VRR**Goto Tag+Offset,XINDEX ; 3/5/16 6:35pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
- ;
- ; 2009 08 12 VEN/TOAD **LOCAL MOD** replaced %INDEX with XINDEX
- ; throughout routine - Rick Marshall of VEN on VISTA Forum.
  ;
 EN ;
  I '$D(^TMP("XVV","IR"_VRRS,$J,1)) W $C(7) Q
@@ -46,16 +43,14 @@ OFFSET ;Go to offset
  S FLAGMENU=X_"^"_X_"^"_1
  Q
  ;====================================================================
+ ;==================================================================
 INDEX ;Run XINDEX
  D SYMTAB^XVEMKST("S","VRR",VRRS) ;......Save symbol table
  NEW RTN
  S RTN=$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
  W !,"*** RUNNING XINDEX ("_RTN_") ***",!
- D  ;
- . NEW XVV,XVVS,VRRS
- . D ^XINDEX
- . KILL
+ D QUICK^XINDX6(RTN)
  D SYMTAB^XVEMKST("R","VRR",VRRS) ;......Restore symbol table
- S ZS3^XVSS ; X ^XVEMS("ZS",3) ;.........Reset VShell variables
+ D ZS3^XVSS ; X ^XVEMS("ZS",3) ;.........Reset VShell variables
  D PAUSE^XVEMKC(2)
  Q
