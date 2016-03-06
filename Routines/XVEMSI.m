@@ -1,4 +1,4 @@
-XVEMSI ;FWS/DLW - ZInsert a routine into VPE ; 3/5/16 5:31pm
+XVEMSI ;FWS/DLW - ZInsert a routine into VPE ; 3/5/16 5:53pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ; Enter a routine. Sort of a ZInsert routine. This is a system QWIK
@@ -7,6 +7,9 @@ XVEMSI ;FWS/DLW - ZInsert a routine into VPE ; 3/5/16 5:31pm
  ; Cache, but it does not allow editing after you have copy and pasted
  ; in a routine. For that you should just open up the editor after.
  ;
+ ;------------------------------------------------------------------
+ ;..................................................................
+ ;------------------------------------------------------------------
  W #?19,"ZInsert mode -- Please enter your routine.",!
  W ?19,"When you are finished, type: Ctl-D<RETURN>",!
  N B S $P(B,"*",79)="" W ?1,B,!
@@ -44,13 +47,7 @@ SAVE ;Save an inserted routine
  N SV S SV=1 ;SV=Save
  I RNM=$C(4)!(RNM="") W !?1,"You have quit ZInsert." Q  ;Ctl-D by itself to quit
  ;
- ; 
- F  Q:$L(RNM)<100  D
- . W !!,"This response must have at least 1 character and no more than 99"
- . W !,"characters and must not contain embedded uparrow.",!
- . S RNM=$$ASKN(RNM) ;Ask for new name of routine
- ;
- ;
+ ; Deal with if the inserted routine already exists.
  N DONE S DONE=0
  I SV F  Q:DONE  Q:SV=0  Q:'$$EXIST^XVEMKU(RNM)  D  ;Only question if routine already exists
  . I '$$ASKE(RNM) D  ;Don't want to overwrite routine
