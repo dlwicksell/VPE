@@ -1,4 +1,4 @@
-XVEMOS ;DJB,VRROLD**Get Program [12/31/94]
+XVEMOS ;DJB,VRROLD**Get Program ; 3/5/16 4:27pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Enter here from ^XVEMO
@@ -20,7 +20,7 @@ GETPGM1 ;Come here when passing a parameter
  S:VRRPGM["^" VRRPGM=$P(VRRPGM,"^",2) S:VRRPGM["(" VRRPGM=$P(VRRPGM,"(")
  I VRRPGM="?" D HELP G GETPGM
  I VRRPGM="??" D LIST KILL ^UTILITY($J) W ! G GETPGM
- I VRRPGM'?.1"%"1A.7AN D MSG1 G GETPGM
+ I VRRPGM'?.1"%"1A.AN D MSG1 G GETPGM
  I $D(^XVEMS("E")) S ^XVEMS("E","VRR",DUZ)=VRRPGM
  ;Next line checks to see if anyone else is editing this routine.
  I $G(FLAGVPE)["EDIT",VRRS=1 L ^XVEMS("E","LOCK",VRRPGM):0 I '$T D  S FLAGQ=1

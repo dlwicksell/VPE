@@ -1,4 +1,4 @@
-XVEMKU ;DJB,KRN**General Utilities ; 2/29/16 8:34am
+XVEMKU ;DJB,KRN**General Utilities ; 3/5/16 4:26pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 ASK(PROMPT,DEFAULT) ;Return: Y=YES, N=NO
@@ -16,7 +16,7 @@ FILEMAN() ;Does Fileman exist? YES=1 NO=0
 EXIST(X) ;X=Rtn...0=Routine doesn't exist, 1=Routine exists
  I $G(X)']"" Q 0
  S:X["^" X=$P(X,"^",2) S:X["(" X=$P(X,"(",1)
- I X'?1A.7AN,X'?1"%"1A.6AN Q 0
+ I X'?1A.AN,X'?1"%"1A.AN Q 0
  NEW FLAGQ,XVVS S FLAGQ=0
  D:'$D(XVV("OS")) OS^XVEMKY I FLAGQ Q 0
  D EXIST^XVEMKY1

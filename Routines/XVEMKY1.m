@@ -1,4 +1,4 @@
-XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ; 4/5/03 7:43am
+XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ; 3/5/16 4:36pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 BS ;Backspace options
@@ -105,13 +105,11 @@ ECHO ;Set up Echo On and Echo Off
  Q
  ;
 EXIST ;Set up XVVS("EXIST") to test existence of a routine.
- I $D(^%ZOSF("TEST")) S XVVS("EXIST")=^("TEST") Q:XVVS("EXIST")]""
- I $D(^DD("OS",XVV("OS"),18)) S XVVS("EXIST")=^(18) Q:XVVS("EXIST")]""
  I XVV("OS")=2 S XVVS("EXIST")="I $D(^ (X))" Q
  I XVV("OS")=8 S XVVS("EXIST")="I $D(^ (X))" Q
  I XVV("OS")=9 S XVVS("EXIST")="I $ZRSTATUS(X)]""""" Q
  I XVV("OS")=16 S XVVS("EXIST")="I $D(^ (X))!$D(^!(X))" Q
- I XVV("OS")=18 S XVVS("EXIST")="I X?1(1""%"",1A).7AN,$D(^$ROUTINE(X))" Q
+ I XVV("OS")=18 S XVVS("EXIST")="I X?1(1""%"",1A).AN,$D(^$ROUTINE(X))" Q
  I XVV("OS")=17!(XVV("OS")=19) D  Q
  . S XVVS("EXIST")="I X]"""",$T(^@X)]"""""
  ;Default

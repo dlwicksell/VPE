@@ -1,4 +1,4 @@
-XVEMRS ;DJB,VRR**Get Program ; 9/24/02 7:18am
+XVEMRS ;DJB,VRR**Get Program ; 3/5/16 4:28pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Enter here from ^XVEMR
@@ -28,7 +28,7 @@ GETPGM1 ;Come here when passing a parameter
  S:VRRPGM["^" VRRPGM=$P(VRRPGM,"^",2) S:VRRPGM["(" VRRPGM=$P(VRRPGM,"(")
  I VRRPGM="?" D HELP G GETPGM
  I VRRPGM="??" D LIST KILL ^UTILITY($J) W ! G GETPGM
- I VRRPGM'?.1"%"1A.7AN D MSG1 G GETPGM
+ I VRRPGM'?.1"%"1A.AN D MSG1 G GETPGM
  I $D(^XVEMS("E")),VRRS=1 S ^XVEMS("E","VRR",DUZ)=VRRPGM
  ;
  ;--> Next lines check to see if anyone else is editing this routine.

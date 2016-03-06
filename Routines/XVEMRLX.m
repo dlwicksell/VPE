@@ -1,10 +1,10 @@
-XVEMRLX ;DJB,VRR**RTN VER - Xref ; 11/20/00 9:52pm
+XVEMRLX ;DJB,VRR**RTN VER - Xref ; 3/5/16 4:27pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;=======================[ INPUT TRANSFORM 1]=========================
 KEY1 ;ROUTINE Field
  NEW KEY1,KEY2
- I X'?.1"%"1A.7AN KILL X Q  ;Check format of input
+ I X'?.1"%"1A.AN KILL X Q  ;Check format of input
  Q:'$G(DA)
  S KEY1=X
  S KEY2=$P($G(^XVV(19200.112,DA,0)),U,2)

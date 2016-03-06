@@ -1,4 +1,4 @@
-XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line [12/8/09 5:52pm]
+XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line ; 3/5/16 4:30pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 VERIFY(ND) ;When editor is exitted, verify that Lines and Tags are legal
@@ -60,7 +60,7 @@ TAGCHK1(TAG) ;Check line tag. Don't generate message.
  I $G(TAG)']"" Q 0
  NEW I,TAG1,TAG2,TEST
  S TAG1=$P(TAG,"(")
- I $L(TAG1)>8 Q 1
+ ; I $L(TAG1)>8 Q 1  ; VEN/SMH - No tag size limit anymore
  I $E(TAG1)'?1AN,$E(TAG1)'="%" Q 1
  I $L(TAG1)>1,$E(TAG1)'?1N,$E(TAG1,2,999)'?1.AN Q 1
  I $E(TAG1)?1N,TAG1'?1.N Q 1
