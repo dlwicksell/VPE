@@ -1,4 +1,4 @@
-XVEMRY ;DJB,VRR**Init,Branching,Error ; 9/23/02 1:31pm
+XVEMRY ;DJB,VRR**Init,Branching,Error ; 3/5/16 6:56pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -17,8 +17,6 @@ INIT ;Initialize variables
 VGL ;Run the VGlobal Lister
  I $G(VRRS)>2 D  D PAUSE^XVEMKC(1) Q
  . W $C(7),!?1,"You can't call VGL if you've branched to more than 2 programs."
- I $G(DUZ(0))'["@",$G(DUZ(0))'["#" D  D PAUSE^XVEMKC(1) Q
- . W $C(7),!?1,"You don't have access. See Help option."
  I '$$EXIST^XVEMKU("XVEMG") D  D PAUSE^XVEMKC(1) Q
  . W $C(7),!?1,"You don't have the 'VGlobal Lister' Routines."
  D SYMTAB^XVEMKST("C","VRR",VRRS) ;Clear symbol table
