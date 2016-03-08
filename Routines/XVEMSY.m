@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 3/4/16 12:12pm
+XVEMSY ;DJB,VSHL**Init,Error ; 3/7/16 4:53pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -78,7 +78,6 @@ ERROR ;Error trap.
  ;
  ; Replace Old Trap with an emergency trap. Don't New $ET
  ; b/c we don't want the old one restored when erroring again
- S XVOLDTRAP=$ET
  S $ET="G EERROR^XVEMSY" ; Emergency
  NEW ERROR,ZE
  S XVV("$T")=$T
@@ -122,8 +121,16 @@ ERROR ;Error trap.
  NEW I F I=1:1:9 KILL @("%"_I) ;Clean up parameter variables
  ;
 UNWIND ; Unwind and restore old trap
- S $ETRAP="Q:$ES>1&$Q -9  Q:$ES>1  S $EC="""",$ET=XVOLDTRAP K XVOLDTRAP"
+ I $ES<2 S $EC="" QUIT  ; $ES is 1. Just blow it away with this quit.
+ ;
+ S $ETRAP="G UNWIND1^XVEMSY"
  S $EC=",U-UNWIND,"
+ QUIT
+ ;
+UNWIND1 ; 
+ Q:$ES>1&$Q -9
+ Q:$ES>1
+ S $EC=""
  QUIT
  ;
 EERROR ; Emergency Error Trap
