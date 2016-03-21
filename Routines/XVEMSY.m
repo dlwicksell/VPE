@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 3/7/16 4:53pm
+XVEMSY ;DJB,VSHL**Init,Error ; 3/20/16 7:51pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -121,7 +121,12 @@ ERROR ;Error trap.
  NEW I F I=1:1:9 KILL @("%"_I) ;Clean up parameter variables
  ;
 UNWIND ; Unwind and restore old trap
- I $ES<2 S $EC="" QUIT  ; $ES is 1. Just blow it away with this quit.
+ ; Tell Mumps this level is okay now. Otherwise, it will abandon this level
+ ; when we rethrow the error in the unwind.
+ ; This causes a problem if the $ES is 1, b/c we lose that level so unwind
+ ; starts at the $ES "event horizon" and goes beyond our zero to our
+ ; caller's zero.
+ S $EC=""
  ;
  S $ETRAP="G UNWIND1^XVEMSY"
  S $EC=",U-UNWIND,"
