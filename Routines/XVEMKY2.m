@@ -1,4 +1,4 @@
-XVEMKY2 ;DJB,KRN**Screen Variables ; 4/5/03 7:47am
+XVEMKY2 ;DJB,KRN**Screen Variables ; 3/26/16 10:32pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;;X XVVS("CRSR"),XVVS("RM0"). All others are: W @()
@@ -25,7 +25,8 @@ RIGHTMAR ;Right Margin
  ;
  NEW RM
  I $G(XVV("ID")) S RM=$G(^XVEMS("PARAM",XVV("ID"),"WIDTH"))
- I $G(RM)']"" S RM=80 ;Default
+ I $G(RM)="" S RM=$G(XVV("IOM")) ; Automargin, if it's available at this point
+ I $G(RM)="" S RM=80 ;Default
  I XVV("OS")=8!(XVV("OS")=18) S XVVS("RM80")="U $I:"_RM Q
  ;I XVV("OS")=16 S XVVS("RM80")="U $I:WIDTH="_RM Q
  I XVV("OS")=17!(XVV("OS")=19) S XVVS("RM80")="U $I:WIDTH="_RM Q

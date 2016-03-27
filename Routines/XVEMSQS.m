@@ -1,4 +1,4 @@
-XVEMSQS ;DJB,VSHL**QWIKs - List & Select [9/9/95 7:50pm]
+XVEMSQS ;DJB,VSHL**QWIKs - List & Select ; 3/26/16 10:44pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 QWIK(CD) ;User's entry used the "." or ".." syntax.
@@ -89,7 +89,7 @@ SYSTEM ;List System QWIKs
  Q
 LIST ;List QWIKs
  I 'COL W ! I $Y>(XVV("IOSL")-5) D PAUSEQ^XVEMKC(1) Q:FLAGQ  W @XVV("IOF"),!
- W ?COL,NM S COL=$S(COL<(XVV("IOM")-10):COL+10,1:0)
+ W ?COL,NM S COL=$S(COL<(XVV("IOM")-(XVV("IOM")#10)-10):COL+10,1:0)
  Q
 HD ;Heading
  S HD=HD_"   Q W I K S"
