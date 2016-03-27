@@ -1,4 +1,4 @@
-XVEMD ;DJB,VEDD**Electronic Data Dictionary ; 1/24/09 10:07pm
+XVEMD ;DJB,VEDD**Electronic Data Dictionary ; 3/26/16 11:52pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Entry point
@@ -6,7 +6,7 @@ EN ;Entry point
  . W $C(7),!!?2,"You don't have Filemanager in this UCI.",!
  . D:$G(FLAGVPE)["VGL"!($G(FLAGVPE)["VRR") PAUSE^XVEMKC(2)
  I $G(DUZ)'>0 D ID^XVEMKU Q:$G(DUZ)=""
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMDY,UNWIND^XVEMSY"
 START ;
  NEW FLAGE,FLAGG,FLAGGL,FLAGGL1,FLAGH,FLAGM,FLAGP,FLAGP1,FLAGQ
  NEW DIC,VEDDATE,I,PRINTING,X,Y,Z1,ZGL,ZNAM,ZNUM,ZZGL
@@ -27,6 +27,7 @@ TOP ;
  D MULT^XVEMDPR,MENU^XVEMD1 G:FLAGE EX
  S FLAGH=1 G TOP ;Set FLAGH to bypass opening screen
 EX ;Exit
+ I $G(XVSIMERR)=1 S $EC=",U-SIM-ERROR,"
  KILL ^TMP("XVV","VEDD",$J)
  Q
  ;==================================================================

@@ -1,10 +1,10 @@
-XVEMSU1 ;DJB,VSHL**Utilities - KEY,DIC,DIET,DIPT,DIBT ; 1/24/09 10:51pm
+XVEMSU1 ;DJB,VSHL**Utilities - KEY,DIC,DIET,DIPT,DIBT ; 3/27/16 12:20am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 KEY ;Display escape sequence for any key hit.
  NEW COL,FLAGQ,HLD,I,X,Y
  ;
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ETRAP S $ETRAP="D ERROR^XVEMSU1"
  ;
  W @XVV("IOF"),!,"K E Y B O A R D   I N T E R P R E T E R",!
  S FLAGQ=0
@@ -21,6 +21,7 @@ KEY1 ;Get user input. Use 'Read Terminators'.
  KILL HLD S HLD=""
  S COL=12
  W !?1,"Hit any key: "
+ I $G(XVSIMERR) S $EC=",U-SIM-ERROR,"
  R X#1:100 I ('$T)!($G(X)<0) S FLAGQ=1 Q
  I $A(X)>31,$A(X)<127 S X=$A(X)
  E  X XVV("TRMRD") S X=Y
