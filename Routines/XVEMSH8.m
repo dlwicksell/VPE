@@ -1,4 +1,4 @@
-XVEMSH8 ;DJB,VSHL**MISCELLANEOUS [3/8/95 6:55am]
+XVEMSH8 ;DJB,VSHL**MISCELLANEOUS ; 3/27/16 12:48am
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 MISC ;;;
@@ -48,20 +48,3 @@ MISC ;;;
  ;;; then look to see if you have a User QWIK named TO, and execute it. You can
  ;;; set TO to run any M code you'd like. Setting TO="HALT" will cause the VShell
  ;;; to quit.
- ;;;
- ;;; The VShell comes with its own screensaver which you can use by setting
- ;;; TO="DO ^XVEMSTO". This screensaver will disable Control-C. Hitting any key
- ;;; will return you back to your normal screen.
- ;;;
- ;;; To disable Control-Y in VAX DSM, set TO="DO VMS^XVEMSTO". Then set up the
- ;;; following file called TIMEOUT.COM, in your Log-In Directory:
- ;;;
- ;;;     $ SET NOCONTROL=(T,Y)
- ;;;     $ DEFINE/USER SYS$INPUT SYS$COMMAND
- ;;;     $ DSM/UCI=VAH/VOL=ROU/ENV=MMPSMGR VMS1^XVEMSTO
- ;;;
- ;;; NOTE: In the last line, replace MMPSMGR with your own Mumps Manager account.
- ;;;
- ;;; The VSHELL also includes a screen blanker. Set TO="BLANK^XVEMSTO". If you're
- ;;; on a VAX, change TIMEOUT.COM to call BLANK^XVEMSTO instead of VM1^XVEMSTO.
- ;;;***
