@@ -1,11 +1,11 @@
-XVEMRLZ ;DJB,VRR**RTN VER - ..LBRY Options ; 1/24/09 10:48pm
+XVEMRLZ ;DJB,VRR**RTN VER - ..LBRY Options ; 4/10/16 5:56pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 DELETE ;Delete versions
  NEW CNT,DA,DESC,DIC,DIK,IEN,ND,RENUM,RTN,TMP,VER
  ;
  Q:'$D(^XVV(19200.112))  ;...Version file doesn't exist
- S X="ERROR^XVEMRLZ",@($$TRAP^XVEMKU1) KILL X
+ N $ES,$ET S $ET="D ERROR^XVEMRLZ,UNWIND^XVEMSY"
  ;
  W !,"*** DELETE VERSION(S) ***",!
  S RTN=$$GETRTN^XVEMRLY() Q:RTN']""
@@ -18,6 +18,7 @@ DELETE ;Delete versions
  KILL ^TMP("VPE",$J)
  S CNT=1,VER=0
  F  S VER=$O(^XVV(19200.112,"AKEY",RTN,VER)) Q:'VER  D  ;
+ . I $D(XVSIMERR) S $EC=",U-SIM-ERROR,"
  . S IEN=$O(^(VER,"")) Q:'IEN  ;
  . S ND=$G(^XVV(19200.112,IEN,0))
  . S DESC=$P(ND,"^",3) S:DESC="" DESC="No description"
@@ -71,7 +72,7 @@ BULKDEL ;Bulk delete
  NEW PRESERVE,RENUM,SHOW,X
  ;
  Q:'$D(^XVV(19200.112))  ;...Version file doesn't exist
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ES,$ET S $ET="D ERROR^XVEMRLZ,UNWIND^XVEMSY"
  KILL ^TMP("VPE",$J)
  ;
  S SHOW=$$BULKS() G:SHOW="" BULKEX
@@ -99,6 +100,7 @@ BULKEX ;Exit
  ;
 BULKS() ;Which routines to show in Selector?
  ;Return: L, A, or ""
+ I $D(XVSIMERR) S $EC=",U-SIM-ERROR,"
  NEW SHOW
  W !,"Include which routines in Selector?"
  W !!,"   L  Library Routines"
@@ -176,7 +178,7 @@ BULKV1 W !!,"Enter number of most recent versions to be preserved: "
 ERROR ;Error trap
  NEW ZE
  S @("ZE="_XVV("$ZE"))
- L -VRRLOCK(RTN) ;Unlock routine editing
+ I $G(RTN)]"" L -VRRLOCK(RTN) ;Unlock routine editing
  W !!,"An error has occurred"
  W !,"ERROR: ",ZE
  D PAUSE^XVEMKU(2,"P")

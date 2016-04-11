@@ -1,4 +1,4 @@
-XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ; 2/29/16 8:39am
+XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ; 4/10/16 7:00pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INQ ;Inquire
@@ -114,7 +114,7 @@ RESTORE ;Restore a routine from the Version file (19200.112).
  NEW CD,CNT,FLAGQ,I,IEN,RTN,XVVS,VER,VRRPGM,X
  ;
  Q:'$D(^XVV(19200.112))  ;...Version file doesn't exist
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ES,$ET S $ET="D ERROR,UNWIND^XVEMSY"
  ;
  W !,"*** RESTORE A VERSION ***",!
  S RTN=$$GETRTN() Q:RTN']""
@@ -174,6 +174,7 @@ GETIEN(RTN,VER) ;Get IEN from Version file (19200.112).
  ;RTN=Routine name
  ;VER=Version number
  ;
+ I $D(XVSIMERR) S $EC=",U-SIM-ERROR,"
  NEW IEN
  Q:$G(RTN)']""
  Q:'$G(VER)
@@ -183,7 +184,7 @@ GETIEN(RTN,VER) ;Get IEN from Version file (19200.112).
 ERROR ;Error trap
  NEW ZE
  S @("ZE="_XVV("$ZE"))
- L -VRRLOCK(RTN) ;Unlock routine editing
+ I $G(RTN)]"" L -VRRLOCK(RTN) ;Unlock routine editing
  W !!,"An error has occurred"
  W !,"ERROR: ",ZE
  D PAUSE^XVEMKU(2,"P")
