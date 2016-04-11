@@ -1,4 +1,4 @@
-XVEMKY ;DJB,KRN**Kernel - Basic Init ; 3/13/16 4:34pm
+XVEMKY ;DJB,KRN**Kernel - Basic Init ; 4/10/16 5:46pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -19,12 +19,12 @@ TIME ;Set timeout length
  Q
  ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 IO ;Form Feed, Margin, Sheet Length
+ N XVAUTOMARG S XVAUTOMARG=$$AUTOMARG()
+ I XVAUTOMARG S IOM=$P(XVAUTOMARG,U),IOSL=$P(XVAUTOMARG,U,2) S XVV("IOSL")=IOSL,XVV("IOM")=IOM
  I $G(IOF)]"",$G(IOSL)]"",$G(IOM)]"" D  D PARAM Q
  . S XVV("IOF")=IOF,XVV("IOSL")=IOSL,XVV("IOM")=IOM
  I $D(^%ZIS(1)) D KERN I 1
  E  D NOKERN
- N XVAUTOMARG S XVAUTOMARG=$$AUTOMARG()
- I XVAUTOMARG S IOM=$P(XVAUTOMARG,U),IOSL=$P(XVAUTOMARG,U,2) S XVV("IOSL")=IOSL,XVV("IOM")=IOM
  D PARAM
  Q
  ;
@@ -37,9 +37,10 @@ PARAM ;Adjust screen length/width to ..PARAM settings
  ;
 KERN ;VA KERNEL
  D HOME^%ZIS
- S XVV("IOSL")=IOSL
  S XVV("IOF")=IOF
- S XVV("IOM")=IOM
+ I '$D(XVV("IOSL"))!('$D(XVV("IOM"))) D
+ . S XVV("IOSL")=IOSL
+ . S XVV("IOM")=IOM
  Q
  ;
 NOKERN ;No VA KERNEL
