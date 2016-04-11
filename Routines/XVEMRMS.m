@@ -1,7 +1,12 @@
-XVEMRMS ;DJB,VRR**Save Changes ; 1/24/09 10:48pm
+XVEMRMS ;DJB,VRR**Save Changes ; 3/27/16 8:30pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SAVE ;Save changes on-the-fly.
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR,UNWIND^XVEMSY"
+ D SAVE1
+ QUIT
+ ;
+SAVE1 ; [Internal] Extra level so unwind will pop appropriatly
  ;Rtns calling here should have FLAGQ=1. FLAGQ is set to 0 if user
  ;is not to be exited but returned to current rtn to continue editing.
  ;
@@ -9,7 +14,6 @@ SAVE ;Save changes on-the-fly.
  ;
  NEW XVVS,VRRPGM,VRRUPDAT,X
  ;
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
  KILL ^UTILITY($J)
  ;
  D BUILD G:$G(VRRPGM)']"" EX
@@ -36,6 +40,7 @@ BUILD ;Build ^UTILITY array
  I FLAGQ S VRRPGM="" Q
  S VRRPGM=$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
  Q:VRRPGM']""
+ I $G(XVSIMERR1) S $EC=",U-SIM-ERROR,"
  D CONVERT^XVEMRV(VRRS)
  S TMP=$G(^UTILITY($J,0,1))
  I TMP']""!(TMP=" <> <> <>") S VRRPGM="" Q

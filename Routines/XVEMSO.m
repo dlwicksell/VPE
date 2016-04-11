@@ -1,10 +1,9 @@
-XVEMSO ;DJB,VSHL**Run Kernel Menu Option ; 1/24/09 10:50pm
+XVEMSO ;DJB,VSHL**Run Kernel Menu Option ; 3/27/16 5:09pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 KERNEL(OPT) ;Calls KERNEL ^XQ
  ;OPT=Name/number of entry in OPTION file (#19)
  D SETUP G:OPT']"" EX
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
  NEW %H,%I,A,DIC,I1,X,Y,Z
  NEW XQAA,XQABOLD,XQABTST,XQCH,XQCY,XQDIC,XQI,XQJ,XQJMP,XQK,XQM,XQNOHALT,XQPSM,XQN,XQPSM,XQSAV,XQSV,XQT,XQTT,XQUR,XQUSER,XQV,XQVOL,XQY,XQYY,XQY0,XQZ,XUD,XUDEV,XUVOL
  S (XQY,XQM)=OPT,XQNOHALT=1 W ! D ^XQ W !
@@ -12,7 +11,6 @@ KERNEL(OPT) ;Calls KERNEL ^XQ
 OPTION(OPT) ;Uses code taken from KERNEL's ^XQ1
  ;OPT=Name/number of entry in OPTION file (#19)
  D SETUP G:OPT']"" EX D CHECK G:OPT']"" EX
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
  NEW D0,DIASKHD,D,DA,DI,DIC,DICS,DIE,DPP,DQ,DR,DW
  NEW %,%X,%Y,C,FLDS,I,LIST,NUM,Q,VAR,X,Y,Z
  W !,$P(^DIC(19,OPT,0),U,2) D @($P(^(0),U,4)_"^XVEMSO1") W !
@@ -47,11 +45,4 @@ CHECK ;Don't allow Menu type option
  W $C(7),!!?1,"You may only run the following KERNEL option types:"
  W !!?10,"ACTION",!?10,"EDIT",!?10,"INQUIRE"
  W !?10,"PRINT",!?10,"ROUTINE"
- Q
-ERROR ;Error Trap
- NEW ZE
- S @("ZE="_XVV("$ZE"))
- ;Don't show Kernel error at +14^XQ1
- I ZE'["^XQ1" D ERRMSG^XVEMKU1("'KERNEL Call'")
- D PAUSE^XVEMKU(2)
  Q
