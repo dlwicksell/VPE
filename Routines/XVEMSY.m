@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 3/20/16 7:51pm
+XVEMSY ;DJB,VSHL**Init,Error ; 4/10/16 7:03pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 INIT ;Initialize variables
@@ -133,8 +133,10 @@ UNWIND ; Unwind and restore old trap
  QUIT
  ;
 UNWIND1 ; 
- Q:$ES>1&$Q -9
- Q:$ES>1
+ ; Q:$ES>1&$Q -9
+ ; Q:$ES>1
+ Q:$ES&$Q -9
+ Q:$ES
  S $EC=""
  QUIT
  ;
