@@ -1,4 +1,4 @@
-XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ; 1/24/09 10:46pm
+XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ; 4/18/16 5:33pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
  ;--> ALL^XVEMRLI    = to sign in all routines
@@ -7,7 +7,7 @@ XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ; 1/24/09 10:46pm
  ;
 EN ;Use ALL^XVEMRLI if you need to sign in rtns other than your own.
  NEW FLAGQ,XVVUSERI,XVVUSERN,X
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMRLU,UNWIND^XVEMSY"
  Q:'$D(^XVV(19200.11))  ;...Library file doesn't exist
  S FLAGQ=0 D INIT^XVEMRLU G:FLAGQ EX
  D GETRTN G:FLAGQ EX
@@ -20,6 +20,7 @@ EX ;
  Q
  ;====================================================================
 GETRTN ;Get rtns to sign in
+ I $D(XVSIMERR) S $EC=",U-SIM-ERROR,"
  NEW CNT,DATA,ID,IEN,RTN,TMP,XVVBYI,XVVBYN
  W !,"Building routine list..."
  KILL ^TMP("VPE","SELECT",$J)

@@ -1,4 +1,4 @@
-XVEMKT1 ;DJB,KRN**Txt Scroll-List TEXT [8/20/98 10:25am]
+XVEMKT1 ;DJB,KRN**Txt Scroll-List TEXT ; 4/18/16 7:34pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 GETXVVT ;Set XVVT=Display text
@@ -7,6 +7,7 @@ GETXVVT ;Set XVVT=Display text
  X XVVT("GET") S XVVT=$G(^TMP("XVV","K",$J,XVVT("BOT")))
  Q
 LIST ;Display text
+ I $D(XVSIMERR5) S $EC=",U-SIM-ERROR,"
  D GETXVVT W !,XVVT
  S XVVT("BOT")=XVVT("BOT")+1 ;Bottom line #
  S:XVVT("GAP") XVVT("GAP")=XVVT("GAP")-1 ;Empty lines left on page

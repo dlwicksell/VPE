@@ -1,4 +1,4 @@
-XVEMRID ;DJB,VRR**INSERT - Programmer Call ; 1/24/09 10:46pm
+XVEMRID ;DJB,VRR**INSERT - Programmer Call ; 4/18/16 5:41pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EN ;Insert programmer call into current program
@@ -14,7 +14,7 @@ EN ;Insert programmer call into current program
  . D PAUSE^XVEMKU(2,"P")
  ;
  NEW %,CALL,CD
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR,UNWIND^XVEMSY"
  W !,"***INSERT PROGRAMMER CALL***"
  S FLAGQ=0
  D GETCALL G:FLAGQ EX
@@ -31,6 +31,7 @@ EX ;
  Q
  ;====================================================================
 GETCALL ;Get programmer call
+ ; S $EC=",U-SIM-ERROR," ; only for testing
  NEW DA,DIC,X,Y
  S DIC="^XVV(19200.113,",DIC(0)="QEAM",DIC("A")="Select CALL: "
  S DIC("S")="I $P($G(^(0)),U,2)'=""n"""

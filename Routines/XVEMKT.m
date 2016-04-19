@@ -1,8 +1,8 @@
-XVEMKT ;DJB,KRN**Txt Scroll-Start ; 1/24/09 10:15pm
+XVEMKT ;DJB,KRN**Txt Scroll-Start ; 4/18/16 7:47pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 IMPORT ;Display imported text passed in variable XVVT
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMKT"
  X XVVT("GET")
  D LIST^XVEMKT1
  Q
@@ -32,7 +32,7 @@ GLB(GLB,XVVMODE,XVVPAGE) ;Display a global
  I $G(GLB)']"" D  Q
  . W !?1,"You must include a global reference..",!
  D  Q:GLB=""
- . N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ . N $ETRAP S $ETRAP="D ERROR S $EC="""""
  . I GLB["(",$E(GLB,$L(GLB))'=")" S GLB=GLB_")"
  . I '$D(@(GLB)) S GLB="" ;Check for valid glb
  NEW GLBHLD,TYPE
@@ -65,7 +65,7 @@ HELP(GLB) ;;GLB=Help text title for VPE VShell. Example: DIE
  Q:$G(GLB)']""
  S GLB="^XVEMS(""ZZ"","""_GLB_""")"
  D  Q:GLB=""  ;Check for valid global
- . N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ . N $ETRAP S $ETRAP="D ERROR S $EC="""""
  . I '$D(@(GLB)) S GLB=""
  NEW GLBHLD,TYPE
  S GLBHLD=$P(GLB,")",1)
@@ -80,7 +80,7 @@ LIST(GLB,FM) ;;Generic Lister.
  Q:$G(GLB)']""
  Q:GLB'?1.E1"("1.E1")"
  D  Q:GLB=""  ;Check for valid global
- . N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ . N $ETRAP S $ETRAP="D ERROR S $EC="""""
  . I '$D(@(GLB)) S GLB=""
  NEW GLBHLD,TYPE
  S GLBHLD=$P(GLB,")",1)
@@ -97,7 +97,7 @@ SELECT(GLB,NUMBER,NEW,TEMPLATE) ;;Generic Selector.
  Q:$G(GLB)']""
  Q:GLB'?1.E1"("1.E1")"
  D  Q:GLB=""  ;Error trap to check if valid global
- . N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ . N $ETRAP S $ETRAP="D ERROR S $EC="""""
  . I '$D(@(GLB)) S GLB=""
  NEW GLBHLD,TYPE
  S GLBHLD=$P(GLB,")",1)
@@ -105,7 +105,7 @@ SELECT(GLB,NUMBER,NEW,TEMPLATE) ;;Generic Selector.
  G TOP^XVEMKTS
  ;====================================================================
 TOP ;
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMKT2,UNWIND^XVEMSY"
  NEW DX,DY,FLAGQ,XVVT
  NEW:'$D(XVV) XVV
  NEW:'$D(XVVS) XVVS
