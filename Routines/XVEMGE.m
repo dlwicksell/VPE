@@ -1,4 +1,4 @@
-XVEMGE ;DJB,VGL**Edit Global Node ; 1/24/09 10:09pm
+XVEMGE ;DJB,VGL**Edit Global Node ; 4/24/16 11:28pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 EDITV ;Edit node's value
@@ -36,9 +36,8 @@ EDITS1 Q:'$$GETND()
  Q:CD=CD1  I CD']"" D KILLND Q
  I $L(CD)>127 W ! D MSG^XVEMGUM(13,1) Q
  S CD=$P(NODE,"(",1)_"("_CD_")"
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ S $ETRAP="D ERROR S $EC="""""
  I $D(@CD)#2 D MSG^XVEMGUM(12,1) Q  ;Don't overwrite existing node
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
  S TEMP=@NODE KILL @NODE S @CD=TEMP
  S ^TMP("XVV","VGL"_GLS,$J,ND)=CD
  D RESET^XVEMGE1 ;Adj scroll array

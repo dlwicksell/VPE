@@ -1,8 +1,9 @@
-XVEMGM1 ;DJB,VGL**Main Menu cont. [2/24/99 8:06am]
+XVEMGM1 ;DJB,VGL**Main Menu cont. ; 4/24/16 11:21pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 PIECE ;List pieces
  NEW FLAG,FLAGXREF S FLAG=0
+ I $D(XVSIMERR2) S $EC=",U-SIM-ERROR,"
  I '$D(^TMP("XVV","VGL"_GLS,$J,Z1)) D MSG^XVEMGUM(1,1) Q
  I ^TMP("XVV","VGL"_GLS,$J,Z1)']"" D MSG^XVEMGUM(1,1) Q  ;Node was deleted with ES (edit subscript).
  Q:'$$CHECKFM^XVEMGMC()

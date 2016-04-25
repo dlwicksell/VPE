@@ -1,8 +1,8 @@
-XVEMGP ;DJB,VGL**PIECES - Display Global Pieces ; 1/24/09 10:12pm
+XVEMGP ;DJB,VGL**PIECES - Display Global Pieces ; 4/24/16 11:07pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP ;FLAGTYPE="IorX^SWITCH" when switching between Int or eXt views
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMGP,UNWIND^XVEMSY"
  NEW DD,DOTS,FLAGQ,FLAGTYPE,GLVAL,GLVAL1,KEY,NODE,SPACE
  S DOTS=".........................................."
  D GETNODE Q:'$D(^DD(DD,"GL",NODE))
@@ -29,7 +29,7 @@ LIST(TYPE) ;List pieces. TYPE="I" (internal values),TYPE="X" (External values)
  . . Q
  . S XVVX=$J(PC,3)_XVVX
  . I TYPE="X",$G(FNUM)]"",$P(GLVAL,U,PC)'["*Bad Pointer*" D  Q:FLAGQ
- . . N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ . . N $ESTACK,$ETRAP S $ETRAP="D ERROR1^XVEMGP,UNWIND^XVEMSY"
  . . NEW C,I,Y S Y=$P(GLVAL,U,PC) Q:'$D(^DD(DD,FNUM,0))
  . . S C=$P(^(0),U,2) D Y^DIQ S $P(GLVAL,U,PC)=Y
  . S XVVT=$$GETNAME(PC) S XVVT=XVVT_$E(DOTS,1,26-$L(XVVT))_XVVX

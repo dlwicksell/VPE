@@ -1,4 +1,4 @@
-XVEMGO ;DJB,VGL**CODE SEARCH,SKIP ; 1/24/09 10:11pm
+XVEMGO ;DJB,VGL**CODE SEARCH,SKIP ; 4/24/16 11:10pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 SKIP ;Skipping over nodes. Also, see first line of PRINT^XVEMGI.
@@ -34,7 +34,7 @@ CODE1 R !?1,"Enter Mumps Code: ",CODE:XVV("TIME") S:'$T CODE=0
  I "^"[CODE S CODE=0 Q:CODE=0
  I $E(CODE)="?" D  G CODE1
  . W "   If code evaluates to TRUE, node will be displayed."
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR1^XVEMGY,UNWIND^XVEMSY"
  X CODE
  Q
 CDSRCH ;CODE search. Quit if search is currently active
