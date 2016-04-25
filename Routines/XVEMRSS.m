@@ -1,9 +1,6 @@
-XVEMRSS ;DJB,VRR**Rtn String Search ; 1/8/01 8:43am
+XVEMRSS ;DJB,VRR**Rtn String Search ; 4/24/16 10:26pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
- ;
  NEW ASK,CNT,EXCLUDE,FLAGEDT,FLAGQ,QUIT,STRING
- NEW CODE1,CODE2,CODE3,CODE4
- D INIT
 TOP ;
  D SELECT^XVEMRUS G:$O(^UTILITY($J," "))="" EX
  S (FLAGEDT,FLAGQ)=0
@@ -52,7 +49,7 @@ LIST ;List routines
  F I=1:1 S RTN=$O(^UTILITY($J,RTN)) Q:RTN=""!FLAGQ  D  ;
  . I FLAGEDT?1P D FINDEDIT Q
  . W !,RTN,"  "
- . X "ZL @RTN X CODE1"
+ . D SEARCH(RTN)
  . S NUMR=NUMR+1 S:TIC NUMS=NUMS+1 W:TIC ! S TIC=0
  W !!?1,$J(NUMR,4)
  W " Routine",$S(NUMR=1:" ",1:"s "),"searched."
@@ -63,7 +60,7 @@ LIST ;List routines
 FINDEDIT ;Find rtns edited before/after/on a certain date
  NEW CHK,DATE,I,RTNDATE,TXT
  ;
- X "ZL @RTN S TXT=$T(+1)"
+ S TXT=$T(+1^@RTN)
  D  Q:$G(RTNDATE)']""
  . ;Old format: [6/1/99 8:40pm]
  . I TXT[" [" S RTNDATE=$P(TXT," [",$L(TXT," [")) Q
@@ -128,15 +125,47 @@ HELP1 ;User entered '?' at EXCLUDE prompt
  W !?3,"one SEARCH STRING.",!
  Q
 INIT ;
- ;Check each line of rtn to see if it contains STRING array.
- ;FLAGA=AutoPrint active
- S CODE1="F I1=1:1 S TXT=$T(+I1) Q:TXT=""""!FLAGQ  F I2=1:1:CNT(""STR"") I TXT[STRING(I2) S CHKS=1 X CODE2 I CHKS W !!,RTN,""+"",I1-1,"" -->"",TXT S TIC=1 X:'FLAGA CODE4 Q"
+ ; S CODE1="F I1=1:1 S TXT=$T(+I1) Q:TXT=""""!FLAGQ  F I2=1:1:CNT(""STR"") I TXT[STRING(I2) S CHKS=1 X CODE2 I CHKS W !!,RTN,""+"",I1-1,"" -->"",TXT S TIC=1 X:'FLAGA CODE4 Q"
  ;
- ;Does any part of line surrounding EXCLUDE, contain STRING?
- S CODE2="S CHKE=0 X CODE3 Q:'CHKE  S (CHKS,EXC)=0 F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKS  F I3=1:1:$F(TXT,EXCLUDE(EXC)) I $P(TXT,EXCLUDE(EXC),I3)[STRING(I2) S CHKS=1 Q"
+ ; S CODE2="S CHKE=0 X CODE3 Q:'CHKE  S (CHKS,EXC)=0 F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKS  F I3=1:1:$F(TXT,EXCLUDE(EXC)) I $P(TXT,EXCLUDE(EXC),I3)[STRING(I2) S CHKS=1 Q"
  ;
- ;See if line that contains STRING also contains EXCLUDE.
- S CODE3="S EXC=0 F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKE  I TXT[EXCLUDE(EXC) S CHKE=1"
+ ; S CODE3="S EXC=0 F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKE  I TXT[EXCLUDE(EXC) S CHKE=1"
  ;
- S CODE4="R ASK:300 S:ASK=""a"" ASK=""A"" R:""^,A""'[ASK !!?2,""<RETURN>=Continue  ^=Quit  A=AutoPrint"",!?2,""Select: "",ASK:300 S:ASK[""^"" FLAGQ=1 S:ASK=""A"" FLAGA=1"
+ ; S CODE4="R ASK:300 S:ASK=""a"" ASK=""A"" R:""^,A""'[ASK !!?2,""<RETURN>=Continue  ^=Quit  A=AutoPrint"",!?2,""Select: "",ASK:300 S:ASK[""^"" FLAGQ=1 S:ASK=""A"" FLAGA=1"
  Q
+SEARCH(RTN) ; [Internal] Perform actual search of routines
+ ; NB: Replaces INIT code and others that used ZLOAD on DSM like systems.
+ ;Check each line of rtn to see if it contains STRING array.
+ N CHKS S CHKS=0
+ N I1,TXT F I1=1:1 S TXT=$T(+I1^@RTN) Q:TXT=""!FLAGQ  D
+ . N I2 F I2=1:1:CNT("STR") I TXT[STRING(I2) D
+ .. S CHKS=1
+ .. D EXCL(TXT)
+ .. I CHKS W !!,RTN,"+",I1-1," -->",TXT S TIC=1 D:'FLAGA ASK
+ QUIT
+ ;
+EXCL(TXT) ; [Internal] Excludes
+ ; Input: TXT - Line of Routine Code
+ ;See if line that contains STRING also contains EXCLUDE.
+ N CHKE S CHKE=0
+ N EXC S EXC=0
+ F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKE  I TXT[EXCLUDE(EXC) S CHKE=1
+ Q:'CHKE
+ ;
+ ; VEN/SMH: This looks really weird, but I am keeping it.
+ ;Does any part of line surrounding EXCLUDE, contain STRING?
+ S (CHKS,EXC)=0
+ F  S EXC=$O(EXCLUDE(EXC)) Q:'EXC!CHKS  D
+ . N I3 F I3=1:1:$F(TXT,EXCLUDE(EXC)) I $P(TXT,EXCLUDE(EXC),I3)[STRING(I2) S CHKS=1 Q
+ QUIT
+ ;
+ASK ; [Internal] Ask to continue
+ ;Output: FLAGA=AutoPrint active
+ ;Output: FLAGQ=Quit
+ N ASK
+ R ASK:300
+ S:ASK="a" ASK="A"
+ R:"^,A"'[ASK !!?2,"<RETURN>=Continue  ^=Quit  A=AutoPrint",!?2,"Select: ",ASK:300
+ S:ASK["^" FLAGQ=1
+ S:ASK="A" FLAGA=1
+ QUIT
