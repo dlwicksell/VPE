@@ -2,8 +2,8 @@
 %ZVEMD.m: NEW X S X="ERROR^%ZVEMDY",@($$TRAP^%ZVEMKU1) KILL X -- Tested and Done
 %ZVEMGE.m: NEW X S X="ERROR^%ZVEMGE",@($$TRAP^%ZVEMKU1) KILL X -- Done and Tested
 %ZVEMGE.m: NEW X S X="",@($$TRAP^%ZVEMKU1) KILL X              -- Removed
-%ZVEMGI.m: NEW X S X="ERROR^%ZVEMGI1",@($$TRAP^%ZVEMKU1) KILL X
-%ZVEMG.m: NEW X S X="ERROR^%ZVEMGY",@($$TRAP^%ZVEMKU1) KILL X
+%ZVEMGI.m: NEW X S X="ERROR^%ZVEMGI1",@($$TRAP^%ZVEMKU1) KILL X -- Done and tested.
+%ZVEMG.m: NEW X S X="ERROR^%ZVEMGY",@($$TRAP^%ZVEMKU1) KILL X -- Done and tested
 %ZVEMGM.m: NEW X S X="ERROR^%ZVEMGM",@($$TRAP^%ZVEMKU1) KILL X -- Done and Tested
 %ZVEMGO.m: NEW X S X="ERROR1^%ZVEMGY",@($$TRAP^%ZVEMKU1) KILL X X CODE -- Done and Tested
 %ZVEMGP.m: NEW X S X="ERROR^%ZVEMGP",@($$TRAP^%ZVEMKU1) KILL X -- Done and Tested
