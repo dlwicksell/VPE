@@ -16,15 +16,13 @@ in Programmer Mode `D ^XV`
 This command both starts VPE and installs it for the first time if it is not
 already installed.
 
-NB: If you are using VPE on a system that doesn't contain Kernel and Fileman,
-you will need the routine ZU for your platform. This is a temporary need only;
-it will be fixed in a future version.
+VPE does not rely on VISTA or RPMS being installed. You can use a lot of its functionality without VISTA or RPMS. Anything Fileman related will not work if Fileman isn't installed.
 
 ## Using VPE
 To enter VPE, type `D ^XV`. The VPE manuals can be found here: http://hardhats.org/tools/vpe/vpe_db.html.
 
 ## Changes for VPE from 12.0 to 13.0
-NB: Authors are noted as Sam Habiel (SMH), David Wicksell (DLW) and Rick Marshall (FDSM).
+NB: Authors are noted as Sam Habiel (SMH) and David Wicksell (DLW).
 
  * VPE has been renamedspaced from VEE, ZVE, and %ZVE to XVV and ZVE (Most done
    by DLW; SMH did the % Routines renamespacing; SMH refactored all of the code
@@ -32,9 +30,6 @@ NB: Authors are noted as Sam Habiel (SMH), David Wicksell (DLW) and Rick Marshal
    renamespacing done via rename, mv, and sed Unix Commands.)
  * New system QWIK: ZINSERT called via ..ZI. Allows you to paste an entire
    routine in. (Author: DLW for GT.M; Cache Support and bug fixes: SMH).
- * Error traps refactored to use ZU temporarily in order to avoid setting $ZTRAP
-   which causes system crashes when mixed with $ETRAP. (FDSM). This change
-   will be eventually rolled back to use the VPE native error traps with $ETRAP.
  * Remove install question about Manager UCI. This is installed in a user namespace now. (SMH).
  * Remove warnings about Global Protection. This is installed in a user namespace now. (SMH).
  * Cache is listed as a supported system when installing (SMH).
@@ -61,6 +56,18 @@ NB: Authors are noted as Sam Habiel (SMH), David Wicksell (DLW) and Rick Marshal
 ## Authors for version 13.0:
 
  * David Wicksell
+ * Sam Habiel
+
+## Changes for version 13.1
+
+ * Automargin outside of screen operations is fixed
+ * Unused routines removed (old editor and timeout screensaver routine)
+ * All error traps are M95 standard and use VPE code to teardown data structures
+ * Routine search (RS from Editor) now works on GT.M, not just DSM variants (used to rely on ZLOAD).
+ * QWIK arguments should not be uppercases (e.g. '..e test' edited the routine TEST, which is not appropriate)
+
+## Authors for version 13.1
+
  * Sam Habiel
 
 ## License
