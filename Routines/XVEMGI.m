@@ -1,8 +1,8 @@
-XVEMGI ;DJB,VGL**Loop,Print,Import ; 1/24/09 10:09pm
+XVEMGI ;DJB,VGL**Loop,Print,Import ; 5/1/16 6:53pm
  ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
  ;
 TOP(ZGR) ;ZGR contains starting point, such as ^VA(200).
- N $ESTACK,$ETRAP S $ETRAP="D ERR^ZU Q:$QUIT -9 Q"
+ N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMGI1,UNWIND^XVEMSY"
  I FLAGOPEN NEW GLB,FLAGSKIP,SKIPHLD,STK D  D:$D(@GLB(STK))#2 PRINT Q
  . S STK=1,GLB(STK)=ZGR,FLAGSKIP=0 KILL SKIPHLD
  NEW ZCHK,ZORD,GLB,FLAGSKIP,SKIPHLD,STK
@@ -23,6 +23,7 @@ LOOP1 ;When ZORD(STK) is null come here
  ;==================================================================
 PRINT ;Print a single node
  ;Next line: restrict levels because user entered commas.
+ I $D(XVSIMERR7) S $EC=",U-SIM-PROT-ERROR,"
  I FLAGC S SUBCHK=$$ZDELIM^XVEMGU(GLB(STK)) Q:FLAGC1="NP"&($L(SUBCHK,ZDELIM)<FLAGC)  Q:FLAGC1="P"&($L(SUBCHK,ZDELIM)'=FLAGC)
  I XVVT("STATUS")'["START" D IMPORTS^XVEMKT("IG"_GLS) S $P(XVVT("STATUS"),"^",1)="START"
  S GLNAM=GLB(STK),GL=$P(GLNAM,"("),GLVAL=@GLB(STK)
