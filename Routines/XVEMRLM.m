@@ -1,5 +1,5 @@
 XVEMRLM ;DJB,VRR**RTN LBRY - Menu ; 9/24/02 7:10am
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Entry Point
  ;--> User can type ..LBRY ON/OFF to activate/deactivate Rtn Lbry.

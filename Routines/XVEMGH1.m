@@ -1,5 +1,5 @@
 XVEMGH1 ;DJB,VGL**Help Text - Main Screen [02/05/95]
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 VGL2 ;;;
  ;;; V G L   E N T R Y   P O I N T S

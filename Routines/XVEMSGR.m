@@ -1,5 +1,5 @@
 XVEMSGR ;DJB,VSHL**VShell Global - ZOSF Nodes ; 12/15/00 11:49pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 ZOSF ;Load system specific code into ZOSF nodes
  NEW I,ND,TXT,VEND

@@ -1,5 +1,5 @@
 XVEMKY2 ;DJB,KRN**Screen Variables ; 3/26/16 10:32pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
  ;;X XVVS("CRSR"),XVVS("RM0"). All others are: W @()
 SCRNVAR ;Screen Variables

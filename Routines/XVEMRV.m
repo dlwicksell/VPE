@@ -1,5 +1,5 @@
 XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line ; 3/5/16 4:30pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 VERIFY(ND) ;When editor is exitted, verify that Lines and Tags are legal
  ;When VERIFY is called, FLAGQ=1

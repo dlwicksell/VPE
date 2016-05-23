@@ -1,5 +1,5 @@
 XVEMSU1 ;DJB,VSHL**Utilities - KEY,DIC,DIET,DIPT,DIBT ; 3/27/16 12:20am
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 KEY ;Display escape sequence for any key hit.
  NEW COL,FLAGQ,HLD,I,X,Y

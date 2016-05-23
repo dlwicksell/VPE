@@ -1,5 +1,5 @@
 XVEMSGH ;DJB,VSHL**VShell Global - Help Text ; 8/29/02 9:21pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
  Q
 TEXT ;Load HELP and other text

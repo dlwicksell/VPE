@@ -1,5 +1,5 @@
 XVEMKTR ;DJB,KRN**Txt Scroll-Get REF Number [4/16/95 5:54am]
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 GETSCR(ND,PKG) ;Get scroll array equivilent for a given node
  ;ND=Node number from VGL display

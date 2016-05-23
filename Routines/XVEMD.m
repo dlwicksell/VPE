@@ -1,5 +1,5 @@
 XVEMD ;DJB,VEDD**Electronic Data Dictionary ; 3/26/16 11:52pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Entry point
  I '$D(^DD(0)) D  Q

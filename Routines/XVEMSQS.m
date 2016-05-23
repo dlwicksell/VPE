@@ -1,5 +1,5 @@
 XVEMSQS ;DJB,VSHL**QWIKs - List & Select ; 3/26/16 10:44pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 QWIK(CD) ;User's entry used the "." or ".." syntax.
  NEW I,TYPE

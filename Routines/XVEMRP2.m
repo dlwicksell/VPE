@@ -1,5 +1,5 @@
 XVEMRP2 ;DJB,VRR**Block Mode - Highlight Characters ; 8/31/02 12:29pm
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 LEFT ;Char highlight - cursor left
  NEW CHAR,ND,TAGL,TMP

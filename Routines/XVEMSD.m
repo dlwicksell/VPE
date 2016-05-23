@@ -1,5 +1,5 @@
 XVEMSD ;DJB,VSHL**Delete Range of Variables (..ZD) [05/07/94]
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
  ;;S XVVZD="%,X,Z" D ^XVEMSD ;Use in QWIKs to delete a range
  I '$$EXIST^XVEMKU("%ZOSV") W !?2,"This QWIK requires routine ^%ZOSV.",! Q

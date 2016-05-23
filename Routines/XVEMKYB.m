@@ -1,5 +1,5 @@
 XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ; 4/5/03 8:02am
- ;;13.0;VICTORY PROG ENVIRONMENT;;Feb 29, 2016
+ ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 BLANK1 ;Blank - cursor to end-of-screen
  I $G(IOST(0))]"",$D(^%ZIS(2,IOST(0),5)),$P(^(5),"^",7)]"" W @($P(^(5),"^",7)) Q
