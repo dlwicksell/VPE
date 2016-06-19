@@ -1,4 +1,4 @@
-XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 2/29/16 9:00am
+XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 6/18/16 1:31pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 ZPRINT ;ZP System QWIK to print a routine
@@ -12,12 +12,13 @@ ZPMSG ;No parameter passed
  Q
  ;====================================================================
 ZREMOVE() ;Delete a routine
- I $G(%1)']"" D ZRMSG Q 0
+ I $G(%1)']"" D ZRMSG Q
  NEW CHK,I,TMP
  S CHK=0 F I=1:1:9 S TMP="%"_I I $G(@TMP)]"",@TMP["^" S CHK=1
- I CHK W $C(7),!,"..ZR parameters should not contain ""^"".",! Q 0
- I $$YN^XVEMKU1("OK TO DELETE? ",2)'=1 Q 0
- Q 1
+ I CHK W $C(7),!,"..ZR parameters should not contain ""^"".",! Q
+ I $$YN^XVEMKU1("OK TO DELETE? ",2)'=1 Q
+ DO REMOVE
+ Q
 ZRMSG ;
  W $C(7),!!,"..ZR will delete from 1 to 9 routines. You pass the names of the routines"
  W !,"to be deleted, as parameters."
@@ -32,16 +33,40 @@ VERSION ;VShell Version Information
  W @XVV("ROFF"),!
  Q
  ;
-CACHE ;
- NEW XVVS,VRRPGM,VRRS
- S VRRS=1
- KILL ^TMP("XVV","IR"_VRRS,$J)
- S VRRS=1
- D ZSAVE^XVEMKY3 Q:FLAGQ
- F VRRPGM="XVEMKRN","XVEMSU1" D  ;
- . D SETGLB^XVEMRS1
- . D CONVERT^XVEMRV(VRRS)
- . D E2^XVSE ; X ^XVEMS("E",2)
- KILL ^TMP("XVV","IR"_VRRS,$J)
- KILL ^TMP("XVV","VRR",$J)
- Q
+REMOVE ; Shared entry point for removing the routines.
+ NEW I,X
+ F I=1:1:9 S X=@("%"_I) Q:X']""  D
+ . I XVV("OS")=19!(XVV("OS")=17) D ZRGUX(X)  ; GTM/UNIX,VAX only
+ . E  D ZRDSM(X)
+ . W !?2,X," Removed..."
+ QUIT
+ZRDSM(RN) ; ZREMOVE DSM and friends
+ X "ZR  ZS @X"
+ QUIT
+ZRGUX(RN) ; ZREMOVE GT.M/Unix
+ ; Input: Routine Name by Value
+ ; Output: None
+LOOPGTM ; Loop entry point
+ N %ZR ; Output from GT.M %RSEL
+ N %S,%O ; Source directory, object directory 
+ ; 
+ ; NB: For future works, %RSEL support * syntax to get a bunch of routines
+ D SILENT^%RSEL(RN,"SRC") S %S=$G(%ZR(RN)) ; Source Directory
+ D SILENT^%RSEL(RN,"OBJ") S %O=$G(%ZR(RN)) ; Object Directory
+ ;
+ I '$L(%S)&('$L(%O)) QUIT
+ ;
+ S RN=$TR(RN,"%","_") ; change % to _ in routine name
+ ;
+ N $ET,$ES S $ET="Q:$ES  S $EC="""" Q" ; In case somebody else deletes this; we don't crash
+ ;
+ I $L(%S) D  ; If source routine present?
+ . O %S_RN_".m":(readonly):0
+ . E  Q
+ . C %S_RN_".m":(delete)
+ ;
+ I $L(%O) D  ; If object code present?
+ . O %O_RN_".o":(readonly):0
+ . E  Q
+ . C %O_RN_".o":(delete)
+ G LOOPGTM

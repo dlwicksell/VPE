@@ -1,4 +1,4 @@
-XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 2/29/16 11:06am
+XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 6/18/16 1:32pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -94,7 +94,7 @@ QWIK ;System QWIK Commands
  ;;ZP;D;ZPrint a Routine^%1=Rtn Name^3
  ;;ZP;C;D ZPRINT^XVEMSU2
  ;;ZR;D;ZRemove 1 to 9 Routines^%1=Rtn Name  %2=Rtn Name ...^3
- ;;ZR;C;Q:'$$ZREMOVE^XVEMSU2()  NEW I,X F I=1:1:9 S X=@("%"_I) Q:X']""  ZR  ZS @X W !?2,X," Removed..."
+ ;;ZR;C;D ZREMOVE^XVEMSU2()
  ;;ZW;D;ZWrite Symbol Table^%1=Starting letter^3
  ;;ZW;C;D WRITE^XVEMSPS(%1)
  ;;***
