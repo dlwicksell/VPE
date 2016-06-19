@@ -1,4 +1,4 @@
-XVEMRS ;DJB,VRR**Get Program ; 3/5/16 4:28pm
+XVEMRS ;DJB,VRR**Get Program ; 6/18/16 1:09pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Enter here from ^XVEMR
@@ -14,6 +14,7 @@ EX ;
  ;
 GETPGM ;
  I $G(FLAGPRM)=1 S VRRPGM=%1 G GETPGM1
+GETPGM0 ;
  NEW RTN
  S RTN=$G(^XVEMS("E","VRR",DUZ))
  ; Next: If RTN doesn't exist it shouldn't be the default routine
@@ -26,10 +27,10 @@ GETPGM1 ;Come here when passing a parameter
  NEW CHK,I
  I "^"[VRRPGM S FLAGQ=1 Q
  S:VRRPGM["^" VRRPGM=$P(VRRPGM,"^",2) S:VRRPGM["(" VRRPGM=$P(VRRPGM,"(")
- I VRRPGM="?" D HELP G GETPGM
- I VRRPGM="??" D LIST KILL ^UTILITY($J) W ! G GETPGM
- I VRRPGM'?.1"%"1A.AN D MSG1 G GETPGM
- I $D(^XVEMS("E")),VRRS=1 S ^XVEMS("E","VRR",DUZ)=VRRPGM
+ I VRRPGM="?" D HELP G GETPGM0
+ I VRRPGM="??" D LIST KILL ^UTILITY($J) W ! G GETPGM0
+ I VRRPGM'?.1"%"1A.AN D MSG1 G GETPGM0
+ I VRRS=1 S ^XVEMS("E","VRR",DUZ)=VRRPGM
  ;
  ;--> Next lines check to see if anyone else is editing this routine.
  Q:$G(FLAGVPE)'["EDIT"
