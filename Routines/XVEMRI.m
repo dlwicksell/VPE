@@ -1,8 +1,8 @@
-XVEMRI ;DJB,VRR**INSERT - READ,HELP,ADD,DELETE ; 12/25/00 5:14pm
+XVEMRI ;DJB,VRR**INSERT - READ,HELP,ADD,DELETE ; 6/18/16 12:32pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 INSERT(MODE) ;Processes the line tag portion of a new line. When user
- ;hits <TAB>, return to EDIT mode.
+ ;hits <TAB> OR <SPACE>, return to EDIT mode.
  ;MODE: 1 = Open line above
  ;      2 = Open line below
  ;
@@ -21,7 +21,7 @@ EX ;
  ;
 READ ;
  S X=$$READ^XVEMKRN("",1)
- I XVV("K")="<TAB>" D TAB^XVEMRI1 Q
+ I XVV("K")="<TAB>"!(X=" ") D TAB^XVEMRI1 Q
  I ",<ESC>,<F1E>,<F1Q>,<RET>,"[(","_XVV("K")_",") D RETURN^XVEMRI1 Q
  I ",<AR>,<AL>,<AU>,<AD>,"[(","_XVV("K")_",") D ARROW Q
  I XVV("K")?1"<F1".E1">"!(XVV("K")?1"<F2".E1">") D OTHER Q

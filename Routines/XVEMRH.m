@@ -1,4 +1,4 @@
-XVEMRH ;DJB,VRR**Help Text ; 2/29/16 8:37am
+XVEMRH ;DJB,VRR**Help Text ; 6/18/16 12:50pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 VRR1 ;;;
@@ -39,8 +39,9 @@ VRR1 ;;;
  ;;;
  ;;;  In EDIT mode, when you wish to add a new line of code, type <RETURN> to
  ;;;  change to INSERT mode. A blank line will open below the line the cursor
- ;;;  is currently on. You may now add new code. Use <TAB> as a line start
- ;;;  character. Once you hit <TAB> you are returned to EDIT mode. If you hit
- ;;;  <RETURN> without adding any new code, the opened line will be closed.
+ ;;;  is currently on. You may now add new code. Use <TAB> OR <SPACE> as a line
+ ;;;  start character. Once you hit <TAB> or <SPACE> you are returned to EDIT
+ ;;;  mode. If you hit <RETURN> without adding any new code, the opened line
+ ;;;  will be closed.
  ;;;
  ;;;***
