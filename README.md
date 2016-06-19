@@ -64,7 +64,38 @@ NB: Authors are noted as Sam Habiel (SMH) and David Wicksell (DLW).
  * Unused routines removed (old editor and timeout screensaver routine)
  * All error traps are M95 standard and use VPE code to teardown data structures
  * Routine search (RS from Editor) now works on GT.M, not just DSM variants (used to rely on ZLOAD).
- * QWIK arguments should not be uppercases (e.g. '..e test' edited the routine TEST, which is not appropriate)
+ * QWIK arguments should not be uppercased (e.g. '..e test' edited the routine TEST, which is not appropriate)
+
+## Authors for version 13.1
+
+ * Sam Habiel
+
+## Changes for version 13.2
+ 
+ * Routine editor will clear $EC when it starts. Previously, having an active
+   error aborted the save, potentially leading you to lose the changes you made.
+ * Now can have up to 1024 routine buffers open. Previously, the limit was 4.
+ * V13.0 introduced a bug where VPE does not remember your previous routine
+   name. This was due to a check on a global that was removed. This check
+   itself was removed and now VPE remembers the last routine you were editing.
+ * At the first column, you can now insert a space in addition to a tab. A
+   space in the first column will behave the same as the tab, advancing the
+   cursor to the line body from the label line. Previously, only a tab was
+   allowed. A pleasant side effect of this is that correctly formatted M code can
+   be directly pasted into VPE.
+ * ZR QWIK (ZREMOVE) now deletes routines on GT.M. Previously, it only worked
+   on DSM variants.
+ * Two changes for Routine Search:
+ ** Routine Search was prevented from running if you were 2 levels down in the
+    routine editor. This restriction has been removed.
+ ** RSEARCH QWIK invokes VPE's native (and superior!) routine search rather
+    than the one provided by the M implementation.
+ * E QWIK or VRR QWIK (Edit/Read Routine) when invoked with invalid routine
+   names (such as a routine called "&") when into an infinite loop and
+   overflowed the stack. This has been fixed. This has nothing to do with 13.1's
+   error code fixes; rather it's a GOTO gone wild in the original VPE code.
+ * Standalone VPE now just asks for User ID only. Previously, it asked for your
+   DUZ as well, which didn't make any sense in a non-VISTA context.
 
 ## Authors for version 13.1
 
