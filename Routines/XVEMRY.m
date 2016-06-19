@@ -1,4 +1,4 @@
-XVEMRY ;DJB,VRR**Init,Branching,Error ; 3/5/16 6:56pm
+XVEMRY ;DJB,VRR**Init,Branching,Error ; 6/18/16 12:22pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 INIT ;Initialize variables
@@ -33,8 +33,6 @@ VEDD ;Call VEDD, VElectronic Data Dictionary
  D SYMTAB^XVEMKST("R","VRR",VRRS) ;Restore symbol table
  Q
 RSE ;Search Routine for string(s)
- I $G(VRRS)>2 D  D PAUSE^XVEMKC(1) Q
- . W $C(7),!?1,"You can't do Routine Search if you've branched to more than 2 programs."
  D ^XVEMRSS
  Q
 ERROR ;Error trap.
