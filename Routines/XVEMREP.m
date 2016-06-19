@@ -1,4 +1,4 @@
-XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 1/6/01 8:38am
+XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 6/18/16 11:57am
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 WEB ;Web Mode
@@ -55,7 +55,7 @@ PARSE ;Run rtn name from code at cursor position
  ;
 GETRTN() ;Parse routine name
  NEW CODE,I,RTN
- I VRRS>3 W $C(7) Q 0
+ I VRRS>1023 W $C(7) Q 0
  S CODE=$P(^TMP("XVV",$J),"^",1)
  S RTN=$E(CODE,1)
  I RTN'="%",RTN'?1A W $C(7) Q 0

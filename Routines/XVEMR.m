@@ -1,4 +1,4 @@
-XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 4/10/16 5:20pm
+XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 6/18/16 11:58am
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Entry Point
@@ -76,7 +76,7 @@ IMPORT ;Set up for scroller
  S NAME=NAME_$E(SPACE,1,8-$L(NAME))
  S XVVT("HD")=1
  S XVVT("FT")=2
- S XVVT("HD",1)="|=======|"_$E(LINE,1,11)_"[^"_NAME_"]======["_VRRS_" of 4]======[Lines: "_VRRHIGH_$E("    ",1,3-$L(VRRHIGH))_"]"_$E(LINE,1,MAR-65)_"|"
+ S XVVT("HD",1)="|=======|"_$E(LINE,1,11)_"[^"_NAME_"]======["_VRRS_" of 1024]===[Lines: "_VRRHIGH_$E("    ",1,3-$L(VRRHIGH))_"]"_$E(LINE,1,MAR-65)_"|"
  S XVVT("FT",1)="|=======|"_$E(LINE,1,MAR-11)_"|"
  S XVVT("FT",2)="<>  <TAB>=MenuBar  <F3>=Block  <RET>=Insert  <ESC>K=Keybrd  <ESC><ESC>=Quit"
  S XVVT("GET")=1
