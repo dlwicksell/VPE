@@ -1,4 +1,4 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 6/18/16 12:53pm
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 6/18/16 6:03pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;;XV;
  ; Original VPE by David Buldoc
@@ -14,14 +14,14 @@ XV ; Paideia/SMH,TOAD - Entry point for VPE ; 6/18/16 12:53pm
  N XVV  ; stores VPE settings in subscripts; see XVSS
  ;
 NOUSER ; Ask for DUZ if not there
- I '$G(DUZ) S DUZ=0 D
- . I ($D(^DD))&($D(^DIC)) D
+ I '$G(DUZ) S DUZ=0 D  I DUZ<0 K DUZ QUIT
+ . I ($D(^DD))&$D(^VA(200)) D
+ . . N DIC,X,Y,DLAYGO,DINUM,DIDEL,DTOUT,DUOUT
  . . D DT^DICRW
  . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B" 
  . . D IX^DIC
  . . S DUZ=$P(Y,"^")
-DUZ I DUZ'>0 R !,"Please enter your DUZ: ",DUZ
- I DUZ'>0 W !,"You need to enter your DUZ." G DUZ
+ . . Q:DUZ<0
  I ('$D(U))!('$D(DTIME))!('$D(DT)) D
  . ;Set up VPE environment if FM is installed or a minimal environment if not
  . I ($D(^DD))&($D(^DIC)) D DT^DICRW
