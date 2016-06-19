@@ -1,4 +1,4 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 3/1/16 1:18pm
+XV ; Paideia/SMH,TOAD - Entry point for VPE ; 6/18/16 12:53pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;;XV;
  ; Original VPE by David Buldoc
@@ -46,9 +46,3 @@ RUN ; Run VPE
  I XVVSHC=U D ^XVSK ; kill temp space when user halts out
  W !
  QUIT  ; <--- XV
- ;
- ; Unused code
- ; F  D  Q:XVVSHC'="NO EXIT"
- ; . ; X ^XVEMS("ZA",1) //smh
- ; . D ^XVSA ; main loop
- ; . I $G(XVVSHC)=U D ^XVSK ; kill temp space when "^"
