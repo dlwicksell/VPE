@@ -1,8 +1,9 @@
-XVSE ; VEN/SMH - VPE Editor Init Code; replaces ^%ZVEMS("E") ; 2/28/16 5:14pm
+XVSE ; VEN/SMH - VPE Editor Init Code; replaces ^%ZVEMS("E") ; 6/18/16 10:54am
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
  ;
 E ; Edit Entry Point
+ S $EC="" ; Clear error code b/c save part aborts if there is one.
  D E3 ; Get DUZ
  Q:$G(DUZ)=""
  NEW FLAGSAVE,FLAGVPE,XVVS
