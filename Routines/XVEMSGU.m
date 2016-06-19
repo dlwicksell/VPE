@@ -1,4 +1,4 @@
-XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 9/6/02 8:58am
+XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 6/18/16 1:45pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -76,13 +76,7 @@ QWIK ;System QWIK Commands
  ;;RS;18;D ^%RO
  ;;RS;19;D ^%RO
  ;;RSEARCH;D;Routine Search^^5
- ;;RSEARCH;C;W $C(7),!?2,"Not available for this M Vendor.",!
- ;;RSEARCH;8;D ^%RSE
- ;;RSEARCH;9;d ^%rsearch
- ;;RSEARCH;16;D ^%RSE
- ;;RSEARCH;17;D ^%RSE
- ;;RSEARCH;18;D ^%RFIND
- ;;RSEARCH;19;D ^%RSE
+ ;;RSEARCH;C;D RSE^XVEMRY
  ;;RSEL;D;Routine Select^^5
  ;;RSEL;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RSEL;2;D ^%RSEL
