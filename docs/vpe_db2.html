@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>VPE Installation</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2 align="left"><font face="ARIAL">Installation Instructions</font><br>
+  ______________________________________________________________________<br>
+  V P E <br>
+  Version 12<br>
+  ______________________________________________________________________</h2>
+
+<p>       The Victory Programmer Environment consists of 2 files that are saved in MSM format,<br>
+but that can be read by the MUMPS implementations mentioned below.</p>
+<p> VPE_12_Rtns.MGR . . . Programmer Shell &amp; VPE Modules<br>
+  VPE_12_Rtns.PRD . . . Fileman files that support some modules<br>
+  <br>
+  MUMPS SYSTEMS OTHER THAN CACHE and GTM:<br>
+  Load VPE_12_Rtns.MGR into your Manager account and DO ^ZVEMBLD for<br>
+  setup instructions.<br>
+  Load VPE_12_Rtns.PRD into the account where you plan to use VPE and<br>
+  DO ^VEEMINIT to setup Fileman files (optional).</p>
+<p> VETERANS ADMINISTRATION CACHE SYSTEMS:<br>
+  ** Carefully read the instructions for loading the routines **<br>
+  Load both VPE_12_Rtns.MGR and VPE_12_Rtns.PRD into the account where<br>
+  you plan to use VPE. It is necessary to instruct Cache to use the Cache format<br>
+  when specifying the type of routines. DO NOT presume you need to use MSM<br>
+  since the routines were saved in MSM formatting.<br>
+  DO ^ZVEMBLD for setup instructions.<br>
+  DO ^VEEMINIT to setup Fileman files (optional).</p>
+<p> GTM SYSTEMS<br>
+  Load both VPE_12_Rtns.MGR and VPE_12_Rtns.PRD into your GTM<br>
+  environment. DO ^ZVEMBLD for setup instructions. If you encounter the<br>
+  message &quot;THIS IS NOT THE MANAGER UCI&quot;, select YES to continue.<br>
+Next, DO ^VEEMINIT to setup Fileman files (optional).</p>
+<p><br>
+</p>
+</body>
+</html>

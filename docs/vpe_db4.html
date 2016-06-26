@@ -1,0 +1,572 @@
+<html>
+<head>
+<title>VPE Commands Cheat Sheet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p>
+<h1><span style='font-size:16.0pt;'>VPE ROUTINE READER AND EDITOR</span></h1> 
+The VPE Routine Reader (VRR) and Editor (E), share many features, however some 
+of the features listed below only pertain to the editor. (<a href="documents/VPE%20Routine%20Editor%20Quick%20Reference.doc">Also 
+available as a Word document</a>.) 
+<h1><p><span style='font-size:16.0pt;'>Navigation</span></p></h1>
+<table border=1 cellspacing=0 cellpadding=0>
+  <tr> 
+    <td width=205 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Keystroke</span></b></p>
+    </td>
+    <td width=385 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Action</span></b></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;END&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves to the last routine line at the same cursor position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;HOME&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves to the first routine line at the same cursor position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;PAGEDOWN&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Will move you down the routine by one screen length.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;PAGEUP&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Will move you up the routine by one screen length.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AD&gt; (Arrow down)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves your cursor one line down from its current position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AU&gt; (Arrow up)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves your cursor one line up from its current position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AL&gt; (Arrow left)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves your cursor one position to the left.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AR&gt; (Arrow right)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves your cursor one position to the right.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F2 F2&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move cursor to the end of current line.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F1 F1&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move cursor to the beginning of the current line, after the tab.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F1 AR&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move cursor to the end of the line (even if the code wraps to multiple 
+        lines).</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F1 AL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move cursor to the beginning of the line, after the tab (even if the 
+        code wraps to multiple lines)</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F2 AL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move the cursor 15 characters to the left.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F2 AR&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Move the cursor 15 characters to the right.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F4 AR&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves to the last routine line at the same cursor position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F4 AL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Moves to the first routine line at the same cursor position.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC R&gt; (with cursor on ‘^’ preceding routine name)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>If the ‘^’ is prefixed by a valid line label you are taken directly to 
+        that line label, otherwise you are take to the beginning of the routine.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB R&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Will allow you to branch to a routine of your choice.  You can also utilize 
+        your Command Line History keys (see below).</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB F&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Stands for ‘find a line label.’  Branch to one of the line labels listed, 
+        selecting by number.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB L&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Stands for ‘locate a string.’  Prompts you for a string, and locates 
+        the next line below containing the requested string.  You can then continue 
+        typing &lt;ESC N&gt; to continue to locate the next occurrence of the 
+        same string.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB G&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Stands for ‘go to line number.’  You are prompted for LINE and must respond 
+        with a line number.  The selected line number then becomes the first line 
+        on the screen.    </p>
+    </td>
+  </tr>
+</table>
+<b><span style='font-size:16.0pt;font-family:&quot;Times New Roman&quot;;
+'><br clear=all style='page-break-before:always'>
+</span></b> 
+<h1><span style='font-size:16.0pt;'>Clipboard Utilization</span></h1>
+<table border=1 cellspacing=0 cellpadding=0>
+  <tr> 
+    <td width=205 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Keystroke</span></b></p>
+    </td>
+    <td width=385 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Action</span></b></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F3&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Toggles block mode on &amp; off.  Notice upper right corner of editor 
+        when block mode is on.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F3 END&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Toggle block mode on, and then highlight the current routine line down 
+        through the end of the routine.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;F3 HOME&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Toggle block mode on, and then highlight the current routine line up 
+        through the beginning of the routine.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AU&gt; (Arrow-Up) or &lt;AD&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlights line(s) of code.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;AL&gt; (Arrow-Left) or &lt;AR&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlights characters of code to cut, copy, or 
+        paste.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;DEL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, deletes the highlighted line(s) or characters 
+        of code.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC C&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, copies highlighted code to the clipboard and turns 
+        off block mode.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC D&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlighted code is deleted.  When block mode 
+        is off the current line is deleted.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC X&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlighted lines of code are cut and placed on 
+        the clipboard.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC V&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is off, lines of code in the clipboard are inserted below 
+        the current line; or, characters from a single routine line contained 
+        in the clipboard are inserted on the current line.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;HOME&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlights the current line and all lines up to 
+        the beginning of the routine.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;END&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>When block mode is on, highlights the current line and all lines down 
+        to the end of the routine.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB PUR&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>To purge the contents of the clipboard.</p>
+    </td>
+  </tr>
+</table>
+<b><span style='font-size:16.0pt;font-family:&quot;Times New Roman&quot;;
+'><br clear=all style='page-break-before:always'>
+</span></b> 
+<h1><span style='font-size:16.0pt;'>Editing</span></h1>
+<table border=1 cellspacing=0 cellpadding=0>
+  <tr> 
+    <td width=205 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Keystroke</span></b></p>
+    </td>
+    <td width=385 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Action</span></b></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ENTER&gt; (or Return)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Default: Will open (or insert) a new line BELOW the current line regardless 
+        of where the cursor is.  There is another option; see &lt;TAB P&gt; under 
+        Programmer Tools below.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC <span style='font-size:16.0pt;'>-</span>&gt; (dash)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Inserts a line, under the current cursor position, of dashes (for fancy 
+        documentation)</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC <b><span style='font-size:16.0pt;'>.</span></b>&gt; (period)</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p class=MsoHeader>Inserts a line, under the current cursor position, of 
+        periods (for fancy documentation)</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;ESC B&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Breaks the current line into 2 lines at the cursor position.  All of 
+        the characters from the current cursor position on will be inserted on 
+        a new line just below.  Note:  The cursor must be somewhere to the right 
+        of the tab character when using this keystroke.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB CALL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>This feature utilizes a selected entry from the VPE PROGRAMMER CALL file.  
+        It will insert lines of mumps code for you below the line where your cursor 
+        is currently placed.  For example, when prompted for CALL type ‘FM DIC’ 
+        and take the default of Yes when prompted with “Delete previous values? 
+        “  Next you will see an input page (using a FM Screenman call) for all 
+        of the various input variables to the DIC utility.  Answer DIC with 200 
+        and DIC(0) with ”AEMQ” follow by &lt;F1 E&gt; to exit Screenman.  You 
+        will be prompted with ‘Insert this Call into your routine? ‘ and take 
+        the default of YES.  The editor will then place the mumps code into your 
+        routine for the DIC call.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB JC&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Stands for ‘join to the current line.’  The next routine line just below 
+        the current is cut and pasted to the end of the current line.  A space 
+        character is added to separate the newly inserted code from the original 
+        line.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB LC&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Stands for ‘locate and change.’  You are prompted for a REPLACE string, 
+        a WITH string, a STARTING LINE number and an ENDING LINE number.  Finally 
+        you can accept or reject each replaced with ‘Y’es or ‘N’o responses, or, 
+        type ‘A’ to change all occurrences of the located string without any further 
+        prompting.</p>
+    </td>
+  </tr>
+</table>
+<b><span style='font-size:16.0pt;font-family:&quot;Times New Roman&quot;;
+'><br clear=all style='page-break-before:always'>
+</span></b> 
+<h1><span style='font-size:16.0pt;'>Programmer Tools</span></h1>
+<table border=1 cellspacing=0 cellpadding=0>
+  <tr> 
+    <td width=205 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Keystroke</span></b></p>
+    </td>
+    <td width=385 valign=top bgcolor="#3366FF" class="Normal"> 
+      <p align=center style='text-align:center'><b><span
+  style='font-size:16.0pt;'>Action</span></b></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB ASC&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Will display a table of the ASCII character set.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB FMC&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Lets you navigate around a condensed version of the FM Programmer Manual.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB I&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>To run a routine index without leaving the editor.  You can send the 
+        output to a printer or back to your screen.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB P&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>To edit the parameter controlling the way in which the &lt;RETURN&gt; 
+        key effects how a line new line of code is added to an existing routine.  
+        You can optionally allow the &lt;RETURN&gt; key to break a routine line 
+        into two lines of code if the cursor is not at the start or end of a line.  
+        If you choose to select this option and the cursor is at the start of 
+        the line, the &lt;RETURN&gt; would open a new line ABOVE the current line.  
+        If the cursor were at the end of a line the &lt;RETURN&gt; key would open 
+        a new line BELOW the current line.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB RS&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>To run a routine search without leaving the editor.  Each occurrence 
+        found during the search will pause the screen until you hit return.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB S&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Will display the size of the routine (the saved version).</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB SV&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>To save the routine without exiting the routine editor.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB VEDD&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Access the Victory Electronic Data Dictionary.</p>
+    </td>
+  </tr>
+  <tr> 
+    <td width=205 valign=top class="Normal"> 
+      <p>&lt;TAB VGL&gt;</p>
+    </td>
+    <td width=385 valign=top class="Normal"> 
+      <p>Access the Victory Global Lister.  When you are prompted for Global ^ 
+        you can answer with a global, use the Command Line History keys (see below), 
+        or enter &lt;SPACEBAR&gt; return to be prompted for ‘Select FILE: ‘ if 
+        you can’t remember the name of the global.</p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><b><span style='font-size:16.0pt;'>Command Line History</span><span style='font-size:16.0pt;font-family:&quot;Times New Roman&quot;;
+'><br clear=all style='page-break-before:always'>
+  </span></b>The VShell maintains a Command Line History (CLH) that allows you 
+  to capture, edit, and reissue up to 20 commands.  There is a separate CLH maintained 
+  for each of the four modules in Dave Bolduc’s product (the VShell itself, the 
+  global lister (VGL), the electronic data dictionary (VEDD), and the routine 
+  reader (VRR)).</p>
+<h1><span style='font-size:16.0pt;'>Command Line History Keys</span></h1>
+<p>&lt;AL&gt;   Will display your last 20 routine names in the Routine Reader/Editor 
+  (VRR).</p>
+<p>            Will display your last 20 global references in the Global Lister/Editor 
+  (VGL).</p>
+<p>            Will display your last 20 file names in the Electronic Data Dictionary 
+  (VEDD).</p>
+<p>            Will display your last 20 command lines from the VShell.</p>
+<p>Pressing the &lt;AU&gt; and &lt;AD&gt; keys will navigate up and down through 
+  the Command Line History one line at a time.</p>
+<h1><span style='font-size:16.0pt;'>Purging Command Line History</span></h1>
+<p>This will happen automatically, for your protection, when switching UCIs.</p>
+<p>You may also purge the CLH at any time with the appropriate System QWIKs as 
+  follows:</p>
+<p>            <b><span
+style='font-size:16.0pt;'>..</span></b>PURVSHL    Purge VShell CLH</p>
+<p>            <b><span
+style='font-size:16.0pt;'>..</span></b>PURVRR      Purge Routine Lister/Editor 
+  CLH</p>
+<p>            <b><span
+style='font-size:16.0pt;'>..</span></b>PURVGL      Purge Global Lister/Editor 
+  CLH</p>
+<p>            <b><span
+style='font-size:16.0pt;'>..</span></b>PURVEDD    Purge Electronic Data Dictionary 
+  CLH.</p>
+<h1><span style='font-size:16.0pt;'>Turning VShell Command Line History into a 
+  User QWIK</span></h1>
+<p>Using the arrow keys noted above move to a command line that you wish to convert 
+  to a User QWIK, then hit &lt;ESC Q&gt; for the QWIK dialog.  The QWIK you create 
+  will automatically utilize the code from the CLH.  Remember to use the System 
+  QWIK <b>..</b>QSAVE to save your user QWIKs each time you create a User QWIK.</p>
+<p>&nbsp;</p>
+</body>
+</html>

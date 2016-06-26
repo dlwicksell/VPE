@@ -1,0 +1,184 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<link rel=Edit-Time-Data href="vpe_11/./VPE_11_Enhancements_files/editdata.mso">
+<title>VPE</title>
+<style><!--
+.Normal
+	{font-size:12.0pt;
+	font-family:"Times New Roman";}
+-->
+</style>
+</head>
+<body lang=EN-US bgcolor="#FFFFFF" class="Normal">
+<h1>VPE</h1>
+<h2>Version 12 enhancements</h2>
+<p>Version 12 added support for VPE in GT.M environments.</p>
+<h2>Version 11 enhancements</h2>
+<p> The following is a brief description of the enhancements included in VPE version 
+  11.</p>
+<h3>Routine Editor</h3>
+<p> <span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Versioning</span><br>
+  <br>
+  The <i>Library</i> module has been enhanced to include versioning. When you 
+  edit a routine and save your changes, you will be prompted to create a version 
+  of the routine. You can create a new version or update an existing version. 
+  The version is stored in the VPE Version file and can be restored at anytime 
+  via the <i>..LBRY</i> menu. Read the Help option in system QWIK <i>..LBRY</i> 
+  for more information.</p>
+<p> <span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Saving Code To The Clipboard</span><br>
+  <br>
+  The editor&#146;s <i>Cut</i>/<i>Copy</i>/<i>Paste</i> functions have been enhanced 
+  to allow you to copy a portion of a line of code to the clipboard and paste 
+  it back in at a different location.<br>
+  <br>
+  <u>Old Method<br>
+  </u><br>
+  To copy code, hit <b>&lt;F3&gt;</b> to put the editor into Block mode. The word 
+  <i>Block</i> will appear in the upper right of the screen. While in Block mode, 
+  hit the <b>&lt;AU&gt;</b> or <b>&lt;AD&gt;</b> key to highlight lines of code. 
+  <b>&lt;ESC C&gt;</b> will copy the highlighted code to the clipboard and turn 
+  off Block mode. <b>&lt;ESC X&gt;</b> will do the same but will also delete the 
+  lines. Move the cursor to a new line and hit <b>&lt;ESC V&gt;</b> to paste the 
+  code into the new location. The code is inserted just below the line the cursor 
+  is on. While in Block mode, <b>&lt;AL&gt;</b> highlights all lines from the 
+  cursor to the top of the routine, and <b>&lt;AR&gt;</b> highlights all lines 
+  from the cursor to the bottom of the routine. Also, you can <b>&lt;TAB&gt;</b> 
+  to the Menu Bar and hit <b>R</b> to branch to another routine to Copy/Cut code, 
+  and then exit and Paste it into the main routine.<br>
+  <br>
+  <u>New Method<br>
+  </u><br>
+  Hit <b>&lt;F3&gt;</b> to put the editor into Block mode. Hit <b>&lt;AU&gt;</b> 
+  or <b>&lt;AD&gt;</b> to highlight <b>lines</b> of code, and <b>&lt;AL&gt;</b> 
+  or <b>&lt;AR&gt;</b> to highlight <b>characters</b> of code. When highlighting 
+  characters of code, you may only highlight characters from a single line, excluding 
+  the line tag.<br>
+  <br>
+  <b>&lt;ESC V&gt;</b> will paste the code to the new location of the cursor, 
+  but it will do it differently depending on whether the clipboard has <b>lines</b> 
+  or <b>characters</b> of code. If you&#146;re pasting lines, the new lines will 
+  be inserted below the line the cursor is currently on. If you&#146;re pasting 
+  characters, the characters will be inserted into the current line at the point 
+  where the cursor is located. If you are in Block mode and have highlighted some 
+  code, <b>&lt;ESC V&gt;</b> will replace that code with the contents of the clipboard.<br>
+  <br>
+  While in Block mode, hit <b>&lt;HOME&gt;</b> to highlight lines from the cursor 
+  to the top of the routine, and <b>&lt;END&gt;</b> to highlight lines from the 
+  cursor to the bottom of the routine.<br>
+  <br>
+  Here is a summary of keys used to Cut/Copy/Paste:<br>
+        <b>&lt;F3&gt;</b>               Turn Block mode <b>on</b> &amp; <b>off</b>.<br>
+        <b>&lt;AU&gt; &lt;AD&gt;</b>   Highlight <b>lines</b> of code.<br>
+        <b>&lt;AL&gt; &lt;AR&gt;</b>   Highlight <b>characters</b> of code.<br>
+        <b>&lt;DEL&gt;</b>            When Block mode is <b>on</b>, delete highlighted 
+  lines/characters.<br>
+        <b>&lt;ESC C&gt;</b>        <b>Copy</b> highlighted code to the clipboard.<br>
+        <b>&lt;ESC D&gt;</b>        Block mode <b>off</b> - Delete current line.<br>
+                                Block mode <b>on</b> - Delete highlighted lines/characters.<br>
+        <b>&lt;ESC X&gt;</b>        <b>Cut</b> highlighted code to the clipboard.<br>
+        <b>&lt;ESC V&gt;</b>        <b>Paste</b> code from the clipboard into 
+  the routine.<br>
+                                   <span>Ø</span> <b>Lines</b> will be inserted 
+  below the current line.<br>
+                                   <span>Ø</span> <b>Characters</b> will be inserted 
+  into the current line.<br>
+                                If you are in Block mode when you hit <b>&lt;ESC 
+  V&gt;</b>, highlighted<br>
+                                code will be replaced by the contents of the clipboard.<br>
+        <b>&lt;HOME&gt;</b>       Highlight from the cursor to the <b>top</b> 
+  of the routine.<br>
+        <b>&lt;END&gt;</b>           Highlight from the cursor to the <b>bottom</b> 
+  of the routine.</p>
+<p> <span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Find Tag</span><br>
+  <br>
+  The <i>Find Tag</i> option on the editor&#146;s menu bar has been enhanced. 
+  It now lists all line tags in the routine and allows you to select a tag and 
+  move to it. While in the editor, hit <b>&lt;TAB&gt;</b> to go to the menu bar 
+  and then type <b>F</b> for Find Tag. </p>
+<p> <span style='font-family:Symbol;
+'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>NoDt<br>
+  </span><br>
+  In previous versions of VPE, you could set the variable <i>VEENODT =1</i> to 
+  tell the editor not to update the date on the top line of the routine when you 
+  saved your changes. This allowed you to make temporary changes to a routine 
+  for testing purposes and then remove the changes and restore the routine back 
+  to exactly the way it was before. However, you did have to remember to set VEENODT 
+  and also to KILL the variable when your editing was done. Using this variable 
+  is no longer necessary. Now, when you exit an editing session, you are prompted 
+  with:<br>
+                    <b>QUIT  SAVE  SAVE_AS  SAVE_NODT</b><br>
+  Choose <b><span style='font-family:"Courier New"'>SAVE_NODT</span></b> to save 
+  your changes without updating the date on the top line.<span style='font-family:
+Arial'></span></p>
+<p> <span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Routine Search</span><br>
+  <br>
+  To reach the <i>Routine Search</i> module, hit <b>&lt;TAB&gt;</b> to move to 
+  the menu bar and then type <b>RS</b>. This module allows you to list all routines 
+  edited on, before, or after a certain date by entering the search criteria in 
+  the following syntax:<br>
+                    &lt;10/12/00        Find all routines edited <b>before</b> 
+  Dec 10, 2000.<br>
+                    &gt;10/12/00        Find all routines edited <b>after</b> 
+  Dec 10, 2000.<br>
+                    =10/12/00        Find all routines edited <b>on</b> Dec 10, 
+  2000.<br>
+  <br>
+  This functionality stopped working when the year became 00. It has been fixed 
+  and now supports the year 2000.</p>
+<p> <span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Inserting a New Line of Code</span><br>
+  <br>
+  To insert a new line of code in the editor, hit &lt;RET&gt; to open a blank 
+  line. It doesn&#146;t matter where your cursor is positioned when you hit &lt;RET&gt;, 
+  it will always open a blank line just below the line your cursor is on.<br>
+  <br>
+  Once you&#146;ve opened a blank line you either hit &lt;TAB&gt; and start entering 
+  your code, or type a line tag and then hit &lt;TAB&gt;. If you hit &lt;RET&gt; 
+  again before you enter any code (or &lt;BS&gt;), the blank line will close. 
+  From the time you hit &lt;RET&gt; to open a blank line, and the time you hit 
+  &lt;TAB&gt;, the editor is in a special mode where it is trying to determine 
+  whether you&#146;ve entered a valid line tag. This special mode has been changed 
+  slightly.<br>
+  <br>
+  If you entered some code and then hit &lt;RET&gt; before hitting &lt;TAB&gt;, 
+  you used to get a message saying that a line tag must be followed by a &lt;TAB&gt;, 
+  and it would keep you right there. This has been changed. If you enter some 
+  text on a blank line and then hit &lt;RET&gt;, the editor goes ahead and puts 
+  the &lt;TAB&gt; there for you and then continues on as if you had entered the 
+  &lt;TAB&gt;. Like before, it then checks the tag to make sure it is valid.</p>
+<h3>VEDD (Electronic Data Dictionary)</h3>
+<p> <span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Keys &amp; Indexes</span><br>
+  <br>
+  In VEDD&#146;s main menu, the <i>Cross References</i> option has been changed 
+  to <i>Keys &amp; Indexes</i>. It now includes sections for Keys, New-style Indexes, 
+  and Old-style Indexes. Keys and new-style indexes were introduced in Fileman 
+  version 22.<br>
+  <br>
+</p>
+<p> <span style='font-family:Symbol;
+'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </span></span> <span style='font-family:Arial'>Individual Field Summary</span><br>
+  <br>
+  Information on Keys and New-style Indexes has been added to the Individual Field 
+  Summary display. In addition, text now displays with a more natural appearance, 
+  making fields such as the DESCRIPTION field easier to read.<span
+style='font-family:Arial'></span></p>
+<h3>VPE (Programmer Shell)</h3>
+<p>Fixed a bug in System QWIK <i>..KEYS</i>.</p>
+<p>Added routine VEEMVPE, which allows you to edit the VPE PERSON file with a 
+  Screenman form.</p>
+</body>
+</html>
