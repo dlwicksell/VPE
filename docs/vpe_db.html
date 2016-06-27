@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
-<title>VPE</title>
+<title>VPE M Programming Environment</title>
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000" link="#660000" vlink="#003366">
@@ -48,25 +48,274 @@ border="0" width="54" height="76"></a></p>
 <table border="0" cellpadding="6" cellspacing="6" width="100%">
   <tr>
     <td valign="top" width="30%" bgcolor="#ACC8E3"><p align="center"><font size="4" face="Arial"><strong>Contents</strong></font></p>
-    <p><a href="vpe_db2.html">Installation Instructions</a></p>
     <p><a href="vpe_db3.html">Documentation</a></p>
-          <p><a href="VPE_Enhancements.html">What's new</a>...</p>
-          <p><a href="VPE_12.zip">Download VPE (v. 12)</a> <br>
-            <font size="-1">(ZIP file)</font>
-          <p><a href="vpe_db4.html">Commands Cheatsheet</a> **          
-          <p>
-        </td>
-    <td valign="top" width="70%" bgcolor="#6699CC"><b>What is it?</b> VPE consists of a number
+    <p><a href="vpe_db4.html">Commands Cheatsheet</a> **          
+    </td>
+    <td valign="top" width="70%" bgcolor="#6699CC">
+    <p><b>What is it?</b> VPE consists of a number
     of integrated programmer utilities that will increase productivity and decrease the number
-    of key strokes required to complete normal programming tasks in the VISTA environment. 
-          <p><b>What should I download?</b> If you are downloading to a PC, select 
-            'Download VPE' in the <b>Contents</b> box to retrieve the entire VPE 
-            package as a self-extracting zip (.exe file). (Depending on how your 
-            browser is configured, you may need to use a right mouse click on 
-            the Download VPE link to access a menu option to save the download 
-            as a file on your computer.) 
-          <p><b>Support of GT.M began with version 12.</b>
-        </td>
+    of key strokes required to complete normal programming tasks in the VISTA environment.</p> 
+    <p><b>What should I download?</b></p>
+    <p>VPE is distributed as a routine archive which you load into your M environment. The releases can be found at the <a href="https://github.com/shabiel/VPE/releases">VPE Releases Page on Github</a>.</p>
+    <p><b>Support of GT.M began with version 12.</b>
+    <p><b>How do I install it?</b></p>
+    <p>VPE is installed by loading the routine archive and then running ^XV, which both installs and runs it. On both GT.M and Cache, you load the routine archive by using <code>D ^%RI</code>. Here's an example on GT.M:</p>
+<pre>
+$ mumps -dir
+
+WV201102>D ^%RI
+
+Routine Input Utility - Converts RO file to *.m files.
+
+Formfeed delimited <No>?
+Input device: <terminal>: ./VPE13P2.RSA
+
+Routines
+
+
+
+Output directory : r/
+
+XV        XVEMBLD   XVEMBLDA  XVEMBLDB  XVEMBLDL  XVEMD     XVEMD1    XVEMDC
+XVEMDH1   XVEMDH2   XVEMDH3   XVEMDH4   XVEMDH5   XVEMDI    XVEMDL    XVEMDL1
+XVEMDLB   XVEMDLD   XVEMDLE   XVEMDLI   XVEMDLM   XVEMDM    XVEMDN    XVEMDPR
+XVEMDPT   XVEMDT    XVEMDU    XVEMDU1   XVEMDUM   XVEMDX    XVEMDXK   XVEMDY
+XVEMG     XVEMG1    XVEMGE    XVEMGE1   XVEMGH    XVEMGH1   XVEMGH2   XVEMGI
+XVEMGI1   XVEMGM    XVEMGM1   XVEMGMC   XVEMGO    XVEMGP    XVEMGPI   XVEMGPS
+XVEMGR    XVEMGR1   XVEMGS    XVEMGU    XVEMGUM   XVEMGY    XVEMKC    XVEMKDT
+XVEMKE    XVEMKEA   XVEMKEB   XVEMKEC   XVEMKI1   XVEMKI2   XVEMKI3   XVEMKI4
+XVEMKI5   XVEMKP    XVEMKR    XVEMKRN   XVEMKST   XVEMKT    XVEMKT1   XVEMKT2
+XVEMKTF   XVEMKTG   XVEMKTM   XVEMKTR   XVEMKTS   XVEMKTT   XVEMKTU   XVEMKU
+XVEMKU1   XVEMKY    XVEMKY1   XVEMKY2   XVEMKY3   XVEMKYB   XVEMR     XVEMRC
+XVEMRE    XVEMRE1   XVEMRE2   XVEMREA   XVEMREB   XVEMREJ   XVEMREL   XVEMREM
+XVEMREO   XVEMREP   XVEMRER   XVEMREW   XVEMRH    XVEMRH1   XVEMRHK   XVEMRHL
+XVEMRHW   XVEMRI    XVEMRI1   XVEMRID   XVEMRIE   XVEMRLI   XVEMRLM   XVEMRLO
+XVEMRLP   XVEMRLU   XVEMRLV   XVEMRLX   XVEMRLY   XVEMRLZ   XVEMRM    XVEMRM1
+XVEMRM2   XVEMRMG   XVEMRMS   XVEMRP    XVEMRP1   XVEMRP2   XVEMRS    XVEMRS1
+XVEMRSS   XVEMRU    XVEMRUM   XVEMRUS   XVEMRV    XVEMRY    XVEMS     XVEMSCL
+XVEMSCU   XVEMSD    XVEMSF    XVEMSF1   XVEMSF2   XVEMSF3   XVEMSF4   XVEMSF5
+XVEMSF6   XVEMSF7   XVEMSF8   XVEMSF9   XVEMSFA   XVEMSFB   XVEMSFC   XVEMSFD
+XVEMSG    XVEMSGH   XVEMSGR   XVEMSGS   XVEMSGT   XVEMSGU   XVEMSH    XVEMSH1
+XVEMSH2   XVEMSH3   XVEMSH4   XVEMSH5   XVEMSH6   XVEMSH7   XVEMSH8   XVEMSH9
+XVEMSHY   XVEMSI    XVEMSID   XVEMSL    XVEMSLA   XVEMSLB   XVEMSLC   XVEMSLD
+XVEMSN    XVEMSNR   XVEMSO    XVEMSO1   XVEMSP    XVEMSPS   XVEMSQ    XVEMSQA
+XVEMSQE   XVEMSQL   XVEMSQS   XVEMSQU   XVEMSQV   XVEMSQW   XVEMSRL   XVEMSS
+XVEMSS1   XVEMST    XVEMSU    XVEMSU1   XVEMSU2   XVEMSY    XVEMSY1   XVEMSY2
+XVSA      XVSC      XVSE      XVSK      XVSO      XVSQ      XVSR      XVSS
+XVST      XVVMI001  XVVMI002  XVVMI003  XVVMI004  XVVMI005  XVVMI006  XVVMI007
+XVVMI008  XVVMI009  XVVMI00A  XVVMI00B  XVVMI00C  XVVMI00D  XVVMI00E  XVVMI00F
+XVVMI00G  XVVMI00H  XVVMI00I  XVVMI00J  XVVMI00K  XVVMI00L  XVVMI00M  XVVMI00N
+XVVMI00O  XVVMI00P  XVVMI00Q  XVVMI00R  XVVMI00S  XVVMINI1  XVVMINI2  XVVMINI3
+XVVMINI4  XVVMINI5  XVVMINIS  XVVMINIT  XVVMVPE
+
+
+Restored 19522 lines in 245 routines.
+WV201102>D ^XV
+
+Select NEW PERSON NAME: `1  WVEHR,PATCH INSTALLER     PIW
+
+==========================< I D   N U M B E R >==========================
+Enter your VShell ID number. Your User QWIK commands will not be
+accessible if your ID is incorrect.
+
+For first time users: Your ID number can be a number from .1 to 999999,
+2 decimal digits. It can match your DUZ number but it doesn't have to.
+The VShell will use your ID to store data that pertains only to you. If
+VA KERNEL routine ^XUP is not in this UCI, you will need to enter your
+ID number each time you enter the VShell from this UCI.
+=========================================================================
+
+=========================< D I S C L A I M E R >=========================
+IN NO EVENT WILL I, THE DEVELOPER OF THIS SOFTWARE, BE LIABLE FOR DIRECT,
+INCIDENTAL, INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES RESULTING FROM
+ANY DEFECT IN THIS SOFTWARE OR ITS DOCUMENTATION OR ARISING OUT OF THE
+USE OF OR INABILITY TO USE THE SOFTWARE OR ACCOMPANYING DOCUMENTATION.
+DAVID BOLDUC
+=========================================================================
+
+Enter ID Number: 1//
+HOME DEVICE (/dev/pty1) DOES NOT EXIST IN THE DEVICE FILE
+PLEASE CONTACT YOUR SYSTEM MANAGER!
+
+VPE . . . Victory Programmer Environment . . . . . . . . . . . . David Bolduc
+^,H,HALT=Quit   ?=Help   <F1>1,<F1>2=User QWIKs   <F1>3,<F1>4=System QWIKs
+
+          \        /
+           \      /
+            \____/
+             \db/  I  C  T  O  R  Y    S  O  F  T  W  A  R  E
+              \/
+
+
+                   ** VICTORY  PROGRAMMER  ENVIROMENT **
+
+
+  WELCOME to the Victory Programmer Environment. VPE consists of a number
+
+  of integrated programmer utilities that will increase your productivity
+
+  and dramatically decrease the number of key strokes required to complete
+
+  your normal tasks.
+
+
+
+
+ <RETURN> to continue, '^' to quit:
+
+
+  V I C T O R Y   P R O G R A M M E R   E N V I R O N M E N T
+
+
+  GLOBAL LISTER/EDITOR
+  Use to view your globals. Has extensive support for VA FILEMAN files.
+
+  ROUTINE READER/EDITOR
+  Use to read and edit routines. Allows branching to other routines to
+  follow the flow of the code or capture code for importing into the
+  current routine.
+
+  ELECTRONIC DATA DICTIONARY
+  Easy to use utility for viewing the data dictionaries of VA FILEMAN files.
+
+  PROGRAMMER VSHELL
+  A replacement for conventional 'Programmer's Mode'. Provides a safe,
+  productive environment for M programmers. You will wonder how you ever
+  got along without it.
+
+
+ <RETURN> to continue, '^' to quit:
+
+
+
+  If you have the VA KERNEL software on your system, you should confirm
+  that node ^%ZOSF("OS") is set correctly. The 2nd piece of this node
+  should be the number of your Mumps system. See node ^DD("OS").
+     DSM=2  MSM=8  DTM=9  VAXDSM=16  Cache=18 GT.M/Unix=19
+
+
+
+
+
+ <RETURN> to continue, '^' to quit:
+
+
+  U P G R A D E
+
+  IF YOU CURRENTLY HAVE AN EARLIER VERSION OF VPE ON YOUR
+  SYSTEM, FOLLOW THESE INSTRUCTIONS TO UPGRADE SMOOTHLY.
+
+  1) Have all users save their QWIKs (Use ..QSAVE System QWIK).
+  2) Make sure all users have halted off VPE Shell.
+  3) Delete routines ^XVEM*, ^XVEM*, and ^XVVM*.
+  4) Kill global ^XVEMS.
+  5) Load VPE_xx.MGR routines from the disk.
+  6) DO ^XVEMBLD to install VPE.
+  7) Load VPE_xx.PRD routines from the disk.
+  8) DO ^XVVMINIT to install VPE Fileman files.
+  9) Start VPE Shell and run ..QSAVE to restore your QWIKs.
+ 10) Run ..PARAM to adjust your parameters.
+
+
+
+
+
+ <RETURN> to continue, '^' to quit:
+
+
+  D E I N S T A L L
+
+
+  To completely deinstall VPE do the following:
+
+  1) GLOBALS:      MGR      KILL ^XVEMS
+
+  2) ROUTINES:     MGR      DELETE ^XVEM*
+                   MGR      DELETE ^XVEM*
+                   PRD      DELETE ^XVVM*
+  3) FILES:        PRD      DELETE VPE* files in FM
+
+
+
+
+
+
+
+
+
+ <RETURN> to continue, '^' to quit:
+
+
+  V P E   M O D U L E S   L I S T
+
+                                        ROUTINES          ACTION
+                                        --------      ---------------
+    VGL...Global Lister/Editor..........^XVEMG*......DO ^XVEMG
+    VRR...Routine Reader................^XVEMR*......DO ^XVEMR
+    E.....Routine Editor.............................DO ^XVSE
+    VEDD..Electronic Data Dictionary....^XVEMD*......DO ^XVEMD
+          VPE Shell.....................^XVEMS*......DO ^XV
+
+
+
+
+
+
+
+
+
+
+
+ <RETURN> to continue, '^' to quit:
+  Load VPE Shell global: YES// ......................................................
+
+VPE Programmer Shell successfully loaded.
+Initialization finished.
+
+NOTE: To start the VPE Shell, type:  D ^XV
+
+<RETURN> to continue..
+
+=========================< D I S C L A I M E R >=========================
+IN NO EVENT WILL I, THE DEVELOPER OF THIS SOFTWARE, BE LIABLE FOR DIRECT,
+INCIDENTAL, INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES RESULTING FROM
+ANY DEFECT IN THIS SOFTWARE OR ITS DOCUMENTATION OR ARISING OUT OF THE
+USE OF OR INABILITY TO USE THE SOFTWARE OR ACCOMPANYING DOCUMENTATION.
+DAVID BOLDUC
+=========================================================================
+
+This version (#12) of 'XVVMINIT' was created on 04-JAN-2004
+         (at DJB, by VA FileMan V.22.0)
+
+I AM GOING TO SET UP THE FOLLOWING FILES:
+
+   19200.11  VPE RTN LBRY
+
+   19200.111 VPE PERSON
+
+   19200.112 VPE RTN VERSIONING
+
+   19200.113 VPE PROGRAMMER CALL  (including data)
+I will OVERWRITE your data with mine.
+
+   19200.114 VPE PROGRAMMER PARAMETER  (including data)
+I will OVERWRITE your data with mine.
+
+NOTE: This package also contains FORMS
+
+
+ARE YOU SURE EVERYTHING'S OK? No// Y  (Yes)
+
+...SORRY, I'M WORKING AS FAST AS I CAN....................................................
+Compiling form: XVVM PGM EDIT.
+Compiling form: XVVM PGM CALL.
+Compiling form: XVVM PER
+OK, I'M DONE.
+NOTE THAT FILE SECURITY-CODE PROTECTION HAS BEEN MADE
+</pre>
+
+
+  </td>
   </tr>
 </table>
     <p align="left">** Thanks goes to fellow Hardhat Jim Confer for this great 
