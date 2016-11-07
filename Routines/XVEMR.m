@@ -1,4 +1,4 @@
-XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 6/18/16 11:58am
+XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 11/6/16 12:25pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Entry Point
@@ -72,7 +72,7 @@ IMPORT ;Set up for scroller
  S MAR=$G(XVV("IOM")) S:MAR'>0 MAR=80
  S $P(LINE,"=",MAR)=""
  S SPACE="          "
- S NAME=$E($G(^TMP("XVV","VRR",$J,VRRS,"NAME")),1,8)
+ S NAME=$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
  S NAME=NAME_$E(SPACE,1,8-$L(NAME))
  S XVVT("HD")=1
  S XVVT("FT")=2
