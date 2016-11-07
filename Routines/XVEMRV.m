@@ -1,4 +1,4 @@
-XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line ; 3/5/16 4:30pm
+XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line ; 11/6/16 10:02pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 VERIFY(ND) ;When editor is exitted, verify that Lines and Tags are legal
@@ -44,7 +44,7 @@ TAGCHK(TAG) ;Check line tag. 1=Bad Tag
  I $G(TAG)']"" Q 0
  NEW I,TAG1,TAG2,TEST
  S TAG1=$P(TAG,"(")
- I $L(TAG1)>8 D MSG^XVEMRUM(8) Q 1
+ ; I $L(TAG1)>8 D MSG^XVEMRUM(8) Q 1 (sam): Bye bye
  I $E(TAG1)'?1AN,$E(TAG1)'="%" D MSG^XVEMRUM(8) Q 1
  I $L(TAG1)>1,$E(TAG1)'?1N,$E(TAG1,2,999)'?1.AN D MSG^XVEMRUM(8) Q 1
  I $E(TAG1)?1N,TAG1'?1.N D MSG^XVEMRUM(8) Q 1
