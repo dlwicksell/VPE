@@ -1,4 +1,4 @@
-XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 6/18/16 11:57am
+XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 11/6/16 10:24pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 WEB ;Web Mode
@@ -12,15 +12,35 @@ HTML ;HTML Code insertion
  Q
  ;===================================================================
 PARSE ;Run rtn name from code at cursor position
- NEW FLAG,I,LINE,RTN,TAG,TMP
+ NEW FLAG,I,LINE,RTN,TAG,TMP,C
  ;
  S LINE=$G(^TMP("XVV","IR"_VRRS,$J,YND))
  ;
- ;Find TAG^RTN
- I LINE[$C(30) D  ;
- . S TAG=$E(LINE,(XCUR-7),(XCUR+1)) ;Go left for TAG
- . S RTN=$E(LINE,XCUR+3,XCUR+10) ;..Go right for LINE
- E  D  ;
+ ;Find TAG^RTN ; NB: (sam): I heavily modified this algorithm
+ S (TAG,RTN)=""
+ I LINE[$C(30) D  ; (old code assumes 8 chars for TAG^LINE)
+ . ;S TAG=$E(LINE,(XCUR-7),(XCUR+1)) ;Go left for TAG (sam): Old
+ . ;S RTN=$E(LINE,XCUR+3,XCUR+10) ;..Go right for LINE (sam): Old
+ . I $E(LINE,XCUR+2)=U D  ; (sam): New code - for TAG^RTN
+ . . N UPOS S UPOS=XCUR+2
+ . . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
+ . . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S RTN=RTN_C
+ . ;
+ . I $E(LINE,XCUR+2)?1AN D  ; (sam): New code for just tags so you can ESC-R to tags
+ . . N UPOS S UPOS=XCUR+2
+ . . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
+ . . S TAG=TAG_$E(LINE,UPOS)
+ . . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=TAG_C
+ . . S RTN=^TMP("XVV","VRR",$J,VRRS,"NAME")
+ . ;
+ . ; Now check that we don't have duds
+ . I TAG["%",$E(TAG)'="%" S TAG="" ; % must be first
+ . I RTN["%",$E(RTN)'="%" S RTN=""
+ . I $E(RTN) S RTN="" ; for a routine, 1st char can't be numeric
+ ;
+ ;
+ ;
+ E  D  ; (sam): I think this is inactive code; but will leave it in for now.
  . S TAG=$E(LINE,10,XCUR)
  . I $L(TAG)>8 S TAG=$E(TAG,$L(TAG)-7,$L(TAG))
  . E  D
@@ -28,9 +48,9 @@ PARSE ;Run rtn name from code at cursor position
  . . S TAG=$E(TMP,$L(TMP)-(8-$L(TAG)+1),$L(TMP))_TAG
  . S RTN=$E(LINE,XCUR+2,XCUR+9)
  ;
- ;Find starting point of TAG
- F I=$L(TAG):-1:1 I $E(TAG,I)'?1AN,$E(TAG,I)'?1"%" D  Q
- . S TAG=$E(TAG,(I+1),$L(TAG))
+ ;Find starting point of TAG ; (sam): Not needed anymore due to new algorithm.
+ ;F I=$L(TAG):-1:1 I $E(TAG,I)'?1AN,$E(TAG,I)'?1"%" D  Q
+ ;. S TAG=$E(TAG,(I+1),$L(TAG))
  ;
  ;If rtn name has scrolled to a 2nd line
  I $L(RTN)'>7 D  ;
@@ -59,7 +79,7 @@ GETRTN() ;Parse routine name
  S CODE=$P(^TMP("XVV",$J),"^",1)
  S RTN=$E(CODE,1)
  I RTN'="%",RTN'?1A W $C(7) Q 0
- F I=2:1:8 Q:$E(CODE,I)'?1AN  S RTN=RTN_$E(CODE,I)
+ F I=2:1 Q:$E(CODE,I)'?1AN  S RTN=RTN_$E(CODE,I)
  I '$$EXIST^XVEMKU(RTN) W $C(7) Q 0
  Q RTN
  ;===================================================================
