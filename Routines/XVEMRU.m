@@ -1,4 +1,4 @@
-XVEMRU ;DJB,VRR**Utilities ; 1/6/01 8:12am
+XVEMRU ;DJB,VRR**Utilities ; 11/6/16 10:52pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 LNSTART(CD) ;Find start of line for EDIT mode.
@@ -103,8 +103,9 @@ REDRAW3 ;Adjust line count and then redraw screen
 LINECNT ;Adjust line count at top of screen
  NEW NEWHIGH
  S NEWHIGH=VRRHIGH_$E("    ",1,3-$L(VRRHIGH))
- S XVVT("HD",1)=$E(XVVT("HD",1),1,59)_NEWHIGH_$E(XVVT("HD",1),63,XVV("IOM"))
- S DX=59,DY=0 X XVVS("CRSR") W $G(VRRHIGH)
+ N TOPUT S TOPUT=$F(XVVT("HD",1),"Lines:") ; (sam): Where should we put this?
+ S XVVT("HD",1)=$E(XVVT("HD",1),1,TOPUT)_NEWHIGH_$E(XVVT("HD",1),TOPUT+4,XVV("IOM"))
+ S DX=TOPUT,DY=0 X XVVS("CRSR") W VRRHIGH
  Q
  ;
 MODEON(MODE,QUIT) ;MODE display in upper right of screen.
