@@ -1,4 +1,4 @@
-XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 6/18/16 1:32pm
+XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ; 11/6/16 10:56am
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -84,7 +84,7 @@ QWIK ;System QWIK Commands
  ;;VGL;D;VGlobal Lister^^3
  ;;VGL;C;D PARAM^XVEMG(%1)
  ;;VRR;D;VRoutine Reader^^3
- ;;VRR;C;D PARAM^XVEMR(%1)
+ ;;VRR;C;D PARAM^XVEMR(%1,%2)
  ;;XQH;D;Help Text for Kernel Menu Options^%1=Kernel Menu Option^4
  ;;XQH;C;D XQH^XVEMST
  ;;ZD;D;KILL variables whose names start with these letters^%1=letters %2=letters ...^3
