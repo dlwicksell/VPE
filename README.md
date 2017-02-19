@@ -26,3 +26,14 @@ The entire change history from version 9 to the current version can be found [he
 
 ## License
 Original VPE license still applies. See LICENSE file.
+
+## MV1 support
+This section is for Sam, the maintainer. You can ignore it:
+
+What's left for supporting MV1 is the following:
+- ESC ESC doesn't work
+- Error trap unwind doesn't work
+- Autoresizing terminal sometimes works, but most times not
+- OS utilities in ^XVEMS shortcuts
+- Routine listing (?? on ..E) doesn't work
+
