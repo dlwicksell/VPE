@@ -31,9 +31,9 @@ Original VPE license still applies. See LICENSE file.
 This section is for Sam, the maintainer. You can ignore it:
 
 What's left for supporting MV1 is the following:
-- ESC ESC doesn't work
-- Error trap unwind doesn't work
-- Autoresizing terminal sometimes works, but most times not
+- ESC ESC doesn't work --> FIXED.
+- Error trap unwind doesn't work --> PUT A BANDAID!
+- Autoresizing terminal sometimes works, but most times not --> PUT A BANDAID!
 - OS utilities in ^XVEMS shortcuts
 - Routine listing (?? on ..E) doesn't work
 
