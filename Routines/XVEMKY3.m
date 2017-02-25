@@ -49,6 +49,11 @@ ZSAVE ;Set up XVVS("ZS") to zsave a routine.
  ;
  I XVV("OS")=19 D  Q
  . S XVVS("ZS")="D SAVEGUX^XVEMKY3(X)" ;
+ ;
+ ; -> MV1
+ I XVV("OS")=20 D  Q
+ . S XVVS("ZS")="M ^$ROUTINE(X)=^UTILITY($J,0)"
+ ;
  ;-> Abort if no XVVS("ZS")
  D ZSAVEMSG S FLAGQ=1
  Q
