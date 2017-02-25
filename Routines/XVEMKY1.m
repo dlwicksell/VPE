@@ -1,4 +1,4 @@
-XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ; 3/5/16 4:36pm
+XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ; 2/24/17 8:57pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 BS ;Backspace options
@@ -9,6 +9,7 @@ BS ;Backspace options
  ;
 ZE ;$ZE Error info
  I XVV("OS")=17!(XVV("OS")=19) S XVV("$ZE")="$ZSTATUS" Q
+ I XVV("OS")=20 S XVV("$ZE")="$EC_"" - ""_$&%ERRMSG($TR($EC,"",""))" Q
  S XVV("$ZE")="$ZE"
  Q
  ;
@@ -55,6 +56,15 @@ TRMREAD ;Read terminators
  . S XVV("TRMOFF")="U $I:(TERMINATOR="""")"
  . S XVV("TRMRD")="S Y=$A($ZB)"
  ;
+ ;-> MV1
+ I XVV("OS")=20 D  Q
+ . N WID
+ . S WID="""TERMINATOR=""_$C(0,1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,127)"
+ . S XVV("TRMON")="U $I:(""NOESCAPE"":""DELETE=NONE"":"_WID_")"
+ . S WID="""TERMINATOR=""_$C(10,13,27)"
+ . S XVV("TRMOFF")="U $I:(""ESCAPE"":""DELETE=BOTH"":"_WID_")"
+ . S XVV("TRMRD")="S Y=$A($KEY)"
+ ;
  ;-> Default
  S (XVV("TRMON"),XVV("TRMOFF"),XVV("TRMRD"))=""
  W !!,"I'm unable to set READ Terminators for your M system."
@@ -100,6 +110,10 @@ ECHO ;Set up Echo On and Echo Off
  . S XVV("EON")="U $I:(ECHO)"
  . S XVV("EOFF")="U $I:(NOECHO)"
  ;
+ ;-> MUMPS V1
+ I XVV("OS")=20 D  Q
+ . S XVV("EON")="U $I:(""ECHO"")"
+ . S XVV("EOFF")="U $I:(""NOECHO"")"
  ;-> Default
  S (XVV("EON"),XVV("EOFF"))="" D ECHOMSG,PAUSE^XVEMKU(2)
  Q
@@ -112,6 +126,7 @@ EXIST ;Set up XVVS("EXIST") to test existence of a routine.
  I XVV("OS")=18 S XVVS("EXIST")="I X?1(1""%"",1A).AN,$D(^$ROUTINE(X))" Q
  I XVV("OS")=17!(XVV("OS")=19) D  Q
  . S XVVS("EXIST")="I X]"""",$T(^@X)]"""""
+ I XVV("OS")=20 S XVVS("EXIST")="I X]"""",$T(^@X)]""""" Q
  ;Default
  S XVVS("EXIST")="I @(""$T(^""_X_"")]"""""""""")"
  Q
@@ -125,6 +140,7 @@ XY ;Resetting $X & $Y
  I XVV("OS")=16 S XVVS("XY")="U $I:(NOCURSOR,X=DX,Y=DY,CURSOR)" Q
  I XVV("OS")=18 S XVVS("XY")="S $X=DX,$Y=DY" Q
  I XVV("OS")=17!(XVV("OS")=19) S XVVS("XY")="S $X=DX,$Y=DY" Q
+ I XVV("OS")=20 S XVVS("XY")="S $X=DX,$Y=DY" Q
  ;Default
  S XVVS("XY")="" D XYMSG,PAUSE^XVEMKU(2)
  Q
