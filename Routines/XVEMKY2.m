@@ -23,6 +23,7 @@ RIGHTMAR ;Right Margin
  ;I XVV("OS")=16 S XVVS("RM0")="U $I:WIDTH=0"
  I XVV("OS")=17!(XVV("OS")=19) S XVVS("RM0")="U $I:WIDTH=0"
  ;
+ ; NB: MV1 has nothing to edit margins.
  NEW RM
  I $G(XVV("ID")) S RM=$G(^XVEMS("PARAM",XVV("ID"),"WIDTH"))
  I $G(RM)="" S RM=$G(XVV("IOM")) ; Automargin, if it's available at this point
@@ -91,6 +92,7 @@ BRK ;Enable Control C
  I XVV("OS")=17 U $I:(CENABLE) Q
  I XVV("OS")=18 U $I:("":"+B") Q
  I XVV("OS")=19 U $I:(CENABLE) Q
+ I XVV("OS")=20 U $I:("CONTROLC") Q
  X "B 1"
  Q
 NOBRK ;Disable Control C
@@ -99,5 +101,6 @@ NOBRK ;Disable Control C
  I XVV("OS")=17 U $I:(NOCENABLE) Q
  I XVV("OS")=18 U $I:("":"-B") Q
  I XVV("OS")=19 U $I:(NOCENABLE) Q
+ I XVV("OS")=20 U $I:("NOCONTROLC") Q
  X "B 0"
  Q
