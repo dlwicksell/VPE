@@ -1,4 +1,4 @@
-XVEMKY ;DJB,KRN**Kernel - Basic Init ; 3/26/16 10:03pm
+XVEMKY ;DJB,KRN**Kernel - Basic Init ; 2/24/17 9:28pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 INIT ;Initialize variables
@@ -61,7 +61,7 @@ OS ;Get Operating System
  ;
 SET ;Get MUMPS System
  NEW NUM
- S NUM=7
+ S NUM=8
  I '$D(^XVEMS) D  S FLAGQ=1 Q
  . W $C(7),!!,"Sorry, this software requires that you have either the VA KERNEL,"
  . W !,"FileMan, or the VPE Shell on your system.",!
@@ -70,13 +70,13 @@ SET ;Get MUMPS System
  W !,"Select from the following choices. Selecting a system other"
  W !,"than the one you are running, will cause errors or"
  W !,"unpredictable behavior. DO SET^XVEMKY again to correct."
- W !!,"1. MSM",!,"2. DTM",!,"3. DSM",!,"4. VAX DSM",!,"5. CACHE",!,"6. GT.M (VMS)",!,"7. GT.M (Unix)"
+ W !!,"1. MSM",!,"2. DTM",!,"3. DSM",!,"4. VAX DSM",!,"5. CACHE",!,"6. GT.M (VMS)",!,"7. GT.M (Unix)",!,"8. MV1"
  W !
 SET1 R !,"Enter number: ",X:300 S:'$T X="^"
  I "^"[X W ! S FLAGQ=1 Q
  I X'?1N!(X<1)!(X>NUM) D  G SET1
  . W "   Enter a number from 1 to "_NUM
- S X=$S(X=1:8,X=2:9,X=3:2,X=4:16,X=5:18,X=6:17,X=7:19,1:"")
+ S X=$S(X=1:8,X=2:9,X=3:2,X=4:16,X=5:18,X=6:17,X=7:19,X=8:20,1:"")
  I X']"" Q
  I $D(^XVEMS) S (^XVEMS("OS"),XVV("OS"))=X
  I $D(^XVEMS("E")) S (^XVEMS("E","OS"),XVV("OS"))=X
@@ -94,21 +94,26 @@ DTMHELP ;DataTree users on console device must be in VT220 emulation.
  W !?2,"1, and enter ""VT=1"" in the USE PARAMETER field."
  W !!,"=============================================================================",!
  Q
-AUTOMARG() ;RETURNS IOM^IOSL IF IT CAN and resets terminal to those dimensions; GT.M and Cache
+AUTOMARG() ;RETURNS IOM^IOSL IF IT CAN and resets terminal to those dimensions; GT.M, Cache, MV1
  ; Stolen from George Timson's %ZIS3.
+ ; I +$SY=50 QUIT "132^46" ; <--TEMP
  I $D(^%ZOSF("RM")) N X S X=0 X ^%ZOSF("RM")
  N %I,%T,ESC,DIM S %I=$I,%T=$T D
  . ; resize terminal to match actual dimensions
  . S ESC=$C(27)
+ . I +$SY=0 U $P:(:"+S+I":"R")
+ . I +$SY=47 U $P:(TERM="R":NOECHO)
+ . I +$SY=50 U $P:("NOESCAPE":"NOECHO":"TERMINATOR=R")
  . W ESC,"7",ESC,"[r",ESC,"[999;999H",ESC,"[6n"
- . I +$SY=0 U $P:(:"+S+I":"R") R DIM:1 E  Q
- . I +$SY=47 U $P:(TERM="R":NOECHO) R DIM:1 E  Q
+ . R DIM:1 E  Q
  . W ESC,"8"
  . I +$SY=0 I DIM?.APC U $P:("") Q
  . I +$SY=47 I DIM?.APC U $P:(TERM="":ECHO) Q
- . S DIM=+$P(DIM,";",2)_"^"_+$P(DIM,"[",2)
+ . I +$SY=50 I DIM?.APC U $P:("ECHO":"ESCAPE":"TERMINATOR="_$C(10,13,27)) Q
+ . I $L($G(DIM)) S DIM=+$P(DIM,";",2)_"^"_+$P(DIM,"[",2)
  . I +$SY=0 U $P:(+DIM:"")
  . I +$SY=47 U $P:(TERM="":ECHO:WIDTH=+$P(DIM,";",2):LENGTH=+$P(DIM,"[",2))
+ . I +$SY=50 U $P:("ECHO":"ESCAPE":"TERMINATOR="_$C(10,13,27))
  ; restore state
  U %I I %T
  Q:$Q $S($G(DIM):DIM,1:"") Q
