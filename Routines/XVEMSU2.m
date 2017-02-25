@@ -37,6 +37,7 @@ REMOVE ; Shared entry point for removing the routines.
  NEW I,X
  F I=1:1:9 S X=@("%"_I) Q:X']""  D
  . I XVV("OS")=19!(XVV("OS")=17) D ZRGUX(X)  ; GTM/UNIX,VAX only
+ . E  I XVV("OS")=20 K ^$ROUTINE(X)
  . E  D ZRDSM(X)
  . W !?2,X," Removed..."
  QUIT
