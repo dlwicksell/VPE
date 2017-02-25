@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 4/10/16 7:03pm
+XVEMSY ;DJB,VSHL**Init,Error ; 2/22/17 10:21pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 INIT ;Initialize variables
@@ -68,7 +68,7 @@ RESET ;Reset $T and Naked Reference
  S XVV("$T")=$T
  I '$G(XVV("OS")) D OS^XVEMKY
  Q:'$G(XVV("OS"))
- I XVV("OS")=17!(XVV("OS")=19) D  I 1 ;GTM Mumps
+ I XVV("OS")=17!(XVV("OS")=19)!(XVV("OS")=20) D  I 1 ;GTM,MV1
  . X "I $R'[""^XVEMS"",$R'[""^TMP(""""XVV"""""" S XVV(""$ZR"")=$R"
  E  D  ;Non-GTM Mumps
  . X "I $ZR'[""^XVEMS"",$ZR'[""^TMP(""""XVV"""""" S XVV(""$ZR"")=$ZR"
@@ -99,7 +99,7 @@ ERROR ;Error trap.
  S ^XVEMS("ERROR",XVV("ID"))=$P($H,",",1)_"^"_$P($H,",",2)_"^"_ZE
  I XVV("ID")=0 G UNWIND
  ;
- I XVV("OS")=17!(XVV("OS")=19) D  I 1 ;GTM Mumps
+ I XVV("OS")=17!(XVV("OS")=19)!(XVV("OS")=20) D  I 1 ;GTM Mumps/MV1
  . X "I $R'[""^XVEMS"",$R'[""^TMP(""""XVV"""""" S XVV(""$ZR"")=$R"
  . X "I $R[""^%ZOSF(""""UCI"""")"" S XVV(""$ZR"")="""""
  E  D  ;Non-GTM Mumps
@@ -114,6 +114,7 @@ ERROR ;Error trap.
  W !!,"VPE Error Trap"
  W !,"Last Global: ",XVV("$ZR")
  I $D(ZE) W !,"ERROR: ",ZE,!
+ W "ERROR LINE/CODE: "_$ST($ST-1,"PLACE")_": "_$ST($ST-1,"MCODE"),!!
  I $G(IO)>0,$G(XVV("IO"))>0,IO'=XVV("IO") D  D PAUSE^XVEMKU(2)
  . W $C(7),!!,"---------> VSHELL ALERT!"
  . W !!,"Your IO device isn't what VShell thinks it should be. D ^%ZISC to"
@@ -127,6 +128,8 @@ UNWIND ; Unwind and restore old trap
  ; starts at the $ES "event horizon" and goes beyond our zero to our
  ; caller's zero.
  S $EC=""
+ ; MV1's error trap works like the classic $ZTRAP. Fix error and your are automatically returned to the right level.
+ I $G(XVV("OS"))=20 QUIT  ; <-- Temp line until I can get MV1 trap fixed.
  ;
  S $ETRAP="G UNWIND1^XVEMSY"
  S $EC=",U-UNWIND,"
@@ -141,6 +144,8 @@ UNWIND1 ;
  QUIT
  ;
 EERROR ; Emergency Error Trap
+ W "ERROR: "_$ST($ST-1,"PLACE")_": "_$ST($ST-1,"MCODE"),!!
+ ;
  W !!,"The emergency error trap was invoked.",!
  W "Consult your nearest VPE Expert!",!!
  W "Waiting 5 seconds before closing!"
