@@ -1,10 +1,10 @@
-XVEMSPS ;DJB,VSHL**Print Symbol Table (..ZW) ; 9/3/99 2:56pm
+XVEMSPS ;DJB,VSHL**Print Symbol Table (..ZW) ; 2/25/17 11:12pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 WRITE(StarT) ;
  ; StartT is mixed case so it isn't already in symbol table
  ;
- I '$$EXIST^XVEMKU("%ZOSV") D  Q
+ I $G(XVV("OS"))'=20,'$$EXIST^XVEMKU("%ZOSV") D  Q
  . W !,"This QWIK requires routine ^%ZOSV.",!
  ;
  KILL ^TMP("XVV",$J)
@@ -20,7 +20,16 @@ EX ;
  ;
 SAVE ;Save symbol table to ^TMP("XVV",$J,"SYM",var)
  NEW %,%X,%Y,X,Y
- S X="^TMP(""XVV"","_$J_",""SYM""," D DOLRO^%ZOSV
+ ; VEN/SMH - For MV1, get ST and then reformat it into the VISTA format
+ I $G(XVV("OS"))=20 D
+ . K ^TMP("XVV",$J,"MV1")
+ . W $&%ZWRITE($NA(^TMP("XVV",$J,"MV1")))
+ . N V S V=""
+ . F  S V=$O(^TMP("XVV",$J,"MV1",V)) Q:V=""  D
+ .. N VARNAME S VARNAME=$QS(V,0)
+ .. M ^TMP("XVV",$J,"SYM",VARNAME)=@VARNAME
+ . K ^TMP("XVV",$J,"MV1")
+ E  S X="^TMP(""XVV"","_$J_",""SYM""," D DOLRO^%ZOSV
  ;
  NEW I,XxX
  F I="%","%X","%Y","X","Y","StarT","XVV","XVVSHC","XVVSHL" D  ;
