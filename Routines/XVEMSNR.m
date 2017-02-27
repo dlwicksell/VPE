@@ -1,4 +1,4 @@
-XVEMSNR ;DJB,VSHL**Enter New Routine ; 3/27/16 5:25pm
+XVEMSNR ;DJB,VSHL**Enter New Routine ; 2/25/17 11:39pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 TOP ;Allow user to start a new routine
@@ -29,7 +29,7 @@ SAVRTN ;Save routine
  I "^"[RTN W !,"Not saved.." Q
  I "??"[RTN D  G SAVRTN
  . W !,"Enter a valid routine name, <RETURN> for default name, or '^' to quit."
- I RTN'?1A.7AN D MSG(5) G SAVRTN
+ I RTN'?1A.AN D MSG(5) G SAVRTN
  I $$EXIST^XVEMKU(RTN) D MSG(6) G SAVRTN
  I DEF]"",DEF'=RTN D  ;
  . S TMP=$P(^UTILITY($J,0,1)," ",1)
