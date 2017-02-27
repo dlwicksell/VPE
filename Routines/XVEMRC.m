@@ -1,5 +1,5 @@
 XVEMRC ;DJB,VRR**Saves editing changes ; 9/5/02 12:14pm
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 SAVE(ND) ;Sets up ^UTILITY so rtn editor can save changes.
  ;ND=Rtn Session # (VRRS)

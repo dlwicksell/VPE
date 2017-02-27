@@ -1,5 +1,5 @@
 XVEMSF3 ;DJB,VSHL**DIC1,DICN [04/17/94]
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 DIC1 ;;;
  ;;; D I C 1     Custom Look-up & File Information Setup

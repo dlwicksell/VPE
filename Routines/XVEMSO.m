@@ -1,5 +1,5 @@
 XVEMSO ;DJB,VSHL**Run Kernel Menu Option ; 3/27/16 5:09pm
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 KERNEL(OPT) ;Calls KERNEL ^XQ
  ;OPT=Name/number of entry in OPTION file (#19)

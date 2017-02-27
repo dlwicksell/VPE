@@ -1,5 +1,5 @@
 XVEMKY ;DJB,KRN**Kernel - Basic Init ; 2/24/17 9:28pm
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 INIT ;Initialize variables
  D TIME

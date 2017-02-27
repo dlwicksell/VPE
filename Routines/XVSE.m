@@ -1,5 +1,5 @@
 XVSE ; VEN/SMH - VPE Editor Init Code; replaces ^%ZVEMS("E") ; 6/18/16 10:54am
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
  ;
 E ; Edit Entry Point

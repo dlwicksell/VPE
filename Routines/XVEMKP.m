@@ -1,5 +1,5 @@
 XVEMKP ;DJB,VRR**Printing [12/30/95 8:23am]
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 TASK(DEFAULT) ;Get device. FLAGQ indicates job has been queued.
  ;DEFAULT=Default Device. Return FLAGQ=1 if taskman is used.

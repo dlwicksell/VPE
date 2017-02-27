@@ -1,5 +1,5 @@
 XVEMDPR ;DJB,VEDD**Printing, Count Fields [6/28/95 6:42pm]
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
  ;;This is run each time VEDD is run, right after you select a File.
  ;;It sets up multiples in ^TMP("XVV","VEDD",$J,"TMP")

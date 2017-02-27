@@ -1,5 +1,5 @@
 XVEMG1 ;DJB,VGL**Get Global ; 9/6/02 10:04am
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 GETGL ;Get Global
  ; FLAGPRM = Parameter passing. Used by VEDD,VGL,VRR

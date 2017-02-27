@@ -1,5 +1,5 @@
 XVEMGI1 ;DJB,VGL**Reverse Video,Set variables,Error ; 11/14/02 7:10am
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 GLOBNAME(GLOB) ;Write Global name with variable subscripts in reverse video.
  I GLOB'?.E1"(".E Q GLOB

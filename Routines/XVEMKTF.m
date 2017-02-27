@@ -1,5 +1,5 @@
 XVEMKTF ;DJB,KRN**Txt Scroll-Select FM Fields [2/1/97 10:23am]
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  Q
 SELECT(XVVFILE,XVVLEVEL) ;Use Selector to get fields from a FM file.
  ;XVVFILE=File DD number

@@ -1,5 +1,5 @@
 XVEMRP1 ;DJB,VRR**Cut,Copy,Paste ; 12/28/00 5:59pm
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 CUT ;Save lines to clipboard, then delete
  ;<ESCX> Key combination

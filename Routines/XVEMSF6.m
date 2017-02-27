@@ -1,5 +1,5 @@
 XVEMSF6 ;DJB,VSHL**DIK,DIPZ,DIR,DIS [12/4/95 7:07pm]
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 DIK ;;;
  ;;; D I K     Entry Deletion and File Reindexing
