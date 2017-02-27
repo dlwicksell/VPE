@@ -1,4 +1,4 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 2/22/17 10:21pm
+XVEMSY ;DJB,VSHL**Init,Error ; 2/25/17 11:51pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 INIT ;Initialize variables
@@ -114,7 +114,7 @@ ERROR ;Error trap.
  W !!,"VPE Error Trap"
  W !,"Last Global: ",XVV("$ZR")
  I $D(ZE) W !,"ERROR: ",ZE,!
- W "ERROR LINE/CODE: "_$ST($ST-1,"PLACE")_": "_$ST($ST-1,"MCODE"),!!
+ W "ERROR LINE/CODE: "_$ST($ST(-1),"PLACE")_": "_$ST($ST(-1),"MCODE"),!!
  I $G(IO)>0,$G(XVV("IO"))>0,IO'=XVV("IO") D  D PAUSE^XVEMKU(2)
  . W $C(7),!!,"---------> VSHELL ALERT!"
  . W !!,"Your IO device isn't what VShell thinks it should be. D ^%ZISC to"
@@ -144,7 +144,7 @@ UNWIND1 ;
  QUIT
  ;
 EERROR ; Emergency Error Trap
- W "ERROR: "_$ST($ST-1,"PLACE")_": "_$ST($ST-1,"MCODE"),!!
+ W "ERROR: "_$ST($ST(-1),"PLACE")_": "_$ST($ST(-1),"MCODE"),!!
  ;
  W !!,"The emergency error trap was invoked.",!
  W "Consult your nearest VPE Expert!",!!
