@@ -1,4 +1,4 @@
-XVEMSGT ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 9/6/02 8:47am
+XVEMSGT ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 2/25/17 11:18pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -13,6 +13,8 @@ QWIK ;System QWIK Commands
  ;;DOS;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;DOS;8;D ^%OS
  ;;DOS;9;d ^%dos
+ ;;DOS;19;ZSYSTEM
+ ;;DOS;20;W $&%SPAWN("/bin/sh -c ""stty sane""; exec sh")
  ;;G;D;Global List^^5
  ;;G;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;G;2;D ^%G
@@ -22,6 +24,7 @@ QWIK ;System QWIK Commands
  ;;G;17;D ^%G
  ;;G;18;D ^%G
  ;;G;19;D ^%G
+ ;;G;20;D ^%GL
  ;;GCOPY;D;Global Copy^^5
  ;;GCOPY;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;GCOPY;2;D ^%GC
@@ -39,6 +42,7 @@ QWIK ;System QWIK Commands
  ;;GD;17;D ^%GD
  ;;GD;18;D ^%GD
  ;;GD;19;D ^%GD
+ ;;GD;20;D ^%GD
  ;;GDE;D;Extended Global Directory^^5
  ;;GDE;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;GDE;8;D ^%GDE
@@ -63,6 +67,7 @@ QWIK ;System QWIK Commands
  ;;GR;17;D ^%GI
  ;;GR;18;D ^%GI
  ;;GR;19;D ^%GI
+ ;;GR;20;D ^%GR
  ;;GS;D;Global Save^^5
  ;;GS;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;GS;2;D ^%GTO
@@ -71,6 +76,7 @@ QWIK ;System QWIK Commands
  ;;GS;16;D ^%GTO
  ;;GS;17;D ^%GO
  ;;GS;19;D ^%GO
+ ;;GS;20;D ^%GS
  ;;GSE;D;Global Search^^5
  ;;GSE;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;GSE;8;D ^%GSE

@@ -1,4 +1,4 @@
-XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 6/18/16 1:45pm
+XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 2/25/17 11:40pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SYSTEM ;Load the System QWIKs
@@ -15,6 +15,8 @@ QWIK ;System QWIK Commands
  ;;LOCKTAB;8;D ^LOCKTAB
  ;;LOCKTAB;9;d ^%lockexam
  ;;LOCKTAB;16;D ^LOCKTAB
+ ;;LOCKTAB;19;ZSY "$gtm_dist/lke show"
+ ;;LOCKTAB;20;D INT^%SS("LOCKS")
  ;;RCHANGE;D;Routine Change^^5
  ;;RCHANGE;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RCHANGE;2;D ^%RCE
@@ -24,6 +26,7 @@ QWIK ;System QWIK Commands
  ;;RCHANGE;17;D ^%RCE
  ;;RCHANGE;18;D ^%RCHANGE
  ;;RCHANGE;19;D ^%RCE
+ ;;RCHANGE;20;D ^%ZRCHG
  ;;RCMP;D;Routine Compare^^5
  ;;RCMP;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RCMP;2;D ^%RCMP
@@ -46,6 +49,7 @@ QWIK ;System QWIK Commands
  ;;RD;17;D ^%RD
  ;;RD;18;D ^%RD
  ;;RD;19;D ^%RD
+ ;;RD;20;D ^%RD
  ;;RDEL;D;Routine Delete^^5
  ;;RDEL;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RDEL;2;D ^%ZRDELET
@@ -54,7 +58,6 @@ QWIK ;System QWIK Commands
  ;;RDEL;16;D ^%RPURGE
  ;;RDEL;17;D ^%ZTRDEL
  ;;RDEL;18;D ^%RDELETE
- ;;RDEL;19;D ^%ZTRDEL
  ;;RL;D;Routine Lister^^5
  ;;RL;C;D ^XVEMSRL
  ;;RR;D;Routine Restore^^5
@@ -66,6 +69,7 @@ QWIK ;System QWIK Commands
  ;;RR;17;D ^%RI
  ;;RR;18;D ^%RI
  ;;RR;19;D ^%RI
+ ;;RR;20;D ^%RR
  ;;RS;D;Routine Save^^5
  ;;RS;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RS;2;D ^%RS
@@ -75,6 +79,7 @@ QWIK ;System QWIK Commands
  ;;RS;17;D ^%RO
  ;;RS;18;D ^%RO
  ;;RS;19;D ^%RO
+ ;;RS;20;D ^%RS
  ;;RSEARCH;D;Routine Search^^5
  ;;RSEARCH;C;D RSE^XVEMRY
  ;;RSEL;D;Routine Select^^5
@@ -86,6 +91,7 @@ QWIK ;System QWIK Commands
  ;;RSEL;17;D ^%RSEL
  ;;RSEL;18;D ^%RSET
  ;;RSEL;19;D ^%RSEL
+ ;;RSEL;20;D ^%ZRSEL
  ;;RSIZE;D;Routine Size^^5
  ;;RSIZE;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;RSIZE;2;D ^%RSIZE
@@ -99,6 +105,7 @@ QWIK ;System QWIK Commands
  ;;UCI;8;D ^%LOGON
  ;;UCI;9;d ^%nspace
  ;;UCI;16;D ^%ZUCI
+ ;;UCI;20;D ^%ZUCI
  ;;UTIL;D;Utilities Menu^^5
  ;;UTIL;C;W $C(7),!?2,"Not available for this M Vendor.",!
  ;;UTIL;2;D ^%LIB
