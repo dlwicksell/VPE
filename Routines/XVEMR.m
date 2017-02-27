@@ -1,4 +1,4 @@
-XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 11/6/16 12:25pm
+XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 2/26/17 10:04pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 EN ;Entry Point
@@ -37,7 +37,7 @@ EX ;
  . X $G(XVVS("RM80"))
  . W @(XVVS("WRAP"))
  ;Editing
- I VRRS>1 D  ;Unlock rtn if not a duplicate
+ I VRRS D  ;Unlock rtn if not a duplicate
  . NEW CHK,I,PGM
  . S PGM=$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
  . S CHK=0
