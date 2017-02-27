@@ -1,4 +1,4 @@
-XVEMKY3 ;DJB,KRN**Screen Variables ; 9/8/02 6:20pm
+XVEMKY3 ;DJB,KRN**Screen Variables ; 2/25/17 11:15pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 BLANK ;
@@ -52,7 +52,7 @@ ZSAVE ;Set up XVVS("ZS") to zsave a routine.
  ;
  ; -> MV1
  I XVV("OS")=20 D  Q
- . S XVVS("ZS")="M ^$ROUTINE(X)=^UTILITY($J,0)"
+ . S XVVS("ZS")="M ^$ROUTINE(X)=^UTILITY($J,0) N % S %=$&%ROUCHK(X)"
  ;
  ;-> Abort if no XVVS("ZS")
  D ZSAVEMSG S FLAGQ=1
