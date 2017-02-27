@@ -1,4 +1,4 @@
-XVEMRUS ;DJB,VRR**Rtn Selector ; 4/18/16 5:29pm
+XVEMRUS ;DJB,VRR**Rtn Selector ; 2/25/17 11:34pm
  ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
 SELECT ;
@@ -41,6 +41,12 @@ ZOSF ;Use ^%ZOSF("RSEL")
  NEW %JO,%UR,%R
  S %JO=$J,%UR="^ROUTINE",%R=0 D ROU^%RSET
  Q
+20 ;Rtn Select for MV1
+ KILL ^UTILITY($J)
+ D ^%ZRSEL
+ M ^UTILITY($J)=^%UTILITY($J,"ROUTINE")
+ K ^%UTILITY($J)
+ QUIT
 INIT ;
  I '$D(^%ZOSF("RSEL")),$G(XVV("OS"))="" D OS^XVEMKY
  Q
