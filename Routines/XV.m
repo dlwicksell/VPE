@@ -1,8 +1,9 @@
-XV ; Paideia/SMH,TOAD - Entry point for VPE ; 6/18/16 6:03pm
- ;;13.1;VICTORY PROG ENVIRONMENT;;May 23, 2016
- ;;XV;
+XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ; 2/25/17 5:07pm
+ ;;14.0;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ;
  ; Original VPE by David Buldoc
  ; Refactored VPE by David Wicksell and Sam Habiel
+ ; Architecture of new VPE initially done by Rick Marshall
  ;
  N FLAGQ S FLAGQ=0 ;quit flag
  ;
