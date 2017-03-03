@@ -1,4 +1,4 @@
-XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 2/26/17 10:04pm
+XVEMR ;DJB,VRR**SCROLL VRoutine Reader ; 3/1/17 3:29pm
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 EN ;Entry Point
@@ -44,8 +44,9 @@ EX ;
  . F I=1:1 Q:'$D(^TMP("XVV","VRR",$J,I,"NAME"))  D  ;
  .. I I'=VRRS,^("NAME")=PGM S CHK=1
  . I 'CHK,PGM]"" L -VRRLOCK(PGM)
- . KILL ^TMP("XVV","VRR",$J,VRRS)
- . KILL ^TMP("XVV","IR"_VRRS,$J)
+ . ; --> Moved to XVSE
+ . ; KILL ^TMP("XVV","VRR",$J,VRRS)
+ . ; KILL ^TMP("XVV","IR"_VRRS,$J)
  S VRRS=VRRS-1
  Q:VRRS>0
  W @(XVVS("WRAP"))

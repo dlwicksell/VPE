@@ -1,4 +1,4 @@
-XVSE ; VEN/SMH - VPE Editor Init Code; replaces ^%ZVEMS("E") ; 6/18/16 10:54am
+XVSE ; VEN/SMH - VPE Editor Init Code; replaces ^%ZVEMS("E") ; 3/1/17 3:28pm
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
  ;
@@ -12,6 +12,9 @@ E ; Edit Entry Point
  Q:'$D(^TMP("XVV","VRR",$J)) ; Nothing to save; quit
  D E1
  K ^UTILITY($J)
+ N VRRS S VRRS=1
+ KILL ^TMP("XVV","VRR",$J,VRRS)
+ KILL ^TMP("XVV","IR"_VRRS,$J)
  QUIT
  ;
  ;
