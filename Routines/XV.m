@@ -1,7 +1,7 @@
 XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ; 2/25/17 5:07pm
  ;;14.0;VICTORY PROG ENVIRONMENT;;May 23, 2016
  ;
- ; Original VPE by David Buldoc
+ ; Original VPE by David Bolduc
  ; Refactored VPE by David Wicksell and Sam Habiel
  ; Architecture of new VPE initially done by Rick Marshall
  ;
