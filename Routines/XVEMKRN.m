@@ -1,4 +1,4 @@
-XVEMKRN ;DJB,KRN**NEW Single Character Read ; 4/18/16 5:46pm
+XVEMKRN ;DJB,KRN**NEW Single Character Read ; 5/10/17 10:57am
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
  ;
 READ(PROMPT,LENGTH,NOECHO) ;
@@ -21,7 +21,8 @@ READ(PROMPT,LENGTH,NOECHO) ;
  ;
  F  D GETCHAR D  Q:($L(STRING)'<LENGTH)!FLAGQ
  . I CHAR?1E S STRING=STRING_CHAR Q
- . I ",<BS>,<DEL>,"[(","_CHAR_","),$L(STRING) D  Q
+ . ;I ",<BS>,<DEL>,"[(","_CHAR_","),$L(STRING) D  Q  ; TMG/KT Delete vs Backspace
+ . I ",<BS>,"[(","_CHAR_","),$L(STRING) D  Q
  .. S STRING=$E(STRING,1,$L(STRING)-1)
  .. W $C(8)," ",$C(8)
  . S FLAGQ=1
@@ -40,7 +41,8 @@ GETCHAR ;Single character READ to get individual characters
  D:(CHAR=27) ESCAPE
  I (CHAR="***") W $C(7) G GETCHAR
  S CHAR=$S(CHAR<0:"TO",CHAR=4:"CTRLD",CHAR=8:"BS",CHAR=9:"TAB",CHAR=13:"RET",CHAR=20:"CTRLT",1:CHAR)
- S CHAR=$S(CHAR=21:"F1",CHAR=22:"F2",CHAR=23:"F3",CHAR=24:"F4",CHAR=27:"ESC",CHAR=127:"DEL",1:CHAR)
+ ;S CHAR=$S(CHAR=21:"F1",CHAR=22:"F2",CHAR=23:"F3",CHAR=24:"F4",CHAR=27:"ESC",CHAR=127:"DEL",1:CHAR) ; TMP/KT Delete vs Backspace
+ S CHAR=$S(CHAR=21:"F1",CHAR=22:"F2",CHAR=23:"F3",CHAR=24:"F4",CHAR=27:"ESC",CHAR=127:"BS",1:CHAR)
  S CHAR="<"_CHAR_">"
  Q
  ;====================================================================
