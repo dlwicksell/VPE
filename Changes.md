@@ -1,3 +1,44 @@
+## Authors for version 14.1
+Sam Habiel
+Kevin Toppenberg
+
+## Changes for version 14.1
+- Code implementing backspace/delete dichotomy in VPE parameters did not work
+correctly. This is what Kevin found and fixed.
+- Fileman files automatically installed without any questions being asked when
+you run VPE via ^XV.
+- Relicensing code to Apache 2.0.
+
+## Authors for version 14.0
+Sam Habiel
+
+## Changes for version 14.0
+
+### MUMPS V1 Support
+
+This release adds a new supported M implementation to VPE, that of Mumps V1.
+Mumps V1 must compiled from source with the SAMTERM define set to 1. You will
+need to edit the mumps.h to do that (search for SAMTERM). This changes Read
+terminator behavior in MV1 to be consistent with what VistA expects.
+
+### Bug Fixes (and minor enhancements)
+
+#### Editor
+- Routine names > 8 chars print fully on top of buffer
+- ESC-R now hows to how handle long tags and long routines names (> 8 char)
+- ESC-R now can jump to labels, not just [label]^routine.
+- Don't warn if a routine contains a long label (> 8 chars)
+- ..VRR QWIK can now take a tag of the shell like ..E (e.g. `..VRR XUSRB CVC`).
+- ESC-G now displays globals from the editor. This is not exactly new functionality, but apparently it hasn't worked for a while now.
+- Routine editing lock was not removed after routines were edited for the first level of routine editing.
+
+#### Other
+- VPE error trap now tells you where the error happened using $ST(-1).
+- New routine creator should not have an 8 char limit for routine name.
+- ..LOCKTAB QWIK implementation for GT.M
+- ..DOS QWIK (zsystem) implementation for GT.M
+
+
 ## Changes for version 13.2
  
  * Routine editor will clear $EC when it starts. Previously, having an active
