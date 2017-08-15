@@ -1,5 +1,6 @@
-XVEMRLM ;DJB,VRR**RTN LBRY - Menu ; 9/24/02 7:10am
+XVEMRLM ;DJB,VRR**RTN LBRY - Menu ;2017-08-15  2:01 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 EN ;Entry Point
  ;--> User can type ..LBRY ON/OFF to activate/deactivate Rtn Lbry.

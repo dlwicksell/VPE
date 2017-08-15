@@ -1,5 +1,6 @@
-XVEMKT2 ;DJB,KRN**Txt Scroll-Other,Help ; 11/14/02 6:59am
+XVEMKT2 ;DJB,KRN**Txt Scroll-Other,Help ;2017-08-15  1:11 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 SCROLL(CRSRON) ;End scroll, do form feed, start scroll
  D ENDSCR,STARTSCR($G(CRSRON))

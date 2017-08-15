@@ -1,5 +1,7 @@
-XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ; 4/18/16 5:33pm
+XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;2017-08-15  2:00 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in EN+2,GETRTN (c) 2016 Sam Habiel
  ;
  ;--> ALL^XVEMRLI    = to sign in all routines
  ;    IDEDIT^XVEMRLI = to bulk edit IDENTIFIER field

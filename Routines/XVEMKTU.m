@@ -1,5 +1,6 @@
-XVEMKTU ;DJB,KRN**Txt Scroll-SELECTOR Help [8/16/97 11:10am]
+XVEMKTU ;DJB,KRN**Txt Scroll-SELECTOR Help [8/16/97 11:10am];2017-08-15  1:17 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 HELP ;
  D ENDSCR^XVEMKT2

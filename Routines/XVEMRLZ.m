@@ -1,5 +1,7 @@
-XVEMRLZ ;DJB,VRR**RTN VER - ..LBRY Options ; 4/10/16 5:56pm
+XVEMRLZ ;DJB,VRR**RTN VER - ..LBRY Options ;2017-08-15  2:08 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error traps in DELETE and BULKDEL (c) 2016 Sam Habiel
  ;
 DELETE ;Delete versions
  NEW CNT,DA,DESC,DIC,DIK,IEN,ND,RENUM,RTN,TMP,VER

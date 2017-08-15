@@ -1,5 +1,6 @@
-XVEMREB ;DJB,VRR**EDIT - Remove Character ; 1/6/01 1:19pm
+XVEMREB ;DJB,VRR**EDIT - Remove Character ;2017-08-15  1:41 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 TOP ;
  NEW CD,HLD,I,NUM,WHERE,XSAVE,YSAVE,YNDSAVE

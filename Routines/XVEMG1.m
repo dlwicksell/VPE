@@ -1,5 +1,6 @@
-XVEMG1 ;DJB,VGL**Get Global ; 9/6/02 10:04am
+XVEMG1 ;DJB,VGL**Get Global ;2017-08-15  12:25 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GETGL ;Get Global
  ; FLAGPRM = Parameter passing. Used by VEDD,VGL,VRR

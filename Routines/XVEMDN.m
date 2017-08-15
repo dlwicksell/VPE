@@ -1,5 +1,6 @@
-XVEMDN ;DJB,VEDD**NODE Lookup and Look-up by Global [11/04/94]
+XVEMDN ;DJB,VEDD**NODE Lookup and Look-up by Global [11/04/94];2017-08-15  12:19 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  NEW FILE,FLD,NODE,NODE0,NODE1,PIECE
  NEW FLAGD,FNAM,FNUM,LEV,NP

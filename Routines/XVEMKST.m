@@ -1,5 +1,6 @@
-XVEMKST ;DJB,KRN**Save Symbol Table [07/22/94]
+XVEMKST ;DJB,KRN**Save Symbol Table [07/22/94];2017-08-15  1:00 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 SYMTAB(ACTION,MODULE,SESSION) ; Symbol Table
  ;ACTION ....: C=Clear  R=Restore  S=Save

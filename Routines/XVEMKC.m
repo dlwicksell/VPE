@@ -1,5 +1,6 @@
-XVEMKC ;DJB,KRN**Select Choices ; 12/20/00 8:23am
+XVEMKC ;DJB,KRN**Select Choices ;2017-08-15  12:50 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 CHOICE(OPTIONS,LEV,DX,DY) ;
  ;;OPTIONS=String containing options. Ex: "YES^NO"

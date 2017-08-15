@@ -1,5 +1,6 @@
-XVEMDU ;DJB,VEDD**Groups,Required Fields [07/12/94]
+XVEMDU ;DJB,VEDD**Groups,Required Fields [07/12/94];2017-08-15  12:23 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GRP ;Groups
  NEW GRP,GRP1,GRP2,HD,X,Z,Z1,ZFLD,ZMULT

@@ -1,5 +1,7 @@
-XVEMBLDB ;DJB,VSHL**VPE Setup - Pages 4-7 ; 2/28/16 5:26pm
+XVEMBLDB ;DJB,VSHL**VPE Setup - Pages 4-7 ;2017-08-15  11:44 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; David Wicksell and Sam Habiel changed routine references to ^XV (c) 2010-2016
 PAGE4 ;Instructions for upgrading VPE
  W @FF,!!?2,"U P G R A D E"
  W !!?2,"IF YOU CURRENTLY HAVE AN EARLIER VERSION OF VPE ON YOUR"

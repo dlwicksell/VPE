@@ -1,5 +1,6 @@
-XVEMDH1 ;DJB,VEDD**Help Text - Main Menu [06/07/94]
+XVEMDH1 ;DJB,VEDD**Help Text - Main Menu [06/07/94];2017-08-15  12:07 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VEDD1 ;;;
  ;;; A)  E N T R Y   P O I N T S:

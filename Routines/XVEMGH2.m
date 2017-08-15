@@ -1,5 +1,6 @@
-XVEMGH2 ;DJB,VGL**Help Text - Main Screen [06/08/94]
+XVEMGH2 ;DJB,VGL**Help Text - Main Screen [06/08/94];2017-08-15  12:29 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VGL2 ;;;
  ;;;

@@ -1,5 +1,6 @@
-XVEMKTM ;DJB,KRN**Txt Scroll-Highlight Menu [3/6/96 6:23pm]
+XVEMKTM ;DJB,KRN**Txt Scroll-Highlight Menu [3/6/96 6:23pm];2017-08-15  1:14 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 ENDFILE() ;1=End-of-file  0=Ok
  I XVVT("GAP") W $C(7) Q 1

@@ -1,5 +1,7 @@
-XVEMGS ;DJB,VGL**SAVE,UNSAVE ; 4/24/16 10:45pm
+XVEMGS ;DJB,VGL**SAVE,UNSAVE ;2017-08-15  12:48 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in UNSAVS+13 (c) 2016 Sam Habiel
  ;
 SAVE ;Save lines of code (to be UNsaved to a new location).
  NEW CNT,GLNAM,I,ND,RNG

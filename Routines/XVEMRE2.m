@@ -1,5 +1,6 @@
-XVEMRE2 ;DJB,VRR**EDIT - Block Mode ; 1/8/01 8:31am
+XVEMRE2 ;DJB,VRR**EDIT - Block Mode ;2017-08-15  1:40 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 BLOCK ;Block Mode
  ;<AU>/<AD>: Highlight lines of code.

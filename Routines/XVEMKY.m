@@ -1,5 +1,8 @@
-XVEMKY ;DJB,KRN**Kernel - Basic Init ; 2/24/17 9:28pm
+XVEMKY ;DJB,KRN**Kernel - Basic Init ;2017-08-15  1:39 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; IO,AUTOMARG by Sam Habiel (c) 2016
+ ; SET Mumps V1 support by Sam Habiel (c) 2017
  ;
 INIT ;Initialize variables
  D TIME

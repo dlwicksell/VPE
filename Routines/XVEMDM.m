@@ -1,5 +1,6 @@
-XVEMDM ;DJB,VEDD**Menu Driver ; 12/6/00 9:18pm
+XVEMDM ;DJB,VEDD**Menu Driver ;2017-08-15  12:19 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 EN ;Entry Point
  NEW I,LIST,OPT,X,Y

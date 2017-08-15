@@ -1,5 +1,6 @@
-XVEMGY ;DJB,VGL**Init,Partition,Branching,Error ; 10/11/03 2:25pm
+XVEMGY ;DJB,VGL**Init,Partition,Branching,Error ;2017-08-15  12:49 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 INIT ;Initialize variables
  S GLS=$S($G(GLS)=1:GLS+1,1:1) ;GLS is the current session number.

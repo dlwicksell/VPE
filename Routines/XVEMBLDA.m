@@ -1,5 +1,8 @@
-XVEMBLDA ;DJB,VSHL**VPE Setup - Pages 1-3 ; 2/28/16 4:32pm
+XVEMBLDA ;DJB,VSHL**VPE Setup - Pages 1-3 ;2017-08-15  11:44 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Sam Habiel changed PAGE3 to include Cache and GT.M (c) 2016.
+ ; 
  ;
 PAGE1 ;
  W @FF S START=10,END=START+4

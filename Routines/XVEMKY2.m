@@ -1,5 +1,8 @@
-XVEMKY2 ;DJB,KRN**Screen Variables ; 3/26/16 10:32pm
+XVEMKY2 ;DJB,KRN**Screen Variables ;2017-08-15  1:32 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; GT.M support by Brian Lord (c) 2005
+ ; Mumps V1 support,RIGHTMAR changes by Sam Habiel (c) 2017
  ;
  ;;X XVVS("CRSR"),XVVS("RM0"). All others are: W @()
 SCRNVAR ;Screen Variables

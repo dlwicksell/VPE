@@ -1,5 +1,7 @@
-XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ; 4/10/16 7:00pm
+XVEMRLY ;DJB,VRR**RTN VER - ..LBRY Options ;2017-08-15  2:07 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Various tiny changes in INQUIRE and ERROR (c) Sam Habiel 2016
  ;
 INQ ;Inquire
  NEW DATA,FLAGQ,I,LINE,LINE1,IEN,POP,RTN,VER

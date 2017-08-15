@@ -1,5 +1,6 @@
-XVEMDUM ;DJB,VEDD**Scroll Messages [9/24/95 3:26pm]
+XVEMDUM ;DJB,VEDD**Scroll Messages [9/24/95 3:26pm];2017-08-15  12:23 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 MSG(NUM,PAUSE) ;Messages
  ;NUM=Subroutine number  PAUSE=Pause screen

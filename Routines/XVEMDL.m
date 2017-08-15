@@ -1,5 +1,7 @@
-XVEMDL ;DJB,VEDD**Fld Global Location ; 3/26/16 11:45pm
+XVEMDL ;DJB,VEDD**Fld Global Location ;2017-08-15  12:16 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in EN+1 (c) 2016 Sam Habiel
  ;
 PRINT ;Called by START,LOOP
  Q:'$D(^DD(FILE(LEV),FLD(LEV),0))

@@ -1,5 +1,6 @@
-XVEMDY ;DJB,VEDD**Init,Partition,Branching,Error ; 9/23/02 1:31pm
+XVEMDY ;DJB,VEDD**Init,Partition,Branching,Error ;2017-08-15  12:25 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 INIT ;
  S:'$D(FLAGH) FLAGH=0

@@ -1,5 +1,6 @@
-XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ; 4/5/03 8:02am
+XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ;2017-08-15  1:34 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 BLANK1 ;Blank - cursor to end-of-screen
  I $G(IOST(0))]"",$D(^%ZIS(2,IOST(0),5)),$P(^(5),"^",7)]"" W @($P(^(5),"^",7)) Q

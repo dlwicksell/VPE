@@ -1,5 +1,6 @@
-XVEMGPS ;DJB,VGL**PIECES - Xref,Word Proc,Zero Nodes [07/21/94]
+XVEMGPS ;DJB,VGL**PIECES - Xref,Word Proc,Zero Nodes [07/21/94];2017-08-15  12:45 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 XREF ;Display field if Xref node
  NEW DD,FLAGQ,FNUM,LENGTH,TMP,TMP1

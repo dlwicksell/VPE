@@ -1,5 +1,7 @@
-XVEMRLX ;DJB,VRR**RTN VER - Xref ; 3/5/16 4:27pm
+XVEMRLX ;DJB,VRR**RTN VER - Xref ;2017-08-15  2:04 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; KEY1+2 modified (c) 2016 Sam Habiel
  ;
  ;=======================[ INPUT TRANSFORM 1]=========================
 KEY1 ;ROUTINE Field

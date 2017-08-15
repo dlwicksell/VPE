@@ -1,5 +1,7 @@
-XVEMGI ;DJB,VGL**Loop,Print,Import ; 5/1/16 6:53pm
+XVEMGI ;DJB,VGL**Loop,Print,Import ;2017-08-15  12:36 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in TOP+1 and PRINT (c) 2016 Sam Habiel
  ;
 TOP(ZGR) ;ZGR contains starting point, such as ^VA(200).
  N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMGI1,UNWIND^XVEMSY"

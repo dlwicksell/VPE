@@ -1,5 +1,6 @@
-XVEMGI1 ;DJB,VGL**Reverse Video,Set variables,Error ; 11/14/02 7:10am
+XVEMGI1 ;DJB,VGL**Reverse Video,Set variables,Error ;2017-08-15  12:29 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GLOBNAME(GLOB) ;Write Global name with variable subscripts in reverse video.
  I GLOB'?.E1"(".E Q GLOB

@@ -1,5 +1,6 @@
-XVEMKP ;DJB,VRR**Printing [12/30/95 8:23am]
+XVEMKP ;DJB,VRR**Printing [12/30/95 8:23am];2017-08-15  12:58 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 TASK(DEFAULT) ;Get device. FLAGQ indicates job has been queued.
  ;DEFAULT=Default Device. Return FLAGQ=1 if taskman is used.

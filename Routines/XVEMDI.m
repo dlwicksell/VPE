@@ -1,5 +1,6 @@
-XVEMDI ;DJB,VEDD**Indiv Fld Sum ; 12/8/00 7:23am
+XVEMDI ;DJB,VEDD**Indiv Fld Sum ;2017-08-15  12:08 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  NEW %,%XX,%Y,%YY,D,DDH,DIC,X,Y
  NEW A,CNT,DATA,FILE,FLD,FNAM,FNUM,I,LEV,M,ZDSUB

@@ -1,5 +1,6 @@
-XVEMDLD ;DJB,VEDD**Data: Look-up [08/12/94]
+XVEMDLD ;DJB,VEDD**Data: Look-up [08/12/94];2017-08-15  12:13 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  I $G(ZGL)["^DIA(" D  D PAUSE^XVEMKC(3) Q
  . D ENDSCR^XVEMKT2

@@ -1,5 +1,6 @@
-XVEMDXK ;DJB,VEDD**List Keys ; 12/9/00 5:01pm
+XVEMDXK ;DJB,VEDD**List Keys ;2017-08-15  12:24 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 KEYS(ZNUM) ;Get all Keys for this file and any subfiles.
  ;ZNUM = File number.

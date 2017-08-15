@@ -1,5 +1,6 @@
-XVEMGMC ;DJB,VGL**Check FM, Check Node [6/14/95 10:39pm]
+XVEMGMC ;DJB,VGL**Check FM, Check Node [6/14/95 10:39pm];2017-08-15  12:40 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GOTO ;Goto line number
  NEW ND,X

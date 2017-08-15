@@ -1,5 +1,6 @@
-XVEMKR ;DJB,KRN**OLD Single Character Read ; 12/16/00 7:30pm
+XVEMKR ;DJB,KRN**OLD Single Character Read ;2017-08-15  12:59 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 READ(PROMPT,LENGTH,NOECHO) ;
  ;PROMPT  Display prompt.

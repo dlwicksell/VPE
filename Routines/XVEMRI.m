@@ -1,5 +1,7 @@
-XVEMRI ;DJB,VRR**INSERT - READ,HELP,ADD,DELETE ; 6/18/16 12:32pm
+XVEMRI ;DJB,VRR**INSERT - READ,HELP,ADD,DELETE ;2017-08-15  1:59 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Allow space to act like tab in READ (c) Sam Habiel 2016
  ;
 INSERT(MODE) ;Processes the line tag portion of a new line. When user
  ;hits <TAB> OR <SPACE>, return to EDIT mode.

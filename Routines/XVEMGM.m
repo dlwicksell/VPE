@@ -1,5 +1,7 @@
-XVEMGM ;DJB,VGL**Main Menu ; 4/24/16 11:17pm
+XVEMGM ;DJB,VGL**Main Menu ;2017-08-15  12:41 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in RUN+1 (c) 2016 Sam Habiel
  ;
 READ ;Get input
  ;Next: Quit if SKIP NODE

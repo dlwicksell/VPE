@@ -1,6 +1,7 @@
-XVEMDLI ;DJB,VEDD**Import ; 3/26/16 11:30pm
+XVEMDLI ;DJB,VEDD**Import ;2017-08-15  12:15 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; SIMERR testing code by Sam Habiel (c) 2016
  Q:FLAGP  D SETARRAY,LIST
  Q
  ;===================================================================

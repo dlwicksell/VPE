@@ -1,5 +1,7 @@
-XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 11/13/16 7:26pm
+XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-15  1:46 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016
  ;
 WEB ;Web Mode
  I FLAGMODE["WEB" D WEB^XVEMRER Q

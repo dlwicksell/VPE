@@ -1,5 +1,7 @@
-XVEMBLD ;DJB,VSHL**VPE Setup - Start ; 2/29/16 9:23am
+XVEMBLD ;DJB,VSHL**VPE Setup - Start ;2017-08-15  11:46 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Sam Habiel sunset UCI entry point (C) 2016.
  ;
  I $G(XVVSHL)="RUN" D  Q
  . W $C(7),!?2,"Please exit the VShell before running ^XVEMBLD.",!

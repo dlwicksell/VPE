@@ -1,5 +1,7 @@
-XVEMKY3 ;DJB,KRN**Screen Variables ; 2/25/17 11:15pm
+XVEMKY3 ;DJB,KRN**Screen Variables ;2017-08-15  1:33 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; GT.M support and Mumps V1 support by Sam Habiel (c) 2016-2017
  ;
 BLANK ;
  D BLANK1,BLANK2,BLANK3,BLANK4

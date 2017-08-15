@@ -1,5 +1,6 @@
-XVEMREL ;DJB,VRR**EDIT - Process Line Tags ; 12/25/00 4:58pm
+XVEMREL ;DJB,VRR**EDIT - Process Line Tags ;2017-08-15  1:42 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  ;Determine location of cursor in relation to the line of code, and
  ;allow the editing of line tags.

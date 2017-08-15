@@ -1,5 +1,6 @@
-XVEMGPI ;DJB,VGL**PIECES - Scroller Import [5/5/97 5:40pm]
+XVEMGPI ;DJB,VGL**PIECES - Scroller Import [5/5/97 5:40pm];2017-08-15  12:43 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 IMPORT ;Import text to the scroller
  D SETARRAY,LIST

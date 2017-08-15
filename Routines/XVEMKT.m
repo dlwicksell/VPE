@@ -1,5 +1,7 @@
-XVEMKT ;DJB,KRN**Txt Scroll-Start ; 4/18/16 7:47pm
+XVEMKT ;DJB,KRN**Txt Scroll-Start ;2017-08-15  1:13 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap throughout (c) 2016 Sam Habiel
  ;
 IMPORT ;Display imported text passed in variable XVVT
  N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMKT"

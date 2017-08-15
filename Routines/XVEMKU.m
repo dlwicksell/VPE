@@ -1,5 +1,8 @@
-XVEMKU ;DJB,KRN**General Utilities ; 3/5/16 4:26pm
+XVEMKU ;DJB,KRN**General Utilities ;2017-08-15  1:21 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; EXIST+3,ID+6 modified (c) 2016 Sam Habiel
+ ;  
  ;
 ASK(PROMPT,DEFAULT) ;Return: Y=YES, N=NO
  ;PROMPT=Display prompt, DEFAULT= 1-YES, 2-NO

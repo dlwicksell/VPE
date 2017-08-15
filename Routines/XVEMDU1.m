@@ -1,5 +1,6 @@
-XVEMDU1 ;DJB,VEDD**Templates,Description [7/19/95 9:08pm]
+XVEMDU1 ;DJB,VEDD**Templates,Description [7/19/95 9:08pm];2017-08-15  12:22 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 EN ;Templates
  I '$D(^DIBT("F"_ZNUM)),'$D(^DIPT("F"_ZNUM)),'$D(^DIE("F"_ZNUM)) D  G EX

@@ -1,5 +1,6 @@
-XVEMDPT ;DJB,VEDD**Pointers In, Pointers Out [1/7/97 3:13pm]
+XVEMDPT ;DJB,VEDD**Pointers In, Pointers Out [1/7/97 3:13pm];2017-08-15  12:21 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 PTI ;Pointers In
  I '$D(^DD(ZNUM,0,"PT")) D  S FLAGG=1 Q

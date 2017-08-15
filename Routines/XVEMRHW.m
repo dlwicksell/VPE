@@ -1,5 +1,6 @@
-XVEMRHW ;DJB,VRR**Help Text - Web [12/14/96 6:34pm]
+XVEMRHW ;DJB,VRR**Help Text - Web [12/14/96 6:34pm];2017-08-15  1:48 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 WEB ;;;
  ;;; Insert HTML code onto new lines

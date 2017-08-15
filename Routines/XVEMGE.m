@@ -1,5 +1,7 @@
-XVEMGE ;DJB,VGL**Edit Global Node ; 4/24/16 11:28pm
+XVEMGE ;DJB,VGL**Edit Global Node ;2017-08-15  12:28 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in EDITS1+15 (c) 2016 Sam Habiel
  ;
 EDITV ;Edit node's value
  NEW CD1,FLAGQ,NEW,ND,NODE,OLD,TAB,TEMP,TEMP1,X

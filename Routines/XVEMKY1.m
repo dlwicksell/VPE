@@ -1,5 +1,8 @@
-XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ; 2/24/17 8:57pm
+XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ;2017-08-15  1:24 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; GT.M support by Brian Lord (c) 2005
+ ; Mumps V1 support,EXIST tag changes by Sam Habiel (c) 2017
  ;
 BS ;Backspace options
  I '$D(XVV("ID")) S XVV("BS")="SAME" Q

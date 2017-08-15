@@ -1,5 +1,6 @@
-XVEMRE1 ;DJB,VRR**EDIT - DO Menu Options ; 9/24/02 1:28pm
+XVEMRE1 ;DJB,VRR**EDIT - DO Menu Options ;2017-08-15  1:40 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 QUIT ;Call here if you should Quit after returning to ^XVEMRE
  S QUIT=1

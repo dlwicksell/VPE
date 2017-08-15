@@ -1,5 +1,7 @@
-XVEMGP ;DJB,VGL**PIECES - Display Global Pieces ; 4/24/16 11:07pm
+XVEMGP ;DJB,VGL**PIECES - Display Global Pieces ;2017-08-15  12:44 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in TOP+1,LIST+19 (c) 2016 Sam Habiel
  ;
 TOP ;FLAGTYPE="IorX^SWITCH" when switching between Int or eXt views
  N $ESTACK,$ETRAP S $ETRAP="D ERROR^XVEMGP,UNWIND^XVEMSY"

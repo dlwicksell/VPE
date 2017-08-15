@@ -1,5 +1,6 @@
-XVEMREA ;DJB,VRR**EDIT - Add Character ; 12/25/00 5:09pm
+XVEMREA ;DJB,VRR**EDIT - Add Character ;2017-08-15  1:41 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 TOP ;Add a character to CD string
  NEW CD,FLAGNEW,HLD,HLDX,HLDY1,HLDY2,I,NUM,WHERE,XSAVE,YSAVE,YNDSAVE

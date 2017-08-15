@@ -1,5 +1,6 @@
-XVEMGR1 ;DJB,VGL**Process Variables [10/25/94]
+XVEMGR1 ;DJB,VGL**Process Variables [10/25/94];2017-08-15  12:45 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VARIABLE ;Check if variable is valid and replace with its value
  NEW TEMP1,TEMP2,TEMPSP

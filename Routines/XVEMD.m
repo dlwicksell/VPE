@@ -1,5 +1,7 @@
-XVEMD ;DJB,VEDD**Electronic Data Dictionary ; 3/26/16 11:52pm
+XVEMD ;DJB,VEDD**Electronic Data Dictionary ;2017-08-15  12:18 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in EN,EX (c) 2016 Sam Habiel
  ;
 EN ;Entry point
  I '$D(^DD(0)) D  Q

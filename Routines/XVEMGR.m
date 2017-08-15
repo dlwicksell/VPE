@@ -1,5 +1,6 @@
-XVEMGR ;DJB,VGL**Process a Range of nodes [02/03/95]
+XVEMGR ;DJB,VGL**Process a Range of nodes [02/03/95];2017-08-15  12:46 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 RANGE ;User asked for a range with ":" or ",,"
  ;Set up GLOBAL,START(),END()

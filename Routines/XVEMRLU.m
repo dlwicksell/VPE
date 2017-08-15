@@ -1,5 +1,6 @@
-XVEMRLU ;DJB,VRR**RTN LBRY - Utilities ; 9/6/02 8:16am
+XVEMRLU ;DJB,VRR**RTN LBRY - Utilities ;2017-08-15  2:03 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 ADD(RTN) ;Does user want to sign out current rtn?
  Q:$G(RTN)']""

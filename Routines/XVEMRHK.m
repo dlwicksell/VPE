@@ -1,5 +1,6 @@
-XVEMRHK ;DJB,VRR**Help Text - Keyboard [9/23/95 12:05pm]
+XVEMRHK ;DJB,VRR**Help Text - Keyboard [9/23/95 12:05pm];2017-08-15  1:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VRR2 ;
  ;;; NOTES: <AU>=Arrow Up  <AD>=Arrow Down  <AL>=Arrow Left  <AR>=Arrow Right
