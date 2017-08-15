@@ -1,5 +1,7 @@
-XVEMRS ;DJB,VRR**Get Program ; 6/18/16 1:09pm
+XVEMRS ;DJB,VRR**Get Program ;2017-08-15  4:28 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Routine Length + Bug fix in GETPGM1 (c) 2016 Sam Habiel
  ;
 EN ;Enter here from ^XVEMR
  I FLAGVPE["LBRY" D  Q  ;Use editor to review a previous version.

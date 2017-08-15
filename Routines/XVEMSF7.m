@@ -1,5 +1,6 @@
-XVEMSF7 ;DJB,VSHL**DIP,DIPT [07/16/94]
+XVEMSF7 ;DJB,VSHL**DIP,DIPT [07/16/94];2017-08-15  4:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DIP ;;;
  ;;; D I P     Print Data

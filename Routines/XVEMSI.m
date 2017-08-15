@@ -1,5 +1,7 @@
-XVEMSI ;FWS/DLW - ZInsert a routine into VPE ; 3/5/16 5:53pm
+XVEMSI ;FWS/DLW - ZInsert a routine into VPE ;2017-08-15  5:02 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; (c) David Wicksell 2010-2011 - Original Author
+ ; (c) Sam Habiel 2016 - Bug fixes
  ;
  ; Enter a routine. Sort of a ZInsert routine. This is a system QWIK
  ; and is called by typing ..ZI while in the VSHELL.

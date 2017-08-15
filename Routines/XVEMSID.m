@@ -1,5 +1,6 @@
-XVEMSID ;DJB,VSHL**Utilities - LIST USERS,ID NOTES [9/28/95 8:28am]
+XVEMSID ;DJB,VSHL**Utilities - LIST USERS,ID NOTES [9/28/95 8:28am];2017-08-15  5:02 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 LIST ;List Users
  I '$D(^XVEMS("ID"))&('$D(^("PARAM")))&('$D(^("QU"))) D  Q

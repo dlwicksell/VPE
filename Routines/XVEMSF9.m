@@ -1,5 +1,6 @@
-XVEMSF9 ;DJB,VSHL**DIWF [07/16/94]
+XVEMSF9 ;DJB,VSHL**DIWF [07/16/94];2017-08-15  4:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DIWF ;;;
  ;;; D I W F     Form Document Print

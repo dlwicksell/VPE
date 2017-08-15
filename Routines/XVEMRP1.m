@@ -1,5 +1,6 @@
-XVEMRP1 ;DJB,VRR**Cut,Copy,Paste ; 12/28/00 5:59pm
+XVEMRP1 ;DJB,VRR**Cut,Copy,Paste ;2017-08-15  4:25 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 CUT ;Save lines to clipboard, then delete
  ;<ESCX> Key combination

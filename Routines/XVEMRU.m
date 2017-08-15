@@ -1,5 +1,7 @@
-XVEMRU ;DJB,VRR**Utilities ; 11/6/16 10:52pm
+XVEMRU ;DJB,VRR**Utilities ;2017-08-15  4:31 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; LINECNT bug fix for routines > 8 c long (c) 2016 Sam Habiel
  ;
 LNSTART(CD) ;Find start of line for EDIT mode.
  ;"2^11" - TAG starts at 2, LINE starts at 11

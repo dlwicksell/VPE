@@ -1,5 +1,6 @@
-XVEMSGH ;DJB,VSHL**VShell Global - Help Text ; 8/29/02 9:21pm
+XVEMSGH ;DJB,VSHL**VShell Global - Help Text ;2017-08-15  4:49 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  Q
 TEXT ;Load HELP and other text

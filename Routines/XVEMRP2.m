@@ -1,5 +1,6 @@
-XVEMRP2 ;DJB,VRR**Block Mode - Highlight Characters ; 8/31/02 12:29pm
+XVEMRP2 ;DJB,VRR**Block Mode - Highlight Characters ;2017-08-15  4:25 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 LEFT ;Char highlight - cursor left
  NEW CHAR,ND,TAGL,TMP

@@ -1,5 +1,6 @@
-XVEMSF6 ;DJB,VSHL**DIK,DIPZ,DIR,DIS [12/4/95 7:07pm]
+XVEMSF6 ;DJB,VSHL**DIK,DIPZ,DIR,DIS [12/4/95 7:07pm];2017-08-15  4:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DIK ;;;
  ;;; D I K     Entry Deletion and File Reindexing

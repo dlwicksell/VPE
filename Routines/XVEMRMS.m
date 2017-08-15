@@ -1,5 +1,7 @@
-XVEMRMS ;DJB,VRR**Save Changes ; 3/27/16 8:30pm
+XVEMRMS ;DJB,VRR**Save Changes ;2017-08-15  4:24 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in SAVE (c) 2016 Sam Habiel
  ;
 SAVE ;Save changes on-the-fly.
  N $ESTACK,$ETRAP S $ETRAP="D ERROR,UNWIND^XVEMSY"

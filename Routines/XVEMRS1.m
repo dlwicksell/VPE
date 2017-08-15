@@ -1,5 +1,6 @@
-XVEMRS1 ;DJB,VRR**Set Scroll Array ; 9/5/02 3:13pm
+XVEMRS1 ;DJB,VRR**Set Scroll Array ;2017-08-15  4:26 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 SETGLB ;Put routine into global
  NEW I,TXT

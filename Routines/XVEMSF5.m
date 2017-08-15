@@ -1,5 +1,6 @@
-XVEMSF5 ;DJB,VSHL**DIE [12/4/95 7:12pm]
+XVEMSF5 ;DJB,VSHL**DIE [12/4/95 7:12pm];2017-08-15  4:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DIE ;;;
  ;;; D I E     Edit Data

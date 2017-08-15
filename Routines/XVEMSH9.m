@@ -1,5 +1,6 @@
-XVEMSH9 ;DJB,VSHL**VA KERNEL ; 2/29/16 8:56am
+XVEMSH9 ;DJB,VSHL**VA KERNEL ;2017-08-15  5:00 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 KERN ;;;
  ;;; V A   K E R N E L

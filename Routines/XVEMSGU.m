@@ -1,5 +1,7 @@
-XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ; 2/25/17 11:40pm
+XVEMSGU ;DJB,VSHL**VShell Global - System QWIKs cont.. ;2017-08-15  4:59 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; MV1 support, GT.M Lock table, RSEARCH (c) 2017 Sam Habiel
  ;
 SYSTEM ;Load the System QWIKs
  NEW I,QWIK,TYPE,TXT,VEN
@@ -58,6 +60,7 @@ QWIK ;System QWIK Commands
  ;;RDEL;16;D ^%RPURGE
  ;;RDEL;17;D ^%ZTRDEL
  ;;RDEL;18;D ^%RDELETE
+ ;;RDEL;19;D ^%ZTRDEL
  ;;RL;D;Routine Lister^^5
  ;;RL;C;D ^XVEMSRL
  ;;RR;D;Routine Restore^^5

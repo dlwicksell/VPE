@@ -1,5 +1,6 @@
-XVEMSF8 ;DJB,VSHL**DIQ,DIQ1 [04/17/94]
+XVEMSF8 ;DJB,VSHL**DIQ,DIQ1 [04/17/94];2017-08-15  4:47 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DIQ ;;;
  ;;; D I Q     Data Display, Date Conversion

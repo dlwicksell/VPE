@@ -1,5 +1,6 @@
-XVEMSGR ;DJB,VSHL**VShell Global - ZOSF Nodes ; 12/15/00 11:49pm
+XVEMSGR ;DJB,VSHL**VShell Global - ZOSF Nodes ;2017-08-15  4:52 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 ZOSF ;Load system specific code into ZOSF nodes
  NEW I,ND,TXT,VEND

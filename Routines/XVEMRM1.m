@@ -1,5 +1,6 @@
-XVEMRM1 ;DJB,VRR**FndTag,LctStrg,Goto,More,Param ; 12/17/00 3:56pm
+XVEMRM1 ;DJB,VRR**FndTag,LctStrg,Goto,More,Param ;2017-08-15  4:20 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GETTAG ;Get tag from scroll array and convert to external format
  S TG=$P(TMP," "_$C(30),1) I TG?1.N1." " S TG="" Q

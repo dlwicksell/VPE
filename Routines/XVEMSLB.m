@@ -1,5 +1,6 @@
-XVEMSLB ;DJB,VSHL**VA KERNEL Library Functions - String [8/18/95 1:31pm]
+XVEMSLB ;DJB,VSHL**VA KERNEL Library Functions - String [8/18/95 1:31pm];2017-08-15  5:03 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 STRING ;;;
  ;;; STRING FUNCTIONS - XLFSTR

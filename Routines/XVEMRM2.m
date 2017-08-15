@@ -1,5 +1,6 @@
-XVEMRM2 ;DJB,VRR**Locate & Change ; 7/25/99 9:49pm
+XVEMRM2 ;DJB,VRR**Locate & Change ;2017-08-15  4:20 PM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 TOP ;
  NEW HELP,LN1,LN2,ND1,ND2,OFF,OLD,ON,NEW
