@@ -1,0 +1,16 @@
+Most code authored by David J. Bolduc while employed by the Department of
+Veteran Affairs, from 1985-2005.
+
+David J Bolduc died on Aug 6 2013 (http://obits.dignitymemorial.com/dignity-memorial/obituary.aspx?n=David-Bolduc&lc=5055&pid=166304312&mid=5626264).
+
+Brian Lord ported VPE to run on GT.M in 2005.
+
+David Wicksell maintained the code from 2010-2015. He renamespaced all the code
+to XV and %XV instead of ZV and %ZV.
+
+Sam Habiel worked with David Wicksell to refactor code originally stored in 
+Globals. He completed the renamespacing, eliminating %XV in favor of just XV.
+He is the current maintainer.
+
+Corresponding Author: Sam Habiel, Pharm.D.: sam.habiel@gmail.com
+Any technical issues should be left as an issue in this github repo.
