@@ -1,5 +1,5 @@
 XVSR ; Paideia/SMH - VPE Single Character Reads  ;2017-08-16  10:58 AM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; (c) 2010-2016 Sam Habiel
  ;
 ZR1 ; Main

@@ -1,5 +1,5 @@
-XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-15  1:46 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-16  12:13 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016
  ;
@@ -113,7 +113,7 @@ PARSEGLB(G) ; [Internal] Parse the global into a format XVEMG recognizes
  D
  . I $E(G)'="^" QUIT
  . S GOUT="^"
- . F I=2:1:$L(G) D  Q:FLAGQ  Q:DONE  S C=$E(G,I) D @MODE
+ . F I=2:1:$L(G) Q:FLAGQ  Q:DONE  S C=$E(G,I) D @MODE
  I MODE="GPQUOTE" S GOUT=$P(GOUT,"""") ; Abnormal termination. Get first part.
  I $E(GOUT,$L(GOUT))="," S $E(GOUT,$L(GOUT))=""
  I $E(GOUT,$L(GOUT)-1,$L(GOUT))=",0" S $E(GOUT,$L(GOUT)-1,$L(GOUT))=""

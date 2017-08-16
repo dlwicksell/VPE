@@ -1,5 +1,5 @@
 XVEMKI3 ;DJB,KRN**Indiv Fld DD - STRING,WORD ;2017-08-15  12:57 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
  ;Print STRING in lines of 59 characters

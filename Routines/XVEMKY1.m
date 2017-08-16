@@ -1,5 +1,5 @@
 XVEMKY1 ;DJB,KRN**BS,TRMREAD,ECHO,EXIST,XY,$ZE ;2017-08-15  1:24 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; GT.M support by Brian Lord (c) 2005
  ; Mumps V1 support,EXIST tag changes by Sam Habiel (c) 2017

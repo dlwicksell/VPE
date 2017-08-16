@@ -1,5 +1,5 @@
 XVSO ; Paideia/SMH - VPE 'Other' functions ;2017-08-16  10:57 AM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; (c) 2010-2016 Sam Habiel
  ; Notes: This corresponds to ^XVEMS("ZO")
  ;

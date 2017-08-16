@@ -1,5 +1,5 @@
-XVEMSI ;FWS/DLW - ZInsert a routine into VPE ;2017-08-15  5:02 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVEMSI ;FWS/DLW - ZInsert a routine into VPE ;2017-08-16  12:16 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; (c) David Wicksell 2010-2011 - Original Author
  ; (c) Sam Habiel 2016 - Bug fixes
  ;
@@ -16,7 +16,7 @@ XVEMSI ;FWS/DLW - ZInsert a routine into VPE ;2017-08-15  5:02 PM
  W ?19,"When you are finished, type: Ctl-D<RETURN>",!
  N B S $P(B,"*",79)="" W ?1,B,!
  N VRRS,ND,FL,LST,XVZI S (VRRS,XVZI)=1,ND=VRRS,(FL,LST)=0
- N I,J,K,RTN,RNM,RT,RS,RL,SRS 
+ N I,J,K,RTN,RNM,RT,RS,RL,SRS
  F I=1:1 D  Q:RTN=$C(4)  ;Loop through every line pasted into the buffer
  . I FL S FL=0 Q
  . S (RT,RS,RL)="" ;RT=Record Tag, RS=Record Separator, RL=Record Line
@@ -77,7 +77,7 @@ ASKE(RNM) ;Ask if you want to overwrite an existing routine
  E  N FL D  Q FL
  . N ANS S ANS=$$ASK(" "_$G(RNM)_" exists. Would you like to overwrite it",2)
  . I ANS="Y" S FL=1
- . E  S FL=0 
+ . E  S FL=0
  ;
 ASKO(RNM) ;Ask if you want to rename the routine
  I ($D(^DD))&($D(^DIC)) N DIR,X,Y D  Q Y
@@ -98,7 +98,7 @@ ASKN(RNM) ;Ask what the new routine name should be
  ;
 ASK(PROMPT,DEFAULT) ;Return: Y=YES, N=NO, RNM=Routine name
  N YN,TST
- S TST=DEFAULT 
+ S TST=DEFAULT
  S DEFAULT=$S($G(DEFAULT)=2:"NO",$G(DEFAULT)=3:$G(RNM),1:"YES")
 ASK1 ;
  W !,$G(PROMPT),"? "_DEFAULT_"// "

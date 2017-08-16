@@ -1,5 +1,5 @@
 XVEMDLE ;DJB,VEDD**Data: Type,Access [07/31/94];2017-08-15  12:14 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GETTYPE ;Select data type for DATA Option

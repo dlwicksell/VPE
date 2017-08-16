@@ -1,5 +1,5 @@
 XVEMRU ;DJB,VRR**Utilities ;2017-08-15  4:31 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; LINECNT bug fix for routines > 8 c long (c) 2016 Sam Habiel
  ;

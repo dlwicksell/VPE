@@ -1,5 +1,5 @@
-XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ;2017-08-16  10:53 AM
- ;;14.0;VICTORY PROG ENVIRONMENT;;May 23, 2016
+XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ;2017-08-16  12:10 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; (c) David Wicksell 2010
  ; (c) Sam Habiel 2010-2016
  ;
@@ -21,7 +21,7 @@ NOUSER ; Ask for DUZ if not there
  . I ($D(^DD))&$D(^VA(200)) D
  . . N DIC,X,Y,DLAYGO,DINUM,DIDEL,DTOUT,DUOUT
  . . D DT^DICRW
- . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B" 
+ . . S DIC="^VA(200,",DIC(0)="QEAZ",D="B"
  . . D IX^DIC
  . . S DUZ=$P(Y,"^")
  . . Q:DUZ<0

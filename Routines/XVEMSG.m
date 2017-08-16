@@ -1,5 +1,5 @@
-XVEMSG ;DJB,VSHL**Global Loader ;2017-08-15  4:51 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017;COPYRIGHT David Bolduc @1993
+XVEMSG ;DJB,VSHL**Global Loader ;2017-08-16  12:06 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Heavily refactored by David Wicksell and then Sam Habiel to remove all
  ;  references to code in globals.

@@ -1,5 +1,5 @@
-XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ;2017-08-15  1:34 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ;2017-08-16  12:12 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 BLANK1 ;Blank - cursor to end-of-screen
@@ -68,8 +68,8 @@ REVVID(WHICH) ;Reverse Video. WHICH=ON/OFF
 GRAPHICS(WHICH) ;Graphics On/Off. WHICH=ON/OFF
  S WHICH=$$ALLCAPS^XVEMKU(WHICH) Q:",ON,OFF,"'[(","_WHICH_",")
  I $G(IOST(0))]"",$D(^%ZIS(2,IOST(0),"G1")),$D(^("G2")) S XVVS("GON")=^("G1"),XVVS("GOFF")=^("G0") Q
- . I WHICH="ON" X @(^("G1")) Q
- . I WHICH="OFF" X @(^("G0"))
+ I WHICH="ON" X @(^("G1")) Q
+ I WHICH="OFF" X @(^("G0"))
  I WHICH="ON" W $C(27)_"(0" Q
  I WHICH="OFF" W $C(27)_"(B"
  Q

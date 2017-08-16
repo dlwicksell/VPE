@@ -1,5 +1,5 @@
-XVSE ; VEN/SMH - VPE Editor Init Code;2017-08-16  10:56 AM; 3/1/17 3:28pm
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVSE ; VEN/SMH - VPE Editor Init Code;2017-08-16  12:17 PM; 3/1/17 3:28pm
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; (c) 2010-2016 Sam Habiel
  ;
  ;
@@ -10,7 +10,7 @@ E ; Edit Entry Point
  NEW FLAGSAVE,FLAGVPE,XVVS
  NEW:$G(XVV("OS"))="" XVV
  D E4 ; Open routine for editing
- Q:'$D(^TMP("XVV","VRR",$J)) ; Nothing to save; quit
+ Q:'$D(^TMP("XVV","VRR",$J))  ; Nothing to save; quit
  D E1
  K ^UTILITY($J)
  N VRRS S VRRS=1

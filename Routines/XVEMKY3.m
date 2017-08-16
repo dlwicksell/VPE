@@ -1,5 +1,5 @@
-XVEMKY3 ;DJB,KRN**Screen Variables ;2017-08-15  1:33 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVEMKY3 ;DJB,KRN**Screen Variables ;2017-08-16  12:12 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; GT.M support and Mumps V1 support by Sam Habiel (c) 2016-2017
  ;
@@ -73,7 +73,7 @@ SAVEGUX(RN) ;Save a routine
  S %I=$I,SP=" ",%F=$$RTNDIR()_$TR(RN,"%","_")_".m"
  O %F:(NEWVERSION:NOREADONLY:NOWRAP:STREAM) U %F
  N %S F %S=0:0 S %S=$O(^UTILITY($J,0,%S))  Q:'%S  D 
- . S %=^UTILITY($J,0,%S) 
+ . S %=^UTILITY($J,0,%S)
  . Q:$E(%,1)="$" 
  . W %,!
  C %F

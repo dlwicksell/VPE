@@ -1,5 +1,5 @@
-XVEMRLP ;DJB,VRR**RTN LBRY - Print ;2017-08-15  2:02 PM
- ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+XVEMRLP ;DJB,VRR**RTN LBRY - Print ;2017-08-16  12:14 PM
+ ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 EN ;Entry Point
@@ -80,7 +80,7 @@ HD1 ;
  Q
 INIT ;
  I '$D(^XVV(19200.11)) S FLAGQ=1 Q  ;.........Invalid UCI
- I '$D(IOF)!('$D(IOST)),$D(^%ZIS) D HOME^%ZIS 
+ I '$D(IOF)!('$D(IOST)),$D(^%ZIS) D HOME^%ZIS
  I '$D(IOF) D MSG^XVEMRLU(6) Q  ;............IO variables not defined
  Q:'$$CHKLBRY^XVEMRLU()  ;...................Check environment
  D GETUSER^XVEMRLU() Q:FLAGQ  ;..............Identify current user
