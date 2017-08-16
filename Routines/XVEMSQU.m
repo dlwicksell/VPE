@@ -1,5 +1,6 @@
-XVEMSQU ;DJB,VSHL**QWIKs - Delete,Copy,Boxes [11/06/94]
+XVEMSQU ;DJB,VSHL**QWIKs - Delete,Copy,Boxes [11/06/94];2017-08-16  10:37 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DELETE ;Delete a QWIK
  W !?1,"*** Delete QWIK Command ***"

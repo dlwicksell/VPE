@@ -1,6 +1,6 @@
-XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ; 3/7/16 4:48pm
+XVSA ; Paideia/SMH,TOAD - VPE Main Shell Loop ;2017-08-16  10:56 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;;XV
+ ; (c) 2010-2016 Sam Habiel
  ; Contains code from ^XVEMS("ZA")
 EN ; ZA1
 ZA1 ;

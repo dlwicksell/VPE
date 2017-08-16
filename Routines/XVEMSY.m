@@ -1,5 +1,7 @@
-XVEMSY ;DJB,VSHL**Init,Error ; 2/25/17 11:51pm
+XVEMSY ;DJB,VSHL**Init,Error ;2017-08-16  10:48 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; ERROR tag and everything below completely rewritten Sam Habiel (c) 2016-2017
  ;
 INIT ;Initialize variables
  NEW XVVSIZE,X,Y

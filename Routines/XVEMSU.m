@@ -1,5 +1,7 @@
-XVEMSU ;DJB,VSHL**Util - PURGE,KERNSAVE,RESSYM ; 3/27/16 12:06am
+XVEMSU ;DJB,VSHL**Util - PURGE,KERNSAVE,RESSYM ;2017-08-16  10:45 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in USEZERO (c) 2016 Sam Habiel
  ;
 USEZERO ;After executing code, reuse device 0
  I $G(XVV("IO"))="" U 0 Q

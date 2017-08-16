@@ -1,5 +1,7 @@
-XVEMSNR ;DJB,VSHL**Enter New Routine ; 2/25/17 11:39pm
+XVEMSNR ;DJB,VSHL**Enter New Routine ;2017-08-16  10:25 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; New Error trap in TOP,GETCODE & tiny change in SAVRTN (c) 2016 Sam Habiel
  ;
 TOP ;Allow user to start a new routine
  NEW CNT,CODE,DEF,FLAGQ,I,LINE,RTN,TMP,TAG,XVVS,X

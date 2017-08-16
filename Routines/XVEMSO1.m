@@ -1,5 +1,6 @@
-XVEMSO1 ;DJB,VSHL**A,E,I,P,R [07/01/94]
+XVEMSO1 ;DJB,VSHL**A,E,I,P,R [07/01/94];2017-08-16  10:25 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  ;====================================================================
 A ;ACTION type option

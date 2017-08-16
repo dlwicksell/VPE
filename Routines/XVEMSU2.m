@@ -1,5 +1,7 @@
-XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ; 6/18/16 1:31pm
+XVEMSU2 ;DJB,VSHL**Utilities - ZPrint,ZRemove,Version ;2017-08-16  10:44 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Extensive changes throughout by Sam Habiel (c) 2016.
  ;
 ZPRINT ;ZP System QWIK to print a routine
  I $G(%1)']"" D ZPMSG Q

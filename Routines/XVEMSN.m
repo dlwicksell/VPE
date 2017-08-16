@@ -1,5 +1,6 @@
-XVEMSN ;DJB,VSHL**VPE Notes [2/1/97 10:32am]
+XVEMSN ;DJB,VSHL**VPE Notes [2/1/97 10:32am];2017-08-16  10:24 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 NOTES ;;;;
  ;;; ----->   V P E   P A R A M E T E R   P A S S I N G

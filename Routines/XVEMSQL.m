@@ -1,5 +1,7 @@
-XVEMSQL ;DJB,VSHL**QWIKs - List QWIKs ; 3/27/16 5:32pm
+XVEMSQL ;DJB,VSHL**QWIKs - List QWIKs ;2017-08-16  10:35 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Error trap removed test trap at IMPORT (c) 2016 Sam Habiel
  ;
 LISTQ(BOX,TYPE) ;List QWIKs. BOX=Display Box
  ;TYPE=1-User Desc,2-User Code,3-Sys Desc,4-Sys Code

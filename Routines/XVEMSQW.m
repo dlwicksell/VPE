@@ -1,5 +1,6 @@
-XVEMSQW ;DJB,VSHL**QWIKs - Vendor List [9/9/95 6:40pm]
+XVEMSQW ;DJB,VSHL**QWIKs - Vendor List [9/9/95 6:40pm];2017-08-16  10:39 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VENLIST ;List Vendor Specific Code
  NEW CD,FLAGQ,NAM,TYPE

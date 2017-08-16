@@ -1,6 +1,6 @@
-XVSK ; Paideia/SMH - VPE 'Kill' logic ; 2/29/16 8:06am
+XVSK ; Paideia/SMH - VPE 'Kill' logic ;2017-08-16  10:56 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;;XV
+ ; (c) 2010-2016 Sam Habiel
  ; Notes: Corresponds to ^XVEMS("ZK")
 ZK1 ;
 EN ; Kill ^XVEMS("%") on exit ;ZK1

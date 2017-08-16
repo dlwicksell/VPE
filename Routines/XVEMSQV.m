@@ -1,5 +1,6 @@
-XVEMSQV ;DJB,VSHL**QWIKs - Vendor Specific Code [9/27/95 6:39pm]
+XVEMSQV ;DJB,VSHL**QWIKs - Vendor Specific Code [9/27/95 6:39pm];2017-08-16  10:38 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VENDOR ;Add a Vendor Specific QWIK.
  NEW BOX,BX,CHK,CD,CDHLD,CODE,FLAGJMP,FLAGQ,I,NAM,PROMPT,VEN

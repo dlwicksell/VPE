@@ -1,5 +1,6 @@
-XVEMS ;DJB,VSHL**Setup VShell [11/17/96 12:47pm]
+XVEMS ;DJB,VSHL**Setup VShell [11/17/96 12:47pm];2017-08-16  10:23 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
  Q
 NOTES ;General notes

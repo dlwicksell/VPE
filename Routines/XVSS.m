@@ -1,6 +1,6 @@
-XVSS ; Paideia/SMH,TOAD - VPE Symbol Table Save ; 2/29/16 7:35am
+XVSS ; Paideia/SMH,TOAD - VPE Symbol Table Save ;2017-08-16  10:59 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;;XV
+ ; (c) 2010-2016 Sam Habiel
  ; Sam's Notes: = ^XVEMS("ZS")
 SAVE ; Save XVV variables (= ZS1,7,9)
 ZS1 ;

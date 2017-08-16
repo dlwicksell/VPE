@@ -1,6 +1,6 @@
-XVSR ; Paideia/SMH - VPE Single Character Reads  ; 2/29/16 6:44am
+XVSR ; Paideia/SMH - VPE Single Character Reads  ;2017-08-16  10:58 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;;XV
+ ; (c) 2010-2016 Sam Habiel
  ;
 ZR1 ; Main
  N CD,FLAGCLH,PROMPT,Y

@@ -1,5 +1,7 @@
-XVEMSO ;DJB,VSHL**Run Kernel Menu Option ; 3/27/16 5:09pm
+XVEMSO ;DJB,VSHL**Run Kernel Menu Option ;2017-08-16  10:32 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; Error traps removed by Sam Habiel. No new code by Sam Habiel.
  ;
 KERNEL(OPT) ;Calls KERNEL ^XQ
  ;OPT=Name/number of entry in OPTION file (#19)

@@ -1,5 +1,7 @@
-XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ; 2/25/17 5:07pm
+XV ; OSEHRA/SMH,FWS/DLW - Entry point for VPE ;2017-08-16  10:53 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;May 23, 2016
+ ; (c) David Wicksell 2010
+ ; (c) Sam Habiel 2010-2016
  ;
  ; Original VPE by David Bolduc
  ; Refactored VPE by David Wicksell and Sam Habiel

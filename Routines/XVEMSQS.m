@@ -1,5 +1,7 @@
-XVEMSQS ;DJB,VSHL**QWIKs - List & Select ; 3/26/16 10:44pm
+XVEMSQS ;DJB,VSHL**QWIKs - List & Select ;2017-08-16  10:37 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
+ ; LIST code corrected to not hardcode right margin (c) 2016 Sam Habiel
  ;
 QWIK(CD) ;User's entry used the "." or ".." syntax.
  NEW I,TYPE

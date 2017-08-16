@@ -1,5 +1,6 @@
-XVEMSQA ;DJB,VSHL**QWIKs - Display,Msg [1/16/96 11:04pm]
+XVEMSQA ;DJB,VSHL**QWIKs - Display,Msg [1/16/96 11:04pm];2017-08-16  10:34 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
+ ; Original Code authored by David J. Bolduc 1985-2005
  ;
 DISPLAY ;Display QWIK info
  NEW CD,I,LMAR,PROMPT,START,WIDTH

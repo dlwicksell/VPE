@@ -1,6 +1,6 @@
-XVSO ; Paideia/SMH - VPE 'Other' functions ; 2/27/16 4:01pm
+XVSO ; Paideia/SMH - VPE 'Other' functions ;2017-08-16  10:57 AM
  ;;14.0;VICTORY PROG ENVIRONMENT;;Feb 27, 2017
- ;;XV
+ ; (c) 2010-2016 Sam Habiel
  ; Notes: This corresponds to ^XVEMS("ZO")
  ;
 ZO1 ; Reset $ZR and $T
