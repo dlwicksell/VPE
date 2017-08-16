@@ -8,6 +8,8 @@ correctly. This is what Kevin found and fixed.
 - Fileman files automatically installed without any questions being asked when
 you run VPE via ^XV.
 - Relicensing code to Apache 2.0.
+- Tiny changes here and there to please XINDEX. Almost all of VPE now passes
+  XINDEX.
 
 ## Authors for version 14.0
 Sam Habiel

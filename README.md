@@ -25,15 +25,10 @@ To enter VPE, type `D ^XV`. The VPE manual can be found here: http://www.pioneer
 The entire change history from version 9 to the current version can be found [here](Changes.md).
 
 ## License
-Original VPE license still applies. See LICENSE file.
+The VPE is now licensed under Apache 2.0. See [LICNESE](LICENSE) for more details.
 
 ## MV1 support
 This section is for Sam, the maintainer. You can ignore it:
 
 What's left for supporting MV1 is the following:
-- ESC ESC doesn't work --> FIXED.
-- Error trap unwind doesn't work --> PUT A BANDAID!
-- Autoresizing terminal sometimes works, but most times not --> FIXED.
-- OS utilities in ^XVEMS shortcuts --> FIXED.
-- Routine listing (?? on ..E) doesn't work --> FIXED.
-
+- Error trap unwind doesn't work b/c of a bug in MV1 --> PUT A BANDAID!
