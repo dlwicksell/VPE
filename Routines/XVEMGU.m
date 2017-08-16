@@ -1,4 +1,4 @@
-XVEMGU ;DJB,VGL**Utility Routine - ZDELIM,Get File,Heading [07/29/94];2017-08-15  12:48 PM
+XVEMGU ;DJB/VGL**Utility Routine - ZDELIM,Get File,Heading [07/29/94];2017-08-15  12:48 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

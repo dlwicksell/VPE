@@ -1,4 +1,4 @@
-XVEMSQA ;DJB,VSHL**QWIKs - Display,Msg [1/16/96 11:04pm];2017-08-16  10:34 AM
+XVEMSQA ;DJB/VSHL**QWIKs - Display,Msg [1/16/96 11:04pm];2017-08-16  10:34 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

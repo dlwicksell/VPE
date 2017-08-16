@@ -1,4 +1,4 @@
-XVEMSGS ;DJB,VSHL**VShell Global - System QWIKs ;2017-08-15  4:54 PM
+XVEMSGS ;DJB/VSHL**VShell Global - System QWIKs ;2017-08-15  4:54 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; QWIKs E, VRR, ZR modified (c) 2016 Sam Habiel

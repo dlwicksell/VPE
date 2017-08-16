@@ -1,4 +1,4 @@
-XVEMRV ;DJB,VRR**Verify/Convert Scroll Array,Chk Tag/Line ;2017-08-15  4:36 PM
+XVEMRV ;DJB/VRR**Verify/Convert Scroll Array,Chk Tag/Line ;2017-08-15  4:36 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; VERIFY, TAGCHK, TAGCHK1 modified to take unlimited size routines and labels

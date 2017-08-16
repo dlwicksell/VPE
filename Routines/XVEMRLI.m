@@ -1,4 +1,4 @@
-XVEMRLI ;DJB,VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;2017-08-15  2:00 PM
+XVEMRLI ;DJB/VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;2017-08-15  2:00 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in EN+2,GETRTN (c) 2016 Sam Habiel

@@ -1,4 +1,4 @@
-XVEMKP ;DJB,VRR**Printing [12/30/95 8:23am];2017-08-15  12:58 PM
+XVEMKP ;DJB/VRR**Printing [12/30/95 8:23am];2017-08-15  12:58 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMDLM ;DJB,VEDD**Menu,Find,Goto [11/25/95 12:22pm];2017-08-15  12:17 PM
+XVEMDLM ;DJB/VEDD**Menu,Find,Goto [11/25/95 12:22pm];2017-08-15  12:17 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

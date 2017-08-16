@@ -1,4 +1,4 @@
-XVEMSU1 ;DJB,VSHL**Utilities - KEY,DIC,DIET,DIPT,DIBT ;2017-08-16  10:43 AM
+XVEMSU1 ;DJB/VSHL**Utilities - KEY,DIC,DIET,DIPT,DIBT ;2017-08-16  10:43 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Error trap code in KEY,KEY1 (c) Sam Habiel 2016

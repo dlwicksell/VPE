@@ -1,4 +1,4 @@
-XVEMRLV ;DJB,VRR**RTN VER - Routine Editor Prompts ;2017-08-15  2:03 PM
+XVEMRLV ;DJB/VRR**RTN VER - Routine Editor Prompts ;2017-08-15  2:03 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

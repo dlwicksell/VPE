@@ -1,4 +1,4 @@
-XVEMSPS ;DJB,VSHL**Print Symbol Table (..ZW) ;2017-08-16  10:33 AM
+XVEMSPS ;DJB/VSHL**Print Symbol Table (..ZW) ;2017-08-16  10:33 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Mumps V1 support by Sam Habiel (c) 2017

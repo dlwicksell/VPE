@@ -1,4 +1,4 @@
-XVEMSP ;DJB,VSHL**System Parameters [11/17/96 12:49pm];2017-08-16  10:32 AM
+XVEMSP ;DJB/VSHL**System Parameters [11/17/96 12:49pm];2017-08-16  10:32 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

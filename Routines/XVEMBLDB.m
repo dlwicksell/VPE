@@ -1,4 +1,4 @@
-XVEMBLDB ;DJB,VSHL**VPE Setup - Pages 4-7 ;2017-08-15  11:44 AM
+XVEMBLDB ;DJB/VSHL**VPE Setup - Pages 4-7 ;2017-08-15  11:44 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; David Wicksell and Sam Habiel changed routine references to ^XV (c) 2010-2016

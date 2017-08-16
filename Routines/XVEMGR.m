@@ -1,4 +1,4 @@
-XVEMGR ;DJB,VGL**Process a Range of nodes [02/03/95];2017-08-15  12:46 PM
+XVEMGR ;DJB/VGL**Process a Range of nodes [02/03/95];2017-08-15  12:46 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

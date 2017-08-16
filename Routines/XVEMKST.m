@@ -1,4 +1,4 @@
-XVEMKST ;DJB,KRN**Save Symbol Table [07/22/94];2017-08-15  1:00 PM
+XVEMKST ;DJB/KRN**Save Symbol Table [07/22/94];2017-08-15  1:00 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

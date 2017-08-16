@@ -1,4 +1,4 @@
-XVEMKYB ;DJB,KRN**Manual version of ^XVEMKY2 Variables ;2017-08-16  12:12 PM
+XVEMKYB ;DJB/KRN**Manual version of ^XVEMKY2 Variables ;2017-08-16  12:12 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMSL ;DJB,VSHL**VA KERNEL Library Functions [3/6/96 6:17pm];2017-08-15  5:03 PM
+XVEMSL ;DJB/VSHL**VA KERNEL Library Functions [3/6/96 6:17pm];2017-08-15  5:03 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMKY2 ;DJB,KRN**Screen Variables ;2017-08-15  1:32 PM
+XVEMKY2 ;DJB/KRN**Screen Variables ;2017-08-15  1:32 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; GT.M support by Brian Lord (c) 2005

@@ -1,4 +1,4 @@
-XVEMKTF ;DJB,KRN**Txt Scroll-Select FM Fields [2/1/97 10:23am];2017-08-15  1:12 PM
+XVEMKTF ;DJB/KRN**Txt Scroll-Select FM Fields [2/1/97 10:23am];2017-08-15  1:12 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  Q

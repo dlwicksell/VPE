@@ -1,4 +1,4 @@
-XVEMGI ;DJB,VGL**Loop,Print,Import ;2017-08-15  12:36 PM
+XVEMGI ;DJB/VGL**Loop,Print,Import ;2017-08-15  12:36 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in TOP+1 and PRINT (c) 2016 Sam Habiel

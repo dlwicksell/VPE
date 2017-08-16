@@ -1,4 +1,4 @@
-XVEMDL1 ;DJB,VEDD**Start at a particular field?,Hd,Error ;2017-08-15  12:12 PM
+XVEMDL1 ;DJB/VEDD**Start at a particular field?,Hd,Error ;2017-08-15  12:12 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

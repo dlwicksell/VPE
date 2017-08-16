@@ -1,4 +1,4 @@
-XVEMSH ;DJB,VSHL**Help Text Menu [3/6/96 6:15pm];2017-08-15  5:01 PM
+XVEMSH ;DJB/VSHL**Help Text Menu [3/6/96 6:15pm];2017-08-15  5:01 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

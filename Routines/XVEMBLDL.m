@@ -1,4 +1,4 @@
-XVEMBLDL ;DJB,VSHL**VPE Setup - Load Editor & Shell ;2017-08-15  11:44 AM
+XVEMBLDL ;DJB/VSHL**VPE Setup - Load Editor & Shell ;2017-08-15  11:44 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

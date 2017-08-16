@@ -1,4 +1,4 @@
-XVEMSRL ;DJB,VSHL**Routine Lister [9/29/97 8:03pm];2017-08-16  10:39 AM
+XVEMSRL ;DJB/VSHL**Routine Lister [9/29/97 8:03pm];2017-08-16  10:39 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMKDT ;DJB,KRN**Date/Time [12/30/95 9:15am];2017-08-15  12:50 PM
+XVEMKDT ;DJB/KRN**Date/Time [12/30/95 9:15am];2017-08-15  12:50 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMRE1 ;DJB,VRR**EDIT - DO Menu Options ;2017-08-15  1:40 PM
+XVEMRE1 ;DJB/VRR**EDIT - DO Menu Options ;2017-08-15  1:40 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

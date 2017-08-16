@@ -1,4 +1,4 @@
-XVEMGY ;DJB,VGL**Init,Partition,Branching,Error ;2017-08-15  12:49 PM
+XVEMGY ;DJB/VGL**Init,Partition,Branching,Error ;2017-08-15  12:49 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMRLO ;DJB,VRR**RTN LBRY - Sign Out Rtns,Rtn Save ;2017-08-15  2:02 PM
+XVEMRLO ;DJB/VRR**RTN LBRY - Sign Out Rtns,Rtn Save ;2017-08-15  2:02 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap (3rd code line) (c) 2016 Sam Habiel

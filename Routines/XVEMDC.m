@@ -1,4 +1,4 @@
-XVEMDC ;DJB,VEDD**File Characteristics [07/12/94];2017-08-15  11:47 AM
+XVEMDC ;DJB/VEDD**File Characteristics [07/12/94];2017-08-15  11:47 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMRP1 ;DJB,VRR**Cut,Copy,Paste ;2017-08-15  4:25 PM
+XVEMRP1 ;DJB/VRR**Cut,Copy,Paste ;2017-08-15  4:25 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

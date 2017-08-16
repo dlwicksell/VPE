@@ -1,4 +1,4 @@
-XVEMSCL ;DJB,VSHL**Command Line History ;2017-08-15  4:45 PM
+XVEMSCL ;DJB/VSHL**Command Line History ;2017-08-15  4:45 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; CHLSET, CLHEDIT Remove refs to code in globals -> routines (c) 2016 Sam Habiel

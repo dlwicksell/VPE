@@ -1,4 +1,4 @@
-XVEMSS1 ;DJB,VSHL**..SAVE cont.. ;2017-08-16  10:40 AM
+XVEMSS1 ;DJB/VSHL**..SAVE cont.. ;2017-08-16  10:40 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; X ^ replaced with D E2^XVSE in BUILD (c) Sam Habiel 2016

@@ -1,4 +1,4 @@
-XVEMKT2 ;DJB,KRN**Txt Scroll-Other,Help ;2017-08-15  1:11 PM
+XVEMKT2 ;DJB/KRN**Txt Scroll-Other,Help ;2017-08-15  1:11 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

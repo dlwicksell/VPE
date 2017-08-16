@@ -1,4 +1,4 @@
-XVEMSCU ;DJB,VSHL**Command Line History Utility [11/06/94];2017-08-15  4:46 PM
+XVEMSCU ;DJB/VSHL**Command Line History Utility [11/06/94];2017-08-15  4:46 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

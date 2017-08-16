@@ -1,4 +1,4 @@
-XVEMKT1 ;DJB,KRN**Txt Scroll-List TEXT ;2017-08-15  1:02 PM
+XVEMKT1 ;DJB/KRN**Txt Scroll-List TEXT ;2017-08-15  1:02 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in LIST+1 (c) 2016 Sam Habiel

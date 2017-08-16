@@ -1,4 +1,4 @@
-XVEMKE ;DJB,KRN**Line Editor [9/9/95 2:43pm];2017-08-15  12:56 PM
+XVEMKE ;DJB/KRN**Line Editor [9/9/95 2:43pm];2017-08-15  12:56 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

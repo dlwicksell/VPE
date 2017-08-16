@@ -1,4 +1,4 @@
-XVEMRH1 ;DJB,VRR**Help Text [10/22/96 8:35am];2017-08-15  1:47 PM
+XVEMRH1 ;DJB/VRR**Help Text [10/22/96 8:35am];2017-08-15  1:47 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

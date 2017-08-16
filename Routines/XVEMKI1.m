@@ -1,4 +1,4 @@
-XVEMKI1 ;DJB,KRN**Indiv Fld DD ;2017-08-15  12:57 PM
+XVEMKI1 ;DJB/KRN**Indiv Fld DD ;2017-08-15  12:57 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

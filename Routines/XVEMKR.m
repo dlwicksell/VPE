@@ -1,4 +1,4 @@
-XVEMKR ;DJB,KRN**OLD Single Character Read ;2017-08-15  12:59 PM
+XVEMKR ;DJB/KRN**OLD Single Character Read ;2017-08-15  12:59 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

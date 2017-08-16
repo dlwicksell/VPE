@@ -1,4 +1,4 @@
-XVEMGP ;DJB,VGL**PIECES - Display Global Pieces ;2017-08-15  12:44 PM
+XVEMGP ;DJB/VGL**PIECES - Display Global Pieces ;2017-08-15  12:44 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in TOP+1,LIST+19 (c) 2016 Sam Habiel

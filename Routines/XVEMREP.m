@@ -1,4 +1,4 @@
-XVEMREP ;DJB,VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-16  12:13 PM
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-16  12:13 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016

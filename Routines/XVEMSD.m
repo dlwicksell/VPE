@@ -1,4 +1,4 @@
-XVEMSD ;DJB,VSHL**Delete Range of Variables (..ZD) [05/07/94];2017-08-15  4:46 PM
+XVEMSD ;DJB/VSHL**Delete Range of Variables (..ZD) [05/07/94];2017-08-15  4:46 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

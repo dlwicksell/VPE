@@ -1,4 +1,4 @@
-XVEMDH5 ;DJB,VEDD**Help Text - Field Global Location [11/05/94];2017-08-15  12:07 PM
+XVEMDH5 ;DJB/VEDD**Help Text - Field Global Location [11/05/94];2017-08-15  12:07 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

@@ -1,4 +1,4 @@
-XVEMRLP ;DJB,VRR**RTN LBRY - Print ;2017-08-16  12:14 PM
+XVEMRLP ;DJB/VRR**RTN LBRY - Print ;2017-08-16  12:14 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

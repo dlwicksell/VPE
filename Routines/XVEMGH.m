@@ -1,4 +1,4 @@
-XVEMGH ;DJB,VGL**Help Text - Global Prompt [06/19/94];2017-08-15  12:29 PM
+XVEMGH ;DJB/VGL**Help Text - Global Prompt [06/19/94];2017-08-15  12:29 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

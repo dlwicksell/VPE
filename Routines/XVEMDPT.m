@@ -1,4 +1,4 @@
-XVEMDPT ;DJB,VEDD**Pointers In, Pointers Out [1/7/97 3:13pm];2017-08-15  12:21 PM
+XVEMDPT ;DJB/VEDD**Pointers In, Pointers Out [1/7/97 3:13pm];2017-08-15  12:21 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;

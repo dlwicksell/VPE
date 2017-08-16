@@ -1,4 +1,4 @@
-XVEMGMC ;DJB,VGL**Check FM, Check Node [6/14/95 10:39pm];2017-08-15  12:40 PM
+XVEMGMC ;DJB/VGL**Check FM, Check Node [6/14/95 10:39pm];2017-08-15  12:40 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
