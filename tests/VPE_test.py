@@ -2,80 +2,121 @@ import unittest
 import sys
 sys.path.append('./pexpect_n_vistahelpers/vista')
 import TestHelper
+import cProfile, pstats, StringIO
 
 class VPEUnitTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        VistA.startCoverage(test_suite_details.coverage_subset)
+        cls.vista = test_driver.connect_VistA(test_suite_details)
+        cls.vista.startCoverage(",".join(test_suite_details.coverage_subset))
 
     @classmethod
     def tearDownClass(cls):
-        VistA.stopCoverage('./output/cov.cov')
-        VistA.write('halt')
+        cls.vista.stopCoverage('./output/cov.cov', 'ON')
+        cls.vista.write('halt')
+
+    def test_deleteVPE(self):
+        self.vista.write('K ^XVEMS')
 
     def test_startVPE(self):
-        VistA.write('D ^XV')
-        rval = VistA.multiwait(['NAME', 'ID'])
-        VistA.write('`1')
-        self.assertEqual(VistA.wait('>>'),1)
+        self.vista.write('D ^XV')
+        rval = self.vista.multiwait(['NAME', 'ID'])
+        self.vista.write('`1')
+        self.vista.wait('ID Number')
+        self.vista.write('1')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('Load VPE Shell global')
+        self.vista.write('Y')
+        self.vista.wait('to continue..')
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('>>'),1)
 
     def test_list_qwiks(self):
-        VistA.write('..')
-        boo = VistA.wait('ZW')
+        self.vista.write('..')
+        boo = self.vista.wait('ZW')
         self.assertEqual(boo,1)
-        VistA.wait('>>')
+        self.vista.wait('>>')
 
     def test_delete_routine(self):
-        VistA.write('..ZR KBANTEST')
-        boo = VistA.wait('OK TO DELETE?')
+        self.vista.write('..ZR KBANTEST')
+        boo = self.vista.wait('OK TO DELETE?')
         self.assertEqual(boo,1)
-        VistA.write('Y')
-        boo = VistA.wait('Removed')
+        self.vista.write('Y')
+        boo = self.vista.wait('Removed')
         self.assertEqual(boo,1)
-        VistA.wait('>>')
+        self.vista.wait('>>')
 
     def test_editor(self):
-        VistA.write('..E')
-        boo = VistA.wait('ROUTINE')
+        self.vista.write('..E')
+        boo = self.vista.wait('ROUTINE')
         self.assertEqual(boo,1)
-        VistA.write('KBANTEST')
-        boo = VistA.wait('[^KBANTEST]')
+        self.vista.write('KBANTEST')
+        boo = self.vista.wait('[^KBANTEST]')
         self.assertEqual(boo,1)
-        VistA.write('')
-        VistA.write(' W "HELLO VPE",!')
-        VistA.write(' QUIT')
-        VistA.wait('');
-        VistA.writectrl(chr(27)) # end line
-        VistA.writectrl(chr(27))
-        VistA.writectrl(chr(27)) # save routine
-        VistA.writectrl(chr(27))
-        VistA.wait('Save your changes?')
-        VistA.write('')
-        VistA.wait('saved to disk')
-        VistA.wait('>>')
-        VistA.write('D ^KBANTEST')
-        boo = VistA.wait('HELLO VPE')
+        self.vista.write('')
+        self.vista.write(' W "HELLO VPE",!')
+        self.vista.write(' QUIT')
+        self.vista.wait('');
+        self.vista.writectrl(chr(27)) # end line
+        self.vista.writectrl(chr(27))
+        self.vista.writectrl(chr(27)) # save routine
+        self.vista.writectrl(chr(27))
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
+        self.vista.wait('>>')
+        self.vista.write('D ^KBANTEST')
+        boo = self.vista.wait('HELLO VPE')
         self.assertEqual(boo,1)
-        VistA.wait('>>')
+        self.vista.wait('>>')
 
     def test_stopVPE(self):
-        VistA.write('HALT')
+        self.vista.write('HALT')
 
 if __name__ == '__main__':
+    # OSEHRA Testing Framework Setup
     test_suite_driver = TestHelper.TestSuiteDriver(__file__)
     test_suite_details = test_suite_driver.generate_test_suite_details()
     test_suite_details.coverage_subset = ['XV*']
     test_suite_driver.pre_test_suite_run(test_suite_details)
     test_driver = TestHelper.TestDriver("Main")
-    VistA = test_driver.connect_VistA(test_suite_details)
 
-    del sys.argv[1:]
+    # Python Unit Testing setup
+    del sys.argv[1:]  # don't pass the arguments down to the unit tester
+
+    # Next stanza: run tests in order of declaration, top to bottom.
     loader = unittest.TestLoader()
     ln = lambda f: getattr(VPEUnitTests, f).im_func.func_code.co_firstlineno
     lncmp = lambda a, b: cmp(ln(a), ln(b))
     loader.sortTestMethodsUsing = lncmp
 
-    unittest.main(testLoader=loader, verbosity=2)
+    # Turn on profiling
+    #pr = cProfile.Profile()
+    #pr.enable()
+
+    # Run the main code
+    unittest.main(testLoader=loader, verbosity=2, exit=False)
+
+    # Disable profiling
+    #pr.disable()
+
+    # Print stats
+    #s = StringIO.StringIO()
+    #sortby = 'cumulative'
+    #ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+    #ps.print_stats()
+    #print s.getvalue()
 
 #---------------------------------------------------------------------------
 # Copyright 2017 Sam Habiel

@@ -1,5 +1,6 @@
 #---------------------------------------------------------------------------
 # Copyright 2012 The Open Source Electronic Health Record Agent
+# Copyright 2017 Sam Habiel. writectrl methods.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -164,6 +165,10 @@ class ConnectWinCache(ConnectMUMPS):
     logging.debug('connection.write:' + command)
     self.log.flush()
 
+  def writectrl(self, command):
+    self.connection.send(command)
+    logging.debug('connection.writectrl: ' + command)
+
   def wait(self, command, tout=15):
     logging.debug('connection.expect: ' + str(command))
     if command is PROMPT:
@@ -270,6 +275,10 @@ class ConnectLinuxCache(ConnectMUMPS):
     self.connection.send(command + '\r')
     logging.debug('connection.write:' + command)
 
+  def writectrl(self, command):
+    self.connection.send(command)
+    logging.debug('connection.writectrl: ' + command)
+
   def wait(self, command, tout=15):
     logging.debug('connection.expect: ' + str(command))
     if command is PROMPT:
@@ -360,6 +369,7 @@ class ConnectLinuxGTM(ConnectMUMPS):
     self.lastconnection=""
     self.optionParentDict = []
     self.optionMenuTextDict = []
+    self.coverageRoutines = ""
 
   def write(self, command):
     self.connection.send(command + '\r')
@@ -367,7 +377,7 @@ class ConnectLinuxGTM(ConnectMUMPS):
 
   def writectrl(self, command):
     self.connection.send(command)
-    logging.debug('connection.write: ' + command)
+    logging.debug('connection.writectrl: ' + command)
 
   def wait(self, command, tout=15):
     logging.debug('connection.expect: ' + str(command))
@@ -402,8 +412,9 @@ class ConnectLinuxGTM(ConnectMUMPS):
     else:
       raise IndexError('Input to multiwait function is not a list')
 
-  def startCoverage(self, routines=['*']):
+  def startCoverage(self, routines='*'):
     self.write('K ^ZZCOVERAGE VIEW "TRACE":1:"^ZZCOVERAGE"')
+    self.coverageRoutines = routines
 
   def stopCoverage(self, path, humanreadable='OFF'):
     path, filename = os.path.split(path)
@@ -420,6 +431,19 @@ class ConnectLinuxGTM(ConnectMUMPS):
     self.write('ZWR')
     self.wait('device')
     self.write(path + '/Coverage/' + filename.replace('.log', '.mcov').replace('.txt', '.mcov'))
+    if humanreadable == 'ON':
+      self.write('')
+      self.write('K RTNS D GETRTNS^%ut1(.RTNS,"' + self.coverageRoutines +'")')
+      self.wait(PROMPT)
+      self.write('K ^ZZCOHORT D RTNANAL^%ut1(.RTNS,"^ZZCOHORT")')
+      self.wait(PROMPT)
+      self.write('K ^ZZSURVIVORS M ^ZZSURVIVORS=^ZZCOHORT')
+      self.wait(PROMPT)
+      self.write('D COVCOV^%ut1("^ZZSURVIVORS","^ZZCOVERAGE")')
+      self.wait(PROMPT)
+      self.write('D COVRPT^%ut1("^ZZCOHORT","^ZZSURVIVORS","^ZZRESULT",2)')
+      self.wait(PROMPT)
+    #self.write('K ^ZZCOHORT ^ZZSURVIVORS ^ZZCOVERAGE ^ZZRESULT')
 
 class ConnectRemoteSSH(ConnectMUMPS):
   """
@@ -459,6 +483,11 @@ class ConnectRemoteSSH(ConnectMUMPS):
     time.sleep(.01)
     self.connection.send(command + '\r')
     logging.debug('connection.send:' + command)
+
+  def writectrl(self, command):
+    time.sleep(.01)
+    self.connection.send(command)
+    logging.debug('connection.writectrl: ' + command)
 
   def wait(self, command, tout=15):
     time.sleep(.01)
