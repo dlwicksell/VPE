@@ -17,8 +17,16 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_deleteVPE(self):
         self.vista.write('K ^XVEMS')
+        self.vista.write('D DT^DICRW')
+        self.vista.write('S DIU="^XVV(19200.11,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.write('S DIU="^XVV(19200.111,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.write('S DIU="^XVV(19200.112,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.write('S DIU="^XVV(19200.113,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.write('S DIU="^XVV(19200.114,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.wait('>')
 
     def test_startVPE(self):
+        self.vista.write('S %ut=1') # This prevents VPE from auto-resizing, which confuses pexpect
         self.vista.write('D ^XV')
         rval = self.vista.multiwait(['NAME', 'ID'])
         self.vista.write('`1')
@@ -42,11 +50,114 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertEqual(self.vista.wait('>>'),1)
 
+    def test_tryStartAgainFromWithin(self):
+        self.vista.write('D ^XV')
+        self.assertEqual(self.vista.wait('VSHELL CURRENTLY ACTIVE'),1)
+        self.assertEqual(self.vista.wait('>>'),1)
+
     def test_list_qwiks(self):
+        # Test User Qwiks
+        self.vista.write('.')
+        self.assertTrue(self.vista.wait('No User QWIKs on record'))
+        self.vista.wait('>>')
+
+        # Test System Qwiks
         self.vista.write('..')
         boo = self.vista.wait('ZW')
         self.assertEqual(boo,1)
         self.vista.wait('>>')
+
+        # Test ..QL1 and then Esc,H and then enter to exit and esc esc to exit
+        self.vista.write('..QL1')
+        self.assertEqual(self.vista.wait('U S E R   Q W I K S'),1)
+        self.vista.writectrl(chr(27)) # ESC-H
+        self.vista.writectrl('H')
+        self.assertEqual(self.vista.wait('V P E   S C R O L L E R'),1)
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('U S E R   Q W I K S'),1)
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+        ## Test ..QL2 and then exit
+        self.vista.write('..QL2')
+        self.assertEqual(self.vista.wait('U S E R   Q W I K S'),1)
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+        ## Test ..QL3
+        self.vista.write('..QL3')
+        self.assertEqual(self.vista.wait('S Y S T E M   Q W I K S'),1)
+        self.assertEqual(self.vista.wait('DOS'),1)
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.writectrl('F') # Find
+        self.assertTrue(self.vista.wait('S C R O L L E R   F I N D   U T I L I T Y'))
+        self.assertTrue(self.vista.wait('Enter CHARACTERS:'))
+        self.vista.write('ZW')
+        self.assertTrue(self.vista.wait('ZW'))
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+        ## Test ..QL4
+        self.vista.write('..QL4')
+        self.assertEqual(self.vista.wait('S Y S T E M   Q W I K S'),1)
+        self.assertEqual(self.vista.wait('DOS'),1)
+        self.vista.writectrl(chr(27) + '[6~') # page down several times
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.writectrl(chr(27) + '[6~')
+        self.assertTrue(self.vista.wait('ZW'))
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+    def test_command_line_shortcuts(self):
+        # Left Arrow - Load command line history
+        self.vista.writectrl(chr(27) + '[D')
+        self.assertTrue(self.vista.wait('7) ..QL4')) # 6th command is QL4
+        self.assertTrue(self.vista.wait('Select:'))
+        self.vista.write('7')
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('S Y S T E M   Q W I K S'),1)
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+        # Up Arrow - Recall last command
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.assertTrue(self.vista.wait('..QL4'))
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('S Y S T E M   Q W I K S'),1)
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+        # Down Arrow - Recall first command
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.assertTrue(self.vista.wait('D ^XV'))
+        self.vista.writectrl(chr(27) + '[A') # Up arrow to cancel
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_command_line_error_trap(self):
+        self.vista.write('W 1/0')
+        self.assertTrue(self.vista.wait('ERROR LINE/CODE: @: W 1/0'))
+        self.vista.wait('>>')
+
+    def test_main_help(self):
+        self.vista.writectrl(chr(27) + 'H') # ESC-H
+        self.assertTrue(self.vista.wait('V S H E L L   H E L P   M E N U'))
+        self.assertTrue(self.vista.wait('SELECT:'))
+        self.vista.writectrl(chr(27) + '[B') # Down arrow - select Protection
+        self.vista.write('') # enter
+        self.assertTrue(self.vista.wait('P R O T E C T I O N'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('V S H E L L   H E L P   M E N U'))
+        self.assertTrue(self.vista.wait('SELECT:'))
+        self.vista.write('Quit')
+        self.assertTrue(self.vista.wait('>>'))
 
     def test_delete_routine(self):
         self.vista.write('..ZR KBANTEST')
@@ -79,6 +190,23 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('D ^KBANTEST')
         boo = self.vista.wait('HELLO VPE')
         self.assertEqual(boo,1)
+        self.vista.wait('>>')
+
+    def test_showSymbolTable(self):
+        self.vista.write('..ZW')
+        self.assertTrue(self.vista.wait('%ut')) # We put this guy in at the very beginning
+        self.vista.writectrl(chr(27)) # exit
+        self.vista.writectrl(chr(27))
+        self.vista.wait('>>')
+
+    def test_showCalendar(self):
+        self.vista.write('..CAL')
+        self.assertTrue(self.vista.wait('S I X   M O N T H   P L A N N E R'))
+        self.vista.wait('>>')
+
+    def test_showASCIITable(self):
+        self.vista.write('..ASCII')
+        self.assertTrue(self.vista.wait('A S C I I   C H A R A C T E R   S E T'))
         self.vista.wait('>>')
 
     def test_stopVPE(self):
@@ -132,4 +260,4 @@ if __name__ == '__main__':
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#---------------------------------------------------------------------------
+
