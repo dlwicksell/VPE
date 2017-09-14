@@ -453,7 +453,10 @@ class ConnectLinuxGTM(ConnectMUMPS):
       self.wait('Format')
       self.write('ZWR')
       self.wait('device')
-      self.write(path + '/Coverage/' + filename.replace('.log', '.mcov').replace('.txt', '.mcov'))
+      self.write(path + '/Coverage/coverageCalc.mcov')
+      self.wait(PROMPT)
+      self.write('WRITE ^ZZRESULT," ",@^ZZRESULT')
+      self.wait(PROMPT)
     #self.write('K ^ZZCOHORT ^ZZSURVIVORS ^ZZCOVERAGE ^ZZRESULT')
 
 class ConnectRemoteSSH(ConnectMUMPS):

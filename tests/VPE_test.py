@@ -3,6 +3,7 @@ import sys
 sys.path.append('./pexpect_n_vistahelpers/vista')
 import TestHelper
 import cProfile, pstats, StringIO
+import time
 
 class VPEUnitTests(unittest.TestCase):
     @classmethod
@@ -114,6 +115,27 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27))
         self.vista.wait('>>')
 
+        ## F1-1, F1-2, F1-3, F1-4 = ..QL1,QL2,QL3,QL4
+        self.vista.writectrl(chr(27) + 'OP1') # F1-1
+        self.assertTrue(self.vista.wait('U S E R   Q W I K S'))
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.writectrl(chr(27) + 'OP2') # F1-2
+        self.assertTrue(self.vista.wait('U S E R   Q W I K S'))
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.writectrl(chr(27) + 'OP3') # F1-3
+        self.assertTrue(self.vista.wait('S Y S T E M   Q W I K S'))
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.writectrl(chr(27) + 'OP4') # F1-4
+        self.assertTrue(self.vista.wait('S Y S T E M   Q W I K S'))
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
     def test_command_line_shortcuts(self):
         # Left Arrow - Load command line history
         self.vista.writectrl(chr(27) + '[D')
@@ -209,6 +231,311 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('A S C I I   C H A R A C T E R   S E T'))
         self.vista.wait('>>')
 
+    def test_systemShell(self):
+        self.vista.write('..DOS')
+        self.assertTrue(self.vista.wait('@'))
+        self.vista.write('exit')
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_VEDD(self):
+        # Set DUZ(0) to contain # for VGL
+        self.vista.write('S DUZ(0)="#"')
+        # Test entry and exit from VEDD
+        self.vista.write('..VEDD')
+        self.assertTrue(self.vista.wait('FILE:'))
+        self.vista.write('52')
+        self.assertTrue(self.vista.wait('PRESCRIPTION'))
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('Select FILE:'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+        
+        # Go back in
+        self.vista.write('..VEDD 52')
+        self.assertTrue(self.vista.wait('PRESCRIPTION'))
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test listing indexes (X)
+        self.vista.write('X')
+        self.assertTrue(self.vista.wait('ACRO')) # name of first index on my screen
+        finished = 0
+        while not finished:  # *I think there is a race condition here between the try and the except*
+            # What I have here *shouldn't* work except if the 'except' takes place more often than the try
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test listing Pointers In (PI)
+        self.vista.write('PI')
+        self.assertTrue(self.vista.wait('DUE ANSWER SHEET')) # name of pointer file
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test listing Points Out (PO)
+        self.vista.write('PO')
+        self.assertTrue(self.vista.wait('NEW PERSON')) # name of pointer file
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test listing of Groups
+        self.vista.write('GR')
+        self.assertTrue(self.vista.wait('IHS')) # name of a group
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test Tracing of Field
+        self.vista.write('TR')
+        self.assertTrue(self.vista.wait('Enter Field Name'))
+        self.vista.write('DRUG')
+        self.assertTrue(self.vista.wait('DRUG  (6)'))
+        self.vista.write('1')
+        self.vista.wait('MAIN_MENU')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test individual field DD
+        self.vista.write('I')
+        self.assertTrue(self.vista.wait('Select FIELD:'))
+        self.vista.write('6')
+        self.assertTrue(self.vista.wait('FIELD NAME:       DRUG'))
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('Select FIELD:',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.vista.write('I')
+        self.assertTrue(self.vista.wait('Select FIELD:'))
+        self.vista.write('SIG')
+        self.assertTrue(self.vista.wait('SIG1'))
+        self.vista.write('2')
+        self.assertTrue(self.vista.wait('Select SUBFIELD:'))
+        self.vista.write('?')
+        self.assertTrue(self.vista.wait('Select SUBFIELD:'))
+        self.vista.write('1')
+        self.assertTrue(self.vista.wait('Select SUBFIELD:'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select FIELD:'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Test Fld Global Location (big!)
+        self.vista.write('G')
+        self.assertTrue(self.vista.wait('ALL_FIELDS'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('N=Node'))
+
+        ## Test Obtaining a single node
+        self.vista.write('8') # Trade Name
+        self.assertTrue(self.vista.wait('TRADE NAME'))
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('N=Node'))
+
+        ## Test ?
+        self.vista.write('?') # Help
+        self.assertTrue(self.vista.wait('Exit VEDD completely'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('N=Node'))
+        
+        ## Test Goto. Need to load all the file first using Page down
+        ## Page down to the bottom
+        for x in range(0, 20):
+            self.vista.writectrl(chr(27) + '[6~')
+        self.assertTrue(self.vista.wait('<> <> <>'))
+        ## Page up to the top
+        for x in range(0, 20):
+            self.vista.writectrl(chr(27) + '[5~')
+        self.assertTrue(self.vista.wait('RX #'))
+        ## Goto node 100
+        self.vista.write('G') # Goto
+        self.assertTrue(self.vista.wait('REF NUMBER:'))
+        self.vista.write('100')
+        self.assertTrue(self.vista.wait('105'))
+
+        ## Test Node
+        self.vista.write('N') # Node
+        self.assertTrue(self.vista.wait('NODE:'))
+        self.vista.write('?') # help me
+        self.assertTrue(self.vista.wait(' P '))
+        self.vista.write('P') # P node
+        self.assertTrue(self.vista.wait('SUBNODE'))
+        self.vista.write('?') # help me
+        self.assertTrue(self.vista.wait('0  1'))
+        self.vista.write('1') # 1 node
+        self.assertTrue(self.vista.wait('BINGO WAIT TIME'))
+        self.vista.write('9') # 9 field
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('') # exit
+        self.assertTrue(self.vista.wait('SUB-FIELD'))
+        self.vista.write('') # exit
+        self.assertTrue(self.vista.wait('SUBNODE'))
+        self.vista.write('') # exit
+        self.assertTrue(self.vista.wait('N=Node'))
+
+        ## Test Pointer
+        self.vista.write('P')
+        self.assertTrue(self.vista.wait('REF NUMBER:'))
+        self.vista.write('3') # help me
+        self.assertTrue(self.vista.wait('DATE OF BIRTH'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        ## Page up to the top
+        for x in range(0, 7):
+            self.vista.writectrl(chr(27) + '[5~')
+        self.assertTrue(self.vista.wait('RX #'))
+
+        # Exit G
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+
+        # Templates - T
+        self.vista.write('T')
+        self.assertTrue(self.vista.wait('PRINT TEMPLATES')) # name of a group
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # File Description
+        self.vista.write('D')
+        self.assertTrue(self.vista.wait('File description for PRESCRIPTION file.'))
+        self.vista.wait('MAIN_MENU')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # File Characteristics
+        self.vista.write('C')
+        self.assertTrue(self.vista.wait('IDENTIFIERS:'))
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Required Fields
+        self.vista.write('R')
+        self.assertTrue(self.vista.wait('RX #'))
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('MAIN_MENU',0)
+                finished = 1
+            except:
+                self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # VGL - Don't run though. We will test later
+        self.vista.write('VGL')
+        self.assertTrue(self.vista.wait('...Global ^'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # H - Help
+        self.vista.write('H')
+        self.assertTrue(self.vista.wait('Bypasses opening screen.'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # PR - Turn printing mode on and try these options
+        for option in [ 'X', 'PI', 'PO', 'GR' , 'T', 'C', 'R']:
+            self.vista.write('PR')
+            self.assertTrue(self.vista.wait('DEVICE'))
+            self.vista.write('NULL')
+            self.assertTrue(self.vista.wait('Select OPTION:'))
+            self.vista.write(option)
+            self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # PR - Turn printing mode on and use 'I' which requires some user interaction
+        self.vista.write('PR')
+        self.assertTrue(self.vista.wait('DEVICE'))
+        self.vista.write('NULL')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+        self.vista.write('I')
+        self.assertTrue(self.vista.wait('Select FIELD:'))
+        self.vista.write('.01')
+        self.vista.write('1')
+        self.vista.write('2')
+        self.vista.write('3')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # PR - Turn printing mode on and use 'G' which requires some user interaction
+        self.vista.write('PR')
+        self.assertTrue(self.vista.wait('DEVICE'))
+        self.vista.write('NULL')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+        self.vista.write('G')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+
+        # Exit VEDD
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+        # Enter VEDD via published entry point
+        self.vista.write('D ^XVEMD')
+        self.assertTrue(self.vista.wait('VElectronic Data Dictionary'))
+        self.assertTrue(self.vista.wait('Select FILE:'))
+        self.vista.write('60')
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+        self.vista.write('G')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('N=Node'))
+        self.vista.write('DA')
+        self.assertTrue(self.vista.wait('REF NUMBERS(S):'))
+        self.vista.write('1')
+        self.assertTrue(self.vista.wait('DISPLAY TYPE'))
+        self.vista.write('?')
+        self.assertTrue(self.vista.wait('DISPLAY TYPE'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('LABORATORY TEST NAME'))
+        self.vista.write('`1')
+        self.assertTrue(self.vista.wait('D A T A   D I S P L A Y'))
+        self.assertTrue(self.vista.wait('File: LABORATORY TEST'))
+        self.assertTrue(self.vista.wait('LABORATORY TEST NAME'))
+        self.vista.write('')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('Select OPTION:'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+
+
+    def test_UserList(self):
+        self.vista.write('..UL')
+        self.assertTrue(self.vista.wait('U S E R   L I S T'))
+        self.assertTrue(self.vista.wait('>>'))
+        
     def test_stopVPE(self):
         self.vista.write('HALT')
 
