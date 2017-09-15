@@ -501,7 +501,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('>>'))
 
-        # Enter VEDD via published entry point
+        # Enter VEDD via published entry point and display the data in File 60
         self.vista.write('D ^XVEMD')
         self.assertTrue(self.vista.wait('VElectronic Data Dictionary'))
         self.assertTrue(self.vista.wait('Select FILE:'))
@@ -527,6 +527,35 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('Select OPTION:'))
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+        # Enter VEDD via 3 argument form into file 100 and ask about the
+        # Varible pointer field OBJECT OF ORDER
+
+
+    def test_routineSearch(self):
+        self.vista.write('..RSEARCH')
+        self.vista.wait('Routine:')
+        self.vista.write('XV*')
+        self.vista.wait('Routine:')
+        self.vista.write('')
+        self.vista.wait('SEARCH STRING')
+        self.vista.write('MV1')
+        self.vista.wait('SEARCH STRING')
+        self.vista.write('')
+        self.vista.wait('EXCLUDE STRING')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('8. MV1'))
+        self.vista.write('^')
+        self.vista.wait('Routine:')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_VGL(self):
+        # Direct routine call and exit
+        self.vista.write('D ^XVEMG')
+        self.vista.wait('Global')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('>>'))
 
 
