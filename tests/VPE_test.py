@@ -56,7 +56,7 @@ class VPEUnitTests(unittest.TestCase):
         self.assertEqual(self.vista.wait('VSHELL CURRENTLY ACTIVE'),1)
         self.assertEqual(self.vista.wait('>>'),1)
 
-    def test_list_qwiks(self):
+    def test_qwiks(self):
         # Test User Qwiks
         self.vista.write('.')
         self.assertTrue(self.vista.wait('No User QWIKs on record'))
@@ -136,6 +136,49 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27))
         self.vista.wait('>>')
 
+        ## QWIK Boxes - I honestly didn't know about these before!
+        self.vista.write('..1')
+        self.vista.wait('QVL')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('..2')
+        self.vista.wait('VER')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('..3')
+        self.vista.wait('ZW')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('..4')
+        self.vista.wait('XQH')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('..5')
+        self.vista.wait('LOCKTAB')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('..6')
+        self.vista.wait('No System QWIKs assigned to this box.')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        self.vista.write('.1')
+        self.vista.wait('No User QWIKs assigned to this box.')
+        self.vista.writectrl(chr(27) + chr(27))
+        self.vista.wait('>>')
+
+        ## QWIK Autocomplete
+        self.vista.write('..FM')
+        self.vista.wait('Fileman Sort Template')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+
     def test_command_line_shortcuts(self):
         # Left Arrow - Load command line history
         self.vista.writectrl(chr(27) + '[D')
@@ -166,6 +209,17 @@ class VPEUnitTests(unittest.TestCase):
     def test_command_line_error_trap(self):
         self.vista.write('W 1/0')
         self.assertTrue(self.vista.wait('ERROR LINE/CODE: @: W 1/0'))
+        self.vista.wait('>>')
+
+    def test_command_line_global_warn(self):
+        self.vista.write('K ^SAMSAMSAM')
+        self.assertTrue(self.vista.wait('Should I execute your code: NO//'))
+        self.vista.write('Y')
+        self.vista.wait('>>')
+        self.vista.write('K ^SAMSAMSAM')
+        self.assertTrue(self.vista.wait('Should I execute your code: NO//'))
+        self.vista.write('N')
+        self.assertTrue(self.vista.wait('Code not executed...'))
         self.vista.wait('>>')
 
     def test_main_help(self):
@@ -217,8 +271,11 @@ class VPEUnitTests(unittest.TestCase):
     def test_showSymbolTable(self):
         self.vista.write('..ZW')
         self.assertTrue(self.vista.wait('%ut')) # We put this guy in at the very beginning
-        self.vista.writectrl(chr(27)) # exit
-        self.vista.writectrl(chr(27))
+        self.vista.writectrl(chr(27) + chr(27)) # exit
+        self.vista.wait('>>')
+        self.vista.write('..ZW X') # Start symbol table at a specific variable
+        self.assertTrue(self.vista.wait('X')) # We put this guy in at the very beginning
+        self.vista.writectrl(chr(27) + chr(27)) # exit
         self.vista.wait('>>')
 
     def test_showCalendar(self):
@@ -236,6 +293,237 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('@'))
         self.vista.write('exit')
         self.assertTrue(self.vista.wait('>>'))
+
+    def test_VGL(self):
+        # Direct routine call and exit
+        self.vista.write('D ^XVEMG')
+        self.vista.wait('Global')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+        # Regular ..VGL on File 200
+        self.vista.write('..VGL')
+        self.vista.wait('Global')
+        self.vista.write('VA(200,')
+        self.vista.wait('^VA(200,.5,0)')
+
+        # Test tab key
+        self.vista.writectrl(chr(9))
+        self.vista.wait('INTERNAL VALUE')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+
+        # Test show file header
+        self.vista.write('1')
+        self.assertTrue(self.vista.wait('Global Pieces(INT VALUE)'))
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.wait('^VA(200,.5,0)')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.wait('Global')
+
+        # Up arrow to recall last global, then zero nodes
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.wait('^VA(200')
+        self.vista.write(',:,0)') # Just get the zero nodes
+        self.vista.wait('^VA(200,1,0)')
+        self.vista.write('10') # regular node select
+        self.vista.wait('TITLE')
+        self.vista.write('9') # Title DD
+        self.vista.wait('^DIC(3.1,')
+        self.assertTrue(self.vista.wait('CONTINUE'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('CONTINUE'))
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('') # Now out of the title DD
+
+        self.vista.write('X') # External Values
+        self.assertTrue(self.vista.wait('EXTERNAL VALUE'))
+        self.vista.write('I') # Internal Values
+        self.assertTrue(self.vista.wait('INTERNAL VALUE'))
+        self.vista.write('?') # Help
+        self.assertTrue(self.vista.wait('Enter number from center column'))
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('') # End of Help
+        self.vista.writectrl(chr(27) + 'H') # Scroll Help
+        self.assertTrue(self.vista.wait('<ARROW DOWN>'))
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('') # Now out of Scroll Help
+        self.assertTrue(self.vista.wait('Termination Reason'))
+        
+        self.vista.writectrl(chr(27) + chr(27)) # Go back to global lister
+        self.vista.wait('^VA(200,.5,0)')
+
+        # Alternate Session - Select by file
+        self.vista.write('A')
+        self.vista.wait('Session 2')
+        self.vista.write(' ')
+        self.vista.wait('Select FILE:')
+        self.vista.write('PARAMETER DEF')
+        self.vista.wait('^XTV(8989.51,')
+        self.vista.write('')
+        self.vista.wait('XPAR TEST FREE TEXT')
+        # Page Down twice
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.wait('')
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.wait('')
+        # Page up twice
+        self.vista.writectrl(chr(27) + '[5~')
+        self.vista.wait('')
+        self.vista.writectrl(chr(27) + '[5~')
+        self.vista.wait('')
+        # Goto node 30
+        self.vista.write('G')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('30')
+        self.vista.wait('XPAR TEST SET OF CODES')
+
+        # Exit Session 2
+        self.vista.writectrl(chr(27) + chr(27)) # back to Session 2 prompt
+        self.vista.wait('Session 2')
+        self.vista.writectrl(chr(27) + chr(27)) # back to Session 1
+        self.vista.wait('^VA(200,.5,0)')
+
+        # Exit Session 1
+        self.vista.writectrl(chr(27) + chr(27)) # Exit session 1
+        self.vista.wait('Global')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+        # Reverse Video subscripts entry point
+        self.vista.write('S DUZ(0)="#"')
+        self.vista.write('D R^XVEMG')
+        self.vista.wait('Global')
+        self.vista.write('VA(200,')
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '.5 ' + chr(27) + '[27m,0)')
+        self.vista.write('S2') # Skip down until the second sub changes
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+
+        self.vista.write('C') # Command search will fail
+        self.vista.wait('You don\'t have access.')
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('')
+
+        self.vista.write('?') # Help
+        self.vista.wait('left hand column')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+
+        self.vista.write('M') # More...
+        self.vista.wait('Call VGL at R^XVEMG to display subscript')
+        self.assertTrue(self.vista.wait('<RETURN>'))
+        self.vista.write('')
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+        
+
+        # Exit Session 1
+        self.vista.writectrl(chr(27) + chr(27)) # Exit session 1
+        self.vista.wait('Global')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+        # Go back in, with parameters this time, but set DUZ(0)="@" first.
+        # Then run C for command search
+        self.vista.write('S DUZ(0)="@"')
+        self.vista.wait('>>')
+        self.vista.write('..VGL ^VA(200,')
+        self.vista.wait('^VA(200,.5,0)')
+        self.vista.write('C')
+        self.vista.wait('Enter Mumps Code')
+        self.vista.write('I $P(GLSUB,')
+        self.vista.wait('There is an error in your code.')
+        self.vista.write('I $P(GLSUB,",",3)=.1') # This grabs all users with verify codes
+        self.vista.wait('CODE SEARCH IN PROGRESS..')
+        self.vista.wait('^VA(200,1,.1)')
+        self.vista.writectrl(chr(32)) # this just stops the search
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
+        # Test * syntax
+        self.vista.write('..VGL ^VA*')
+        self.assertTrue(self.vista.wait('STATION NUMBER (TIME SENSITIVE)'))
+        self.assertTrue(self.vista.wait('Enter NODE Number'))
+        self.vista.write('7')
+        self.assertTrue(self.vista.wait('APPLICATION PROXY'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
+        # Edit Range (ER) -- Use ^TMP($J)
+        # Change LINE into WINE
+        self.vista.write('K ^TMP($J)')
+        self.vista.wait('Should I execute your code:')
+        self.vista.write('Y')
+        self.vista.wait('>>')
+        self.vista.write('S ^TMP($J,1)="LINE 1"')
+        self.vista.wait('>>')
+        self.vista.write('S ^TMP($J,2)="LINE 2"')
+        self.vista.wait('>>')
+        self.vista.write('S ^TMP($J,3)="LINE 3"')
+        self.vista.wait('>>')
+        self.vista.write('..VGL ^TMP($J')
+        self.vista.wait('LINE 3')
+        self.vista.write('ER')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('1-3')
+        self.vista.wait('Replace')
+        self.vista.write('LINE')
+        self.vista.wait('With')
+        self.vista.write('WINE')
+        self.vista.wait('Select')
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+        self.vista.write('..VGL ^TMP($J')
+        self.vista.wait('WINE 3')
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
+        # Edit Subscript. Second Line change 2 to "BOO"
+        self.vista.write('..VGL ^TMP($J')
+        self.vista.wait('WINE 3')
+        self.vista.write('ES')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('2')
+        self.vista.writectrl(chr(8)) # backspace
+        self.vista.write('"')
+        self.vista.wait('Invalid subscript.')
+        self.vista.write('')
+        self.vista.wait('WINE 3')
+        self.vista.write('ES')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('2')
+        self.vista.writectrl(chr(8)) # backspace
+        self.vista.write('"BOO"')
+        self.vista.wait(',"BOO")')
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
+        # Edit Subscript. Second Line (now 3) change 3 to "BOO". Should block us.
+        self.vista.write('..VGL ^TMP($J')
+        self.vista.wait('WINE 3')
+        self.vista.write('ES')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('2')
+        self.vista.writectrl(chr(8)) # backspace
+        self.vista.write('"BOO"')
+        self.vista.wait('This node already exists.')
+        self.vista.write('')
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
+        # Edit Value. Third line change from WINE 2 to FINE 5
+        self.vista.write('..VGL ^TMP($J')
+        self.vista.wait('WINE 3')
+        self.vista.write('EV')
+        self.vista.wait('REF NUMBER')
+        self.vista.write('2')
+        for i in range(0,6):
+            self.vista.writectrl(chr(8)) # backspace over WINE 2
+        self.vista.write('FINE 5')
+        self.vista.wait('FINE 5')
+        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
+        self.vista.wait('>>')
+
 
     def test_VEDD(self):
         # Set DUZ(0) to contain # for VGL
@@ -531,6 +819,16 @@ class VPEUnitTests(unittest.TestCase):
 
         # Enter VEDD via 3 argument form into file 100 and ask about the
         # Varible pointer field OBJECT OF ORDER
+        self.vista.write('..VEDD 100 G')
+        self.assertTrue(self.vista.wait('Select'))
+        self.vista.write('P')
+        self.vista.write('2')
+        self.assertTrue(self.vista.wait('Select NUMBER of your choice'))
+        self.vista.write('2')
+        self.assertTrue(self.vista.wait('Select'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
 
 
     def test_routineSearch(self):
@@ -551,18 +849,59 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertTrue(self.vista.wait('>>'))
 
-    def test_VGL(self):
-        # Direct routine call and exit
-        self.vista.write('D ^XVEMG')
-        self.vista.wait('Global')
-        self.vista.write('')
+    def test_ZP(self):
+        #ZPRINT
+        self.vista.write('..ZP')
+        self.assertTrue(self.vista.wait('Example'))
         self.assertTrue(self.vista.wait('>>'))
 
+        self.vista.write('..ZP XV')
+        self.vista.wait('NOUSER')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
 
 
     def test_UserList(self):
         self.vista.write('..UL')
         self.assertTrue(self.vista.wait('U S E R   L I S T'))
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_FilemanTemplateDisplayers(self):
+        self.vista.write('..FMTI')
+        self.vista.wait('INPUT TEMPLATE')
+        self.vista.write('XU KSP INIT')
+        self.vista.wait('LIFETIME OF VERIFY CODE')
+        self.vista.wait('INPUT TEMPLATE')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+        self.vista.write('..FMTP')
+        self.vista.wait('PRINT TEMPLATE')
+        self.vista.write('XUSERINQ')
+        self.vista.wait('CPRS TAB:TAB DESCRIPTION')
+        self.vista.wait('PRINT TEMPLATE')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+        self.vista.write('..FMTS')
+        self.vista.wait('SORT TEMPLATE')
+        self.vista.write('PSO INTERVENTIONS')
+        self.vista.wait('User is asked range')
+        self.vista.wait('SORT TEMPLATE')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_FilemanHelp(self):
+        self.vista.write('..FMC')
+        self.vista.wait('CALLABLE ROUTINES')
+        self.vista.write('')
+        self.vista.wait('DDSFILE')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.vista.writectrl(chr(27) + '[C') # Right arrow
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('>>'))
         
     def test_stopVPE(self):

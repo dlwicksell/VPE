@@ -1,4 +1,4 @@
-XVEMGM ;DJB/VGL**Main Menu ;2017-08-15  12:41 PM
+XVEMGM ;DJB/VGL**Main Menu ;2017-09-18  5:10 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in RUN+1 (c) 2016 Sam Habiel
@@ -18,7 +18,7 @@ READ1 S PKG="IG"_GLS W @XVVS("CON") ;Turn cursor back on
  I KEY?1"S"1.N G:$$ENDFILE^XVEMKTM() READ1 D  D REDRAW^XVEMKT2() Q
  . S FLAGSKIP=+$E(KEY,2,99) D SKIP^XVEMGO
  I ",?,<ESCH>,A,C,ER,ES,EV,G,M,SA,SC,UN,VEDD,"'[(","_KEY_","),KEY'?1.N W $C(7) G READ1
- D RUN(KEY) Q:FLAGE  H 1 D REDRAW^XVEMKT2()
+ D RUN(KEY) Q:FLAGE  H:'$D(%ut) 1 D REDRAW^XVEMKT2()
  D:CODE'=0 CDSRCH^XVEMGO
  Q
 RUN(Z1) ;Z1=Opt selected
