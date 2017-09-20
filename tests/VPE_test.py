@@ -236,7 +236,7 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('>>'))
 
     def test_delete_routine(self):
-        self.vista.write('..ZR KBANTEST')
+        self.vista.write('..ZR KBANTEST KBANFOO')
         boo = self.vista.wait('OK TO DELETE?')
         self.assertEqual(boo,1)
         self.vista.write('Y')
@@ -245,27 +245,158 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
     def test_editor(self):
+        # Create new routine KBANTEST
         self.vista.write('..E')
-        boo = self.vista.wait('ROUTINE')
-        self.assertEqual(boo,1)
+        self.vista.wait('ROUTINE')
         self.vista.write('KBANTEST')
-        boo = self.vista.wait('[^KBANTEST]')
-        self.assertEqual(boo,1)
+        self.vista.wait('[^KBANTEST]')
         self.vista.write('')
+        self.vista.write('KBANTEST' + chr(9) + '; TEST ROUTINE')
+        self.vista.write(chr(9) + 'D USEZERO^XVEMSU')
         self.vista.write(' W "HELLO VPE",!')
         self.vista.write(' QUIT')
-        self.vista.wait('');
-        self.vista.writectrl(chr(27)) # end line
-        self.vista.writectrl(chr(27))
-        self.vista.writectrl(chr(27)) # save routine
-        self.vista.writectrl(chr(27))
+        self.vista.write('TAG1' + chr(9) + '; TEST TAG')
+        self.vista.write(chr(9) + 'N Z')
+        self.vista.wait('Z')
+        for x in range(0,81):
+            self.vista.write(' S Z=1')
+            if not (x % 10): self.vista.wait('=')
+        self.vista.write(' D USEZERO^XVEMSU')
+        self.vista.write(' W "BYE VPE",!')
+        self.vista.write(' QUIT')
+        self.vista.wait('T')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
         self.vista.write('')
         self.vista.wait('saved to disk')
         self.vista.wait('>>')
         self.vista.write('D ^KBANTEST')
-        boo = self.vista.wait('HELLO VPE')
-        self.assertEqual(boo,1)
+        self.vista.wait('HELLO VPE')
+        self.vista.wait('>>')
+
+        # View routine using ..VRR
+        self.vista.write('..VRR KBANTEST')
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+
+        # View routine using ..VRR two arguments to jump to tag & Keyboard Help
+        self.vista.write('..VRR KBANTEST TAG1')
+        self.vista.wait('TAG1')
+        self.vista.writectrl(chr(27) + 'K') # Keyboard help
+        self.vista.wait('Cursor up 1 line')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit Help
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+        
+        # Test keyboard shortcuts
+        self.vista.write('..E KBANTEST')
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow once
+        self.vista.writectrl(chr(27) + 'OR') # F3 - Turn on highlighting
+        for x in range (0,3): # Down arrow three times
+            self.vista.writectrl(chr(27) + '[B')
+        self.vista.writectrl(chr(27) + 'C') # Esc-C copy to clipboard
+        self.vista.writectrl(chr(27) + 'V') # Esc-V paste
+        for x in range (0,3): # Down arrow three times
+            self.vista.writectrl(chr(27) + '[B')
+        self.vista.writectrl(chr(27) + 'D') # Esc-D delete line
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.write('')
+        self.vista.write(' W ^VA(200,0)')
+        self.vista.wait('^')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 + Left arrow
+        self.vista.writectrl(chr(27) + '[C') # Right arrow twice
+        self.vista.writectrl(chr(27) + '[C') # Right arrow twice
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('NEW PERSON')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.writectrl(chr(27) + '[C') # Right arrow to get to SAVE_AS
+        self.vista.write('')
+        self.vista.wait('Save as routine')
+        self.vista.write('KBANFOO')
+        self.vista.wait('KBANFOO saved to disk.')
+        self.vista.wait('>>')
+
+        # Test tab commands. This goes on for a while!!!!
+        self.vista.write('..E KBANTEST')
+        self.vista.wait('[^KBANTEST]')
+
+        ## F - Find
+        self.vista.write(chr(9) + 'F') # Find
+        self.vista.wait('TAG1')
+        self.vista.write('1')
+
+        ## R - Branch to Routine
+        self.vista.write(chr(9) + 'R') # Branch to Routine
+        self.vista.wait('BRANCH TO A ROUTINE')
+        self.vista.write('XV')
+        self.vista.wait('[^XV')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.wait('[^KBANTEST]')
+
+        # L - Locate String + ESC-N to find next instance
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[C') # F4 Right Arrow - Go to end
+        self.vista.wait('<> <> <>')
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to home
+        self.vista.wait('TEST ROUTINE')
+        self.vista.write(chr(9) + 'L') # Locate string
+        self.vista.wait('STRING:')
+        self.vista.write('XVEMSU')      # Find first instance
+        self.vista.write(chr(27) + 'N') # Find next instance
+        self.vista.wait('USEZERO')
+        self.vista.writectrl(chr(27) + chr(27)) # Don't know why that's needed?! Am I not finding the next thing?
+
+        # Goto line
+        self.vista.write(chr(9) + 'G') # Goto
+        self.vista.wait('LINE')
+        self.vista.write('20') # Goto
+        self.vista.wait('30') # 30 should be visible
+
+        # Help
+        self.vista.write(chr(9) + '?') # Help
+        self.vista.wait('N O T E S')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.wait('[^KBANTEST]')
+
+
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[C') # F4 Right Arrow - Go to end
+        self.vista.wait('<> <> <>')
+        self.vista.write(chr(9) + 'CALL') # Goto
+        self.vista.wait('**INSERT PROGRAMMER CALL***')
+        self.vista.write('DBS DIC $$FIND')
+        self.vista.wait('Delete previous values?')
+        self.vista.write('')
+        self.vista.wait('CONSTRUCT & INSERT PROGRAMMER CALL')
+        self.vista.writectrl('1' + chr(9))
+        self.vista.wait('H=Help')
+        self.vista.write('')
+        self.vista.writectrl('1,' + chr(9))
+        self.vista.wait('H=Help')
+        self.vista.write('')
+        self.vista.writectrl('PX')
+        self.vista.writectrl(chr(27) + 'OPE') # F1-E to save and exit
+        self.vista.wait('Insert this Call into your routine?')
+        self.vista.write('')
+        self.vista.wait('<> <> <>')
+
+        self.vista.write(chr(9) + 'I') # Run XINDEX
+        self.vista.wait('C R O S S  R E F E R E N C E R')
+        self.vista.write('')
+        self.vista.wait('Compiled list of Errors and Warnings')
+        self.vista.write('')
+        self.vista.wait('<> <> <>')
+
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('saved')
         self.vista.wait('>>')
 
     def test_showSymbolTable(self):
@@ -903,7 +1034,111 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + '[C') # Right arrow
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('>>'))
+
+    def test_KernelHelp(self):
+        self.vista.write('..LF')
+        self.vista.wait('L I B R A R Y   F U N C T I O N S')
+        self.vista.write('')
+        self.vista.wait('DATE FUNCTIONS - XLFDT')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.write('^') # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_notes(self):
+        self.vista.write('..NOTES')
+        self.vista.wait('V P E   P A R A M E T E R   P A S S I N G')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_key(self):
+        self.vista.write('..KEY')
+        self.vista.wait('K E Y B O A R D   I N T E R P R E T E R')
+        self.vista.writectrl(chr(27) + 'OP') # F1
+        self.vista.wait('80')
+        self.vista.write('')
+        self.vista.writectrl('.')            # Just a dot
+        self.vista.wait('46')
+        self.vista.writectrl(chr(27) + '[C') # Right arrow
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_params(self):
+        self.vista.write('..PARAM')
+        self.vista.wait('V P E   S Y S T E M   P A R A M E T E R S')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('?')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('1')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('2')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('3')
+        self.vista.wait('Enter TIME-OUT:')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('4')
+        self.vista.wait('ROUTINE')
+        self.vista.write('KBANQWIK')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('5')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('6')
+        self.vista.wait('SCREEN WIDTH')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('7')
+        self.vista.wait('SCREEN LENGTH')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.assertTrue(self.vista.wait('>>'))
+
+    def test_ZD(self):
+        self.vista.write('..ZD X')
+        self.vista.wait('OK TO DELETE?')
+        self.vista.write('Y')
+        self.vista.wait('XVVSIZE')
+        self.vista.wait('>>')
+
+    def test_CLH(self):
+        self.vista.write('..CLH')
+        self.vista.wait('>>')
+
+    def test_DIC(self):
+        self.vista.write('..DIC')
+        self.vista.wait('DIC Look-up Template')
+        for range in (0,7):
+            self.vista.writectrl(chr(8))
+        self.vista.write('')
+        self.vista.wait('>>')
         
+    def test_purge(self):
+        self.vista.write('..PUR')
+        self.vista.wait('>>')
+        self.vista.write('..PUR 7')
+        self.vista.wait('>>')
+
+    def test_QSAVE(self):
+        self.vista.write('..QSAVE')
+        self.vista.wait('Save/Restore User QWIKs')
+        self.vista.write('1')
+        self.vista.wait('ROUTINE')
+        self.vista.write('KBANQWIK')
+        self.vista.wait('I will save your QWIKs to routine ^KBANQWIK.')
+        self.vista.write('Y')
+        self.vista.wait('>>')
+
+        self.vista.write('..QSAVE')
+        self.vista.wait('Save/Restore User QWIKs')
+        self.vista.write('2')
+        self.vista.wait('ROUTINE')
+        self.vista.write('KBANQWIK')
+        self.vista.wait('BOX')
+        self.vista.write('6')
+        self.vista.wait('ID')
+        self.vista.write('1')
+        self.vista.wait('>>')
+
     def test_stopVPE(self):
         self.vista.write('HALT')
 

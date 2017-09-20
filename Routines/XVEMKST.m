@@ -1,4 +1,4 @@
-XVEMKST ;DJB/KRN**Save Symbol Table [07/22/94];2017-08-15  1:00 PM
+XVEMKST ;DJB/KRN**Save Symbol Table [07/22/94];2017-09-20  10:24 AM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
@@ -22,7 +22,7 @@ SAVE ;Save symbol table.
  Q
 CLEAR ;Clear symbol table (Save certain variables)
  Q:'$D(^TMP("XVV","SYMTAB",$J,MODULE,SESSION))
- NEW %HLD,%PC,%REF,%VAR
+ NEW %HLD,%PC,%REF,%VAR,%ut
  S %REF="^TMP(""XVV"",""SYMTAB"","_$J_","""_MODULE_""","_SESSION_")"
  S %HLD="""XVV"",""SYMTAB"","_$J_","""_MODULE_""","_SESSION_","
  F  S %REF=$Q(@%REF) Q:%REF=""!(%REF'[%HLD)  D
