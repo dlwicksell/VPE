@@ -1148,7 +1148,7 @@ if __name__ == '__main__':
     test_suite_details = test_suite_driver.generate_test_suite_details()
     test_suite_details.coverage_subset = ['XV*']
     test_suite_driver.pre_test_suite_run(test_suite_details)
-    test_driver = TestHelper.TestDriver("Main")
+    test_driver = TestHelper.TestDriver("VPE.out")
 
     # Python Unit Testing setup
     del sys.argv[1:]  # don't pass the arguments down to the unit tester
