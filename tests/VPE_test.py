@@ -493,7 +493,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('PARAMETER DEF')
         self.vista.wait('^XTV(8989.51,')
         self.vista.write('')
-        self.vista.wait('XPAR TEST FREE TEXT')
+        self.vista.wait('^XTV(8989.51,1,0)')
         # Page Down twice
         self.vista.writectrl(chr(27) + '[6~')
         self.vista.wait('')
@@ -508,7 +508,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('G')
         self.vista.wait('REF NUMBER')
         self.vista.write('30')
-        self.vista.wait('XPAR TEST SET OF CODES')
+        self.vista.wait('^XTV(8989.51,3')
 
         # Exit Session 2
         self.vista.writectrl(chr(27) + chr(27)) # back to Session 2 prompt
@@ -667,6 +667,7 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('Select OPTION:'))
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('Select FILE:'))
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('>>'))
         
@@ -832,13 +833,8 @@ class VPEUnitTests(unittest.TestCase):
         # Templates - T
         self.vista.write('T')
         self.assertTrue(self.vista.wait('PRINT TEMPLATES')) # name of a group
-        finished = 0
-        while not finished:
-            try:
-                self.vista.wait('MAIN_MENU',0)
-                finished = 1
-            except:
-                self.vista.write('')
+        self.vista.wait('MAIN_MENU')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # File Description
@@ -921,7 +917,7 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('>>'))
 
         # Enter VEDD via published entry point and display the data in File 60
-        self.vista.write('D ^XVEMD')
+        self.vista.write(' D ^XVEMD')
         self.assertTrue(self.vista.wait('VElectronic Data Dictionary'))
         self.assertTrue(self.vista.wait('Select FILE:'))
         self.vista.write('60')
@@ -946,6 +942,7 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('Select OPTION:'))
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.vista.writectrl(chr(27) + chr(27)) # Go back
+        self.vista.writectrl(chr(27) + chr(27)) # ??
         self.assertTrue(self.vista.wait('>>'))
 
         # Enter VEDD via 3 argument form into file 100 and ask about the
