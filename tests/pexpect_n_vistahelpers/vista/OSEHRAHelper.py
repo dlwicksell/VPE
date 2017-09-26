@@ -27,7 +27,7 @@ and interaction methods such as write() and wait()
 '''
 
 import sys
-import os
+import os, errno
 import telnetlib
 import TestHelper
 import time
@@ -417,7 +417,14 @@ class ConnectLinuxGTM(ConnectMUMPS):
     self.coverageRoutines = routines
 
   def stopCoverage(self, path, humanreadable='OFF'):
-    path, filename = os.path.split(path)
+    mypath, myfilename = os.path.split(path)
+
+    try:
+      os.makedirs(os.path.join(mypath, 'Coverage'))
+    except OSError as exception:
+      if exception.errno != errno.EEXIST:
+        raise
+
     self.write('VIEW "TRACE":0:"^ZZCOVERAGE"')
     self.wait(PROMPT)
     self.write('D ^%GO')
@@ -430,10 +437,23 @@ class ConnectLinuxGTM(ConnectMUMPS):
     self.wait('Format')
     self.write('ZWR')
     self.wait('device')
-    self.write(path + '/Coverage/' + filename.replace('.log', '.mcov').replace('.txt', '.mcov'))
+    self.write(mypath + '/Coverage/' + myfilename.replace('.log', '.mcov').replace('.txt', '.mcov'))
+    self.write('')
+    self.wait(PROMPT)
     if humanreadable == 'ON':
+      try:
+        self.write('W $T(GETRTNS^%ut1)')
+        self.wait(',NMSPS',.01)
+      except:
+        print('Human readable coverage requires M-Unit 1.6')
+        return
+      
       self.write('')
-      self.write('K RTNS D GETRTNS^%ut1(.RTNS,"' + self.coverageRoutines +'")')
+      self.write('K NMSP')
+      self.wait(PROMPT)
+      for routine in self.coverageRoutines:
+          self.write('S NMSP("' + routine + '")=""')
+      self.write('K RTNS D GETRTNS^%ut1(.RTNS,.NMSP)')
       self.wait(PROMPT)
       self.write('K ^ZZCOHORT D RTNANAL^%ut1(.RTNS,"^ZZCOHORT")')
       self.wait(PROMPT)
@@ -453,11 +473,12 @@ class ConnectLinuxGTM(ConnectMUMPS):
       self.wait('Format')
       self.write('ZWR')
       self.wait('device')
-      self.write(path + '/Coverage/coverageCalc.mcov')
+      self.write(mypath + '/Coverage/coverageCalc.mcov')
       self.wait(PROMPT)
       self.write('WRITE ^ZZRESULT," ",@^ZZRESULT')
       self.wait(PROMPT)
-    #self.write('K ^ZZCOHORT ^ZZSURVIVORS ^ZZCOVERAGE ^ZZRESULT')
+      self.write('K ^ZZCOHORT,^ZZSURVIVORS,^ZZCOVERAGE,^ZZRESULT')
+      self.wait(PROMPT)
 
 class ConnectRemoteSSH(ConnectMUMPS):
   """
