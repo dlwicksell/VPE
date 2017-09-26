@@ -5,15 +5,17 @@ import TestHelper
 import cProfile, pstats, StringIO
 import time
 
+TIMEOUT = .01
+
 class VPEUnitTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.vista = test_driver.connect_VistA(test_suite_details)
-        cls.vista.startCoverage(",".join(test_suite_details.coverage_subset))
+        cls.vista.startCoverage(test_suite_details.coverage_subset)
 
     @classmethod
     def tearDownClass(cls):
-        cls.vista.stopCoverage('./output/cov.cov', 'ON')
+        cls.vista.stopCoverage(test_suite_details.result_dir + '/VPE_Coverage.cov', test_suite_details.coverage_type)
         cls.vista.write('halt')
 
     def test_deleteVPE(self):
@@ -683,10 +685,11 @@ class VPEUnitTests(unittest.TestCase):
         while not finished:  # *I think there is a race condition here between the try and the except*
             # What I have here *shouldn't* work except if the 'except' takes place more often than the try
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Test listing Pointers In (PI)
@@ -695,10 +698,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Test listing Points Out (PO)
@@ -707,10 +711,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Test listing of Groups
@@ -719,10 +724,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Test Tracing of Field
@@ -743,10 +749,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('Select FIELD:',0)
+                self.vista.wait('Select FIELD:',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.vista.write('I')
         self.assertTrue(self.vista.wait('Select FIELD:'))
         self.vista.write('SIG')
@@ -850,10 +857,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Required Fields
@@ -862,10 +870,11 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('MAIN_MENU',0)
+                self.vista.wait('MAIN_MENU',TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('')
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # VGL - Don't run though. We will test later
