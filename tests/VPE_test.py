@@ -817,7 +817,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('9') # 9 field
         self.assertTrue(self.vista.wait('<RETURN>'))
         self.vista.write('') # exit
-        self.assertTrue(self.vista.wait('SUB-FIELD'))
+        self.vista.multiwait(['FIELD','SUB-FIELD'])
         self.vista.write('') # exit
         self.assertTrue(self.vista.wait('SUBNODE'))
         self.vista.write('') # exit
