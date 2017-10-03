@@ -5,7 +5,7 @@ import TestHelper
 import cProfile, pstats, StringIO
 import time
 
-TIMEOUT = .01
+TIMEOUT = .1
 
 class VPEUnitTests(unittest.TestCase):
     @classmethod
@@ -210,7 +210,7 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_command_line_error_trap(self):
         self.vista.write('W 1/0')
-        self.assertTrue(self.vista.wait('ERROR LINE/CODE: @: W 1/0'))
+        self.assertTrue(self.vista.wait('ERROR LINE/CODE: '))
         self.vista.wait('>>')
 
     def test_command_line_global_warn(self):
@@ -423,8 +423,8 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_systemShell(self):
         self.vista.write('..DOS')
-        self.assertTrue(self.vista.wait('@'))
-        self.vista.write('exit')
+        rval = self.vista.multiwait(['@', 'Not available for this M Vendor.'])
+        if (rval == 0): self.vista.write('exit')
         self.assertTrue(self.vista.wait('>>'))
 
     def test_VGL(self):
@@ -510,7 +510,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('G')
         self.vista.wait('REF NUMBER')
         self.vista.write('30')
-        self.vista.wait('^XTV(8989.51,3')
+        self.vista.multiwait(['8989.51,3','8989.51,4'])
 
         # Exit Session 2
         self.vista.writectrl(chr(27) + chr(27)) # back to Session 2 prompt
@@ -840,7 +840,10 @@ class VPEUnitTests(unittest.TestCase):
         # Templates - T
         self.vista.write('T')
         self.assertTrue(self.vista.wait('PRINT TEMPLATES')) # name of a group
-        self.vista.wait('MAIN_MENU')
+        rval = 0
+        while rval == 0:
+  	    rval = self.vista.multiwait(['CONTINUE','MAIN_MENU'])
+	    if rval == 0: self.vista.write('')
         self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
@@ -919,6 +922,13 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('Select OPTION:'))
         self.vista.write('G')
         self.vista.write('')
+	try:
+	    self.vista.wait('MAIN_MENU',TIMEOUT)
+            self.vista.write('') # Cache only
+	except:
+            pass
+        
+        self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
         # Exit VEDD
@@ -970,6 +980,11 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_routineSearch(self):
         self.vista.write('..RSEARCH')
+	try:
+	    self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+	except:
+            pass
         self.vista.wait('Routine:')
         self.vista.write('XV*')
         self.vista.wait('Routine:')
@@ -982,6 +997,11 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertTrue(self.vista.wait('8. MV1'))
         self.vista.write('^')
+	try:
+	    self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+	except:
+            pass
         self.vista.wait('Routine:')
         self.vista.write('')
         self.assertTrue(self.vista.wait('>>'))
