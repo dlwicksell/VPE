@@ -529,9 +529,9 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('D R^XVEMG')
         self.vista.wait('Global')
         self.vista.write('VA(200,')
-        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '.5 ' + chr(27) + '[27m,0)')
-        self.vista.write('S2') # Skip down until the second sub changes
-        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '.5 ' + chr(27))
+        #self.vista.write('S2') # Skip down until the second sub changes
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
 
         self.vista.write('C') # Command search will fail
         self.vista.wait('You don\'t have access.')
@@ -541,13 +541,13 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('?') # Help
         self.vista.wait('left hand column')
         self.vista.writectrl(chr(27) + chr(27)) # Go back
-        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
 
         self.vista.write('M') # More...
         self.vista.wait('Call VGL at R^XVEMG to display subscript')
         self.assertTrue(self.vista.wait('<RETURN>'))
         self.vista.write('')
-        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27) + '[27m,0)')
+        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
         
 
         # Exit Session 1
