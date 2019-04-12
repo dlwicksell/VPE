@@ -1,6 +1,7 @@
-XVEMRM ;DJB/VRR**Menu Bar ;2017-08-15  4:23 PM
+XVEMRM ;DJB/VRR**Menu Bar ;2019-04-11  10:14 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
+ ; Fix routine size support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
  ;
 EN ;Because of FndTag/LctStrng, I need to be able to change the lines
  ;displayed when exiting back to edit mode. FLAGMENU allows this.
@@ -101,7 +102,8 @@ SIZE ;Display size of routine
  . W "  Global node ^%ZOSF(""SIZE"") must be available.."
  I '$D(^TMP("XVV","VRR",$J,VRRS,"NAME")) D  R XX:50 Q
  . W "  Routine name unknown.."
- S (NAM,Y)=^("NAME") X "ZL @Y X ^%ZOSF(""SIZE"")"
+ I XVV("OS")=17!(XVV("OS")=19) S NAM=^("NAME"),Y=0 F I=1:1 S %=$T(@("+"_I_"^"_NAM)) Q:%=""  S Y=Y+$L(%)
+ E  S (NAM,Y)=^("NAME") X "ZL @Y X ^%ZOSF(""SIZE"")"
  W "  ^",NAM,".....Routine size = ",Y R XX:50
  Q
  ;

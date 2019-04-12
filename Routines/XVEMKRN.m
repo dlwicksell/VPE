@@ -1,7 +1,8 @@
-XVEMKRN ;DJB/KRN**NEW Single Character Read ;2017-08-15  1:00 PM
+XVEMKRN ;DJB/KRN**NEW Single Character Read ;2019-04-11  10:14 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; READ+23,GETCHAR+12 Bug fix by Kevin Toppenberg, MD (c) 2017
+ ; <END> key support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
  ;
 READ(PROMPT,LENGTH,NOECHO) ;
  ;PROMPT  Display prompt.
@@ -66,7 +67,7 @@ ESCAPE ;Process Escape Sequences
 CURSOR ;Arrow Keys
  ;<AU>,<AD>,<AL>,<AR>
  R *CHAR:50
- S CHAR=$S(CHAR=65:"AU",CHAR=66:"AD",CHAR=67:"AR",CHAR=68:"AL",CHAR=72:"HOME",CHAR=75:"END",1:CHAR)
+ S CHAR=$S(CHAR=65:"AU",CHAR=66:"AD",CHAR=67:"AR",CHAR=68:"AL",CHAR=72:"HOME",CHAR=75!(CHAR=70):"END",1:CHAR)
  I "1,3,4,5,6"[$C(CHAR) D OTHERDTM Q  ;"Other" Keys under DTM
  Q
 PFKEYS ;F Keys. Call here when F Keys are to be used alone

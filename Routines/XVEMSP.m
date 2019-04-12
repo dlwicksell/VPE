@@ -1,6 +1,7 @@
-XVEMSP ;DJB/VSHL**System Parameters [11/17/96 12:49pm];2017-08-16  10:32 AM
+XVEMSP ;DJB/VSHL**System Parameters [11/17/96 12:49pm];2019-04-11  10:16 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
+ ; Enhancements to auto margin screen handling by David Wicksell (c) 2019
  ;
 TOP ;Edit System Parameters
  NEW DOT,FLAGQ,I,LINE,NUM
@@ -35,10 +36,10 @@ DISPLAY ;Display Parameters
  W !!?1,"4. SAVE Routine........ ",$G(^XVEMS("PARAM",XVV("ID"),"SAVE")),?40,"Routine that holds your saved QWIKs"
  S BS=$G(^XVEMS("PARAM",XVV("ID"),"BS")) S:BS']"" BS="SAME"
  W !!?1,"5. <DEL> & <BS> Keys... ",BS,?40,"<DELETE> different from <BACKSPACE>"
- S WIDTH=$G(^XVEMS("PARAM",XVV("ID"),"WIDTH")) S:'WIDTH WIDTH=80
- W !!?1,"6. Screen Width........ ",WIDTH,?40,"Set screen width"
- S LENGTH=$G(^XVEMS("PARAM",XVV("ID"),"LENGTH")) S:'LENGTH LENGTH=24
- W !!?1,"7. Screen Length....... ",LENGTH,?40,"Set screen length"
+ S WIDTH=$G(^XVEMS("PARAM",XVV("ID"),"WIDTH")) S:'WIDTH WIDTH=$G(XVV("IOM"),80)
+ W !!?1,"6. Screen Width........ ",WIDTH,?40,"Set screen width [0 for auto width]"
+ S LENGTH=$G(^XVEMS("PARAM",XVV("ID"),"LENGTH")) S:'LENGTH LENGTH=$G(XVV("IOSL"),24)
+ W !!?1,"7. Screen Length....... ",LENGTH,?40,"Set screen length [0 for auto length]"
  W !!,$E(LINE,1,XVV("IOM")-1),!
  Q
  ;====================================================================
@@ -75,30 +76,29 @@ BS ;Delete different from Backspace
 WIDTH ;Set screen width.
  NEW DEF,WIDTH
  S DEF=$G(^XVEMS("PARAM",XVV("ID"),"WIDTH"))
- S:'DEF DEF=80
- D MSG
+ S:'DEF DEF=$G(XVV("IOM"),80)
 WIDTH1 W !?1,"Enter SCREEN WIDTH: "_DEF_"// "
  R WIDTH:300 S:'$T WIDTH="^" S:WIDTH="" WIDTH=DEF Q:"^"[WIDTH
- I WIDTH'?1.N!(WIDTH'>0) D  G WIDTH1
+ I WIDTH'?1.N!(WIDTH<0) D  G WIDTH1
  . W !?1,"Enter your screen width."
- S ^XVEMS("PARAM",XVV("ID"),"WIDTH")=WIDTH
+ I WIDTH=0 K ^XVEMS("PARAM",XVV("ID"),"WIDTH")
+ E  S ^XVEMS("PARAM",XVV("ID"),"WIDTH")=WIDTH
+ D IO^XVEMKY
  Q
  ;====================================================================
 LENGTH ;Set screen length.
  NEW DEF,LEN
  S DEF=$G(^XVEMS("PARAM",XVV("ID"),"LENGTH"))
- S:'DEF DEF=24
- D MSG
+ S:'DEF DEF=$G(XVV("IOSL"),24)
 LENGTH1 W !?1,"Enter SCREEN LENGTH: "_DEF_"// "
  R LEN:300 S:'$T LEN="^" S:LEN="" LEN=DEF Q:"^"[LEN
- I LEN'?1.N!(LEN'>0) D  G LENGTH1
+ I LEN'?1.N!(LEN<0) D  G LENGTH1
  . W !?1,"Enter your screen length."
- S ^XVEMS("PARAM",XVV("ID"),"LENGTH")=LEN
+ I LEN=0 K ^XVEMS("PARAM",XVV("ID"),"LENGTH")
+ E  S ^XVEMS("PARAM",XVV("ID"),"LENGTH")=LEN
+ D IO^XVEMKY
  Q
  ;====================================================================
-MSG ;
- W !," You must exit and reenter the Shell for change to take effect."
- Q
 INIT ;
  S DOT="...............",$P(LINE,"=",220)=""
  Q

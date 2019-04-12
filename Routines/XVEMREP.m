@@ -1,4 +1,4 @@
-XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2017-08-16  12:13 PM
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2019-04-09  5:43 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016
@@ -46,7 +46,7 @@ PARSE ;Run rtn name from code at cursor position
  . S RTN=RTN_$E(TMP,10,9+8-$L(RTN))
  ;
  ; Check the routine exists
- I $T(@(TAG_"^"_RTN))="" W $C(7) Q
+ I RTN'="",$T(@(TAG_"^"_RTN))="" W $C(7) Q
  ;
  ;Save RTN & TAG before clearing symbol table.
  S ^TMP("XVV",$J)=RTN_"^"_TAG
