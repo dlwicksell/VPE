@@ -1,8 +1,9 @@
-XVEMKRN ;DJB/KRN**NEW Single Character Read ;2019-04-11  10:14 PM
+XVEMKRN ;DJB/KRN**NEW Single Character Read ;2019-04-11  10:44 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; READ+23,GETCHAR+12 Bug fix by Kevin Toppenberg, MD (c) 2017
  ; <END> key support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 READ(PROMPT,LENGTH,NOECHO) ;
  ;PROMPT  Display prompt.
@@ -38,7 +39,7 @@ READ(PROMPT,LENGTH,NOECHO) ;
 GETCHAR ;Single character READ to get individual characters
  R CHAR#1:XVV("TIME")
  I '$T S CHAR="<TO>" Q
- I $A(CHAR)>31,$A(CHAR)<127 W:$G(NOECHO)'=1 CHAR Q
+ I $A(CHAR)>31,$A(CHAR)<127 W:$G(NOECHO)'=1&($G(FLAGMODE)'["BLOCK") CHAR Q
  X XVV("TRMRD") S CHAR=Y
  D:(CHAR=0) OTHER
  D:(CHAR=27) ESCAPE

@@ -1,7 +1,8 @@
-XVEMSY ;DJB/VSHL**Init,Error ;2017-08-16  10:48 AM
+XVEMSY ;DJB/VSHL**Init,Error ;2019-04-11  10:57 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ERROR tag and everything below completely rewritten Sam Habiel (c) 2016-2017
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 INIT ;Initialize variables
  NEW XVVSIZE,X,Y
@@ -16,6 +17,7 @@ INIT ;Initialize variables
  D IO^XVEMKY
  D CLH^XVEMSY1,OS^XVEMKY G:FLAGQ EX
  D BS^XVEMKY1
+ D SYNTAX^XVEMKY1
  D ZE^XVEMKY1
  D TRMREAD^XVEMKY1
  D ECHO^XVEMKY1

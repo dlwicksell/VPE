@@ -1,4 +1,4 @@
-XVEMSH8 ;DJB/VSHL**MISCELLANEOUS ;2019-04-11  10:15 PM
+XVEMSH8 ;DJB/VSHL**MISCELLANEOUS ;2019-04-12  2:44 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New shell parameter documentation by David Wicksell (c) 2019
@@ -61,6 +61,18 @@ MISC ;;;
  ;;;                length, enter 0. The VPE UI will be resized in real time.
  ;;;                Note that some UI elements may not fit properly within a
  ;;;                screen length smaller than 24.
+ ;;;
+ ;;;   Highlight Syntax: ON/OFF
+ ;;;                You can turn syntax highlighting mode on or off. It defaults
+ ;;;                to off. When it is on, syntax highlighting will highlight
+ ;;;                nine syntax regions with different colors.
+ ;;;
+ ;;;   Configure Syntax: SUB-MENU
+ ;;;                This opens up a sub-menu that allows you to configure the
+ ;;;                foreground and background colors for each of the nine syntax
+ ;;;                regions. This menu option is only accessible when syntax
+ ;;;                highlighting is turned on. In order to reset the syntax
+ ;;;                highlighting colors to the system defaults, enter 0.
  ;;;
  ;;; V S H E L L   T I M E   O U T
  ;;;

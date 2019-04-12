@@ -1,7 +1,8 @@
-XVEMRU ;DJB/VRR**Utilities ;2017-08-15  4:31 PM
+XVEMRU ;DJB/VRR**Utilities ;2019-04-11  10:55 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; LINECNT bug fix for routines > 8 c long (c) 2016 Sam Habiel
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 LNSTART(CD) ;Find start of line for EDIT mode.
  ;"2^11" - TAG starts at 2, LINE starts at 11
@@ -84,7 +85,10 @@ REDRAW(YVAL) ;Adjust line count and redraw from YVAL to bottom of screen
  . . S XVVT("BOT")=XVVT("BOT")+1,XVVT("GAP")=XVVT("GAP")-1
  . S DX=0,DY=I-XVVT("TOP")+1
  . X XVVS("CRSR") W @XVVS("BLANK_C_EOL") X XVVS("XY")
- . W $P(TMP,$C(30),1),$P(TMP,$C(30),2)
+ . I XVV("SYN")="ON" D
+ . . D SYNTAX^XVEMSYN(TMP,I)
+ . E  D
+ . . W $P(TMP,$C(30),1),$P(TMP,$C(30),2)
  . I TMP=" <> <> <>" S FLAGQ=1 Q
  D LINECNT
  S DX=XCUR,DY=YCUR X XVVS("CRSR")

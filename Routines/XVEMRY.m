@@ -1,7 +1,8 @@
-XVEMRY ;DJB/VRR**Init,Branching,Error ;2017-08-15  4:37 PM
+XVEMRY ;DJB/VRR**Init,Branching,Error ;2019-04-11  10:55 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; VGL,RSE changes (c) Sam Habiel 2016
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 INIT ;Initialize variables
  NEW X,Y
@@ -12,6 +13,7 @@ INIT ;Initialize variables
  I $D(XVV("TRMON"))#2=0 D TRMREAD^XVEMKY1
  D REVVID^XVEMKY2
  D BS^XVEMKY1
+ D SYNTAX^XVEMKY1
  D SCRNVAR^XVEMKY2
  D BLANK^XVEMKY3
  D WRAP^XVEMKY2 W @(XVVS("NOWRAP"))

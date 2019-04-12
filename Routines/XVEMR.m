@@ -1,7 +1,8 @@
-XVEMR ;DJB/VRR**SCROLL VRoutine Reader ;2017-08-15  4:20 PM
+XVEMR ;DJB/VRR**SCROLL VRoutine Reader ;2019-04-11  10:54 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Various bug fixes throughout Sam Habiel (c) 2016
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 EN ;Entry Point
  I $G(DUZ)'>0 D ID^XVEMKU Q:$G(DUZ)=""
@@ -62,8 +63,11 @@ GETXVVT ;Set XVVT=Display text
  ;
 LIST ;Display text
  D GETXVVT
- W !,$P(XVVT,$C(30),1)
- W $P(XVVT,$C(30),2,99)
+ I XVV("SYN")="ON" D
+ . W ! D SYNTAX^XVEMSYN(XVVT,XVVT("BOT"))
+ E  D
+ . W !,$P(XVVT,$C(30),1)
+ . W $P(XVVT,$C(30),2,99)
  S XVVT("BOT")=XVVT("BOT")+1 ;Bottom line #
  S:XVVT("GAP") XVVT("GAP")=XVVT("GAP")-1 ;Empty lines left on page
  I XVVT=" <> <> <>"!'XVVT("GAP") D READ^XVEMRE Q:FLAGQ

@@ -1,6 +1,7 @@
-XVEMREB ;DJB/VRR**EDIT - Remove Character ;2017-08-15  1:41 PM
+XVEMREB ;DJB/VRR**EDIT - Remove Character ;2019-04-11  10:48 PM
  ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
  ; Original Code authored by David J. Bolduc 1985-2005
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 TOP ;
  NEW CD,HLD,I,NUM,WHERE,XSAVE,YSAVE,YNDSAVE
@@ -38,7 +39,11 @@ SIMPLE ;Process a line that hasn't reached end yet
  S CD(NUM)=$E(CD(NUM),1,XCHAR-1)_$E(CD(NUM),XCHAR+1,9999)
 SIMPLE1 S DX=XCUR,DY=YCUR X XVVS("CRSR")
  W @XVVS("BLANK_C_EOL")
- W $E(CD(NUM),XCHAR,9999)
+ I XVV("SYN")="ON" D
+ . W $$CONTROL^XVEMSYN("MOV",DY+1),$$CONTROL^XVEMSYN("CR")
+ . D SYNTAX^XVEMSYN(CD(NUM),NUM)
+ E  D
+ . W $E(CD(NUM),XCHAR,9999)
  Q
  ;
 COMPLEX ;Multiple lines and cursor position need to be adjusted.
@@ -48,7 +53,11 @@ COMPLEX ;Multiple lines and cursor position need to be adjusted.
  . S DX=9,DY=DY+1 X XVVS("CRSR")
  . W @XVVS("BLANK_C_EOL")
  . X XVVS("XY")
- . W $E(CD(I),10,9999)
+ . I XVV("SYN")="ON" D
+ . . W $$CONTROL^XVEMSYN("MOV",DY+1),$$CONTROL^XVEMSYN("CR")
+ . . D SYNTAX^XVEMSYN(CD(I),I)
+ . E  D
+ . . W $E(CD(I),10,9999)
  Q
  ;
 REDRAW ;Redraw rest of adjusted line
