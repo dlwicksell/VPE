@@ -530,8 +530,13 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('Global')
         self.vista.write('VA(200,')
         self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '.5 ' + chr(27))
-        #self.vista.write('S2') # Skip down until the second sub changes
-        self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
+                finished = 1
+            except:
+                self.vista.write('S2') # Skip down until the second sub changes
 
         self.vista.write('C') # Command search will fail
         self.vista.wait('You don\'t have access.')
