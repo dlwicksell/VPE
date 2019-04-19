@@ -533,7 +533,7 @@ class VPEUnitTests(unittest.TestCase):
         finished = 0
         while not finished:
             try:
-                self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27))
+                self.vista.wait('^VA(200,' + chr(27) + '[7m ' + '1 ' + chr(27), TIMEOUT)
                 finished = 1
             except:
                 self.vista.write('S2') # Skip down until the second sub changes
@@ -847,8 +847,8 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('PRINT TEMPLATES')) # name of a group
         rval = 0
         while rval == 0:
-  	    rval = self.vista.multiwait(['CONTINUE','MAIN_MENU'])
-	    if rval == 0: self.vista.write('')
+            rval = self.vista.multiwait(['CONTINUE','MAIN_MENU'])
+            if rval == 0: self.vista.write('')
         self.vista.write('')
         self.assertTrue(self.vista.wait('Select OPTION:'))
 
@@ -927,10 +927,10 @@ class VPEUnitTests(unittest.TestCase):
         self.assertTrue(self.vista.wait('Select OPTION:'))
         self.vista.write('G')
         self.vista.write('')
-	try:
-	    self.vista.wait('MAIN_MENU',TIMEOUT)
+        try:
+            self.vista.wait('MAIN_MENU',TIMEOUT)
             self.vista.write('') # Cache only
-	except:
+        except:
             pass
         
         self.vista.write('')
@@ -985,10 +985,10 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_routineSearch(self):
         self.vista.write('..RSEARCH')
-	try:
-	    self.vista.wait('All Routines?',TIMEOUT)
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
             self.vista.write('') # Cache only
-	except:
+        except:
             pass
         self.vista.wait('Routine:')
         self.vista.write('XV*')
@@ -1002,10 +1002,10 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertTrue(self.vista.wait('8. MV1'))
         self.vista.write('^')
-	try:
-	    self.vista.wait('All Routines?',TIMEOUT)
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
             self.vista.write('') # Cache only
-	except:
+        except:
             pass
         self.vista.wait('Routine:')
         self.vista.write('')
@@ -1115,14 +1115,31 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('Select NUMBER')
         self.vista.write('6')
         self.vista.wait('SCREEN WIDTH')
-        self.vista.write('')
+        self.vista.write('80')
         self.vista.wait('Select NUMBER')
         self.vista.write('7')
         self.vista.wait('SCREEN LENGTH')
-        self.vista.write('')
+        self.vista.write('24')
         self.vista.wait('Select NUMBER')
+        #
+        # Reset the prompt
+        self.vista.write('2')
+        self.vista.wait('Select NUMBER')
+        #
+        # Go back to Auto-width (new feature in 15.0)
+        self.vista.write('6')
+        self.vista.wait('SCREEN WIDTH')
+        self.vista.write('0')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('7')
+        self.vista.wait('SCREEN LENGTH')
+        self.vista.write('0')
+        self.vista.wait('Select NUMBER')
+        #
+        # Go back to prompt
         self.vista.write('')
         self.assertTrue(self.vista.wait('>>'))
+
 
     def test_ZD(self):
         self.vista.write('..ZD X')
@@ -1170,6 +1187,68 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('1')
         self.vista.wait('>>')
 
+    def test_syntaxHighlighting(self):
+        # Turn on Syntax Highlighting
+        self.vista.write('..PARAM')  # Parameters
+        self.vista.wait('Select NUMBER')
+        self.vista.write('8')        # Turn on Syntax Highlighting
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        # Now View a Routine in Color
+        self.vista.write('..VRR XV')
+        self.vista.wait('<ESC><ESC>=Quit')
+        self.vista.writectrl(chr(27) + '[6~') # Page Down
+        self.vista.writectrl(chr(27) + '[6~') # Page Down
+        self.vista.writectrl(chr(27) + '[6~') # Page Down
+        self.vista.writectrl(chr(27) + '[6~') # Page Down
+        self.vista.wait('<> <> <>')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+
+        # Create new routine KBANTEST
+        self.vista.write('..ZR KBANTEST KBANTEST2')
+        boo = self.vista.wait('OK TO DELETE?')
+        self.assertEqual(boo,1)
+        self.vista.write('Y')
+        boo = self.vista.wait('Removed')
+        self.assertEqual(boo,1)
+
+        self.vista.wait('>>')
+        self.vista.write('..E')
+        self.vista.wait('ROUTINE')
+        self.vista.write('KBANTEST2')
+        self.vista.wait('[^KBANTEST2]')
+        self.vista.write('')
+        self.vista.write('KBANTEST2' + chr(9) + '; TEST ROUTINE')
+        self.vista.write(chr(9) + 'D USEZERO^XVEMSU')
+        self.vista.write(' W "HELLO VPE",!')
+        self.vista.write(' QUIT')
+        self.vista.write('TAG1' + chr(9) + '; TEST TAG')
+        self.vista.write(chr(9) + 'N Z')
+        self.vista.wait('Z')
+        self.vista.write(' S Z=1')
+        for x in range(0,81):
+             self.vista.write(' S Z=1')
+             self.vista.wait('1')
+        self.vista.write(' D USEZERO^XVEMSU')
+        self.vista.wait('U')
+        self.vista.write(' W "BYE VPE",!')
+        self.vista.wait('!')
+        self.vista.write(' QUIT')
+        self.vista.wait('T')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
+        self.vista.wait('>>')
+        self.vista.write('D ^KBANTEST2')
+        self.vista.wait('HELLO VPE')
+        self.vista.wait('>>')
+
+
     def test_stopVPE(self):
         self.vista.write('HALT')
 
@@ -1208,7 +1287,7 @@ if __name__ == '__main__':
     #print s.getvalue()
 
 #---------------------------------------------------------------------------
-# Copyright 2017 Sam Habiel
+# Copyright 2017,2019 Sam Habiel
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
