@@ -1207,25 +1207,31 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('>>')
 
-        # Create new routine KBANTEST
-        self.vista.write('..ZR KBANTEST KBANTEST2')
+        # Delete routine KBANTEST2
+        self.vista.write('..ZR KBANTEST2')
         boo = self.vista.wait('OK TO DELETE?')
         self.assertEqual(boo,1)
         self.vista.write('Y')
         boo = self.vista.wait('Removed')
         self.assertEqual(boo,1)
-
         self.vista.wait('>>')
+
+        # Now create the new routine KBANTEST2
         self.vista.write('..E')
         self.vista.wait('ROUTINE')
         self.vista.write('KBANTEST2')
         self.vista.wait('[^KBANTEST2]')
         self.vista.write('')
         self.vista.write('KBANTEST2' + chr(9) + '; TEST ROUTINE')
+        self.vista.wait('E')
         self.vista.write(chr(9) + 'D USEZERO^XVEMSU')
+        self.vista.wait('U')
         self.vista.write(' W "HELLO VPE",!')
+        self.vista.wait('!')
         self.vista.write(' QUIT')
+        self.vista.wait('T')
         self.vista.write('TAG1' + chr(9) + '; TEST TAG')
+        self.vista.wait('G')
         self.vista.write(chr(9) + 'N Z')
         self.vista.wait('Z')
         self.vista.write(' S Z=1')
@@ -1248,6 +1254,61 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('HELLO VPE')
         self.vista.wait('>>')
 
+        # Now edit the colors for syntax highlighting
+        # Change Tag to be Yellow Foreground
+        self.vista.write('..PARAM')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('9')        # Syntax highlighting colors
+        self.vista.wait('Set colors for error regions')
+        self.vista.write('3')
+        self.vista.wait('Use <TAB> or the arrow keys')
+        self.vista.write(chr(9))
+        self.vista.wait('Cyan')
+        self.vista.write('')
+        self.vista.wait('BACKGROUND')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        # Now View routine in color
+        self.vista.write('..VRR XVEMSY')
+        self.vista.wait('<ESC><ESC>=Quit')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+
+        # Go back to parameters and reset
+        self.vista.write('..PARAM')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('9')        # Syntax highlighting colors
+        self.vista.wait('Select NUMBER')
+        self.vista.write('0')        # Reset
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        # Now View routine in color (again, reset colors)
+        self.vista.write('..VRR XVEMSY')
+        self.vista.wait('<ESC><ESC>=Quit')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+
+        # Go back to parameters and turn off syntax highlighting
+        self.vista.write('..PARAM')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('8')        # Syntax highlighting colors
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        # Now View routine in color (again, no colors)
+        self.vista.write('..VRR XVEMSY')
+        self.vista.wait('<ESC><ESC>=Quit')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
 
     def test_stopVPE(self):
         self.vista.write('HALT')
