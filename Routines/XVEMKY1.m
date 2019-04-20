@@ -29,70 +29,54 @@ TRMREAD ;Read terminators
  . S XVV("TRMON")=$G(^%ZOSF("TRMON"))
  . S XVV("TRMOFF")=$G(^%ZOSF("TRMOFF"))
  . S XVV("TRMRD")=$G(^%ZOSF("TRMRD"))
- . S XVV("PASSALL")=$G(^%ZOSF("PASSALL"))
- . S XVV("NO-PASSALL")=$G(^%ZOSF("NO-PASSALL"))
  ;
  ;-> DSM
  I XVV("OS")=2 D  Q
  . S XVV("TRMON")="U $I:(::::1572864::::$C(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31))"
  . S XVV("TRMOFF")="U $I:(:::::1572864:::$C(13,27))"
  . S XVV("TRMRD")="S Y=$ZB"
- . S XVV("PASSALL")="U $I" ; Not sure how to set this
- . S XVV("NO-PASSALL")="U $I" ; Not sure how to set this
  ;
  ;-> MSM
  I XVV("OS")=8 D  Q
  . S XVV("TRMON")="U $I:(::::::::$C(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,127))"
  . S XVV("TRMOFF")="U $I:(::::::::$C(13,27))"
  . S XVV("TRMRD")="S Y=$ZB"
- . S XVV("PASSALL")="U $I:(::::8388608)"
- . S XVV("NO-PASSALL")="U $I:(:::::8388608)"
  ;
  ;-> DTM
  I XVV("OS")=9 D  Q
  . S XVV("TRMON")="U $I:IXINTERP=2"
  . S XVV("TRMOFF")="U $I:IXINTERP=$S($I>99:1,1:0)"
  . S XVV("TRMRD")="S Y=$S('$ZIOS:$ZIOT,1:0)"
- . S XVV("PASSALL")="U $I:(NOESCAPE:NOTERMINATOR:PASTHRU)"
- . S XVV("NO-PASSALL")="U $I:(ESCAPE:TERMINATOR="""":NOPASTHRU)"
  ;
  ;-> DSM for OpenVMS
  I XVV("OS")=16 D  Q
  . S XVV("TRMON")="U $I:TERM=$C(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,127)"
  . S XVV("TRMOFF")="U $I:TERM="""""
  . S XVV("TRMRD")="S Y=$ZB"
- . S XVV("PASSALL")="U $I:(NOESCAPE:NOTERMINATOR:PASTHRU)"
- . S XVV("NO-PASSALL")="U $I:(ESCAPE:TERMINATOR="""":NOPASTHRU)"
  ;
  ;-> CACHE
  I XVV("OS")=18 D  Q
  . S XVV("TRMON")="U $I:("""":""+I+T"")"
  . S XVV("TRMOFF")="U $I:("""":""-I-T"":$C(13,27))"
  . S XVV("TRMRD")="S Y=$A($ZB),Y=$S(Y<32:Y,Y=127:Y,1:0)"
- . S XVV("PASSALL")="U $I:("""":""+I-T"")"
- . S XVV("NO-PASSALL")="U $I:("""":""-I+T"")"
  ;
  ;-> GTM
  I XVV("OS")=17!(XVV("OS")=19) D  Q
  . S XVV("TRMON")="U $I:(TERMINATOR=$C(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,127))"
  . S XVV("TRMOFF")="U $I:(TERMINATOR="""")"
  . S XVV("TRMRD")="S Y=$A($ZB)"
- . S XVV("PASSALL")="U $I:(NOESCAPE:NOTERMINATOR:PASTHRU)"
- . S XVV("NO-PASSALL")="U $I:(ESCAPE:TERMINATOR="""":NOPASTHRU)"
  ;
  ;-> MV1
  I XVV("OS")=20 D  Q
  . N WID
  . S WID="""TERMINATOR=""_$C(0,1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,127)"
  . S XVV("TRMON")="U $I:(""NOESCAPE"":""DELETE=NONE"":"_WID_")"
- . S XVV("PASSALL")="U $I:(""NOESCAPE"":"_WID_")"
  . S WID="""TERMINATOR=""_$C(10,13,27)"
  . S XVV("TRMOFF")="U $I:(""ESCAPE"":""DELETE=BOTH"":"_WID_")"
- . S XVV("NO-PASSALL")="U $I:(""ESCAPE"":"_WID_")"
  . S XVV("TRMRD")="S Y=$A($KEY)"
  ;
  ;-> Default
- S (XVV("TRMON"),XVV("TRMOFF"),XVV("TRMRD"),XVV("PASSALL"),XVV("NO-PASSALL"))=""
+ S (XVV("TRMON"),XVV("TRMOFF"),XVV("TRMRD"))=""
  W !!,"I'm unable to set READ Terminators for your M system."
  W !,"Edit TRMREAD^XVEMKY1 and add code for your system."
  D PAUSE^XVEMKU(2)

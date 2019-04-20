@@ -12,7 +12,7 @@ TOP ;Edit System Parameters
 EX ;
  Q
 GETPARAM ;Edit a Parameter
- X XVV("NO-PASSALL") R !?1,"Select NUMBER: ",OPT1:300 S:'$T OPT1="^" X XVV("PASSALL"),XVV("TRMON") I "^"[OPT1 S FLAGQ=1 Q
+ R !?1,"Select NUMBER: ",OPT1:300 S:'$T OPT1="^" I "^"[OPT1 S FLAGQ=1 Q
  S SYN=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX"),"OFF")
  S LIMIT=$S(SYN="ON":9,1:8)
  I OPT1'?1.N!(OPT1<1)!(OPT1>LIMIT) W "  To edit a parameter, enter number of your choice." G GETPARAM
@@ -55,7 +55,7 @@ DISPLAY ;Display Parameters
  Q
  ;====================================================================
 GETCONF ;Edit a Syntax Parameter
- X XVV("NO-PASSALL") R !?1,"Select NUMBER: ",OPT2:300 S:'$T OPT2="^" X XVV("PASSALL"),XVV("TRMON") I "^"[OPT2 S CONFQ=1 Q
+ R !?1,"Select NUMBER: ",OPT2:300 S:'$T OPT2="^" I "^"[OPT2 S CONFQ=1 Q
  I OPT2'?1.N!(OPT2<0)!(OPT2>9) W "  To edit a parameter, enter number of your choice." G GETCONF
  I OPT2=0 NEW SYN S SYN=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX"),"OFF") K ^("SYNTAX") S ^("SYNTAX")=SYN
  I OPT2=1 D CHGCOLOR("Command")
