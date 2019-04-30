@@ -1,3 +1,15 @@
+## Authors for version 15.0
+David Wicksell
+
+## Changes for version 15.0
+- Syntax Higlighting (!) in editor and viewer (not turned on by default; go to ..PARAM to turn it on)
+- Add <END> key support for YottaDB/GT.M on Linux
+- Fix bug with routine branching support
+- Fix routine size support for YottaDB/GT.M on Linux
+- Add new shell parameter documentation for screen sizing
+- Add enhancements to auto margin screen handling in ..PARAM
+
+
 ## Authors for version 14.1
 Sam Habiel
 Kevin Toppenberg

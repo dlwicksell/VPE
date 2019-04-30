@@ -9,13 +9,15 @@ Brian Lord ported VPE to run on GT.M in 2005.
 (c) Brian Lord 2005.
 
 David Wicksell maintained the code from 2010-2015. He renamespaced all the code
-to XV and %XV instead of ZV and %ZV.
+to XV and %XV instead of ZV and %ZV. David also added Syntax Highlighting in
+2019.
 (c) David Wicksell 2010-2015
+(c) David Wicksell 2019
 
 Sam Habiel worked with David Wicksell to refactor code originally stored in 
 Globals. He completed the renamespacing, eliminating %XV in favor of just XV.
 He is the current maintainer.
-(c) Sam Habiel 2010-2017
+(c) Sam Habiel 2010-2017, 2019
 
 Corresponding Author
 ===================

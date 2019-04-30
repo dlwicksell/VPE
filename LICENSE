@@ -1,8 +1,10 @@
 Most code is public domain. Various portions are:
 
-Copyright 2005      Brian Lord
-Copyright 2010-2015 David Wicksell
-Copyright 2010-2017 Sam Habiel
+Copyright 2005            Brian Lord
+Copyright 2010-2015, 2019 David Wicksell
+Copyright 2010-2017, 2019 Sam Habiel
+
+Authors are noted in each routine.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -21,12 +21,19 @@ functionality without VISTA or RPMS. Anything Fileman related will not work if
 Fileman isn't installed.
 
 ## Using VPE (Brief User Manual)
-To enter VPE, type `D ^XV`.  An online manual can be
-found by just typing '?' when at the '>>' VPE prompt. 
+To enter VPE, type `D ^XV`.  An online manual can be found by just typing '?'
+when at the '>>' VPE prompt. 
 
 VPE has its own CHUI Windowing system. To get out of any windows, type 'ESC',
 'ESC'... that is, two escapes in a row. That's the only shortcut key you really
 need to remember.
+
+v15.0 introduces syntax highlighting as a feature. It is not enabled by default.
+Type `..PARAM` and choose `8. Highlight Syntax....` in order to turn syntax
+highlighting on. By default, syntax colors are optimized for a black background;
+if you wish to change the colors, choose `9. Configure Syntax....`. Note that
+the latter only apprers only if Syntax Highlighting is toggled on from option 8.
+Many thanks to David Wicksell for writing the Syntax Highlighter.
 
 The VPE manual can be found here:
 http://www.pioneerdatasys.com/hardhats/VPEUSER.pdf. Since the original VPE
@@ -35,7 +42,12 @@ Therefore, any references to %ZVEM or ZVEM should be changed to XVEM.
 
 ## Unit Testing
 VPE (as of version 14.2) comes with a Unit Testing suite that covers about 50%
-of the code. To run the Unit Testing suite, make sure you have VPE imported into
+of the code. The tests are somewhat brittle due to the reliance on specific 
+strings which may change between Fileman versions, due to how much global data
+is in a system, and due to issues with race conditions in PExpect. The authors
+do guarantee that the tests would run on FOIA VistA on GT.M and Cache.
+
+They To run the Unit Testing suite, make sure you have VPE imported into
 your M-implementation (if you are running the tests, preferably the routines
 in this repository rather than the release), and then navigate to the test
 folder, adjust VPE.cfg to connect to your M system (examples to follow), and 
@@ -77,12 +89,13 @@ test_CLH (__main__.VPEUnitTests) ... ok
 test_DIC (__main__.VPEUnitTests) ... ok
 test_purge (__main__.VPEUnitTests) ... ok
 test_QSAVE (__main__.VPEUnitTests) ... ok
+test_syntaxHighlighting (__main__.VPEUnitTests) ... ok
 test_stopVPE (__main__.VPEUnitTests) ... ok
-
 ----------------------------------------------------------------------
-Ran 31 tests in 37.514s
+Ran 32 tests in 44.632s
 
 OK
+
 ```
 
 The VPE.cfg file contains the configuration of how to connect to the M system.
@@ -121,8 +134,13 @@ The entire change history from version 9 to the current version can be found
 ## License
 The VPE is now licensed under Apache 2.0. See [LICNESE](LICENSE) for more details.
 
-## MV1 support
-This section is for Sam, the maintainer. You can ignore it:
+## XINDEX
+VPE passes XINDEX, with the following exceptions, from which it is exempt:
 
-What's left for supporting MV1 is the following:
-- Error trap unwind doesn't work b/c of a bug in MV1 --> PUT A BANDAID!
+ * Fileman INIT routines don't have a correct first line (exempt under 2.2.1.2)
+ * Vendor specific routine and external package calls (exempt as a Kernel Extension under 2.2.8)
+
+## Ray Newman's Mumps V1 support
+There is now full support as of v14.0 for MV1. However, there is a bug in MV1
+where the M95 error trap behaves like the old $ZTRAP, so Error trap unwind is
+handled differently for MV1.
