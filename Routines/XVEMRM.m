@@ -1,5 +1,5 @@
 XVEMRM ;DJB/VRR**Menu Bar ;2019-04-11  10:14 PM
- ;;14.1;VICTORY PROG ENVIRONMENT;;Aug 16, 2017
+ ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Fix routine size support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
  ;
