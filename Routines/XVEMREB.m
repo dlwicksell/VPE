@@ -33,7 +33,7 @@ SIMPLE ;Process a line that hasn't reached end yet
 SIMPLE1 S DX=XCUR,DY=YCUR X XVVS("CRSR")
  W @XVVS("BLANK_C_EOL")
  I XVV("SYN")="ON" D
- . W $$CONTROL^XVEMSYN("MOV",DY+1),$$CONTROL^XVEMSYN("CR")
+ . W $$CONTROL^XVEMSYN("MOV",DY+1) W @XVVS("BLANK_C_EOL")
  . D SYNTAX^XVEMSYN(CD(NUM),NUM)
  E  D
  . W $E(CD(NUM),XCHAR,9999)
@@ -47,7 +47,7 @@ COMPLEX ;Multiple lines and cursor position need to be adjusted.
  . W @XVVS("BLANK_C_EOL")
  . X XVVS("XY")
  . I XVV("SYN")="ON" D
- . . W $$CONTROL^XVEMSYN("MOV",DY+1),$$CONTROL^XVEMSYN("CR")
+ . . W $$CONTROL^XVEMSYN("MOV",DY+1) W @XVVS("BLANK_C_EOL")
  . . D SYNTAX^XVEMSYN(CD(I),I)
  . E  D
  . . W $E(CD(I),10,9999)

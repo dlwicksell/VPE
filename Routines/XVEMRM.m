@@ -1,7 +1,8 @@
-XVEMRM ;DJB/VRR**Menu Bar ;2019-04-11  10:14 PM
+XVEMRM ;DJB/VRR**Menu Bar ;2019-05-02  7:12 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Fix routine size support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
+ ; Syntax highlighting support by David Wicksell (c) 2019
  ;
 EN ;Because of FndTag/LctStrng, I need to be able to change the lines
  ;displayed when exiting back to edit mode. FLAGMENU allows this.
@@ -38,7 +39,12 @@ PAGE2 S KEY=$$READ^XVEMKRN(),KEY=$$ALLCAPS^XVEMKU(KEY)
  I KEY="J" D JOIN^XVEMREJ Q
  I KEY="JC" D JOINA^XVEMREJ Q
  I KEY="LC" D ^XVEMRM2 Q
- I KEY="M" D MORE^XVEMRM1 G PAGE1
+ I KEY="M" D MORE^XVEMRM1 D:XVV("SYN")="ON"  G PAGE1
+ . S YND=$P(FLAGMENU,"^",1)
+ . S XVVT("TOP")=$P(FLAGMENU,"^",2)
+ . S YCUR=$P(FLAGMENU,"^",3)
+ . S XCUR=$P(FLAGMENU,"^",4)
+ . D REDRAW
  I KEY="P" D PARAM^XVEMRM1 Q
  I KEY="PUR" D PUR Q
  I KEY="R" D ROUTINE Q
@@ -126,6 +132,9 @@ REDRAW ;Redraw screen
  F I=XVVT("TOP"):1:(XVVT("BOT")-1) D  ;
  . S DX=0,DY=DY+1 X XVVS("CRSR")
  . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,I))
- . W $P(TMP,$C(30),1)
- . W $P(TMP,$C(30),2,99)
+ . I XVV("SYN")="ON" D
+ . . D SYNTAX^XVEMSYN(TMP,I)
+ . E  D
+ . . W $P(TMP,$C(30),1)
+ . . W $P(TMP,$C(30),2,99)
  Q

@@ -1,4 +1,4 @@
-XVEMREL ;DJB/VRR**EDIT - Process Line Tags ;2019-04-11  10:49 PM
+XVEMREL ;DJB/VRR**EDIT - Process Line Tags ;2019-05-20  6:43 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Syntax highlighting support by David Wicksell (c) 2019
@@ -26,7 +26,7 @@ CHKADD() ;Check for valid addition. Process certain additions.
  . I $E(CD(NUM),XCUR+X)']"" W " "
  . E  D
  . . I XVV("SYN")="ON" D
- . . . W $$CONTROL^XVEMSYN("MOV",DY+1),$$CONTROL^XVEMSYN("CR")
+ . . . W $$CONTROL^XVEMSYN("MOV",DY+1) W @XVVS("BLANK_C_EOL")
  . . . D SYNTAX^XVEMSYN(CD(NUM),NUM)
  . . E  D
  . . . W $E(CD(NUM),XCUR+X)
