@@ -1,4 +1,4 @@
-XVEMREB ;DJB/VRR**EDIT - Remove Character ;2019-04-11  10:48 PM
+XVEMREB ;DJB/VRR**EDIT - Remove Character ;2019-05-21  3:44 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Syntax highlighting support by David Wicksell (c) 2019
@@ -13,8 +13,6 @@ TOP ;
  D REDRAW
  D COMPLEX
 EX ;Exit
- ;Strip ending spaces
- I $E(CD(NUM),$L(CD(NUM)))=" ",'$D(CD(NUM+1)) D SPACES
  S XCUR=XSAVE
  S YCUR=YSAVE
  S YND=YNDSAVE
@@ -28,11 +26,6 @@ SET ;Adjust variables
  S XCUR=$S($G(VK)="<DEL>":XCUR,1:XCUR-1)
  S XSAVE=XCUR
  S XCHAR=$$XCHARDEL^XVEMRU(CD(NUM))
- Q
- ;
-SPACES ;Strip ending spaces from line
- F  Q:$E(CD(NUM),$L(CD(NUM)))'=" "  D  ;
- . S CD(NUM)=$E(CD(NUM),1,$L(CD(NUM))-1)
  Q
  ;
 SIMPLE ;Process a line that hasn't reached end yet
