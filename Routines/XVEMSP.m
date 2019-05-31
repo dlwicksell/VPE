@@ -1,4 +1,4 @@
-XVEMSP ;DJB/VSHL**System Parameters [11/17/96 12:49pm];2019-04-11  10:59 PM
+XVEMSP ;DJB/VSHL**System Parameters ;2019-05-29  1:42 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Enhancements to auto margin screen handling by David Wicksell (c) 2019
@@ -69,32 +69,41 @@ GETCONF ;Edit a Syntax Parameter
  I OPT2=9 D CHGCOLOR("Error")
  Q
 SYNCONF ;Configure Syntax mappings
- NEW HD
+ NEW HD,XPOS
  S HD="V P E   S Y N T A X   C O N F I G U R A T I O N   [0 Resets All Regions]"
  W @XVV("IOF"),!?(XVV("IOM")-$L(HD)\2),HD
  W !,$E(LINE,1,XVV("IOM")-1)
  S CMD=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","COMMAND","FG"),"Yellow")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"1. Command Region..... ",CMD,?40,"Set colors for command regions"
+ W !!?1,"1. Command Region..... " S XPOS=$X W $$CONTROL^XVEMSYN($S(CMD["/":CMD,1:CMD_"/")) S $X=XPOS W CMD S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for command regions"
  S ARG=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","ARGUMENT","FG"),"Magenta")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"2. Argument Region.... ",ARG,?40,"Set colors for argument regions"
+ W !!?1,"2. Argument Region.... " S XPOS=$X W $$CONTROL^XVEMSYN($S(ARG["/":ARG,1:ARG_"/")) S $X=XPOS W ARG S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for argument regions"
  S TAG=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","TAG","FG"),"Magenta")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"3. Tag Region......... ",TAG,?40,"Set colors for tag regions"
+ W !!?1,"3. Tag Region......... " S XPOS=$X W $$CONTROL^XVEMSYN($S(TAG["/":TAG,1:TAG_"/")) S $X=XPOS W TAG S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for tag regions"
  S FUNC=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","FUNCTION","FG"),"Cyan")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"4. Function Region.... ",FUNC,?40,"Set colors for function regions"
+ W !!?1,"4. Function Region.... " S XPOS=$X W $$CONTROL^XVEMSYN($S(FUNC["/":FUNC,1:FUNC_"/")) S $X=XPOS W FUNC S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for function regions"
  S COM=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","COMMENT","FG"),"Blue")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"5. Comment Region..... ",COM,?40,"Set colors for comment regions"
+ W !!?1,"5. Comment Region..... " S XPOS=$X W $$CONTROL^XVEMSYN($S(COM["/":COM,1:COM_"/")) S $X=XPOS W COM S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for comment regions"
  S PUNC=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","PUNCTUATION","FG"),"Green")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"6. Punctuation Region. ",PUNC,?40,"Set colors for punctuation regions"
+ W !!?1,"6. Punctuation Region. " S XPOS=$X W $$CONTROL^XVEMSYN($S(PUNC["/":PUNC,1:PUNC_"/")) S $X=XPOS W PUNC S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for punctuation regions"
  S NUM=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","NUMBER","FG"),"Red")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"7. Number Region...... ",NUM,?40,"Set colors for number regions"
+ W !!?1,"7. Number Region...... " S XPOS=$X W $$CONTROL^XVEMSYN($S(NUM["/":NUM,1:NUM_"/")) S $X=XPOS W NUM S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for number regions"
  S STR=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","STRING","FG"),"Red")_$S("Off"[$G(^("BG")):"",1:"/"_^("BG"))
- W !!?1,"8. String Region...... ",STR,?40,"Set colors for string regions"
+ W !!?1,"8. String Region...... " S XPOS=$X W $$CONTROL^XVEMSYN($S(STR["/":STR,1:STR_"/")) S $X=XPOS W STR S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for string regions"
  S ERR=$G(^XVEMS("PARAM",XVV("ID"),"SYNTAX","ERROR","FG"),"White")_$S($G(^("BG"))="Off":"",$G(^("BG"))="":"/Red",1:"/"_^("BG"))
- W !!?1,"9. Error Region....... ",ERR,?40,"Set colors for error regions"
+ W !!?1,"9. Error Region....... " S XPOS=$X W $$CONTROL^XVEMSYN($S(ERR["/":ERR,1:ERR_"/")) S $X=XPOS W ERR S XPOS=$X
+ W $$CONTROL^XVEMSYN("DEF") S $X=XPOS W ?40,"Set colors for error regions"
  W !!,$E(LINE,1,XVV("IOM")-1),!
  Q
 CHGCOLOR(REG) ;Change Syntax Colors for a Syntax Region
- NEW KEY,VK,COLOR,CHOICE,CHGQ,REGION,SYNFG,SYNBG,UCREG
+ NEW KEY,VK,COLOR,CHOICE,CHGQ,REGION,SYNFG,SYNBG,UCREG,YLINE
  S REGION("Command")="CMD",REGION("Argument")="ARG",REGION("Tag")="TAG"
  S REGION("Function")="FUNC",REGION("Comment")="COM",REGION("Punctuation")="PUNC"
  S REGION("Number")="NUM",REGION("String")="STR",REGION("Error")="ERR"
@@ -104,28 +113,32 @@ CHGCOLOR(REG) ;Change Syntax Colors for a Syntax Region
  S COLOR("Magenta")=6,COLOR("Cyan")=7,COLOR("White")=8,COLOR("Off")=9,COLOR("Default")=10
  S SYNFG=$P(@REGION(REG),"/",1),SYNBG=$P(@REGION(REG),"/",2) I SYNBG="" S SYNBG="Off"
  S UCREG=$$ALLCAPS^XVEMKU(REG)
- S CHGQ=0
+ S CHGQ=0,YLINE=$Y+1
+ I XVV("OS")=19!(XVV("OS")=17) U $I:NOWRAP
+ E  I XVV("OS")=18 U $I:/NOXY=1
  F  D  Q:CHGQ
- . W $$CONTROL^XVEMSYN("CL"),$$CONTROL^XVEMSYN("MOV",$Y+1) S $X=1
- . S KEY=$$READ^XVEMKRN(" Use <TAB> or the arrow keys to change "_REG_" FOREGROUND color ["_SYNFG_"] ",1,1)
+ . W $$CONTROL^XVEMSYN("MOV",YLINE) W @XVVS("BLANK_C_EOL")
+ . S KEY=$$READ^XVEMKRN(" Use <TAB> or the arrow keys to change "_REG_" FOREGROUND color ["_SYNFG_"] ",1,0)
  . S VK=$G(XVV("K"))
- . I ",<AL>,<AU>,"[(","_VK_",") S CHOICE=COLOR(SYNFG) S:CHOICE=1 CHOICE=11 S CHOICE=CHOICE-1,SYNFG=COLOR(CHOICE)
- . I ",<AR>,<AD>,<TAB>,"[(","_VK_",") S CHOICE=COLOR(SYNFG) S:CHOICE=10 CHOICE=0 S CHOICE=CHOICE+1,SYNFG=COLOR(CHOICE)
- . I VK="<RET>" D
+ . I ",<AL>,<AU>,"[(","_VK_",") S CHOICE=COLOR(SYNFG) S:CHOICE=1 CHOICE=11 S CHOICE=CHOICE-1,SYNFG=COLOR(CHOICE) Q
+ . I ",<AR>,<AD>,<TAB>,"[(","_VK_",") S CHOICE=COLOR(SYNFG) S:CHOICE=10 CHOICE=0 S CHOICE=CHOICE+1,SYNFG=COLOR(CHOICE) Q
+ . I VK="<ESC>" S CHGQ=1 Q
+ . I VK="<RET>" D  S CHGQ=1
  . . I $G(CHOICE)=10 K ^XVEMS("PARAM",XVV("ID"),"SYNTAX",UCREG,"FG")
  . . E  S ^XVEMS("PARAM",XVV("ID"),"SYNTAX",UCREG,"FG")=SYNFG
- . . S CHGQ=1
  S CHGQ=0
  F  D  Q:CHGQ
- . W $$CONTROL^XVEMSYN("CL"),$$CONTROL^XVEMSYN("MOV",$Y+1) S $X=1
- . S KEY=$$READ^XVEMKRN(" Use <TAB> or the arrow keys to change "_REG_" BACKGROUND color ["_SYNBG_"] ",1,1)
+ . W $$CONTROL^XVEMSYN("MOV",YLINE) W @XVVS("BLANK_C_EOL")
+ . S KEY=$$READ^XVEMKRN(" Use <TAB> or the arrow keys to change "_REG_" BACKGROUND color ["_SYNBG_"] ",1,0)
  . S VK=$G(XVV("K"))
- . I ",<AL>,<AU>,"[(","_VK_",") S CHOICE=COLOR(SYNBG) S:CHOICE=1 CHOICE=11 S CHOICE=CHOICE-1,SYNBG=COLOR(CHOICE)
- . I ",<AR>,<AD>,<TAB>,"[(","_VK_",") S CHOICE=COLOR(SYNBG) S:CHOICE=10 CHOICE=0 S CHOICE=CHOICE+1,SYNBG=COLOR(CHOICE)
- . I VK="<RET>" D
+ . I ",<AL>,<AU>,"[(","_VK_",") S CHOICE=COLOR(SYNBG) S:CHOICE=1 CHOICE=11 S CHOICE=CHOICE-1,SYNBG=COLOR(CHOICE) Q
+ . I ",<AR>,<AD>,<TAB>,"[(","_VK_",") S CHOICE=COLOR(SYNBG) S:CHOICE=10 CHOICE=0 S CHOICE=CHOICE+1,SYNBG=COLOR(CHOICE) Q
+ . I VK="<ESC>" S CHGQ=1 Q
+ . I VK="<RET>" D  S CHGQ=1
  . . I $G(CHOICE)=10 K ^XVEMS("PARAM",XVV("ID"),"SYNTAX",UCREG,"BG")
  . . E  S ^XVEMS("PARAM",XVV("ID"),"SYNTAX",UCREG,"BG")=SYNBG
- . . S CHGQ=1
+ I XVV("OS")=19!(XVV("OS")=17) U $I:WRAP
+ E  I XVV("OS")=18 U $I:/NOXY=0
  Q
  ;====================================================================
 WARN ;Default answer to "Global Kill" warning.
@@ -164,8 +177,8 @@ WIDTH ;Set screen width.
  S:'DEF DEF=$G(XVV("IOM"),80)
 WIDTH1 W !?1,"Enter SCREEN WIDTH: "_DEF_"// "
  R WIDTH:300 S:'$T WIDTH="^" S:WIDTH="" WIDTH=DEF Q:"^"[WIDTH
- I WIDTH'?1.N!(WIDTH<0) D  G WIDTH1
- . W !?1,"Enter your screen width."
+ I WIDTH'?1.N!(WIDTH<0)!(WIDTH<80&(WIDTH>0)) D  G WIDTH1
+ . W !?1,"Enter your screen width. (>=80 or 0)"
  I WIDTH=0 K ^XVEMS("PARAM",XVV("ID"),"WIDTH")
  E  S ^XVEMS("PARAM",XVV("ID"),"WIDTH")=WIDTH
  D IO^XVEMKY
@@ -177,8 +190,8 @@ LENGTH ;Set screen length.
  S:'DEF DEF=$G(XVV("IOSL"),24)
 LENGTH1 W !?1,"Enter SCREEN LENGTH: "_DEF_"// "
  R LEN:300 S:'$T LEN="^" S:LEN="" LEN=DEF Q:"^"[LEN
- I LEN'?1.N!(LEN<0) D  G LENGTH1
- . W !?1,"Enter your screen length."
+ I LEN'?1.N!(LEN<0)!(LEN<24&(LEN>0)) D  G LENGTH1
+ . W !?1,"Enter your screen length. (>=24 or 0)"
  I LEN=0 K ^XVEMS("PARAM",XVV("ID"),"LENGTH")
  E  S ^XVEMS("PARAM",XVV("ID"),"LENGTH")=LEN
  D IO^XVEMKY
@@ -191,4 +204,5 @@ SYNTAX ;Syntax Highlighting
  ;====================================================================
 INIT ;
  S DOT="...............",$P(LINE,"=",220)=""
+ D BLANK^XVEMKY3
  Q
