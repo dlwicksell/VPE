@@ -111,8 +111,8 @@ LINECNT ;Adjust line count at top of screen
  NEW NEWHIGH
  S NEWHIGH=$E("   ",1,3-$L(VRRHIGH))_VRRHIGH
  N TOPUT S TOPUT=$F(XVVT("HD",1),"Lines:") ; (sam): Where should we put this?
- S XVVT("HD",1)=$E(XVVT("HD",1),1,TOPUT)_NEWHIGH_"]"_$E(XVVT("HD",1),TOPUT+$L(VRRHIGH)+2,XVV("IOM"))
- S DX=TOPUT,DY=0 X XVVS("CRSR") W VRRHIGH_"]"
+ S XVVT("HD",1)=$E(XVVT("HD",1),1,TOPUT)_NEWHIGH_"]"_$E(XVVT("HD",1),TOPUT+$L(NEWHIGH)+2,XVV("IOM"))
+ S DX=TOPUT,DY=0 X XVVS("CRSR") W NEWHIGH_"]"
  Q
  ;
 MODEON(MODE,QUIT) ;MODE display in upper right of screen.
