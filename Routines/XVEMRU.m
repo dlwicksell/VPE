@@ -1,4 +1,4 @@
-XVEMRU ;DJB/VRR**Utilities ;2019-05-29  4:24 PM
+XVEMRU ;DJB/VRR**Utilities ;2019-05-31  2:59 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; LINECNT bug fix for routines > 8 c long (c) 2016 Sam Habiel
@@ -108,11 +108,12 @@ REDRAW3 ;Adjust line count and then redraw screen
  Q
  ;
 LINECNT ;Adjust line count at top of screen
- NEW NEWHIGH
+ NEW NEWHIGH,END
  S NEWHIGH=$E("   ",1,3-$L(VRRHIGH))_VRRHIGH
  N TOPUT S TOPUT=$F(XVVT("HD",1),"Lines:") ; (sam): Where should we put this?
- S XVVT("HD",1)=$E(XVVT("HD",1),1,TOPUT)_NEWHIGH_"]"_$E(XVVT("HD",1),TOPUT+$L(NEWHIGH)+2,XVV("IOM"))
- S DX=TOPUT,DY=0 X XVVS("CRSR") W NEWHIGH_"]"
+ S $P(END,"=",XVV("IOM")-TOPUT-$L(NEWHIGH)-2)="",END=END_"|"
+ S XVVT("HD",1)=$E(XVVT("HD",1),1,TOPUT)_NEWHIGH_"]"_END
+ S DX=TOPUT,DY=0 X XVVS("CRSR") W NEWHIGH_"]"_END
  Q
  ;
 MODEON(MODE,QUIT) ;MODE display in upper right of screen.
