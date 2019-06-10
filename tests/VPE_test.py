@@ -234,6 +234,14 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.assertTrue(self.vista.wait('V S H E L L   H E L P   M E N U'))
         self.assertTrue(self.vista.wait('SELECT:'))
+
+        self.vista.write('Misc') # Look for new help text (v15.0)
+        self.vista.wait('M I S C E L L A N E O U S') 
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.wait('')
+        self.vista.writectrl(chr(27) + '[6~')
+        self.vista.wait('Highlight Syntax') 
+        self.vista.writectrl(chr(27) + chr(27)) # Go back
         self.vista.write('Quit')
         self.assertTrue(self.vista.wait('>>'))
 
@@ -262,7 +270,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('Z')
         for x in range(0,81):
             self.vista.write(' S Z=1')
-            if not (x % 10): self.vista.wait('=')
+            self.vista.wait('=============')
         self.vista.write(' D USEZERO^XVEMSU')
         self.vista.write(' W "BYE VPE",!')
         self.vista.write(' QUIT')
@@ -317,6 +325,12 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('NEW PERSON')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('[^KBANTEST]')
+
+        # Home and End
+        self.vista.write(chr(27) + '[H') # Home
+        self.vista.write(chr(27) + '[F') # End
+        self.vista.wait('QUIT')
+
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
         self.vista.writectrl(chr(27) + '[C') # Right arrow to get to SAVE_AS
@@ -394,6 +408,10 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('Compiled list of Errors and Warnings')
         self.vista.write('')
         self.vista.wait('<> <> <>')
+
+        self.vista.write(chr(9) + 'S') # Get Routine Size
+        self.vista.wait('Routine size =')
+        self.vista.write('')
 
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
@@ -1093,7 +1111,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertTrue(self.vista.wait('>>'))
 
-    def test_params(self):
+    def test_param(self):
         self.vista.write('..PARAM')
         self.vista.wait('V P E   S Y S T E M   P A R A M E T E R S')
         self.vista.wait('Select NUMBER')
@@ -1126,6 +1144,24 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('2')
         self.vista.wait('Select NUMBER')
         #
+        # Disallow width < 80; length < 24 (new feature in 15.0)
+        self.vista.write('6')
+        self.vista.wait('SCREEN WIDTH')
+        self.vista.write('79')
+        self.vista.wait('(>=80 or 0)')
+        self.vista.write('?')
+        self.vista.wait('(>=80 or 0)')
+        self.vista.write('80')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('7')
+        self.vista.wait('SCREEN LENGTH')
+        self.vista.write('20')
+        self.vista.wait('(>=24 or 0)')
+        self.vista.write('?')
+        self.vista.wait('(>=24 or 0)')
+        self.vista.write('24')
+        self.vista.wait('Select NUMBER')
+        
         # Go back to Auto-width (new feature in 15.0)
         self.vista.write('6')
         self.vista.wait('SCREEN WIDTH')
@@ -1135,6 +1171,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('SCREEN LENGTH')
         self.vista.write('0')
         self.vista.wait('Select NUMBER')
+        #
         #
         # Go back to prompt
         self.vista.write('')
@@ -1237,7 +1274,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write(' S Z=1')
         for x in range(0,81):
              self.vista.write(' S Z=1')
-             self.vista.wait('1')
+             self.vista.wait('=============')
         self.vista.write(' D USEZERO^XVEMSU')
         self.vista.wait('U')
         self.vista.write(' W "BYE VPE",!')
@@ -1267,6 +1304,37 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.vista.wait('BACKGROUND')
         self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        # Test Bad Input
+        self.vista.write('..PARAM')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('9')        # Syntax highlighting colors
+        self.vista.wait('Set colors for error regions')
+        self.vista.write('boofoo')
+        self.vista.wait('To edit a parameter, enter number of your choice')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+        ## Test ESC-ESC to cancel change
+        self.vista.write('..PARAM')
+        self.vista.wait('Select NUMBER')
+        self.vista.write('9')        # Syntax highlighting colors
+        self.vista.wait('Set colors for error regions')
+        self.vista.write('9')
+        self.vista.wait('Use <TAB> or the arrow keys')
+        self.vista.write(chr(9))
+        self.vista.wait('Off')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel
+        self.vista.wait('BACKGROUND')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel
         self.vista.wait('Select NUMBER')
         self.vista.write('')
         self.vista.wait('Select NUMBER')
@@ -1308,6 +1376,93 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('..VRR XVEMSY')
         self.vista.wait('<ESC><ESC>=Quit')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('>>')
+
+    def test_ZSAVE_ZLINK_GTM(self):
+        """ This test checks that ZSAVE for % routine and ZLINK (in general)
+        work on GT.M/YottaDB"""
+
+        if self.vista.type != 'GTM': return
+
+        # Delete routine %ZZVPETEST
+        self.vista.write('..ZR %ZZVPETEST')
+        boo = self.vista.wait('OK TO DELETE?')
+        self.assertEqual(boo,1)
+        self.vista.write('Y')
+        boo = self.vista.wait('Removed')
+        self.assertEqual(boo,1)
+        self.vista.wait('>>')
+
+        self.vista.write('..E')
+        self.vista.wait('ROUTINE')
+        self.vista.write('%ZZVPETEST')
+        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.write('')
+        self.vista.write('%ZZVPETEST' + chr(9) + '; TEST ROUTINE')
+        self.vista.wait('E')
+        self.vista.write(' WRITE "HELLO VPE3",!')
+        self.vista.wait('!')
+        self.vista.write(' QUIT')
+        self.vista.wait('Q')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
+        self.vista.wait('>>')
+        self.vista.write('D ^%ZZVPETEST')
+        self.vista.wait('HELLO VPE3')
+        self.vista.wait('>>')
+
+        self.vista.write('..E %ZZVPETEST')
+        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[C') # F1 Right Arrow - Go to end of line
+        for i in range(0,4):
+            self.vista.writectrl(chr(8)) # backspace over 3",!
+        self.vista.write('4",!')
+        self.vista.wait('!')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
+        self.vista.wait('>>')
+        self.vista.write('D ^%ZZVPETEST')
+        self.vista.wait('HELLO VPE4')
+        self.vista.wait('>>')
+        
+    def test_lotsOfLines(self):
+        # Delete routine KBANTEST3
+        self.vista.write('..ZR KBANTEST3')
+        boo = self.vista.wait('OK TO DELETE?')
+        self.assertEqual(boo,1)
+        self.vista.write('Y')
+        boo = self.vista.wait('Removed')
+        self.assertEqual(boo,1)
+        self.vista.wait('>>')
+
+        # Now create the new routine KBANTEST3
+        self.vista.write('..E')
+        self.vista.wait('ROUTINE')
+        self.vista.write('KBANTEST3')
+        self.vista.wait('[^KBANTEST3]')
+        self.vista.write('')
+        self.vista.write('KBANTEST3' + chr(9) + '; TEST ROUTINE')
+        self.vista.wait('E')
+        self.vista.write(chr(9) + 'N Z')
+        self.vista.wait('Z')
+        for x in range(0,1001):
+             self.vista.write(' S Z=1')
+             self.vista.wait('=============')
+        self.vista.write(' QUIT')
+        self.vista.wait('T')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
         self.vista.wait('>>')
 
     def test_stopVPE(self):
