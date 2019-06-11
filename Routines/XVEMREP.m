@@ -1,7 +1,7 @@
-XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2019-04-09  5:43 PM
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;2019-06-11  3:38 PM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
- ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016
+ ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016,2019
  ;
 WEB ;Web Mode
  I FLAGMODE["WEB" D WEB^XVEMRER Q
@@ -74,29 +74,28 @@ GETRTN() ;Parse routine name
  Q RTN
  ;===================================================================
 GLB ;Select global for viewing by hitting <ESCG>
+ ; ZEXCEPT: KEY. See below for note.
  ;(sam): Notes below.
- NEW DIFF,TMP,TMP1,ZX,ZY,ZZ,KEY
- I $G(FLAGGLB)']"" D  S KEY="S"  ; Don't know what KEY="S" means now.
- . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,YND)) ; Get line
- . I TMP[$C(30) S TMP=XCUR+2_"^"_$E(TMP,XCUR+2,XCUR+32) ; Get cursor posotion ^ read 30 chars
- . E  S TMP=XCUR+1_"^"_$E(TMP,XCUR+1,XCUR+31) ; shouldn't run
- . S FLAGGLB=$P(TMP,"^",1)_"^"_YND_"^"_$P(TMP,"^",2,999) ; FLAGGLB = Cursor pos ^ line number ^ global
- . S TMP=$P(FLAGGLB,"^",3,999)  Q:$L(TMP)>29  ; Read the next line for continuation
- . S TMP1=$G(^(YND+1))  Q:TMP1[$C(30)  Q:TMP1=" <> <> <>"
- . S FLAGGLB=FLAGGLB_$E(TMP1,10,10+30-$L(TMP))
+ NEW GLB S GLB="" ; Global Name
+ NEW RCUR  ; Real Cursor
+ NEW CARET S CARET=0 ; Look for ^
  ;
- ; ZX = cur pos, ZY = line number; ZZ global
- S ZX=$P(FLAGGLB,"^",1),ZY=$P(FLAGGLB,"^",2),ZZ=$P(FLAGGLB,"^",3,999)
- ; (sam): Next 5 lines make no sense to me.
- ;S DIFF=$S($G(^TMP("XVV","IR"_VRRS,$J,YND))[$C(30):XCUR+2,1:XCUR+1)
- ;I (YND-ZY)>1 KILL FLAGGLB Q  ;Moved cursor too far
- ;I (ZY>YND) KILL FLAGGLB Q  ;Moved cursor up
- ;I YND>ZY S DIFF=ZX+(XVV("IOM")-ZX)+DIFF-10 I ZX>DIFF KILL FLAGGLB Q
- ;S DIFF=DIFF-ZX+1,FLAGGLB=$E(ZZ,1,DIFF)
- ;S ^TMP("XVV",$J)=FLAGGLB KILL FLAGGLB
- S ZZ=$$PARSEGLB(ZZ)
- I ZZ="" QUIT
- S ^TMP("XVV",$J)=ZZ KILL FLAGGLB
+ N ELINE   S ELINE=$G(^TMP("XVV","IR"_VRRS,$J,YND))   ; Editor line
+ N NELINE S NELINE=$G(^TMP("XVV","IR"_VRRS,$J,YND+1)) ; Next Line
+ I NELINE'="",NELINE'[$C(30),NELINE'=" <> <> <>" S ELINE=ELINE_$E(NELINE,10,999) ; Concatentate
+ N LLINE
+ I ELINE[$C(30) S LLINE=$P(ELINE,$C(30),2,99),RCUR=XCUR-8 ; Level Line
+ E              S LLINE=$E(ELINE,2,999),RCUR=XCUR-7       ; Not sure about this one as I can't find an example
+ N CHAR S CHAR=$E(LLINE,RCUR)          ; Char at Cursor
+ I CHAR="^" S GLB=$E(LLINE,RCUR,999) ; Get Global
+ I CHAR="("!(CHAR=")")!(CHAR=",") D  ; If ESC-G over ( or , construct global to Caret
+ . N I F I=RCUR:-1:1 S CHAR=$E(LLINE,I) I CHAR="^" S CARET=I
+ I CARET S GLB=$E(LLINE,CARET,RCUR) ; Get Global
+ ;
+ I GLB="" S KEY="S" W $C(7) QUIT  ; KEY="S" will keep us in the reader
+ S GLB=$$PARSEGLB(GLB) ; Parse global, replacing variables with :
+ I GLB="" S KEY="S" W $C(7) QUIT  ; KEY="S" will keep us in the reader
+ S ^TMP("XVV",$J)=GLB
  D ENDSCR^XVEMKT2
  D SYMTAB^XVEMKST("C","VRR",VRRS) ;Save symbol table
  D PARAM^XVEMG(^TMP("XVV",$J))
