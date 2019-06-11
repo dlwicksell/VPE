@@ -593,8 +593,13 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('CODE SEARCH IN PROGRESS..')
         self.vista.wait('^VA(200,1,.1)')
         self.vista.writectrl(chr(32)) # this just stops the search
-        self.vista.writectrl(chr(27) + chr(27)) # Go to command line
-        self.vista.wait('>>')
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('>>', TIMEOUT)
+                finished = 1
+            except:
+                self.vista.writectrl(chr(27) + chr(27)) # Go to command line
 
         # Test * syntax
         self.vista.write('..VGL ^VA*')
@@ -1378,12 +1383,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('>>')
 
-    def test_ZSAVE_ZLINK_GTM(self):
-        """ This test checks that ZSAVE for % routine and ZLINK (in general)
-        work on GT.M/YottaDB"""
-
-        if self.vista.type != 'GTM': return
-
+    def test_ZSAVE_ZLINK_percent(self):
         # Delete routine %ZZVPETEST
         self.vista.write('..ZR %ZZVPETEST')
         boo = self.vista.wait('OK TO DELETE?')
