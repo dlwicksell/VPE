@@ -318,13 +318,40 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write(' W ^VA(200,0)')
         self.vista.wait('^')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 + Left arrow
-        self.vista.writectrl(chr(27) + '[C') # Right arrow twice
-        self.vista.writectrl(chr(27) + '[C') # Right arrow twice
+
+        # ESC-G tests: New and improved in V15.0
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 + Left arrow : Now on W
+        self.vista.writectrl(chr(27) + '[C') # Right arrow twice                : Now on space
+        self.vista.writectrl(chr(27) + '[C') # Right arrow twice                : Now on ^
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('NEW PERSON')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on V
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on A
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on (
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('DUPLICATE RECORD')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 2
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on ,
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('NEW PERSON')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on )
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('NEW PERSON')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('[^KBANTEST]')
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on 0
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait(chr(7))
+
 
         # Home and End
         self.vista.write(chr(27) + '[H') # Home
@@ -474,8 +501,8 @@ class VPEUnitTests(unittest.TestCase):
 
         # Up arrow to recall last global, then zero nodes
         self.vista.writectrl(chr(27) + '[A') # Up arrow
-        self.vista.wait('^VA(200')
-        self.vista.write(',:,0)') # Just get the zero nodes
+        self.vista.wait('^VA')
+        self.vista.write('(200,:,0)') # Just get the zero nodes
         self.vista.wait('^VA(200,1,0)')
         self.vista.write('10') # regular node select
         self.vista.wait('TITLE')
