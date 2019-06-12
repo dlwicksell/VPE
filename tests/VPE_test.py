@@ -58,6 +58,16 @@ class VPEUnitTests(unittest.TestCase):
         self.assertEqual(self.vista.wait('VSHELL CURRENTLY ACTIVE'),1)
         self.assertEqual(self.vista.wait('>>'),1)
 
+    def test_tryDUZ999999999(self):
+        self.vista.write('HALT')
+        self.vista.write('K  S DUZ=999999999,%ut=1 D ^XV')
+        self.vista.wait('Enter ID Number: 999999999')
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('>>'),1)
+        self.vista.write('HALT')
+        self.vista.write('K  S DUZ=1,%ut=1 D ^XV')
+        self.assertEqual(self.vista.wait('>>'),1)
+
     def test_qwiks(self):
         # Test User Qwiks
         self.vista.write('.')

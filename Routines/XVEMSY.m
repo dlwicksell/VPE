@@ -1,4 +1,4 @@
-XVEMSY ;DJB/VSHL**Init,Error ;2019-04-11  10:57 PM
+XVEMSY ;DJB/VSHL**Init,Error ;2019-06-12  8:17 AM
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ERROR tag and everything below completely rewritten Sam Habiel (c) 2016-2017
@@ -53,7 +53,7 @@ KGETID ;Get ID when using VA KERNEL
 KGETID1 W !,"Enter ID Number: " I DEF W DEF_"// "
  R ID:600 S:'$T ID="^" S:ID="" ID=DEF
  I "^"[ID S FLAGQ=1 Q
- I +ID'=ID!(ID<.1)!(ID>999999) D IDHELP^XVEMSY1 G KGETID1
+ I +ID'=ID!(ID<.1) D IDHELP^XVEMSY1 G KGETID1
  I $D(^XVEMS("ID","SHL",ID,XVVUCI)) D  G KGETID1
  . W $C(7),"   This ID is already in use."
  S XVV("ID")=ID
@@ -63,7 +63,7 @@ GETID ;Get ID not using VA KERNEL
  D IDMSG^XVEMSY1,DISCLAIM^XVEMKU1
 GETID1 W !,"Enter ID Number: "
  R ID:600 S:'$T ID="^" I "^"[ID S FLAGQ=1 Q
- I +ID'=ID!(ID<.1)!(ID>999999) D IDHELP^XVEMSY1 G GETID1
+ I +ID'=ID!(ID<.1) D IDHELP^XVEMSY1 G GETID1
  S XVV("ID")=ID
  Q
  ;
