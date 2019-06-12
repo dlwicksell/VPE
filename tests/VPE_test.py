@@ -495,8 +495,22 @@ class VPEUnitTests(unittest.TestCase):
 
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
-        self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('saved')
+
+        self.vista.writectrl(chr(27) + chr(27)) # v15.0 <- This should have no effect - We disabled ESC-ESC from routines
+        self.vista.wait('SAVE_AS')
+        self.vista.writectrl(chr(27) + chr(27)) # v15.0 <- This should have no effect - We disabled ESC-ESC from routines
+        self.vista.wait('SAVE_AS')
+        self.vista.writectrl(chr(27) + chr(27)) # v15.0 <- This should have no effect - We disabled ESC-ESC from routines
+        self.vista.wait('SAVE_AS')
+
+        finished = 0
+        while not finished:
+            try:
+                self.vista.wait('saved', TIMEOUT)
+            except:
+                finished = 1
+        self.assertTrue(finished)
+        self.vista.write('Q')
         self.vista.wait('>>')
 
     def test_showSymbolTable(self):
