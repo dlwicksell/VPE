@@ -1562,7 +1562,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
         
-    def test_lotsOfLines(self):
+    def zztest_lotsOfLines(self): # Commented out as takes too long to run
         # Delete routine KBANTEST3
         self.vista.write('..ZR KBANTEST3')
         boo = self.vista.wait('OK TO DELETE?')
