@@ -61,7 +61,9 @@ This is the expected output:
 ```
 test_deleteVPE (__main__.VPEUnitTests) ... ok
 test_startVPE (__main__.VPEUnitTests) ... ok
+test_startVPE_with_v12_installed (__main__.VPEUnitTests) ... ok
 test_tryStartAgainFromWithin (__main__.VPEUnitTests) ... ok
+test_tryDUZ999999999 (__main__.VPEUnitTests) ... ok
 test_qwiks (__main__.VPEUnitTests) ... ok
 test_command_line_shortcuts (__main__.VPEUnitTests) ... ok
 test_command_line_error_trap (__main__.VPEUnitTests) ... ok
@@ -83,19 +85,19 @@ test_FilemanHelp (__main__.VPEUnitTests) ... ok
 test_KernelHelp (__main__.VPEUnitTests) ... ok
 test_notes (__main__.VPEUnitTests) ... ok
 test_key (__main__.VPEUnitTests) ... ok
-test_params (__main__.VPEUnitTests) ... ok
+test_param (__main__.VPEUnitTests) ... ok
 test_ZD (__main__.VPEUnitTests) ... ok
 test_CLH (__main__.VPEUnitTests) ... ok
 test_DIC (__main__.VPEUnitTests) ... ok
 test_purge (__main__.VPEUnitTests) ... ok
 test_QSAVE (__main__.VPEUnitTests) ... ok
 test_syntaxHighlighting (__main__.VPEUnitTests) ... ok
+test_ZSAVE_ZLINK_percent (__main__.VPEUnitTests) ... ok
 test_stopVPE (__main__.VPEUnitTests) ... ok
+Human readable coverage requires M-Unit 1.6
+
 ----------------------------------------------------------------------
-Ran 32 tests in 44.632s
-
-OK
-
+Ran 35 tests in 53.140s
 ```
 
 The VPE.cfg file contains the configuration of how to connect to the M system.
