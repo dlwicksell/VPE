@@ -1464,8 +1464,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
     def test_ZSAVE_ZLINK_percent(self):
-        # Delete routine %ZZVPETEST
-        self.vista.write('..ZR %ZZVPETEST')
+        self.vista.write('..ZR %ZZVPETEST %ZZVPETEST2')
         boo = self.vista.wait('OK TO DELETE?')
         self.assertEqual(boo,1)
         self.vista.write('Y')
@@ -1478,12 +1477,14 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('%ZZVPETEST')
         self.vista.wait('[^%ZZVPETEST]')
         self.vista.write('')
-        self.vista.write('%ZZVPETEST' + chr(9) + '; TEST ROUTINE')
+        self.vista.write('%ZZVPETEST' + chr(9) + '; TEST ROUTINE') # Line 1
         self.vista.wait('E')
-        self.vista.write(' WRITE "HELLO VPE3",!')
+        self.vista.write(' WRITE "HELLO VPE3",!')                  # Line 2
         self.vista.wait('!')
-        self.vista.write(' QUIT')
-        self.vista.wait('Q')
+        self.vista.write(' D ^%ZZVPETEST2')                        # Line 3
+        self.vista.wait('2')
+        self.vista.write(' QUIT')                                  # Line 4
+        self.vista.wait('T')
         self.vista.writectrl(chr(27) + chr(27)) # Cancel line
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
@@ -1512,6 +1513,54 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('D ^%ZZVPETEST')
         self.vista.wait('HELLO VPE4')
         self.vista.wait('>>')
+
+        self.vista.write('..E %ZZVPETEST2')
+        self.vista.wait('[^%ZZVPETEST2]')
+        self.vista.write('')
+        self.vista.write('%ZZVPETEST2' + chr(9) + '; TEST ROUTINE') # Line 1
+        self.vista.wait('E')
+        self.vista.write(' WRITE "HELLO VPE5",!')                  # Line 2
+        self.vista.wait('!')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('')
+        self.vista.wait('saved to disk')
+        self.vista.wait('>>')
+
+        self.vista.write('..E %ZZVPETEST')
+        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to third line # now on D ^%ZZVEPTEST2
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 Left Arrow - Go to beginning of line
+        self.vista.writectrl(chr(27) + '[C') # Right arrow once; now on space
+        self.vista.writectrl(chr(27) + '[C') # Right arrow once; now on ^
+        self.vista.writectrl(chr(27) + 'R') # Branch to new routine
+        self.vista.wait('[^%ZZVPETEST2]')
+        self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[C') # F1 Right Arrow - Go to end of line ; WRITE "HELLO VPE5",!
+        for i in range(0,4):
+            self.vista.writectrl(chr(8)) # backspace over 5",!
+        self.vista.write('6",!')
+        self.vista.wait('!')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel line
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Do you wish to save your changes?')
+        self.vista.write('Y')
+        self.vista.wait('Changes saved to disk...')
+        self.vista.write('')
+        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('Save your changes?')
+        self.vista.write('Q')
+        self.vista.wait('Changes not saved.')
+        self.vista.wait('>>')
+        self.vista.write('D ^%ZZVPETEST2')
+        self.vista.wait('HELLO VPE6')
+        self.vista.wait('>>')
+
         
     def test_lotsOfLines(self):
         # Delete routine KBANTEST3
