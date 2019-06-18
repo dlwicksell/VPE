@@ -1,4 +1,4 @@
-XVEMRY ;DJB/VRR**Init,Branching,Error ;2019-04-11  10:55 PM
+XVEMRY ;DJB/VRR**Init,Branching,Error ; 6/18/19 2:32pm
  ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; VGL,RSE changes (c) Sam Habiel 2016
@@ -19,8 +19,6 @@ INIT ;Initialize variables
  D WRAP^XVEMKY2 W @(XVVS("NOWRAP"))
  Q
 VGL ;Run the VGlobal Lister
- I $G(VRRS)>2 D  D PAUSE^XVEMKC(1) Q
- . W $C(7),!?1,"You can't call VGL if you've branched to more than 2 programs."
  I '$$EXIST^XVEMKU("XVEMG") D  D PAUSE^XVEMKC(1) Q
  . W $C(7),!?1,"You don't have the 'VGlobal Lister' Routines."
  D SYMTAB^XVEMKST("C","VRR",VRRS) ;Clear symbol table
@@ -28,8 +26,6 @@ VGL ;Run the VGlobal Lister
  D SYMTAB^XVEMKST("R","VRR",VRRS) ;Restore symbol table
  Q
 VEDD ;Call VEDD, VElectronic Data Dictionary
- I $G(VRRS)>2 D  D PAUSE^XVEMKC(1) Q
- . W $C(7),!?1,"You can't call VEDD if you've branched to more than 2 programs."
  I '$$EXIST^XVEMKU("XVEMD") D  D PAUSE^XVEMKC(1) Q
  . W $C(7),!?1,"You don't have the 'VElectronic Data Dictionary' Routines."
  D SYMTAB^XVEMKST("C","VRR",VRRS) ;Clear symbol table
