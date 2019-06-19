@@ -20,6 +20,19 @@ VPE does not rely on VISTA or RPMS being installed. You can use a lot of its
 functionality without VISTA or RPMS. Anything Fileman related will not work if
 Fileman isn't installed.
 
+## Upgrade
+There is no automated way to upgrade VPE right now. Here are the instructions
+to upgrade:
+
+ 1. Merge User QWIKS from ^XVEMS("QU") to a scratch global
+ 2. Make sure all users have halted off VPE Shell
+ 3. Delete routines XVEM*, XVS*, XVVM*, and XV
+ 4. Kill global ^XVEMS
+ 5. Load VPE_XXPX.RSA routines from the disk
+ 6. Do ^XV to install and start VPE
+ 7. Merge Saved user QWIKS from scratch global to ^XVEMS("QU")
+ 8. Run ..PARAM to adjust your parameters if you wish
+
 ## Using VPE (Brief User Manual)
 To enter VPE, type `D ^XV`.  An online manual can be found by just typing '?'
 when at the '>>' VPE prompt. 
@@ -147,6 +160,10 @@ VPE passes XINDEX, with the following exceptions, from which it is exempt:
 ## Packaging
 For the maintainers, there is a set of instructions on how to make a new
 release of VPE at [PACKAGING.md](PACKAGING.md).
+
+## Future Plans
+There are a ton of feature requests and bugs in the Issue Tracker. Personally
+(Sam) I would wish for an integrated debugger inside of VPE.
 
 ## Ray Newman's Mumps V1 support
 There is now full support as of v14.0 for MV1. However, there is a bug in MV1

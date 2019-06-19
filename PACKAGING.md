@@ -16,6 +16,11 @@ for official release to the public.
 * Add Authors/years to License file
 * If there are new Authors or modules that came from other projects, add their
   work to the NOTICE file
+* git tag the version
 * Merge dev branch to master
+* Create release notes in a local file for copy pasting later. Notes contain:
+  * Install Instructions specific to version
+  * Authors
+  * Changes for version (copy and paste from Changes.md)
+* Upload .RSA file and put release notes
 * Submit to the OSEHRA Tech Journal if applicable
-
