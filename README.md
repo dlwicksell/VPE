@@ -50,8 +50,7 @@ do guarantee that the tests would run on FOIA VistA on GT.M and Cache.
 They To run the Unit Testing suite, make sure you have VPE imported into
 your M-implementation (if you are running the tests, preferably the routines
 in this repository rather than the release), and then navigate to the test
-folder, adjust VPE.cfg to connect to your M system (examples to follow), and 
-then run this command:
+folder, and then run this command:
 
 ```
 python VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/
@@ -125,6 +124,9 @@ UseDefaultNamespace=VEHU
 If you use this configuration, you MUST set $CACHE_INSTANCE and $CACHE_NAMESPACE
 correctly prior to invoking the python script.
 
+(In reality, it seems that the VPE.cfg is ignored when setting CACHE_INSTANCE
+and CACHE_NAMESPACE. In reality, all you need is this: `CACHE_INSTANCE={INSTANCE} CACHE_NAMESPACE={NAMESPACE} python VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/`.
+
 If you want to connect to a remote VistA instance, or use a username/password
 with Caché, then read the code in `tests/pexpect_n_vistahelpers/vista/TestHelper.py`
 for a hint of how to do that.
@@ -141,6 +143,10 @@ VPE passes XINDEX, with the following exceptions, from which it is exempt:
 
  * Fileman INIT routines don't have a correct first line (exempt under 2.2.1.2)
  * Vendor specific routine and external package calls (exempt as a Kernel Extension under 2.2.8)
+
+## Packaging
+For the maintainers, there is a set of instructions on how to make a new
+release of VPE at [PACKAGING.md](PACKGING.md).
 
 ## Ray Newman's Mumps V1 support
 There is now full support as of v14.0 for MV1. However, there is a bug in MV1
