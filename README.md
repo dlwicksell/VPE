@@ -146,7 +146,7 @@ VPE passes XINDEX, with the following exceptions, from which it is exempt:
 
 ## Packaging
 For the maintainers, there is a set of instructions on how to make a new
-release of VPE at [PACKAGING.md](PACKGING.md).
+release of VPE at [PACKAGING.md](PACKAGING.md).
 
 ## Ray Newman's Mumps V1 support
 There is now full support as of v14.0 for MV1. However, there is a bug in MV1
