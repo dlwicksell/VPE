@@ -1,5 +1,5 @@
 XVEMGR ;DJB/VGL**Process a Range of nodes [02/03/95];2019-06-18  2:13 PM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Changes to add global name to no data message in RANGE (c) Sam Habiel 2019
  ;

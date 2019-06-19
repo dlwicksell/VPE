@@ -1,5 +1,5 @@
 XVEMSU ;DJB/VSHL**Util - PURGE,KERNSAVE,RESSYM ;2017-08-16  10:45 AM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in USEZERO (c) 2016 Sam Habiel
  ;

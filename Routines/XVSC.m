@@ -1,5 +1,5 @@
 XVSC ; Paideia/SMH - VPE warn of a global kill;2017-08-16  10:56 AM; 10/17/09 11:16pm
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; (c) 2010-2016 Sam Habiel
  ;
  Q:$G(XVVWARN)="QWIK"

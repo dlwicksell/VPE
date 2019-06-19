@@ -1,5 +1,5 @@
 XVEMKT ;DJB/KRN**Txt Scroll-Start ;2017-08-15  1:13 PM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap throughout (c) 2016 Sam Habiel
  ;

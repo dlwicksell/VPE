@@ -1,5 +1,5 @@
 XVEMKY ;DJB/KRN**Kernel - Basic Init ; 9/12/17 3:16pm
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; IO,AUTOMARG by Sam Habiel (c) 2016
  ; SET Mumps V1 support by Sam Habiel (c) 2017

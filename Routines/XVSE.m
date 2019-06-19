@@ -1,5 +1,5 @@
 XVSE ; VEN/SMH - VPE Editor Init Code ;2019-05-20  9:21 AM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; (c) 2010-2016 Sam Habiel
  ; ZLINK bug fix for GT.M by David Wicksell (c) 2019
  ;

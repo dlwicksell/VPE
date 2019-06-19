@@ -1,5 +1,5 @@
 XVEMSCL ;DJB/VSHL**Command Line History ;2019-04-30  2:49 PM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; CHLSET, CLHEDIT Remove refs to code in globals -> routines (c) 2016 Sam Habiel
  ; Removed calls to HELP^XVEMSCU as this entry point doesn't exist (c) 2019 Sam Habiel

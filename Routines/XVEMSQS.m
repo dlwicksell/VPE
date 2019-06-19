@@ -1,5 +1,5 @@
 XVEMSQS ;DJB/VSHL**QWIKs - List & Select ;2017-08-16  10:37 AM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; LIST code corrected to not hardcode right margin (c) 2016 Sam Habiel
  ;

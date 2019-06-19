@@ -1,5 +1,5 @@
 XVEMST ;DJB/VSHL** VShell Tool Kit [03/02/95 10:28pm];2017-08-16  10:42 AM
- ;;15.0;VICTORY PROG ENVIRONMENT;;May 01, 2019
+ ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Code written by Roger Ackerman, David Laliberte, David Bolduc dates unknown.
  ;
 CALENDAR ;Author: Roger Ackerman   Albuquerque,NM
