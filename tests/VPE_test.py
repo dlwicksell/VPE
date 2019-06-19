@@ -405,6 +405,63 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait(chr(7))
 
+        # Test long parsing globals on long lines that cross 80 margin boundary
+        # This stanza is for parsing backwards
+        self.vista.write('')
+        self.vista.write(' K ^UTILITY("DIQ1",$J) S DA=$P($$SITE^VASITE(),"^") I $G(DA) S DIC=4,DIQ(0)="I",DR="99" D EN^DIQ1 S PSOINST=$G(^UTILITY("DIQ1",$J,4,DA,99,"I")) K ^UTILITY("DIQ1",$J),DA,DR,DIC')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel next line
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + 'OP') # F1 + F1 : Now on beginning of 3rd line of full code line on I of ^UTILITY("DIQ1"...)
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on "
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on )
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('^UTILITY("DIQ1",$J,4,:,99,"I"') # Should say that this global has no data
+        self.vista.write('')                             # Exit press return to continue
+        self.vista.wait('[^KBANTEST]')
+
+        # This stanza is for parsing forwards
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + 'OQ') # F2 F2 to go to end of line
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + '[D') # F2 + Left Arrow once (short jump)
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + '[D') # F2 + Left Arrow twice (short jump) on G of $G now
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on (
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on ^
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('^UTILITY("DIQ1",$J,4,:,99,"I"') # Should say that this global has no data
+        self.vista.write('')                             # Exit press return to continue
+        self.vista.wait('[^KBANTEST]')
+
+        # This stanza is for parsing backwards to global and forward to get the rest of the reference
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on U
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on T
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on I
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on L
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on I
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on T
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on Y
+        self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on (
+        self.vista.writectrl(chr(27) + 'G')  # Get global
+        self.vista.wait('Session 1 ^UTILITY')
+        self.vista.writectrl(chr(27) + chr(27)) # Exit
+        self.vista.wait('[^KBANTEST]')
+
+
+        # Test parsing dollar functions + parens
+        self.vista.write('')
+        self.vista.write(' I $P($G(RXFL(RX)),"^"),$D(^PSRX(RX,1,$P($G(RXFL(RX)),"^"),0)) K RXY,RXP,REPRINT Q')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel next line
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 Left Arrow - Go to beginning of line
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + '[C') # F2 + Right Arrow once (short jump)
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + '[C') # F2 + Right Arrow twice (short jump) on X of ^PSRX
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on R
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on S
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on P
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on ^
+        self.vista.writectrl(chr(27) + 'G')  # Get Global
+        self.vista.wait('^PSRX(:,1,:')
+        self.vista.write('')                             # Exit press return to continue
+        self.vista.wait('[^KBANTEST]')
+        
+
 
         # Home and End
         self.vista.write(chr(27) + '[H') # Home
@@ -569,7 +626,7 @@ class VPEUnitTests(unittest.TestCase):
         # Up arrow to recall last global, then zero nodes
         self.vista.writectrl(chr(27) + '[A') # Up arrow
         self.vista.wait('^VA')
-        self.vista.write('(200,:,0)') # Just get the zero nodes
+        self.vista.write(',:,0)') # Just get the zero nodes
         self.vista.wait('^VA(200,1,0)')
         self.vista.write('10') # regular node select
         self.vista.wait('TITLE')
