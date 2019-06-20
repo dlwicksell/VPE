@@ -1,13 +1,84 @@
+## Authors for version 15.1
+Sam Habiel (SMH) & David Wicksell (DLW)
+
+## Changes for version 15.1
+Changes with * have Integration Tests.
+
+- Code to save routines is now VPE's own built in code. Previously code to save
+  routines was obtained from Fileman if it is installed. This was found because
+  Fileman had a bug in saving % routine on GTM/YDB. Use of Fileman in preference
+  to VPE is not in accordance with VPE's VistA indepdendent philosophy.* (DLW)
+- Due to a bug in how a logical condition apropos De Morgan's Law, ZLINK was
+  not invoked on GTM/YDB when saving a routine. This bug was introduced in
+  v13.0; the code was correct in v12 (the pre-XV version).* (DLW)
+- If a routine contained over 999 lines, the line counter at the top didn't
+  show the number correctly. This is now fixed.* (test not active as it takes
+  too long to run) (DLW)
+- Syntax highlighting parameters have been improved: ESC key aborts changes;
+  selected colors can be seen in real time while selecting them.* (DLW)
+- Parameter selection for width and height are limited at the lower bound of
+  80 x 24 as the routine editor is glitchy with a lower selection.* (DLW)
+- Previously VPE had a facility for automatically stripping spaces, but only
+  when the backspace key was pressed. This interfered with Syntax Highlighting;
+  so this feature was removed; this aside from the fact that this behavior is
+  very counterintuitive and undocumented. Future enhancements may add stripping
+  of trailing spaces when saving a routine. (DLW)
+- General improvements to Syntax Highlighting code introduced in 15.0. (DLW)
+- New features and bug fixes of ESC-G to from 14.0: (SMH)
+    - As previously ESC-G at ^ will get you the full global reference until the
+      ending parentheses.*
+    - ESC-G at the opening parentheses will display the global data under the
+      global name only.*
+    - ESC-G at any comma of the subscripts will get you the global up to the
+      subscripts before the comma.*
+    - Fixed help text for ..E/..VRR to describe how to use ESC-G with these
+      changes.
+    - (bug fix): ESC-G resolves $ expression (ISVs, intrinsic functions, or 
+      extrinsic functions) inside of global references. $J is kept, anything
+      else is discarded.*
+    - (bug fix): Expressions with nested parentheses inside a global reference
+      (e.g. `$P($G(RXFL(RX)),"^",0)`) are discarded correctly.*
+    - In all the above cases, ESC-G tries to substitute any expressions or
+      variables (with the exception of $J as mentioned above) with the
+      continuation character (:) when sending the input into ..VGL.*
+- Removed upper limit on ID. Previously, in VistA instances such as the CPRS
+  Demo (aka VEHU), you couldn't log-in with users with DUZ in the billions
+  because VPE did not allow that. Fixes Issue #23.* (SMH)
+- Upgrade and Uninstall instructions printed to the user upon installation were
+  not correct. They are now fixed. (SMH)
+- Tell user about old VPE if it is installed during installation.* (SMH)
+- Branched to routines didn't ZLINK when saved because they did not use the
+  correct entry point for saving. This is now fixed.* (SMH)
+- Prevent ESC-ESC from exiting the routine save dialog. This is contrary to
+  VPE philosophy, where all dialogs are escapable using ESC-ESC. However, in
+  this specific case, many new users held the ESC key for too long when trying
+  to save a routine, with the result that they lost the routine when they
+  escaped from the save dialog. Fixes Issue #29.* (SMH)
+- Remove VGL/VEDD drill down restriction. If you invoke VGL or VEDD from the
+  Menubar from ..E/..VRR after having branched down two routines, you were
+  prevented. Fixes #39. (SMH)
+- In VGL, display global references being shown next to the session number; and
+  show the global if we are telling the user that there is no data. These
+  improvements were made to address the fact that ESC-G in the routine editor
+  auto-resolved what global it was by substituting variables, but it was not
+  obvious to the end user what did ESC-G finally select as the global to
+  search.* (SMH)
+
+
 ## Authors for version 15.0
 David Wicksell
 
 ## Changes for version 15.0
-- Syntax Higlighting (!) in editor and viewer (not turned on by default; go to ..PARAM to turn it on)
-- Add <END> key support for YottaDB/GT.M on Linux
-- Fix bug with routine branching support
-- Fix routine size support for YottaDB/GT.M on Linux
-- Add new shell parameter documentation for screen sizing
-- Add enhancements to auto margin screen handling in ..PARAM
+Changes with * have Integration Tests.
+
+- Syntax Higlighting in editor and viewer (not turned on by default; go to ..PARAM to turn it on).*
+- Add <END> key support for YottaDB/GT.M on Linux.
+- Fix rare bug with routine branching support that would cause a crash.
+- Fix routine size support for YottaDB/GT.M on Linux. Previously, it was CACHE/DSM/MSM only.*
+- Add new shell parameter documentation for screen sizing.*
+- Add enhancements to auto margin screen handling in ..PARAM: Display current size,
+  allow going back to auto-size by typing in zero, resize ..PARAM display with
+  new size when entering a new size.*
 
 
 ## Authors for version 14.1
