@@ -64,6 +64,34 @@ Changes with * have Integration Tests.
   obvious to the end user what did ESC-G finally select as the global to
   search.* (SMH)
 
+Notes from DLW regarding Syntax Highlighting and catching errors in code:
+
+  I made a decision not to try to catch every error, but just the main, obvious
+ones, and only if I could do so without significantly complicating the code.
+
+  With this code, I have to balance how strict the parsing is, with
+performance. If I add really strict parsing logic, and try to make it
+into basically a reference grammar parser for MUMPS, then it probably
+will not run fast enough for an editor. That's not to say that making it
+much more strict, and keeping good performance is impossible, just that
+it would be hard.
+
+  For example, I chose to be pretty strict with commands, so that it is
+good about flagging errors for commands that don't exist (except for
+ones that start with a Z, which I basically leave alone). But, for
+intrinsic functions and ISVs, I didn't do that. It only checks to make
+sure they follow the rules for identifiers from the standard, but not
+that they are a function or ISV that exists. I was planning a future
+upgrade to improve the error highlighting of the code, but wanted to get
+something out there that was useful, and performed well enough that
+people would enjoy using it.
+
+  So, to summarize, the syntax highlighter should always color all
+syntax elements correctly, and it should never flag as an error, valid M
+syntax (all bets are off if you use ISC extensions like COS). But it
+isn't going to catch every error, though I'm hoping to improve that over
+time. So if you try to abuse it, you'll be able to find
+less-than-perfect results.
 
 ## Authors for version 15.0
 David Wicksell
