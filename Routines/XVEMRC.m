@@ -1,7 +1,8 @@
-XVEMRC ;DJB/VRR**Saves editing changes ;2019-06-12  4:01 PM
+XVEMRC ;DJB/VRR**Saves editing changes ; JUL 09, 2019@16:13
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ASK+4 modified by Sam Habiel (c) 2019 to prevent ESC-ESC
+ ; Minor Changes in DATE tag (c) Sam Habiel 2019
  ;
 SAVE(ND) ;Sets up ^UTILITY so rtn editor can save changes.
  ;ND=Rtn Session # (VRRS)
@@ -95,8 +96,8 @@ DATE ;Attach date to top line
  ;Don't attach date if top line doesn't start with ";"
  I $E($P(TMP," ",2),1)'=";" Q
  ;
- S DATE=$$DATE^XVEMKDT(2)
- S TIME=$$TIME^XVEMKDT(2)
+ S DATE=$$DATE^XVEMKDT(4)
+ S TIME=$$TIME^XVEMKDT(3)
  I $E(TIME)=" " S TIME=$E(TIME,2,99)
  ;
  ;New date format - ; 3/2/98 1:40pm
@@ -108,7 +109,7 @@ DATE ;Attach date to top line
  . Q:$P(LN," [",PIECE)'?1.2N1"/"1.2N1"/"2N.E1."]"
  . S LN=$P(LN," [",1,PIECE-1)
  ;
- S LN=LN_" ; "_DATE_" "_TIME
+ S LN=LN_" ; "_DATE_"@"_TIME
  S ^UTILITY($J,0,1)=TG_" "_LN
  Q
  ;
