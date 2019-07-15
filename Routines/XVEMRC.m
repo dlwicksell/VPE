@@ -1,7 +1,8 @@
-XVEMRC ;DJB/VRR**Saves editing changes ;2019-06-12  4:01 PM
+XVEMRC ;DJB/VRR**Saves editing changes ;Jul 15, 2019@17:04:25
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ASK+4 modified by Sam Habiel (c) 2019 to prevent ESC-ESC
+ ; DATE modified by Sam habiel (c) 2019 for SAC Compliance
  ;
 SAVE(ND) ;Sets up ^UTILITY so rtn editor can save changes.
  ;ND=Rtn Session # (VRRS)
@@ -108,7 +109,9 @@ DATE ;Attach date to top line
  . Q:$P(LN," [",PIECE)'?1.2N1"/"1.2N1"/"2N.E1."]"
  . S LN=$P(LN," [",1,PIECE-1)
  ;
- S LN=LN_" ; "_DATE_" "_TIME
+ ; VA SAC Compliance if XLFDT is present, use it.
+ I $T(+0^XLFDT)'="" S LN=LN_" ;"_$$FMTE^XLFDT($$NOW^XLFDT) I 1
+ E  S LN=LN_" ; "_DATE_" "_TIME
  S ^UTILITY($J,0,1)=TG_" "_LN
  Q
  ;
