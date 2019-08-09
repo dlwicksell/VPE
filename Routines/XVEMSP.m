@@ -1,4 +1,4 @@
-XVEMSP ;DJB/VSHL**System Parameters ;2019-08-09  4:30 PM
+XVEMSP ;DJB/VSHL**System Parameters ;2019-08-09  5:19 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Enhancements to auto margin screen handling by David Wicksell (c) 2019
@@ -33,6 +33,7 @@ DISPLAY ;Display Parameters
  NEW HD
  S HD="V P E   S Y S T E M   P A R A M E T E R S"
  I XVV("OS")=19!(XVV("OS")=17) U $I:(WIDTH=XVV("IOM"):LENG=XVV("IOSL"))
+ E  I XVV("OS")=18 U $I:/MARGIN=XVV("IOM")
  W @XVV("IOF"),!?(XVV("IOM")-$L(HD)\2),HD
  W !,$E(LINE,1,XVV("IOM")-1)
  NEW BS,KL,PR,TO,WIDTH,LENGTH,SYNTAX
