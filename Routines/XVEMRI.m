@@ -1,8 +1,9 @@
-XVEMRI ;DJB/VRR**INSERT - READ,HELP,ADD,DELETE ;2019-05-20  6:40 PM
+XVEMRI ;DJB/VRR**INSERT - READ,HELP,ADD,DELETE ;2019-08-09  5:00 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Allow space to act like tab in READ (c) Sam Habiel 2016
  ; Syntax highlighting support by David Wicksell (c) 2019
+ ; Dynamic linelabel+offset display support by David Wicksell (c) 2019
  ;
 INSERT(MODE) ;Processes the line tag portion of a new line. When user
  ;hits <TAB> OR <SPACE>, return to EDIT mode.
@@ -13,12 +14,12 @@ INSERT(MODE) ;Processes the line tag portion of a new line. When user
  NEW CD,FLAGQ,LNNUM,X
  S FLAGQ=0
  S CD=""
- D @$S(MODE=2:"BELOW(YND)",1:"ABOVE(YND)") Q:FLAGQ
+ D @$S(MODE=2:"BELOW(YND)",1:"ABOVE(YND)") I FLAGQ D LINELBL^XVEMRU Q
  S LNNUM=$$LINENUM^XVEMRU(YND)
  D OPEN^XVEMRI1
  F  D READ Q:FLAGQ
 EX ;
- D LINECNT^XVEMRU
+ D LINECNT^XVEMRU,LINELBL^XVEMRU
  KILL ^TMP("XVV",$J)
  Q
  ;

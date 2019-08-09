@@ -1,9 +1,10 @@
-XVEMR ;DJB/VRR**SCROLL VRoutine Reader ;2019-05-29  4:24 PM
+XVEMR ;DJB/VRR**SCROLL VRoutine Reader ;2019-08-09  5:00 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Various bug fixes throughout Sam Habiel (c) 2016
  ; Syntax highlighting support by David Wicksell (c) 2019
  ; IMPORT display bug fix for routines > 999 lines by David Wicksell (c) 2019
+ ; Dynamic linelabel+offset display support by David Wicksell (c) 2019
  ;
 EN ;Entry Point
  I $G(DUZ)'>0 D ID^XVEMKU Q:$G(DUZ)=""
@@ -75,17 +76,17 @@ LIST ;Display text
  G LIST
  ;
 IMPORT ;Set up for scroller
- NEW LINE,MAR,NAME,SPACE,TMP,LINES
+ NEW LINE,MAR,NAME,TMP,NUM,DIV
  S VRRHIGH=+$G(VRRHIGH)
  S MAR=$G(XVV("IOM")) S:MAR'>0 MAR=80
  S $P(LINE,"=",MAR)=""
- S SPACE="          "
- S NAME=$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
- S NAME=NAME_$E(SPACE,1,8-$L(NAME))
+ S NAME="^"_$G(^TMP("XVV","VRR",$J,VRRS,"NAME"))
  S XVVT("HD")=1
  S XVVT("FT")=2
- S LINES=$E("   ",1,3-$L(VRRHIGH))_VRRHIGH
- S XVVT("HD",1)="|=======|"_$E(LINE,1,11)_"[^"_NAME_"]======["_VRRS_" of 1024]===[Lines: "_LINES_"]"_$E(LINE,1,MAR-62-$L(LINES))_"|"
+ S NUM=MAR-($L(NAME)+$L(VRRS)+$L(VRRHIGH)+44)
+ I NUM<0 S NAME=$E(NAME,1,$L(NAME)-$E(NUM,2,$L(NUM)))
+ S DIV=$E(LINE,1,NUM)
+ S XVVT("HD",1)="|=======|===["_NAME_"]==="_DIV_"["_VRRS_" of 1024]===[Lines: "_VRRHIGH_"]===|"
  S XVVT("FT",1)="|=======|"_$E(LINE,1,MAR-11)_"|"
  S XVVT("FT",2)="<>  <TAB>=MenuBar  <F3>=Block  <RET>=Insert  <ESC>K=Keybrd  <ESC><ESC>=Quit"
  S XVVT("GET")=1
@@ -97,6 +98,7 @@ IMPORT ;Set up for scroller
  I $G(%2)]"" D MOVETO
  ;--> Adj for $C(30)
  I TMP[$C(30) S XCUR=$F(TMP,$C(30))-2
+ D LINELBL^XVEMRU
  Q
  ;
 MOVETO ;Adjust YND/YCUR to move to a passed in line tag.
