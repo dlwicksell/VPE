@@ -1,4 +1,4 @@
-XVEMSYN ;V4W/DLW - Syntax highlighting ;2019-06-19  9:24 PM
+XVEMSYN ;V4W/DLW - Syntax highlighting ;2019-08-09  4:31 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; (c) David Wicksell 2019
  ;
@@ -40,7 +40,7 @@ SYNTAX(XVBUFFER,XVBUFNUM,XVW) ;Build a syntax structure for a corresponding line
  I XVEXT M ^TMP("XVV","IR"_VRRS,$J,XVBUFNUM+1,"STATE")=XVDATA
  E  K ^TMP("XVV","IR"_VRRS,$J,XVBUFNUM+1,"STATE")
  W:XVW $$CONTROL("DEF")
- S $X=$L(XVBUFFER)-1
+ S $X=$S($L(XVBUFFER)<1:0,1:$L(XVBUFFER)-1)
  Q
  ;
 START(XVBUFFER,XVDATA) ;Start state
