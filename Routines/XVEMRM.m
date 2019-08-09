@@ -1,4 +1,4 @@
-XVEMRM ;DJB/VRR**Menu Bar ;2019-08-09  4:16 PM
+XVEMRM ;DJB/VRR**Menu Bar ;2019-08-09  4:18 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Fix routine size support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
@@ -20,11 +20,11 @@ PAGE ;Get users response
 PAGE1 S DX=0,DY=XVVT("S2")+1 X XVVS("CRSR")
  W @XVVS("BLANK_C_EOL")
  S DX=8 X XVVS("CRSR")
- W "[  ]  <RET>=Quit  R=Rtn  F=FndTg  L=LctStrg  G=Goto  ?=Help  M=More..."
+ W "[    ]  <RET>=Quit  R=Rtn  F=FndTg  L=LctStrg  G=Goto  ?=Help  M=More..."
  S DX=0 X XVVS("CRSR")
  W @XVV("RON"),"Select:",@XVV("ROFF")
  S DX=9 X XVVS("CRSR")
-PAGE2 S KEY=$$READ^XVEMKRN(),KEY=$$ALLCAPS^XVEMKU(KEY)
+PAGE2 S KEY=$$READ^XVEMKRN(,5),KEY=$$ALLCAPS^XVEMKU(KEY)
  Q:KEY="^"
  Q:",<ESC>,<F1E>,<F1Q>,<RET>,<TO>,"[(","_XVV("K")_",")
  ;-> No editing if using the Rtn Reader
