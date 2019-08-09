@@ -1,4 +1,4 @@
-XVEMRE ;DJB/VRR**EDIT - READ,UP,DOWN,LEFT,RIGHT ;2019-04-11  10:49 PM
+XVEMRE ;DJB/VRR**EDIT - READ,UP,DOWN,LEFT,RIGHT ;2019-08-09  4:47 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in READ (c) 2016 Sam Habiel
@@ -69,6 +69,7 @@ UP(NUM) ;Scroll up NUM lines. Insert line at top.
  . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,XVVT("TOP")))
  . I XVV("SYN")="ON" D
  . . D SYNTAX^XVEMSYN(TMP,XVVT("TOP"))
+ . . I XVV("OS")=18,$IO["TRM" D REDRAWX^XVEMREO(XVVT("BOT")-XVVT("TOP"),0)
  . E  D
  . . W $P(TMP,$C(30),1),$P(TMP,$C(30),2,99)
  I YCUR=1 W $C(7) Q
@@ -87,6 +88,7 @@ DOWN(NUM) ;Scroll down NUM lines. Insert line at bottom.
  . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,YND))
  . I XVV("SYN")="ON" D
  . . W ! D SYNTAX^XVEMSYN(TMP,YND)
+ . . I XVV("OS")=18,$IO["TRM" D REDRAWX^XVEMREO(XVVT("BOT")-XVVT("TOP")-1,1)
  . E  D
  . . W !,$P(TMP,$C(30),1),$P(TMP,$C(30),2,99)
  ;--> Move cursor down
