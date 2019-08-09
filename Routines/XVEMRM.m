@@ -1,4 +1,4 @@
-XVEMRM ;DJB/VRR**Menu Bar ;2019-05-02  7:12 PM
+XVEMRM ;DJB/VRR**Menu Bar ;2019-08-09  4:16 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Fix routine size support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
@@ -90,7 +90,7 @@ MODULES ;VGL,VEDD
  I KEY="?"!(XVV("K")="<ESCH>") D HELP^XVEMKT("VRR1") Q
  I KEY="ASC",$G(XVVSHL)="RUN" D ASCII^XVEMST,PAUSE^XVEMKC(1) Q
  I KEY="FMC",$G(XVVSHL)="RUN" D ^XVEMSF Q
- I KEY="I" D INDEX^XVEMRMG Q  ;....................Run %INDEX
+ I KEY="I" D INDEX^XVEMRMG Q  ;....................Run XINDEX
  I KEY="RS" D  D RSE^XVEMRY Q
  . W !?1,"***SEARCH ROUTINE(S)***"
  I KEY="SV" S FLAGQ=1 D SAVE^XVEMRMS S FLAGQ=0 Q  ;Save on the fly
