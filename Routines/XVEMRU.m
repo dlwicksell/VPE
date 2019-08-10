@@ -131,7 +131,7 @@ LINELBL(RSETCRSR) ;Adjust line label plus offset at top of screen
  . . E  S TAG=$TR($P($P(FIND,$C(30)),"(")," ","")_$S(I>0:"+"_I,1:"") S QFLAG=1
  . . S I=I+1
  I TAG[":" S TAG=$TR(TAG,":","")
- I NUM="" S NAME="+"_I_"^"_$P(NAME,"^",2)
+ I NUM="" S NAME=$S(I>0:"+"_I,1:"")_"^"_$P(NAME,"^",2)
  E  S NAME=TAG_"^"_$P(NAME,"^",2)
  S MAR=$G(XVV("IOM")) S:MAR'>0 MAR=80
  S $P(LINE,"=",MAR)=""
