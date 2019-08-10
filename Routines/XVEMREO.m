@@ -120,7 +120,7 @@ REDRAWA ;Redraw lines above current line
  Q
 REDRAWB ;Redraw lines below current line
  F I=1:1:NUM D  ;
- . S DX=0,DY=YCUR+I X XVVS("CRSR") W @XVVS("BLANK_C_EOL") X XVVS("XY")
+ . S DX=0,DY=YCUR+I-1 X XVVS("CRSR") W @XVVS("BLANK_C_EOL") X XVVS("XY")
  . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,YND+I-1)) Q:TMP']""
  . I XVV("SYN")="ON" D
  . . D SYNTAX^XVEMSYN(TMP,YND+I-1)
