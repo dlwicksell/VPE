@@ -1,4 +1,4 @@
-XVEMKU1 ;DJB/KRN**DATEDASH,CURSOR,YN,TRAP,ERRMSG,DISCLAIM ;2019-08-09  2:38 PM
+XVEMKU1 ;DJB/KRN**DATEDASH,CURSOR,YN,TRAP,ERRMSG,DISCLAIM ;Aug 16, 2019@15:13
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
@@ -26,9 +26,11 @@ TRAP() ;Set error trap
 ERRMSG(PKG) ;Generic error message
  NEW ZE
  S @("ZE="_XVV("$ZE"))
+ LOCK  ; UNLOCK EVERYTHING!
  W $C(7),!!,"NOTE: You've discovered an error in "_PKG_"."
  W !,"Error: ",ZE
- W !,"Please create (or update) an issue in the VPE issue tracker at https://github.com/shabiel/VPE/issues.",!
+ W !,"Please create (or update) an issue in the VPE issue tracker at"
+ W !,"https://github.com/shabiel/VPE/issues.",!
  Q
 DISCLAIM ;Disclaimer
  W !!,"=========================< D I S C L A I M E R >========================="
