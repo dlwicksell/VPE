@@ -843,6 +843,7 @@ class VPEUnitTests(unittest.TestCase):
     def test_VEDD(self):
         # Set DUZ(0) to contain # for VGL
         self.vista.write('S DUZ(0)="#"')
+        self.vista.wait('>>')
         # Test entry and exit from VEDD
         self.vista.write('..VEDD')
         self.assertTrue(self.vista.wait('FILE:'))
@@ -1635,6 +1636,15 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('HELLO VPE6')
         self.vista.wait('>>')
 
+    def test_error_crash_message(self):
+        self.vista.write('S XVSIMERR=1')
+        self.vista.wait('>>')
+        self.vista.write('..E KBANTEST2')
+        self.vista.wait('https://github.com/shabiel/VPE/issues')
+        self.vista.write('')
+        self.vista.wait('>>')
+        self.vista.write('K XVSIMERR')
+        self.vista.wait('>>')
         
     def zztest_lotsOfLines(self): # Commented out as takes too long to run
         # Delete routine KBANTEST3
