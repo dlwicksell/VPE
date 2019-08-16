@@ -457,7 +457,11 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on ^
         self.vista.writectrl(chr(27) + 'G')  # Get Global
         self.vista.wait('^PSRX(:,1,:')
-        self.vista.write('')                             # Exit press return to continue
+        try:
+          self.vista.wait('<> <> <>', TIMEOUT)
+          self.vista.writectrl(chr(27) + chr(27)) # There is data, exit
+        except:
+          self.vista.write('')                    # Exit press return to continue
         self.vista.wait('^KBANTEST]')
         
 
