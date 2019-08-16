@@ -311,7 +311,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('..E')
         self.vista.wait('ROUTINE')
         self.vista.write('KBANTEST')
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.write('')
         self.vista.write('KBANTEST' + chr(9) + '; TEST ROUTINE')
         self.vista.write(chr(9) + 'D USEZERO^XVEMSU')
@@ -339,7 +339,7 @@ class VPEUnitTests(unittest.TestCase):
 
         # View routine using ..VRR
         self.vista.write('..VRR KBANTEST')
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('>>')
 
@@ -354,7 +354,7 @@ class VPEUnitTests(unittest.TestCase):
         
         # Test keyboard shortcuts
         self.vista.write('..E KBANTEST')
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
         self.vista.writectrl(chr(27) + '[B') # Down arrow once
         self.vista.writectrl(chr(27) + 'OR') # F3 - Turn on highlighting
@@ -378,14 +378,14 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('NEW PERSON')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on V
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on A
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on (
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('DUPLICATE RECORD')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 2
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
@@ -393,13 +393,13 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('NEW PERSON')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on 0
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on )
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('NEW PERSON')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on 0
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait(chr(7))
@@ -415,7 +415,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('^UTILITY("DIQ1",$J,4,:,99,"I"') # Should say that this global has no data
         self.vista.write('')                             # Exit press return to continue
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
         # This stanza is for parsing forwards
         self.vista.writectrl(chr(27) + '[A') # Up arrow
@@ -427,7 +427,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('^UTILITY("DIQ1",$J,4,:,99,"I"') # Should say that this global has no data
         self.vista.write('')                             # Exit press return to continue
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
         # This stanza is for parsing backwards to global and forward to get the rest of the reference
         self.vista.writectrl(chr(27) + '[C') # Right arrow                      : Now on U
@@ -441,7 +441,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get global
         self.vista.wait('Session 1 ^UTILITY')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
 
         # Test parsing dollar functions + parens
@@ -458,7 +458,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + 'G')  # Get Global
         self.vista.wait('^PSRX(:,1,:')
         self.vista.write('')                             # Exit press return to continue
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
         
 
 
@@ -478,7 +478,7 @@ class VPEUnitTests(unittest.TestCase):
 
         # Test tab commands. This goes on for a while!!!!
         self.vista.write('..E KBANTEST')
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
         ## F - Find
         self.vista.write(chr(9) + 'F') # Find
@@ -489,9 +489,9 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write(chr(9) + 'R') # Branch to Routine
         self.vista.wait('BRANCH TO A ROUTINE')
         self.vista.write('XV')
-        self.vista.wait('[^XV')
+        self.vista.wait('^XV]')
         self.vista.writectrl(chr(27) + chr(27)) # Go back
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
         # L - Locate String + ESC-N to find next instance
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[C') # F4 Right Arrow - Go to end
@@ -515,7 +515,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write(chr(9) + '?') # Help
         self.vista.wait('N O T E S')
         self.vista.writectrl(chr(27) + chr(27)) # Go back
-        self.vista.wait('[^KBANTEST]')
+        self.vista.wait('^KBANTEST]')
 
 
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[C') # F4 Right Arrow - Go to end
@@ -1412,7 +1412,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('..E')
         self.vista.wait('ROUTINE')
         self.vista.write('KBANTEST2')
-        self.vista.wait('[^KBANTEST2]')
+        self.vista.wait('^KBANTEST2]')
         self.vista.write('')
         self.vista.write('KBANTEST2' + chr(9) + '; TEST ROUTINE')
         self.vista.wait('E')
@@ -1545,7 +1545,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('..E')
         self.vista.wait('ROUTINE')
         self.vista.write('%ZZVPETEST')
-        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.wait('^%ZZVPETEST]')
         self.vista.write('')
         self.vista.write('%ZZVPETEST' + chr(9) + '; TEST ROUTINE') # Line 1
         self.vista.wait('E')
@@ -1566,7 +1566,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
         self.vista.write('..E %ZZVPETEST')
-        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.wait('^%ZZVPETEST]')
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
         self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
         self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[C') # F1 Right Arrow - Go to end of line
@@ -1585,7 +1585,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
         self.vista.write('..E %ZZVPETEST2')
-        self.vista.wait('[^%ZZVPETEST2]')
+        self.vista.wait('^%ZZVPETEST2]')
         self.vista.write('')
         self.vista.write('%ZZVPETEST2' + chr(9) + '; TEST ROUTINE') # Line 1
         self.vista.wait('E')
@@ -1599,7 +1599,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
 
         self.vista.write('..E %ZZVPETEST')
-        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.wait('^%ZZVPETEST]')
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
         self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
         self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to third line # now on D ^%ZZVEPTEST2
@@ -1607,7 +1607,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + '[C') # Right arrow once; now on space
         self.vista.writectrl(chr(27) + '[C') # Right arrow once; now on ^
         self.vista.writectrl(chr(27) + 'R') # Branch to new routine
-        self.vista.wait('[^%ZZVPETEST2]')
+        self.vista.wait('^%ZZVPETEST2]')
         self.vista.writectrl(chr(27) + 'OS' + chr(27) + '[D') # F4 Left Arrow - Go to first line
         self.vista.writectrl(chr(27) + '[B') # Down arrow once ; go to second line
         self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[C') # F1 Right Arrow - Go to end of line ; WRITE "HELLO VPE5",!
@@ -1621,7 +1621,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('Y')
         self.vista.wait('Changes saved to disk...')
         self.vista.write('')
-        self.vista.wait('[^%ZZVPETEST]')
+        self.vista.wait('^%ZZVPETEST]')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('Save your changes?')
         self.vista.write('Q')
@@ -1646,7 +1646,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('..E')
         self.vista.wait('ROUTINE')
         self.vista.write('KBANTEST3')
-        self.vista.wait('[^KBANTEST3]')
+        self.vista.wait('^KBANTEST3]')
         self.vista.write('')
         self.vista.write('KBANTEST3' + chr(9) + '; TEST ROUTINE')
         self.vista.wait('E')
