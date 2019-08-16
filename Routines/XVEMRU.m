@@ -1,4 +1,4 @@
-XVEMRU ;DJB/VRR**Utilities ;2019-08-09  5:00 PM
+XVEMRU ;DJB/VRR**Utilities ;2019-08-16  11:28 AM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; LINECNT bug fix for routines > 8 c long (c) 2016 Sam Habiel
@@ -127,10 +127,8 @@ LINELBL(RSETCRSR) ;Adjust line label plus offset at top of screen
  . . I FIND'[$C(30) Q
  . . S FIND=$P(FIND,$C(30))
  . . I FIND="" S QFLAG=1 Q
- . . I FIND?1.N2." " S TAG=$TR($P($P(FIND,$C(30)),"(")," ","")
- . . E  S TAG=$TR($P($P(FIND,$C(30)),"(")," ","")_$S(I>0:"+"_I,1:"") S QFLAG=1
+ . . I FIND'?1.N2." " S TAG=$TR($P(FIND,"(")," ","") I TAG'[":" S TAG=TAG_$S(I>0:"+"_I,1:""),QFLAG=1 Q
  . . S I=I+1
- I TAG[":" S TAG=$TR(TAG,":","")
  I NUM="" S NAME=$S(I>0:"+"_I,1:"")_"^"_$P(NAME,"^",2)
  E  S NAME=TAG_"^"_$P(NAME,"^",2)
  S MAR=$G(XVV("IOM")) S:MAR'>0 MAR=80
@@ -139,7 +137,7 @@ LINELBL(RSETCRSR) ;Adjust line label plus offset at top of screen
  I NUM<0 D
  . I $G(^TMP("XVV","IR"_VRRS,$J,YND))'=" <> <> <>" D
  . . N TAG,OFFSET,ROUTINE
- . . S I=I-1,TAG=$P(NAME,"^"),TAG=$P(TAG,"+"),OFFSET=$S(I>0:"+"_I,1:""),ROUTINE="^"_$P(NAME,"^",2)
+ . . S TAG=$P(NAME,"^"),TAG=$P(TAG,"+"),OFFSET=$S(I>0:"+"_I,1:""),ROUTINE="^"_$P(NAME,"^",2)
  . . S NUM=MAR-($L(TAG)+$L(OFFSET)+$L(VRRS)+$L(VRRHIGH)+44)
  . . I NUM<0 S NAME=$E(TAG,1,$L(TAG)+NUM-2)_".."_OFFSET
  . . E  I NUM<4 S NAME=$E(TAG,1,$L(TAG)+NUM)_OFFSET
