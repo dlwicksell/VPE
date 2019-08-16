@@ -1,6 +1,5 @@
 import unittest
 import sys
-sys.path.append('./pexpect_n_vistahelpers/vista')
 import TestHelper
 import cProfile, pstats, StringIO
 import time
