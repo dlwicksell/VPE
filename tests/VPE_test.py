@@ -1649,6 +1649,42 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('>>')
         self.vista.write('K XVSIMERR')
         self.vista.wait('>>')
+
+    def test_RL(self):
+        self.vista.write('..RL')
+        self.vista.wait('ROUTINE LISTER')
+        self.vista.write('XV*')
+        self.vista.write('')
+        self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
+        self.vista.write('B')
+        self.vista.wait('DEVICE')
+        self.vista.write('0;P-OTHER;80;999999')
+        self.vista.wait('to continue..')
+        self.vista.write('')
+
+        self.vista.wait('ROUTINE LISTER')
+        self.vista.write('XV*')
+        self.vista.write('')
+        self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
+        self.vista.write('L')
+        self.vista.wait('DEVICE')
+        self.vista.write('0;P-OTHER;80;999999')
+        self.vista.wait('to continue..')
+        self.vista.write('')
+
+        self.vista.wait('ROUTINE LISTER')
+        self.vista.write('XV*')
+        self.vista.write('')
+        self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
+        self.vista.write('3')
+        self.vista.wait('DEVICE')
+        self.vista.write('0;P-OTHER;80;999999')
+        self.vista.wait('to continue..')
+        self.vista.write('')
+
+        self.vista.wait('ROUTINE LISTER')
+        self.vista.write('')
+        self.vista.wait('>>')
         
     def zztest_lotsOfLines(self): # Commented out as takes too long to run
         # Delete routine KBANTEST3
