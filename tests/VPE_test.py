@@ -1,7 +1,7 @@
 import unittest
 import sys
 import TestHelper
-import cProfile, pstats, StringIO
+import cProfile, pstats
 import time
 
 TIMEOUT = .1
@@ -1694,8 +1694,9 @@ if __name__ == '__main__':
 
     # Next stanza: run tests in order of declaration, top to bottom.
     loader = unittest.TestLoader()
-    ln = lambda f: getattr(VPEUnitTests, f).im_func.func_code.co_firstlineno
-    lncmp = lambda a, b: cmp(ln(a), ln(b))
+    if   sys.version_info[0] == 2: ln = lambda f: getattr(VPEUnitTests, f).im_func.func_code.co_firstlineno
+    else                         : ln = lambda f: getattr(VPEUnitTests, f).__code__.co_firstlineno
+    lncmp = lambda a, b: (ln(a) > ln(b)) - (ln(a) < ln(b))
     loader.sortTestMethodsUsing = lncmp
 
     # Turn on profiling
@@ -1709,11 +1710,8 @@ if __name__ == '__main__':
     #pr.disable()
 
     # Print stats
-    #s = StringIO.StringIO()
-    #sortby = 'cumulative'
-    #ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+    #ps = pstats.Stats(pr).sort_stats('cumulative')
     #ps.print_stats()
-    #print s.getvalue()
 
 #---------------------------------------------------------------------------
 # Copyright 2017,2019 Sam Habiel
