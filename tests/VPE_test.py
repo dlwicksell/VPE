@@ -1427,6 +1427,10 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('!')
         self.vista.write(' QUIT')
         self.vista.wait('T')
+        self.vista.writectrl('TAG1')
+        self.vista.wait('1')
+        for x in range(0,4):
+             self.vista.writectrl(chr(127)) # Backspace bug in Cache in 15.1
         self.vista.write('TAG1' + chr(9) + '; TEST TAG')
         self.vista.wait('G')
         self.vista.write(chr(9) + 'N Z')
