@@ -60,13 +60,18 @@ strings which may change between Fileman versions, due to how much global data
 is in a system, and due to issues with race conditions in PExpect. The authors
 do guarantee that the tests would run on FOIA VistA on GT.M and Cache.
 
-They To run the Unit Testing suite, make sure you have VPE imported into
-your M-implementation (if you are running the tests, preferably the routines
-in this repository rather than the release), and then navigate to the test
-folder, and then run this command:
+They To run the Unit Testing suite, do the following:
+
+1. Make sure you have VPE imported into your M-implementation (preferably the
+   routines in this repository rather than the release).
+2. Clone the [OSEHRA VistA](https://github.com/OSEHRA/VistA) repository for the
+   VistA testing framework.
+3. Run the following command, modifying the PYTHONPATH to include the
+   `Python/vista` path in the [OSEHRA VistA](https://github.com/OSEHRA/VistA)
+   repository.
 
 ```
-python VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/
+PYTHONPATH=$PYTHONPATH:../VistA/Python/vista python3 tests/VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/
 ```
 
 This is the expected output:
