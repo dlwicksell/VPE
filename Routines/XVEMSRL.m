@@ -1,4 +1,4 @@
-XVEMSRL ;DJB/VSHL**Routine Lister [9/29/97 8:03pm];2019-08-19  2:16 PM
+XVEMSRL ;DJB/VSHL**Routine Lister ;Aug 20, 2019@16:25
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
@@ -23,7 +23,7 @@ EX ;
 DEVICE ;
  NEW %,%X,%XX,%Y,%YY
  IF $T(+0^%ZIS)'="" DO
- . S %ZIS="M" D ^%ZIS Q:POP
+ . N %ZIS S %ZIS="M" D ^%ZIS Q:POP
  . ;
  . ;Check for TRACE devices
  . S CEMETHOD=$S(ION="TRACE SCREEN CAPTURE":"S",ION="TRACE FILE":"F",1:"P")

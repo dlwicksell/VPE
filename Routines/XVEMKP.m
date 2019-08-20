@@ -1,13 +1,13 @@
-XVEMKP ;DJB/VRR**Printing [12/30/95 8:23am];2017-08-15  12:58 PM
+XVEMKP ;DJB/VRR**Printing ;2019-08-20  5:31 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 TASK(DEFAULT) ;Get device. FLAGQ indicates job has been queued.
  ;DEFAULT=Default Device. Return FLAGQ=1 if taskman is used.
  Q:'$D(^%ZIS)
- S %ZIS="MQ" I $G(DEFAULT)]"" S %ZIS("B")=DEFAULT
+ N %ZIS S %ZIS="MQ" I $G(DEFAULT)]"" S %ZIS("B")=DEFAULT
  W ! D ^%ZIS Q:POP  Q:'$D(IO("Q"))  S FLAGQ=1
- D ^%ZTLOAD,HOME^%ZIS KILL IO("Q")
+ N ZTSK D ^%ZTLOAD,HOME^%ZIS KILL IO("Q")
  I $G(ZTSK)'>0 W !!?1,"Request cancelled.." S FLAGQ=1 Q
  W !!?1,"This task has been queued...Task #",ZTSK,!
  Q
