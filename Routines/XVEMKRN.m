@@ -1,14 +1,16 @@
-XVEMKRN ;DJB/KRN**NEW Single Character Read ;2019-04-11  10:44 PM
+XVEMKRN ;DJB/KRN**NEW Single Character Read ;Aug 21, 2019@13:52
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; READ+23,GETCHAR+12 Bug fix by Kevin Toppenberg, MD (c) 2017
  ; <END> key support for YottaDB/GT.M on Linux by David Wicksell (c) 2019
  ; Syntax highlighting support by David Wicksell (c) 2019
+ ; NOTIME support (c) Sam Habiel 2019
  ;
-READ(PROMPT,LENGTH,NOECHO) ;
+READ(PROMPT,LENGTH,NOECHO,NOTIME) ;
  ;PROMPT  Display prompt.
  ;LENGTH  Maximum # of characters user may enter.
  ;NOECHO  1=Do not echo what user types.
+ ;NOTIME  1=Do not timeout. Wait forever.
  ;
  ;Return: Character(s) user entered
  ;             -or-
@@ -37,7 +39,8 @@ READ(PROMPT,LENGTH,NOECHO) ;
  Q STRING
  ;
 GETCHAR ;Single character READ to get individual characters
- R CHAR#1:XVV("TIME")
+ R:('NOTIME) CHAR#1:XVV("TIME")
+ R:(NOTIME) CHAR#1 I 1
  I '$T S CHAR="<TO>" Q
  I $A(CHAR)>31,$A(CHAR)<127 W:$G(NOECHO)'=1&($G(FLAGMODE)'["BLOCK") CHAR Q
  X XVV("TRMRD") S CHAR=Y
@@ -123,4 +126,5 @@ INIT ;
  I $G(XVV("TRMON"))']"" D TRMREAD^XVEMKY1
  S (STRING,XVV("K"))=""
  S PROMPT=$G(PROMPT),LENGTH=$S($G(LENGTH)>0:LENGTH,1:245)
+ S NOTIME=$G(NOTIME,0)
  Q
