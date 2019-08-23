@@ -1,4 +1,4 @@
-XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;Aug 23, 2019@10:16
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;Aug 23, 2019@12:00
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016,2019
@@ -135,13 +135,14 @@ GOPAR ; [Internal] Open parens
  I C="," S GOUT=GOUT_C QUIT               ; Commas are okay
  I C="$" S MODE="GISVFUNC" QUIT           ; ISVs or Functions (int/ext)
  I C?1A,$E(G,I-1)="$" S GOUT=GOUT_C QUIT  ; Ditto
- I C=")" S GOPAR=GOPAR-1,DONE=1 QUIT      ; Done; don't append
+ I C=")" S GOPAR=GOPAR-1,GOUT=GOUT_C,DONE=1 QUIT      ; Done
  S GOUT=GOUT_":,",MODE="GCADV"            ; advance past next comma
  QUIT
 GCADV ; [Internal] Advance till next comma
  I C="(" S GOPAR=GOPAR+1 QUIT  ; Increment paren count
- I C=")" S GOPAR=GOPAR-1 QUIT  ; decrement ditto
+ I C=")" S GOPAR=GOPAR-1       ; decrement ditto
  I GOPAR>1 QUIT                ; if inside parens (e.g. function) keep going. Ignore comma.
+ I GOPAR<1 S $E(GOUT,$L(GOUT))=")",DONE=1 QUIT       ; Terminal Paren. We are done. Replace ":," with ":)"
  I C'="," QUIT                 ; terminate at comma only if at bottom parens
  S MODE="GOPAR"
  QUIT
@@ -162,14 +163,17 @@ TEST ; [Public] Tests Global parser
  do en^%ut($t(+0),1)
  quit
 T1 ; @TEST Test Global parser with $J
- do eq^%ut($$PARSEGLB^XVEMREP("^UTILITY($J,""BOO"",99,""FOO"")"),"^UTILITY($J,""BOO"",99,""FOO""")
+ do eq^%ut($$PARSEGLB^XVEMREP("^UTILITY($J,""BOO"",99,""FOO"")"),"^UTILITY($J,""BOO"",99,""FOO"")")
  quit
 T2 ; @TEST Test Global parser with embedded functions and parens
- do eq^%ut($$PARSEGLB^XVEMREP("^PSRX(RX,1,$P($G(RXFL(RX)),""^""),0)) K RXY,RXP,REPRINT Q"),"^PSRX(:,1,:,0")
+ do eq^%ut($$PARSEGLB^XVEMREP("^PSRX(RX,1,$P($G(RXFL(RX)),""^""),0)) K RXY,RXP,REPRINT Q"),"^PSRX(:,1,:,0)")
  quit
  ;
 T3 ; @TEST Parse Global with a number in the name
- do eq^%ut($$PARSEGLB^XVEMREP("^VX523A($J,RXN,1)"),"^VX523A($J,:,1")
+ do eq^%ut($$PARSEGLB^XVEMREP("^VX523A($J,RXN,1)"),"^VX523A($J,:,1)")
+ quit
+T4 ; @TEST Parse TMP global with unusual output
+ do eq^%ut($$PARSEGLB^XVEMREP("^TMP($J,""PSOCP"",DFN)"),"^TMP($J,""PSOCP"",:)")
  quit
  ;
  ;===================================================================

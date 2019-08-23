@@ -841,7 +841,7 @@ class VPEUnitTests(unittest.TestCase):
 
         # Run Global Parser M-Unit Tests
         self.vista.write('DO TEST^XVEMREP')
-        self.vista.wait('Checked 3 tests, with 0 failures and encountered 0 errors.')
+        self.vista.wait('Checked 4 tests, with 0 failures and encountered 0 errors.')
         self.vista.wait('>>')
 
 
