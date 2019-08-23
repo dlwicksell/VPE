@@ -839,6 +839,11 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + chr(27)) # Go to command line
         self.vista.wait('>>')
 
+        # Run Global Parser M-Unit Tests
+        self.vista.write('DO TEST^XVEMREP')
+        self.vista.wait('Checked 3 tests, with 0 failures and encountered 0 errors.')
+        self.vista.wait('>>')
+
 
     def test_VEDD(self):
         # Set DUZ(0) to contain # for VGL

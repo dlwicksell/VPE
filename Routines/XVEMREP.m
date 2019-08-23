@@ -1,4 +1,4 @@
-XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ; 6/18/19 3:33pm
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;Aug 23, 2019@10:16
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016,2019
@@ -121,11 +121,11 @@ PARSEGLB(G) ; [Internal] Parse the global into a format XVEMG recognizes
  . S GOUT="^"
  . F I=2:1:$L(G) Q:FLAGQ  Q:DONE  S C=$E(G,I) D @MODE
  I MODE="GPQUOTE" S GOUT=$P(GOUT,"""") ; Abnormal termination. Get first part.
- I $E(GOUT,$L(GOUT)-1,$L(GOUT))=",0" S $E(GOUT,$L(GOUT)-1,$L(GOUT))="" ; For $Ordering of 0 node
  I $E(GOUT,$L(GOUT))="," S $E(GOUT,$L(GOUT))=""
  Q GOUT
 GNAME ; [Internal] Get global name
- I C?.1"%".A S GOUT=GOUT_C QUIT
+ I C?1"%",$E(GOUT,2)=""        S GOUT=GOUT_C QUIT
+ I C?1AN                       S GOUT=GOUT_C QUIT
  I C="(" S GOUT=GOUT_C,GOPAR=GOPAR+1,MODE="GOPAR" QUIT
  S FLAGQ=1
  QUIT
@@ -159,14 +159,19 @@ GPQUOTE ; [Internal] Quote inside parens
  QUIT
 TEST ; [Public] Tests Global parser
  i $t(+0^%ut)="" quit
- do EN^%ut($t(+0),1)
+ do en^%ut($t(+0),1)
  quit
-TEST1 ; @TEST Test Global parser with $J
- do CHKEQ^%ut($$PARSEGLB^XVEMREP("^UTILITY($J,""BOO"",99,""FOO"")"),"^UTILITY($J,""BOO"",99,""FOO""")
+T1 ; @TEST Test Global parser with $J
+ do eq^%ut($$PARSEGLB^XVEMREP("^UTILITY($J,""BOO"",99,""FOO"")"),"^UTILITY($J,""BOO"",99,""FOO""")
  quit
-TEST2 ; @TEST Test Global parser with embedded functions and parens
- do CHKEQ^%ut($$PARSEGLB^XVEMREP("^PSRX(RX,1,$P($G(RXFL(RX)),""^""),0)) K RXY,RXP,REPRINT Q"),"^PSRX(:,1,:,0")
+T2 ; @TEST Test Global parser with embedded functions and parens
+ do eq^%ut($$PARSEGLB^XVEMREP("^PSRX(RX,1,$P($G(RXFL(RX)),""^""),0)) K RXY,RXP,REPRINT Q"),"^PSRX(:,1,:,0")
  quit
+ ;
+T3 ; @TEST Parse Global with a number in the name
+ do eq^%ut($$PARSEGLB^XVEMREP("^VX523A($J,RXN,1)"),"^VX523A($J,:,1")
+ quit
+ ;
  ;===================================================================
 RETURN ;Process <RET> key
  ;If new rtn, open new line regardless of parameter setting.
