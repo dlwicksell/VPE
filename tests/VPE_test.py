@@ -18,13 +18,7 @@ class VPEUnitTests(unittest.TestCase):
         cls.vista.write('halt')
 
     def test_deleteVPE(self):
-        self.vista.write('K ^XVEMS')
-        self.vista.write('D DT^DICRW')
-        self.vista.write('S DIU="^XVV(19200.11,",DIU(0)="DSE" D EN^DIU2')
-        self.vista.write('S DIU="^XVV(19200.111,",DIU(0)="DSE" D EN^DIU2')
-        self.vista.write('S DIU="^XVV(19200.112,",DIU(0)="DSE" D EN^DIU2')
-        self.vista.write('S DIU="^XVV(19200.113,",DIU(0)="DSE" D EN^DIU2')
-        self.vista.write('S DIU="^XVV(19200.114,",DIU(0)="DSE" D EN^DIU2')
+        self.vista.write('D RESET^XV')
         self.vista.wait('>')
 
     def test_startVPE(self):
@@ -1405,6 +1399,7 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.writectrl(chr(27) + '[6~') # Page Down
         self.vista.writectrl(chr(27) + '[6~') # Page Down
         self.vista.writectrl(chr(27) + '[6~') # Page Down
+        self.vista.writectrl(chr(27) + '[6~') # Page Down
         self.vista.wait('<> <> <>')
         self.vista.writectrl(chr(27) + chr(27)) # Exit
         self.vista.wait('>>')
@@ -1725,6 +1720,28 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_stopVPE(self):
         self.vista.write('HALT')
+        self.vista.wait('>')
+
+    def test_upgradeVPE(self):
+        self.vista.write('D UPGRADE^XV')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('to continue')
+        self.vista.write('')
+        self.vista.wait('Load VPE Shell global')
+        self.vista.write('Y')
+        self.vista.wait('to continue..')
+        self.vista.write('')
+        self.assertEqual(self.vista.wait('>'),1)
+
 
 if __name__ == '__main__':
     # OSEHRA Testing Framework Setup
