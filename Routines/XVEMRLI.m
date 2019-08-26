@@ -1,4 +1,4 @@
-XVEMRLI ;DJB/VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;Aug 20, 2019@16:51
+XVEMRLI ;DJB/VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;Aug 26, 2019@14:08
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in EN+2,GETRTN (c) 2016 Sam Habiel
@@ -13,19 +13,19 @@ EN ;Use ALL^XVEMRLI if you need to sign in rtns other than your own.
  Q:'$D(^XVV(19200.11))  ;...Library file doesn't exist
  S FLAGQ=0 D INIT^XVEMRLU G:FLAGQ EX
  D GETRTN G:FLAGQ EX
- G:'$D(^TMP("XVVVPE","SELECT",$J)) EX ;No rtns selected
+ G:'$D(^TMP("XVV1","SELECT",$J)) EX ;No rtns selected
  I '$G(FLAGID) D SIGNIN G EX
  D EDIT
 EX ;
  L -^XVV(19200.11)
- KILL ^TMP("XVVVPE","SELECT",$J),^UTILITY($J)
+ KILL ^TMP("XVV1","SELECT",$J),^UTILITY($J)
  Q
  ;====================================================================
 GETRTN ;Get rtns to sign in
  I $D(XVSIMERR) S $EC=",U-SIM-ERROR,"
  NEW CNT,DATA,ID,IEN,RTN,TMP,XVVBYI,XVVBYN
  W !,"Building routine list..."
- KILL ^TMP("XVVVPE","SELECT",$J)
+ KILL ^TMP("XVV1","SELECT",$J)
  KILL ^TMP("XVVCE",$J)
  S CNT=1
  S RTN=""
@@ -61,7 +61,7 @@ SIGNIN ;Sign in selected rtns by deleting them from the file
  NEW %,%Y,CNT,DA,DATA,DDH,DIC,DIK,DZ,IEN,RTN,X,Y
  S CNT=1
  S IEN=0
- F  S IEN=$O(^TMP("XVVVPE","SELECT",$J,IEN)) Q:IEN'>0  D  ;
+ F  S IEN=$O(^TMP("XVV1","SELECT",$J,IEN)) Q:IEN'>0  D  ;
  . S DATA=$G(^(IEN)) Q:DATA']""
  . S RTN=$E($P(DATA,$C(9),2),1,10)
  . S DA=$P(DATA,$C(9),1)
@@ -83,7 +83,7 @@ EDIT ;Bulk edit IDENTIFIER field
  NEW %,%Y,CNT,DA,DATA,DDH,DIC,IEN,RTN,X,Y
  S CNT=1
  S IEN=0
- F  S IEN=$O(^TMP("XVVVPE","SELECT",$J,IEN)) Q:IEN'>0  D  ;
+ F  S IEN=$O(^TMP("XVV1","SELECT",$J,IEN)) Q:IEN'>0  D  ;
  . S DATA=$G(^(IEN)) Q:DATA']""
  . S RTN=$E($P(DATA,$C(9),2),1,10)
  . S DA=$P(DATA,$C(9),1)
