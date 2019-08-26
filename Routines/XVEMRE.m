@@ -1,12 +1,11 @@
-XVEMRE ;DJB/VRR**EDIT - READ,UP,DOWN,LEFT,RIGHT ;2019-08-09  5:00 PM
+XVEMRE ;DJB/VRR**EDIT - READ,UP,DOWN,LEFT,RIGHT ;2019-08-26  3:59 PM
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
- ; New Error trap in READ (c) 2016 Sam Habiel
+ ; New Error trap in READ (c) 2016,2019 Sam Habiel
  ; Syntax highlighting support by David Wicksell (c) 2019
  ; Dynamic linelabel+offset display support by David Wicksell (c) 2019
  ;
 READ ;Get input
- N $ETRAP S $ETRAP="D ERROR1^XVEMRY"
  I $D(XVSIMERR3) S $EC=",U-SIM-ERROR,"
  NEW DIRHLD,KEY,QUIT,TMP,VK
  I XVVT("GAP"),YCUR>(XVVT("BOT")-XVVT("TOP")) D  ;

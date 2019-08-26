@@ -1742,6 +1742,22 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.write('')
         self.assertEqual(self.vista.wait('>'),1)
 
+    def test_reEnterVPE(self):
+        self.vista.write('D ^XV')
+        self.vista.wait('>>')
+
+    def test_editorErrorTrap(self):
+        self.vista.write('S XVSIMERR3=1')
+        self.vista.wait('>>')
+        self.vista.write('..VRR XV')
+        self.vista.wait('https://github.com/shabiel/VPE/issues')
+        self.vista.write('')
+        self.vista.wait('>>')
+
+    def test_stopVPE2(self):
+        self.vista.write('HALT')
+        self.vista.wait('>')
+
 
 if __name__ == '__main__':
     # OSEHRA Testing Framework Setup
