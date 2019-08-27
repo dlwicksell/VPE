@@ -1,5 +1,5 @@
 XVEMSLB ;DJB/VSHL**VA KERNEL Library Functions - String [8/18/95 1:31pm];2017-08-15  5:03 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 STRING ;;;

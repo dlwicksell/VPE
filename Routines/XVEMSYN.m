@@ -1,5 +1,5 @@
 XVEMSYN ;V4W/DLW - Syntax highlighting ;2019-08-09  4:31 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; (c) David Wicksell 2019
  ;
 SYNTAX(XVBUFFER,XVBUFNUM,XVW) ;Build a syntax structure for a corresponding line

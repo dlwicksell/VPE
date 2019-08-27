@@ -1,5 +1,5 @@
 XVEMKEA ;DJB/KRN**Screen Mode Line Editor ;Aug 21, 2019@13:53
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; NOTIME support (c) Sam Habiel 2019
  ;

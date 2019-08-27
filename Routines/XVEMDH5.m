@@ -1,5 +1,5 @@
 XVEMDH5 ;DJB/VEDD**Help Text - Field Global Location [11/05/94];2017-08-15  12:07 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VEDD2 ;;;

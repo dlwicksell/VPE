@@ -1,5 +1,5 @@
 XVEMRLZ ;DJB/VRR**RTN VER - ..LBRY Options ;Aug 20, 2019@17:14
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error traps in DELETE and BULKDEL (c) 2016 Sam Habiel
  ;

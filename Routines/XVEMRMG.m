@@ -1,5 +1,5 @@
 XVEMRMG ;DJB/VRR**Goto Tag+Offset,XINDEX ;2019-08-20  5:29 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Replace of ^XVEMS("ZS",3) & correct call to XINDEX (c) 2016 Sam Habiel
  ; XINDEX uses buffer code to XINDEX rather than saved code (c) 2019 Sam Habiel

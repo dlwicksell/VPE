@@ -1,5 +1,5 @@
 XVEMGU ;DJB/VGL**Utility Routine - ZDELIM,Get File,Heading ;Aug 23, 2019@12:21
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Minor mods in ZDELIM (c) Sam habiel 2019
  ;

@@ -1,5 +1,5 @@
 XVEMKRN ;DJB/KRN**NEW Single Character Read ;Aug 21, 2019@13:52
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; READ+23,GETCHAR+12 Bug fix by Kevin Toppenberg, MD (c) 2017
  ; <END> key support for YottaDB/GT.M on Linux by David Wicksell (c) 2019

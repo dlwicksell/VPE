@@ -1,5 +1,5 @@
 XVEMRP2 ;DJB/VRR**Block Mode - Highlight Characters ;2019-05-23  10:14 AM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 LEFT ;Char highlight - cursor left

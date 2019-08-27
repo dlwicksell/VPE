@@ -1,5 +1,5 @@
 XVEMRE ;DJB/VRR**EDIT - READ,UP,DOWN,LEFT,RIGHT ;2019-08-26  3:59 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in READ (c) 2016,2019 Sam Habiel
  ; Syntax highlighting support by David Wicksell (c) 2019

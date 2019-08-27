@@ -1,5 +1,5 @@
 XVEMRUS ;DJB/VRR**Rtn Selector ;2019-08-09  4:25 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Mumps V1 routine selection (tag 20) Sam Habiel (c) 2017
  ; GT.M/YottaDB routine selection (tag 19) David Wicksell (c) 2019

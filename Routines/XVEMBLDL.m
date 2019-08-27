@@ -1,5 +1,5 @@
 XVEMBLDL ;DJB/VSHL**VPE Setup - Load Editor & Shell ; 6/12/19 11:05am
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; Sam habiel OLD EP (c) 2019.
  ;

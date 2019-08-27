@@ -1,5 +1,5 @@
 XVEMGR1 ;DJB/VGL**Process Variables [10/25/94];2017-08-15  12:45 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 VARIABLE ;Check if variable is valid and replace with its value

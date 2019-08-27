@@ -1,5 +1,5 @@
 XVEMRLI ;DJB/VRR**RTN LBRY - Sign In Rtns,ALL,Edit IDENTIFIER ;Aug 26, 2019@14:08
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in EN+2,GETRTN (c) 2016 Sam Habiel
  ;

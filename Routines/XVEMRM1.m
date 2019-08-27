@@ -1,5 +1,5 @@
 XVEMRM1 ;DJB/VRR**FndTag,LctStrg,Goto,More,Param ;2019-08-09  4:14 PM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ;
 GETTAG ;Get tag from scroll array and convert to external format

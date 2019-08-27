@@ -1,5 +1,5 @@
 XVEMSYN1 ;V4W/DLW - Syntax highlighting ;2019-06-19  11:02 AM
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; (c) David Wicksell 2019
  ;
 CONTROL ;Return proper ANSI VT-100 escape sequences for colors and cursor movement

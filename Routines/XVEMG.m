@@ -1,5 +1,5 @@
 XVEMG ;DJB/VGL**VGlobal Lister ;Aug 23, 2019@12:20
- ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
+ ;;15.2;VICTORY PROG ENVIRONMENT;;Aug 27, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; New Error trap in EN+2,IMPORT+1 (c) 2016 Sam Habiel
  ; Change where IMPORT is called + add global name (c) 2019 Sam Habiel
