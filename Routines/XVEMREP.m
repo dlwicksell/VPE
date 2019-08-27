@@ -1,4 +1,4 @@
-XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;Aug 23, 2019@12:00
+XVEMREP ;DJB/VRR**EDIT - Web,Html,Parse Rtn/Global,RETURN ;Aug 27, 2019@10:23
  ;;15.1;VICTORY PROG ENVIRONMENT;;Jun 19, 2019
  ; Original Code authored by David J. Bolduc 1985-2005
  ; ESC-R & ESC-G code refactored by Sam Habiel (c) 2016,2019
@@ -16,34 +16,41 @@ HTML ;HTML Code insertion
 PARSE ;Run rtn name from code at cursor position
  NEW FLAG,I,LINE,RTN,TAG,TMP,C
  ;
- S LINE=$G(^TMP("XVV","IR"_VRRS,$J,YND))
+ N ELINE   S ELINE=$G(^TMP("XVV","IR"_VRRS,$J,YND))   ; Editor line
+ N NELINE S NELINE=$G(^TMP("XVV","IR"_VRRS,$J,YND+1)) ; Next Line
+ N PVLINE S PVLINE=$G(^TMP("XVV","IR"_VRRS,$J,YND-1)) ; Prev Line
+ I NELINE'="",NELINE'[$C(30),NELINE'=" <> <> <>" S ELINE=ELINE_$E(NELINE,10,999) ; Concatentate
+ S LINE=ELINE
  ;
- ;Find TAG^RTN ; NB: (sam): I heavily modified this algorithm
+ ;Find TAG^RTN
  S (TAG,RTN)=""
- I LINE[$C(30) D  ; (old code assumes 8 chars for TAG^LINE)
- . ;S TAG=$E(LINE,(XCUR-7),(XCUR+1)) ;Go left for TAG (sam): Old
- . ;S RTN=$E(LINE,XCUR+3,XCUR+10) ;..Go right for LINE (sam): Old
- . I $E(LINE,XCUR+2)=U D  ; (sam): New code - for TAG^RTN
- . . N UPOS S UPOS=XCUR+2
- . . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
- . . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S RTN=RTN_C
- . ;
- . I $E(LINE,XCUR+2)?1AN D  ; (sam): New code for just tags so you can ESC-R to tags
- . . N UPOS S UPOS=XCUR+2
- . . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
- . . S TAG=TAG_$E(LINE,UPOS)
- . . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=TAG_C
- . . S RTN=^TMP("XVV","VRR",$J,VRRS,"NAME")
- . ;
- . ; Now check that we don't have duds
- . I TAG["%",$E(TAG)'="%" S TAG="" ; % must be first
- . I RTN["%",$E(RTN)'="%" S RTN=""
- . I $E(RTN) S RTN="" ; for a routine, 1st char can't be numeric
+ N UPOS
+ I LINE[$C(30) S UPOS=XCUR+2
+ E             S UPOS=XCUR+1
+ N LINEBOUN S LINEBOUN=0 ; Line Boundary
+ I $E(LINE,UPOS)=U D  ; (sam): New code - for TAG^RTN
+ . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
+ . I LINE'[$C(30),UPOS-I<10 S LINEBOUN=1
+ . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S RTN=RTN_C
+ . I LINEBOUN D
+ .. F I=$L(PVLINE):-1 S C=$E(PVLINE,I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
  ;
- I $L(RTN)'>7 D  ;
- . S TMP=$G(^TMP("XVV","IR"_VRRS,$J,(YND+1)))
- . Q:TMP[$C(30)  Q:TMP=" <> <> <>"
- . S RTN=RTN_$E(TMP,10,9+8-$L(RTN))
+ I $E(LINE,UPOS)?1(1"%",1AN) D  ; (sam): New code for just tags so you can ESC-R to tags
+ . F I=1:1 S C=$E(LINE,UPOS-I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
+ . I LINE'[$C(30),UPOS-I<10 S LINEBOUN=1
+ . S TAG=TAG_$E(LINE,UPOS)
+ . F I=1:1 S C=$E(LINE,UPOS+I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=TAG_C
+ . I LINEBOUN D
+ .. F I=$L(PVLINE):-1 S C=$E(PVLINE,I) Q:C=""  Q:'(C?1AN!(C?1"%"))  S TAG=C_TAG
+ . S RTN=^TMP("XVV","VRR",$J,VRRS,"NAME")
+ ;
+ ; Now check that we don't have duds
+ I TAG["%",$E(TAG)'="%" S TAG="" ; % must be first
+ I RTN["%",$E(RTN)'="%" S RTN=""
+ I $E(RTN) S RTN="" ; for a routine, 1st char can't be numeric
+ ;
+ ; No Routine?
+ I RTN="" W $C(7) Q
  ;
  ; Check the routine exists
  I RTN'="",$T(@(TAG_"^"_RTN))="" W $C(7) Q

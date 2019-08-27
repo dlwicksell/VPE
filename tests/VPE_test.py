@@ -457,8 +457,72 @@ class VPEUnitTests(unittest.TestCase):
         except:
           self.vista.write('')                    # Exit press return to continue
         self.vista.wait('^KBANTEST]')
-        
 
+        # ESC-R Tests
+        # Test 1: Regular ESC-R on the level line (not continuation) to another routine
+        # Move 3 up
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.writectrl(chr(27) + '[A') # Up arrow  - Now on = in S DA=$P($$SITE^VASITE() of above line
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + '[C') # F2 + Right Arrow once (short jump) # Now on T of SITE
+        for x in range (0,5): self.vista.writectrl(chr(27) + '[D') # Left Arrow 5 times. Now on ^.
+        self.vista.writectrl(chr(27) + 'R') # ESC-R
+        self.vista.wait('VASITE]')          # New Routine
+        self.vista.writectrl(chr(27) + chr(27))  # ESC-ESC
+        self.vista.wait('KBANTEST]')
+        
+        # Test 2: Regular ESC-R on a continuation line
+        self.vista.write('')
+        self.vista.write(' .I DIV]"",^DD(DIH,DIG,"AUDIT")\'="e"!(DIU]"") S X=DIV,DIIX=3_U_DIG,DP=DIH D AUDIT^DIET ;Don\'t audit NEW if there\'s no OLD and mode is EDIT ONLY')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel next line
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + '[D') # F1 Left Arrow - Go to beginning of line
+        self.vista.writectrl(chr(27) + '[B') # Down arrow # Now on DIH
+        for x in range (0,11): self.vista.writectrl(chr(27) + '[C') # Right Arrow 11 times. Now on ^.
+        self.vista.writectrl(chr(27) + 'R') # ESC-R
+        self.vista.wait('DIET]')
+        self.vista.writectrl(chr(27) + chr(27))  # ESC-ESC
+        self.vista.wait('KBANTEST]')
+
+        # Test 3: ESC-R on a Tag across line boundary going forward
+        self.vista.write('')
+        self.vista.write(' I DIV]"" F DIW=0:0 S DIW=$O(^DD(DIH,DIG,1,DIW)),X=DIV Q:\'DIW  I $P(^(DIW,0),U,3)=""!\'$D(DB(0,DIH,DIG,DIW,1)) S DB(0,DIH,DIG,DIW,1)=1 D TAG1 X ^(1) D TAG1')
+        self.vista.writectrl(chr(27) + chr(27)) # Cancel next line
+        # Looks like this now:
+        # 23       I DIU]"" F DIW=0:0 S DIW=$O(^DD(DIH,DIG,1,DIW)),X=DIU Q:'DIW  I $P(^(
+        #          DIW,0),U,3)=""!'$D(DB(0,DIH,DIG,DIW,2)) S DB(0,DIH,DIG,DIW,2)=1 D TAG
+        #          1 X ^(2) D TAG1
+        self.vista.writectrl(chr(27) + '[A') # Up arrow
+        self.vista.writectrl(chr(27) + 'OQ' + chr(27) + 'OQ') # F2 F2 to go to end of line just beyond TAG
+        self.vista.writectrl(chr(27) + '[D') # Left arrow                      : Now on G of TAG
+        self.vista.writectrl(chr(27) + 'R') # ESC-R
+        self.vista.wait('TAG1')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back to original level
+        self.vista.wait('KBANTEST]')
+
+        # Test 4: ESC-R on a Tag across line boundary going backwards
+        # Start on G of TAG on line 2
+        self.vista.writectrl(chr(27) + '[B') # Down arrow
+        self.vista.writectrl(chr(27) + 'OP' + chr(27) + 'OP') # F1-F1 to beginning of line. Now on 1 of the 3rd line
+        self.vista.writectrl(chr(27) + 'R') # ESC-R
+        self.vista.wait('TAG1')
+        self.vista.writectrl(chr(27) + chr(27)) # Go back to original level
+        self.vista.wait('KBANTEST]')
+
+        # Test 5: ESC-R on a Routine Tag going backwards
+        # NB: Can't get it to work. Not sure why, but not spending more time.
+        # 11       I DIV]"" F DIW=0:0 S DIW=$O(^DD(DIH,DIG,1,DIW)),X=DIV Q:'DIW  I $P(^(
+        #          DIW,0),U,3)=""!'$D(DB(0,DIH,DIG,DIW,1)) S DB(0,DIH,DIG,DIW,1)=11 D PI
+        #          D^VADPT
+        #self.vista.write('')
+        #self.vista.write(' I DIV]"" F DIW=0:0 S DIW=$O(^DD(DIH,DIG,1,DIW)),X=DIV Q:\'DIW  I $P(^(DIW,0),U,3)=""!\'$D(DB(0,DIH,DIG,DIW,1)) S DB(0,DIH,DIG,DIW,1)=11 D PID^VADPT')
+        #self.vista.wait('T')
+        #self.vista.writectrl(chr(27) + chr(27)) # Cancel next line
+        #self.vista.writectrl(chr(27) + 'OP' + chr(27) + 'OP') # F1-F1 to beginning of line. Now on D of D^VADPT.
+        #self.vista.writectrl(chr(27) + '[C') # Right arrow. Now on ^.
+        #self.vista.writectrl(chr(27) + 'R') # ESC-R
+        #self.vista.wait('[PID^VADPT]')
+        #self.vista.writectrl(chr(27) + chr(27)) # Go back to original level
+        #self.vista.wait('KBANTEST]')
 
         # Home and End
         self.vista.write(chr(27) + '[H') # Home
