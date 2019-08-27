@@ -1716,7 +1716,12 @@ class VPEUnitTests(unittest.TestCase):
 
     def test_RL(self):
         self.vista.write('..RL')
-        self.vista.wait('ROUTINE LISTER')
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+        except:
+            pass
+        self.vista.wait('Routine:')
         self.vista.write('XV*')
         self.vista.write('')
         self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
@@ -1726,7 +1731,12 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('to continue..')
         self.vista.write('')
 
-        self.vista.wait('ROUTINE LISTER')
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+        except:
+            pass
+        self.vista.wait('Routine:')
         self.vista.write('XV*')
         self.vista.write('')
         self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
@@ -1736,7 +1746,12 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('to continue..')
         self.vista.write('')
 
-        self.vista.wait('ROUTINE LISTER')
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+        except:
+            pass
+        self.vista.wait('Routine:')
         self.vista.write('XV*')
         self.vista.write('')
         self.vista.wait('Select [B]LOCK [L]IST or [#]LINES')
@@ -1746,7 +1761,12 @@ class VPEUnitTests(unittest.TestCase):
         self.vista.wait('to continue..')
         self.vista.write('')
 
-        self.vista.wait('ROUTINE LISTER')
+        try:
+            self.vista.wait('All Routines?',TIMEOUT)
+            self.vista.write('') # Cache only
+        except:
+            pass
+        self.vista.wait('Routine:')
         self.vista.write('')
         self.vista.wait('>>')
         
