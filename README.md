@@ -54,7 +54,7 @@ manual has been written, VPE has been moved to XVEM from %ZVEM or ZVEM.
 Therefore, any references to %ZVEM or ZVEM should be changed to XVEM.
 
 ## Unit Testing
-VPE (as of version 14.2) comes with a Unit Testing suite that covers about 50%
+VPE (as of version 14.2) comes with a Unit Testing suite that covers about 55%
 of the code. The tests are somewhat brittle due to the reliance on specific 
 strings which may change between Fileman versions, due to how much global data
 is in a system, and due to issues with race conditions in PExpect. The authors
@@ -66,9 +66,16 @@ They To run the Unit Testing suite, do the following:
    routines in this repository rather than the release).
 2. Clone the [OSEHRA VistA](https://github.com/OSEHRA/VistA) repository for the
    VistA testing framework.
-3. Run the following command, modifying the PYTHONPATH to include the
+3. Install the latest M-Unit (1.6) from https://github.com/ChristopherEdwards/M-Unit
+   (importing routines only -- not installing KIDS build -- is fine)
+4. Install python3 and pip3
+5. Install Pexpect requirements by typing `pip install -r VistA/requirements.txt`
+6. Set environment variables for your VistA instance. For GT.M, you need
+   `gtmroutines`, `gtm_dist`, and `gtmgbldir`. For Caché, you need CACHE_INSTANCE
+   and CACHE_NAMESPACE
+7. Run the following command, modifying the PYTHONPATH to include the
    `Python/vista` path in the [OSEHRA VistA](https://github.com/OSEHRA/VistA)
-   repository.
+   repository
 
 ```
 PYTHONPATH=$PYTHONPATH:../VistA/Python/vista python3 tests/VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/
@@ -110,40 +117,19 @@ test_purge (__main__.VPEUnitTests) ... ok
 test_QSAVE (__main__.VPEUnitTests) ... ok
 test_syntaxHighlighting (__main__.VPEUnitTests) ... ok
 test_ZSAVE_ZLINK_percent (__main__.VPEUnitTests) ... ok
+test_error_crash_message (__main__.VPEUnitTests) ... ok
+test_RL (__main__.VPEUnitTests) ... ok
 test_stopVPE (__main__.VPEUnitTests) ... ok
-Human readable coverage requires M-Unit 1.6
+test_upgradeVPE (__main__.VPEUnitTests) ... ok
+test_reEnterVPE (__main__.VPEUnitTests) ... ok
+test_editorErrorTrap (__main__.VPEUnitTests) ... ok
+test_stopVPE2 (__main__.VPEUnitTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 35 tests in 53.140s
+Ran 41 tests in 60.628s
+
+OK
 ```
-
-The VPE.cfg file contains the configuration of how to connect to the M system.
-It supports various configuration scenarios. Here's how to connect to a GT.M
-system on the same machine:
-
-```
-[RemoteDetails]
-RemoteConnect=0
-Instance=gtm
-```
-
-If you use this configuration, you MUST set $gtm_dist, $gtmroutines, and 
-$gtmgbldir correctly prior to invoking the python script.
-
-For Caché, VPE.cfg looks like this:
-```
-[RemoteDetails]
-RemoteConnect=0
-ServerLocation=127.0.0.1
-Instance=cache
-UseDefaultNamespace=VEHU
-```
-
-If you use this configuration, you MUST set $CACHE_INSTANCE and $CACHE_NAMESPACE
-correctly prior to invoking the python script.
-
-(In reality, it seems that the VPE.cfg is ignored when setting CACHE_INSTANCE
-and CACHE_NAMESPACE. In reality, all you need is this: `CACHE_INSTANCE={INSTANCE} CACHE_NAMESPACE={NAMESPACE} python VPE_test.py -c ON -cs 'XV*,-XVIR*' /tmp/`.
 
 If you want to connect to a remote VistA instance, or use a username/password
 with Caché, then read the code in `tests/pexpect_n_vistahelpers/vista/TestHelper.py`
