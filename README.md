@@ -1,12 +1,11 @@
 # Victory Programming Environment (VPE)
-
 This is an updated version of VPE from the last version released by David
 Bolduc. David Bolduc passed away in 2013.
 
 The home page of VPE is http://hardhats.org/tools/vpe/vpe_db.html.
 
-## Installation
-Go to the releases page, and download the latest VPE.RSA file:
+## Install
+Go to the releases page, and download the latest VPE_vvPv.RSA file:
 
 https://github.com/shabiel/VPE/releases.
 
@@ -21,17 +20,12 @@ functionality without VISTA or RPMS. Anything Fileman-related will not work if
 Fileman isn't installed.
 
 ## Upgrade
-There is no automated way to upgrade VPE right now. Here are the instructions
-to upgrade:
+To upgrade VPE, ensure that all users are logged out of VPE, and then from
+outside VPE run `DO UPGRADE^XV`.
 
- 1. Merge User QWIKS from ^XVEMS("QU") to a scratch global
- 2. Make sure all users have halted off VPE Shell
- 3. Delete routines XVEM*, XVS*, XVVM*, and XV
- 4. Kill global ^XVEMS
- 5. Load VPE_XXPX.RSA routines from the disk
- 6. Do ^XV to install and start VPE
- 7. Merge Saved user QWIKS from scratch global to ^XVEMS("QU")
- 8. Run ..PARAM to adjust your parameters if you wish
+## Uninstall
+To uninstall VPE, from outside of VPE run `DO RESET^XV`, and then delete all
+the XV* routines (with the exception of XVIR*, which belong to the Kernel).
 
 ## Using VPE (Brief User Manual)
 To enter VPE, type `D ^XV`.  An online manual can be found by just typing '?'
@@ -132,7 +126,7 @@ OK
 ```
 
 If you want to connect to a remote VistA instance, or use a username/password
-with Caché, then read the code in `tests/pexpect_n_vistahelpers/vista/TestHelper.py`
+with Caché, then read the code in `VistA/Python/vista/TestHelper.py`
 for a hint of how to do that.
 
 ## Changes
