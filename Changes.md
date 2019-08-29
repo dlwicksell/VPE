@@ -1,3 +1,100 @@
+## Authors for version 15.2
+Sam Habiel (SMH) & David Wicksell (DLW)
+
+## Summary of Changes for 15.2
+- In ..E/..VRR, provide a dynamically updated [TAG+OFFSET^ROUTINE] display
+- First line routine format update to comply with latest SAC
+- Syntax Higlighting Caché Terminal Support and bug fixes
+- XINDEX now indexes buffer copy, not saved copy, of routine
+- Prompt (>>) does not get to timeout anymore
+- ESC-G/VGL Fixes/Improvements
+- ESC-R fixes
+- UPGRADE^XV for automated upgrade of VPE between versions
+
+## Changes for version 15.2
+Changes WITHOUT * have Integration Tests. Numbers after \# indicate
+that the change fixes a Github issue with that number.
+
+- The VA SAC recently (in 2018) been updated to require that the first line
+  date be in a certain format. VPE now compiles with that format (SMH) (#46).
+- Error messages now say to create an issue on the Github issue tracker.
+  Previously, it directed people to email David Buldoc (DLW) (#42).
+- In the help text of ..E/..VRR, %INDEX should be XINDEX; now fixed (DLW).*
+- In ..E/..VRR tab menu, prevent typed text from overflowing into the menu
+  options (DLW).
+- Dynamically resize the ..PARAM menu whenever changes are made to the Screen
+  Width or Length. Previously, the ..PARAM window was resized only when
+  entering ..PARAM (DLW).*
+- Routine selection for GT.M/YottaDB didn't work if VistA is not present. Now
+  we have default code that runs for GT.M/YottaDB (DLW).
+- On Caché/Any OS, backspacing to the first column caused the syntax
+  highlighting code to crash. This is now fixed (DLW) (#47).
+- Caché Windows-only Caché Terminal has a buggy VT-100 emulation, and doing
+  syntax highlighting when scrolling using the up/down buttons bled the colors
+  up/down, rather than moving the colors with the text. On this terminal
+  emulator ONLY, we compensate by redrawing the screen on up/down scrolling
+  (DLW) (#48).
+- In ..E/..VRR, the [Routine Name] display at the top of the routine window has
+  now been replaced with [TAG(+offset)^Routine Name], which is dynamically
+  updated when the cursor moves around in the routine (DLW).
+- When the routine editor crashes, remove all locks (SMH).
+- Integration Testing Framework Updates (all SMH):
+    - Switch from Python 2 to Python 3, in anticipation of Python 2 deprecation
+      in 2020.
+    - Use the OSEHRA Automated Testing Framework directly from the OSEHRA repo
+      rather than a copy.
+    - Require M-Unit for Testing. XVEMREP now includes a TEST^XVEMREP which is
+      run the integration test to test Global Parsing inside of VPE.
+- Error trap unwind for the Routine Editor wasn't unwinding properly, resulting
+  in user pressing enter multiple times to allow you to exit from the error
+  condition. Now, only a single enter is needed (SMH).
+- XINDEX now indexes the buffer copy of the routine, not the saved copy as
+  historically (SMH) (#36).
+- Fix namespace issues/symbol table leaks identified by XINDEX in these
+  routines: XVEMKP, XVEMSRL, XVEMT{F,S,T,U}, XVEMRID, XVEMRLI, XVEMSQS (SMH)
+  (#45)*.
+- Prompt (>>) does not get to timeout anymore. Previously, leaving VPE
+  unattended for a while caused the prompt to print repeatedly after each
+  timeout, with previous output scrolling off the screen (SMH) (#49)*.
+- ESC-G Fixes (all SMH):
+    - In the last few versions of VPE, if a 0 was present at the end of a
+      global, it was removed in the expression sent to VGL. That was because
+      we typically wanted to see the other nodes besides 0. With the addition
+      of the feature in 15.1 of being able to parse the global up to each
+      comma of the global expression, this feature is no longer useful and
+      can be confusing. It has now been removed. (#53).
+    - If a global had a number in its name, ESC-G failed to parse it (SMH) (#44).
+    - If a variable was found at the end of the expression, the expression was
+      not terminated correctly. For example, ^TMP($J,"PSOCP",DFN) did not
+      terminate parsing after DFN correctly.
+    - In earlier versions of ESC-G, we parsed to the terminating parentheses
+      but did not include the parentheses. With the addition of the feature in
+      15.1 of being able to parse the global up to each comma of the global
+      expression, we don't need to do that anymore, and now include the
+      parentheses for the expression. If the user wants to see the nodes under
+      where the global expression terminates, they can use the comma feature.
+      The major reason for this change is to make ESC-G intuitive in its
+      semantics.
+    - ESC-G now comes with M-Unit Tests to test the parser. M-Unit 1.6 or later
+      is required and can be downloaded from here:
+      https://github.com/ChristopherEdwards/M-Unit/releases
+- ..VGL fixes (all SMH):
+    - In 15.1, we added the feature to display input to VGL, i.e. the global
+      expression being viewed. We found out that VPE internally sometimes adds
+      closing parentheses to the expression, and thus what is being displayed
+      no longer reflects what the user actually typed in. This is now fixed.
+      (#52).
+    - With the same change in 15.1, sometimes the top line (======) wrapped.
+      This is now fixed.
+- ESC-R since v14.0 has had issues with lines that wrap around. This has now
+  been fixed (SMH) (#41 & #43).
+- UPGRADE^XV Entry Point automated the VPE upgrade process when installing a
+  new version. Previously, the upgrade process involved a series of manual
+  steps (SMH) (#50).
+- RESET^XV Entry Point deletes all of the VPE globals and files (SMH).
+- Messages displayed by XVEMBLD when installing VPE now have been updated to
+  refer to UPGRADE^XV and RESET^XV for upgrade and uninstall instructions (SMH).
+
 ## Authors for version 15.1
 Sam Habiel (SMH) & David Wicksell (DLW)
 
